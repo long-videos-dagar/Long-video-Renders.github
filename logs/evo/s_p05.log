@@ -1,4 +1,4 @@
-00:00.598  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.897  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['snow'] -> snow_02
 [lib] model pine_tree_01 62
@@ -11,31 +11,33 @@
 [lib] model rock_07 4
 [lib] model namaqualand_boulder_05 3
 [lib] model boulder_01 4
-10:14:59 | INFO: Data are loaded, start creating Blender stuff
-10:15:00 | INFO: Blender create Mesh node Compy_mesh_Compsognathus_D_0
-10:15:00 | INFO: glTF import finished in 1.08s
-10:15:01 | INFO: Data are loaded, start creating Blender stuff
-10:15:02 | INFO: Blender create Mesh node Compy_mesh_Compsognathus_D_0
-10:15:02 | INFO: glTF import finished in 1.12s
-10:15:04 | INFO: Data are loaded, start creating Blender stuff
-10:15:04 | INFO: Blender create Mesh node Compy_mesh_Compsognathus_D_0
-10:15:05 | INFO: glTF import finished in 1.13s
-10:15:06 | INFO: Data are loaded, start creating Blender stuff
-10:15:07 | INFO: Blender create Mesh node Compy_mesh_Compsognathus_D_0
-10:15:07 | INFO: glTF import finished in 1.15s
-10:15:09 | INFO: Data are loaded, start creating Blender stuff
-10:15:09 | INFO: Blender create Mesh node 0
-10:15:10 | INFO: Blender create Mesh node 1
-10:15:11 | INFO: glTF import finished in 2.20s
-RSS built 3948 MB
-RSS extras 3948 MB
+10:31:12 | INFO: Data are loaded, start creating Blender stuff
+10:31:12 | INFO: Blender create Mesh node Compy_mesh_Compsognathus_D_0
+10:31:13 | INFO: glTF import finished in 1.20s
+10:31:14 | INFO: Data are loaded, start creating Blender stuff
+10:31:15 | INFO: Blender create Mesh node Compy_mesh_Compsognathus_D_0
+10:31:15 | INFO: glTF import finished in 1.22s
+10:31:16 | INFO: Data are loaded, start creating Blender stuff
+10:31:17 | INFO: Blender create Mesh node Compy_mesh_Compsognathus_D_0
+10:31:18 | INFO: glTF import finished in 1.25s
+10:31:19 | INFO: Data are loaded, start creating Blender stuff
+10:31:20 | INFO: Blender create Mesh node Compy_mesh_Compsognathus_D_0
+10:31:20 | INFO: glTF import finished in 1.25s
+10:31:22 | INFO: Data are loaded, start creating Blender stuff
+10:31:23 | INFO: Blender create Mesh node 0
+10:31:23 | INFO: Blender create Mesh node 1
+10:31:25 | INFO: glTF import finished in 2.92s
+RSS built 3946 MB
+RSS extras 3946 MB
 CLEARCAM p05 0
 CLEARPROPS 0
-RSS lod 3959 MB
-RSS posed 3968 MB
-RSS depsgraph 3968 MB
+BEASTS [('compy0_root', (-7.9, 63.3, 2.0), (1.0, 1.0, 1.0)), ('compy1_root', (-6.8, 64.7, 1.9), (1.0, 1.0, 1.0)), ('compy2_root', (-5.7, 66.1, 1.7), (1.0, 1.0, 1.0)), ('compy3_root', (-4.5, 67.6, 1.6), (1.0, 1.0, 1.0)), ('earlyraptor_root', (-7.3, 70.9, 2.0), (1.0, 1.0, 1.0)), ('PLANT_cycad_70_root', (0.0, 0.0, 0.0), (1.0, 1.0, 1.0)), ('PLANT_cycad_71_root', (0.0, 0.0, 0.0), (1.0, 1.0, 1.0)), ('PLANT_cycad_72_root', (0.0, 0.0, 0.0), (1.0, 1.0, 1.0)), ('PLANT_horsetail_70_root', (0.0, 0.0, 0.0), (1.0, 1.0, 1.0)), ('PLANT_horsetail_71_root', (0.0, 0.0, 0.0), (1.0, 1.0, 1.0)), ('PLANT_horsetail_72_root', (0.0, 0.0, 0.0), (1.0, 1.0, 1.0)), ('PLANT_treefern_70_root', (0.0, 0.0, 0.0), (1.0, 1.0, 1.0))]
+CAMDBG (0.48, 54.65, 2.58) ground 1.55 ['ground', 'ground_fine', 'haze']
+RSS lod 3962 MB
+RSS posed 3983 MB
+RSS depsgraph 3983 MB
 OBJECTS 3781 MESHES 363 IMAGES 93 178 Mpx
-02:21.522  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_p05.png'
-RTIME 101.7
-RSS rendered 14994 MB
+02:57.377  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_p05.png'
+RTIME 121.9
+RSS rendered 15008 MB
 RENDERED p05 6.67
