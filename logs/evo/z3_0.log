@@ -1,0 +1,47 @@
+[lib] ph_find textures ['ground'] -> forrest_ground_01
+08:43:37 | INFO: Data are loaded, start creating Blender stuff
+08:43:37 | INFO: Blender create Mesh node blackrat_fur_blackrat_fur_0
+08:43:37 | INFO: Blender create Mesh node blackrat_body_blackrat_eyes_0
+08:43:37 | INFO: Blender create Mesh node blackrat_body_blackrat_body_0
+08:43:38 | INFO: glTF import finished in 1.32s
+BEAST rat [0.17, 0.32, 0.2] stride 0.02
+08:43:38 | INFO: Data are loaded, start creating Blender stuff
+08:43:38 | INFO: Blender create Mesh node FALCON12_symed.001_Material.001_0
+08:43:39 | INFO: glTF import finished in 0.71s
+BEAST mouse [0.02, 0.14, 0.03] stride 0.0
+08:43:39 | INFO: Data are loaded, start creating Blender stuff
+08:43:39 | INFO: Blender create Mesh node Object_0
+08:43:39 | INFO: Blender create Mesh node Object_1
+08:43:39 | INFO: Blender create Mesh node Object_2
+08:43:39 | INFO: glTF import finished in 0.16s
+BEAST cat [0.35, 0.55, 0.39] stride 0.0
+08:43:40 | INFO: Data are loaded, start creating Blender stuff
+08:43:40 | INFO: Blender create Mesh node ZBuilder_StingrayPBS2_0
+08:43:40 | INFO: glTF import finished in 0.20s
+BEAST monkey [0.26, 0.48, 0.7] stride -
+08:43:40 | INFO: Data are loaded, start creating Blender stuff
+08:43:40 | INFO: Blender create Mesh node body_mesh_Cylinder
+08:43:40 | INFO: Blender create Mesh node wing_mesh_Plane
+08:43:40 | INFO: Blender create Mesh node Sphere
+08:43:40 | INFO: Blender create Mesh node hair
+08:43:40 | INFO: glTF import finished in 0.42s
+BEAST bat [0.13, 0.35, 0.15] stride -
+08:43:40 | INFO: Data are loaded, start creating Blender stuff
+08:43:40 | INFO: Blender create Mesh node Object_0
+08:43:40 | INFO: Blender create Mesh node Object_1
+08:43:41 | INFO: Blender create Mesh node Object_2
+08:43:41 | INFO: Blender create Mesh node Object_3
+08:43:41 | INFO: glTF import finished in 0.28s
+BEAST pigeon [0.19, 0.35, 0.22] stride -
+08:43:41 | INFO: Data are loaded, start creating Blender stuff
+08:43:41 | INFO: Blender create Mesh node Body_M_Body_0
+08:43:41 | INFO: Blender create Mesh node Tongue_M_Body_0
+08:43:41 | INFO: Blender create Mesh node Teeth_M_Teeth_0
+08:43:41 | INFO: Blender create Mesh node Eye_M_Eye_0
+08:43:41 | INFO: Blender create Mesh node Cornea_M_Cornea_0
+08:43:41 | INFO: Blender create Mesh node Wing_Wing01_0
+08:43:41 | INFO: Blender create Mesh node Fur_Wing01_0
+08:43:42 | INFO: glTF import finished in 0.70s
+BEAST archaeo [0.23, 0.55, 0.27] stride -
+00:30.673  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/z3_0.png'
+RENDERED
