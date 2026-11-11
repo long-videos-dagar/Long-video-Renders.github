@@ -1,4 +1,4 @@
-00:00.747  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.891  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['rock', 'cliff', 'lava'] -> coast_sand_rocks_02
 [lib] model namaqualand_boulder_02 4
@@ -12,20 +12,22 @@
 [lib] model coast_rocks_02 4
 [lib] model coast_land_rocks_03 4
 [lib] ph_find textures ['metal'] -> metal_plate
-/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_a.py:172: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_a.py:173: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
   cv = bpy.data.materials.new(name + '_canvas'); cv.use_nodes = True; N = cv.node_tree.nodes; wv = N.new('ShaderNodeTexWave'); wv.inputs['Scale'].default_value = 3
 [lib] ph_find textures ['plastic'] -> plywood
-/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_a.py:73: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_a.py:74: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
   r = random.Random(seed); m = bpy.data.materials.new('ember'); m.use_nodes = True; b = m.node_tree.nodes['Principled BSDF']
-RSS built 1000 MB
-RSS extras 1000 MB
+RSS built 1003 MB
+RSS extras 1003 MB
 CLEARCAM e04 0
 CLEARPROPS 0
-RSS lod 1001 MB
-RSS posed 1002 MB
-RSS depsgraph 1002 MB
-OBJECTS 725 MESHES 198 IMAGES 49 100 Mpx
-03:28.680  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_e04.png'
-RTIME 196.9
-RSS rendered 3716 MB
+BEASTS []
+CAMDBG (9.8, 123.12, -1.55) ground -1.85 ['ground', 'haze']
+RSS lod 1003 MB
+RSS posed 1003 MB
+RSS depsgraph 1003 MB
+OBJECTS 724 MESHES 197 IMAGES 49 100 Mpx
+04:47.782  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_e04.png'
+RTIME 276.6
+RSS rendered 3688 MB
 RENDERED e04 5.33
