@@ -1,0 +1,41 @@
+00:00.805  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['snow'] -> snow_02
+[lib] model fir_tree_01 48
+[lib] model pine_tree_01 62
+[lib] ph_find textures ['bark', 'palm'] -> palm_tree_bark
+[lib] ph_find textures ['grass'] -> aerial_grass_rock
+[lib] model fern_02 4
+[lib] model moss_01 73
+[lib] model rock_moss_set_02 7
+[lib] model root_cluster_01 1
+[lib] model namaqualand_boulder_02 4
+[lib] model namaqualand_boulder_05 3
+[lib] model rock_07 4
+[lib] model boulder_01 4
+09:47:30 | INFO: Data are loaded, start creating Blender stuff
+09:47:31 | INFO: Blender create Mesh node Argentinosaurus_tripo_mat_6c6436d2_0
+09:47:32 | INFO: glTF import finished in 1.49s
+09:47:32 | INFO: Data are loaded, start creating Blender stuff
+09:47:33 | INFO: Blender create Mesh node mesh_0
+09:47:34 | INFO: glTF import finished in 1.21s
+09:47:35 | INFO: Data are loaded, start creating Blender stuff
+09:47:36 | INFO: Blender create Mesh node Argentinosaurus_tripo_mat_6c6436d2_0
+09:47:37 | INFO: glTF import finished in 1.49s
+09:47:38 | INFO: Data are loaded, start creating Blender stuff
+09:47:39 | INFO: Blender create Mesh node mesh_0
+09:47:39 | INFO: glTF import finished in 1.18s
+09:47:41 | INFO: Data are loaded, start creating Blender stuff
+09:47:41 | INFO: Blender create Mesh node Argentinosaurus_tripo_mat_6c6436d2_0
+09:47:42 | INFO: glTF import finished in 1.41s
+RSS built 3994 MB
+RSS extras 3994 MB
+CLEARCAM d01 0
+RSS lod 4009 MB
+RSS posed 4021 MB
+RSS depsgraph 4021 MB
+OBJECTS 4269 MESHES 431 IMAGES 106 191 Mpx
+03:00.971  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_d01.png'
+RTIME 129.5
+RSS rendered 15016 MB
+RENDERED d01 7.12
