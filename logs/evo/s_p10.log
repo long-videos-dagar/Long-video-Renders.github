@@ -1,0 +1,57 @@
+00:00.757  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['snow'] -> snow_02
+[lib] model island_tree_01 17
+[lib] model tree_small_02 12
+[lib] model fir_tree_01 48
+[lib] model pine_tree_01 62
+[lib] ph_find textures ['bark', 'palm'] -> palm_tree_bark
+[lib] model fern_02 4
+[lib] model shrub_01 36
+[lib] model shrub_02 12
+[lib] model shrub_03 12
+[lib] model grass_medium_01 103
+[lib] model periwinkle_plant 42
+[lib] model namaqualand_boulder_02 4
+[lib] model namaqualand_boulder_05 3
+[lib] model rock_07 4
+[lib] model boulder_01 4
+10:50:02 | INFO: Data are loaded, start creating Blender stuff
+10:50:03 | INFO: Blender create Mesh node U3DMesh_CH_NPC_MOB_Tricera_A01_MI_BYN_0
+10:50:03 | INFO: glTF import finished in 1.38s
+10:50:05 | INFO: Data are loaded, start creating Blender stuff
+10:50:06 | INFO: Blender create Mesh node U3DMesh_CH_NPC_MOB_Tricera_A01_MI_BYN_0
+10:50:06 | INFO: glTF import finished in 1.40s
+10:50:08 | INFO: Data are loaded, start creating Blender stuff
+10:50:09 | INFO: Blender create Mesh node U3DMesh_CH_NPC_MOB_Tricera_A01_MI_BYN_0
+10:50:09 | INFO: glTF import finished in 1.46s
+10:50:11 | INFO: Data are loaded, start creating Blender stuff
+10:50:12 | INFO: Blender create Mesh node mesh_0
+10:50:12 | INFO: glTF import finished in 1.36s
+10:50:14 | INFO: Data are loaded, start creating Blender stuff
+10:50:15 | INFO: Blender create Mesh node Plane_Material.002_0
+10:50:15 | INFO: Blender create Mesh node Plane_Material.001_0
+10:50:15 | INFO: Blender create Mesh node Sphere_Material_0
+10:50:16 | INFO: glTF import finished in 1.57s
+10:50:17 | INFO: Data are loaded, start creating Blender stuff
+10:50:18 | INFO: Blender create Mesh node Plane_Material.002_0
+10:50:18 | INFO: Blender create Mesh node Plane_Material.001_0
+10:50:18 | INFO: Blender create Mesh node Sphere_Material_0
+10:50:18 | INFO: glTF import finished in 1.58s
+10:50:19 | INFO: Data are loaded, start creating Blender stuff
+10:50:20 | INFO: Blender create Mesh node Plane_Material.002_0
+10:50:20 | INFO: Blender create Mesh node Plane_Material.001_0
+10:50:20 | INFO: Blender create Mesh node Sphere_Material_0
+10:50:21 | INFO: glTF import finished in 1.55s
+RSS built 4534 MB
+RSS extras 4534 MB
+CLEARCAM p10 0
+CLEARPROPS 1
+RSS lod 4534 MB
+RSS posed 4553 MB
+RSS depsgraph 4553 MB
+OBJECTS 3995 MESHES 550 IMAGES 129 195 Mpx
+03:11.386  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_p10.png'
+RTIME 132.8
+RSS rendered 15192 MB
+RENDERED p10 2.63
