@@ -247,3 +247,119 @@ def stride_speed(model, action_key, foot_hint=('foot', 'toe', 'ankle')):
         bpy.context.scene.frame_set(f); ys.append((arm.matrix_world @ bones[0].head).y)
     dur = (f1 - f0) / bpy.context.scene.render.fps
     return abs(max(ys) - min(ys)) * 2 / max(1e-3, dur) if dur > 0 else 1.0
+
+
+# ------------------------------------------------------------------ creatures as actors: NLA-timed clips, stride-matched travel, ground following
+FPS = 24
+
+
+def _bounds(objs):
+    dg = bpy.context.evaluated_depsgraph_get(); pts = []
+    for o in objs:
+        if o.type != 'MESH' or o.hide_render: continue
+        oe = o.evaluated_get(dg)
+        pts += [oe.matrix_world @ Vector(c) for c in oe.bound_box]
+    if not pts: return Vector(), Vector((1, 1, 1))
+    lo = Vector((min(p.x for p in pts), min(p.y for p in pts), min(p.z for p in pts))); hi = Vector((max(p.x for p in pts), max(p.y for p in pts), max(p.z for p in pts)))
+    return lo, hi
+
+
+class Beast:
+    """an imported animated creature.  clip: substring of an action name.  The model is normalised so that its root sits
+    on the ground at the origin, facing -Y (like everything else here), and scaled to a real-world length/height."""
+    def __init__(self, sh, glb, name, length=None, height=None, clip='walk', speed=1.0, phase=0.0, face_axis='auto', hide=('Icosphere',)):
+        self.sh = sh; self.name = name
+        self.m = load_glb(glb, name)
+        for o in self.m['objs']:
+            if any(o.name.startswith(h) for h in hide): o.hide_render = True
+        self.root = self.m['root']; self.arm = self.m['arm']; self.root.scale = (1, 1, 1)
+        bpy.context.view_layer.update(); lo, hi = _bounds(self.m['objs']); sz = hi - lo
+        long_axis = 'y' if sz.y >= sz.x else 'x'
+        s = 1.0
+        if length: s = length / max(1e-4, max(sz.x, sz.y))
+        elif height: s = height / max(1e-4, sz.z)
+        # inner pivot: rotates the model so its head points -Y, scales it, drops its feet to z=0
+        self.pivot = bpy.data.objects.new(name + '_pivot', None); TR.coll().objects.link(self.pivot)
+        for o in self.m['objs']:
+            if o.parent is None or o.parent == self.root: o.parent = self.pivot
+        self.root.parent = None; bpy.data.objects.remove(self.root); self.root = bpy.data.objects.new(name + '_root', None); TR.coll().objects.link(self.root)
+        self.pivot.parent = self.root
+        self.pivot.scale = (s, s, s); self.pivot.location = (0, 0, 0)
+        self.yaw_fix = 0.0
+        if face_axis != 'auto':
+            self.yaw_fix = {'-y': 0, '+y': math.pi, '+x': math.pi / 2, '-x': -math.pi / 2}[face_axis]
+        elif long_axis == 'x': self.yaw_fix = -math.pi / 2
+        self.pivot.rotation_euler = (0, 0, self.yaw_fix)
+        bpy.context.view_layer.update(); lo, hi = _bounds(self.m['objs'])
+        self.pivot.location = (-(lo.x + hi.x) / 2, -(lo.y + hi.y) / 2, -lo.z)
+        self.size = (hi - lo); self.clips = {}
+        self.track = None; self.set_clip(clip, speed, phase)
+        self.path = None; self.ground = None
+        sh.updates.insert(0, self._tick)
+
+    def action(self, key):
+        return next((a for k, a in self.m['actions'].items() if key.lower() in k.lower()), None) or (next(iter(self.m['actions'].values())) if self.m['actions'] else None)
+
+    def set_clip(self, key, speed=1.0, phase=0.0, at=0.0):
+        """play clip `key` (looping) from shot time `at`; earlier clips stay until then"""
+        if self.arm is None: return
+        act = self.action(key)
+        if act is None: return
+        ad = self.arm.animation_data or self.arm.animation_data_create(); ad.action = None
+        tr = ad.nla_tracks.new(); f0, f1 = act.frame_range
+        start = 1 + (self.sh.t0 + at) * FPS * 0 + at * FPS - phase * FPS
+        st = tr.strips.new(f'{key}_{len(ad.nla_tracks)}', int(start), act); st.scale = 1.0 / max(.05, speed); st.repeat = 200
+        st.frame_start = start; st.blend_type = 'REPLACE'; st.extrapolation = 'HOLD' if len(self.clips) == 0 else 'HOLD_FORWARD'
+        self.clips[key] = (act, speed)
+
+    def move(self, fn):
+        """fn(t) -> (x, y, yaw_degrees); z comes from the ground"""
+        self.path = fn; return self
+
+    def on(self, ter, lift=0.0):
+        self.ground = ter; self.lift = lift; return self
+
+    def _tick(self, t):
+        bpy.context.scene.frame_set(int(t * FPS) + 1, subframe=(t * FPS) % 1.0)
+        if self.path:
+            x, y, yaw = self.path(t)
+            z = self.ground.z(x, y) + getattr(self, 'lift', 0) if self.ground else self.root.location.z
+            self.root.location = (x, y, z); self.root.rotation_euler = (0, 0, math.radians(yaw))
+
+    def head(self):
+        """world position of the head (highest-forward point estimate)"""
+        bpy.context.view_layer.update(); lo, hi = _bounds(self.m['objs'])
+        f = self.root.matrix_world.to_3x3() @ Vector((0, -1, 0))
+        c = (lo + hi) / 2
+        return c + f * (self.size.y * .42) + Vector((0, 0, self.size.z * .3))
+
+
+def walker(sh, glb, name, start, yaw, speed_mps, clip='walk', ter=None, anim_speed=1.0, phase=0.0, **kw):
+    """a creature walking in a straight line at speed_mps (pick it so the feet do not slide: see stride_speed)"""
+    b = Beast(sh, glb, name, clip=clip, speed=anim_speed, phase=phase, **kw)
+    d = Vector((math.sin(math.radians(yaw)), -math.cos(math.radians(yaw))))
+    b.move(lambda t: (start[0] + d.x * speed_mps * t, start[1] + d.y * speed_mps * t, yaw))
+    if ter: b.on(ter)
+    return b
+
+
+def beast_stride(b, clip, anim_speed=1.0):
+    """ground speed (m/s) that keeps the feet planted: how fast a planted foot slides backwards in the in-place clip"""
+    if b.arm is None: return 1.0
+    feet = [pb for pb in b.arm.pose.bones if any(k in pb.name.lower() for k in ('foot', 'toe', 'ankle', 'ball'))]
+    if not feet: feet = [pb for pb in b.arm.pose.bones if 'leg' in pb.name.lower()][-2:]
+    if not feet: return 1.0
+    act = b.action(clip); f0, f1 = act.frame_range; sc = bpy.context.scene
+    b.root.location = (0, 0, 0); b.root.rotation_euler = (0, 0, 0)
+    tracks = {pb.name: [] for pb in feet}
+    n = int(min(f1 - f0, 96)); step = 1
+    for k in range(0, n, step):
+        sc.frame_set(int(1 + k * max(.05, anim_speed))); bpy.context.view_layer.update()
+        for pb in feet: tracks[pb.name].append(b.arm.matrix_world @ pb.head)
+    best = []
+    for nm, ps in tracks.items():
+        zs = [p.z for p in ps]; zmin = min(zs); thr = zmin + (max(zs) - zmin) * .15
+        for a, c in zip(ps, ps[1:]):
+            if a.z < thr and c.z < thr: best.append(((c - a).xy).length * FPS / step)
+    if not best: return 1.0
+    best.sort(); return best[len(best) // 2]

@@ -1,5 +1,5 @@
 {
- "rev": 10,
+ "rev": 11,
  "mode": "tasks",
  "tasks": [
   {
@@ -8,6 +8,21 @@
    "args": [
     "young_earth",
     "0"
+   ],
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "32",
+    "T": "12"
+   }
+  },
+  {
+   "id": "w_young_earth1",
+   "script": "worldtest.py",
+   "args": [
+    "young_earth",
+    "1"
    ],
    "env": {
     "USE_PH": "1",
@@ -33,6 +48,21 @@
    }
   },
   {
+   "id": "w_young_earth3",
+   "script": "worldtest.py",
+   "args": [
+    "young_earth",
+    "3"
+   ],
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "32",
+    "T": "12"
+   }
+  },
+  {
    "id": "w_classroom0",
    "script": "worldtest.py",
    "args": [
@@ -48,11 +78,26 @@
    }
   },
   {
-   "id": "w_classroom1",
+   "id": "w_permian0",
    "script": "worldtest.py",
    "args": [
-    "classroom",
-    "1"
+    "permian",
+    "0"
+   ],
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "32",
+    "T": "12"
+   }
+  },
+  {
+   "id": "w_triassic0",
+   "script": "worldtest.py",
+   "args": [
+    "triassic",
+    "0"
    ],
    "env": {
     "USE_PH": "1",
@@ -108,6 +153,51 @@
    }
   },
   {
+   "id": "w_cretaceous0",
+   "script": "worldtest.py",
+   "args": [
+    "cretaceous",
+    "0"
+   ],
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "32",
+    "T": "12"
+   }
+  },
+  {
+   "id": "w_paleogene0",
+   "script": "worldtest.py",
+   "args": [
+    "paleogene",
+    "0"
+   ],
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "32",
+    "T": "12"
+   }
+  },
+  {
+   "id": "w_savanna0",
+   "script": "worldtest.py",
+   "args": [
+    "savanna",
+    "0"
+   ],
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "32",
+    "T": "12"
+   }
+  },
+  {
    "id": "w_cambrian0",
    "script": "worldtest.py",
    "args": [
@@ -138,70 +228,100 @@
    }
   },
   {
-   "id": "w_microbes0",
-   "script": "worldtest.py",
-   "args": [
-    "microbes",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
-   }
-  },
-  {
-   "id": "w_savanna0",
-   "script": "worldtest.py",
-   "args": [
-    "savanna",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
-   }
-  },
-  {
-   "id": "w_cretaceous0",
-   "script": "worldtest.py",
-   "args": [
-    "cretaceous",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
-   }
-  },
-  {
-   "id": "w_permian0",
-   "script": "worldtest.py",
-   "args": [
-    "permian",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
-   }
-  },
-  {
    "id": "w_ediacaran0",
    "script": "worldtest.py",
    "args": [
     "ediacaran",
+    "0"
+   ],
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "32",
+    "T": "12"
+   }
+  },
+  {
+   "id": "w_devonian_sea0",
+   "script": "worldtest.py",
+   "args": [
+    "devonian_sea",
+    "0"
+   ],
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "32",
+    "T": "12"
+   }
+  },
+  {
+   "id": "w_shallows0",
+   "script": "worldtest.py",
+   "args": [
+    "shallows",
+    "0"
+   ],
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "32",
+    "T": "12"
+   }
+  },
+  {
+   "id": "w_coast0",
+   "script": "worldtest.py",
+   "args": [
+    "coast",
+    "0"
+   ],
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "32",
+    "T": "12"
+   }
+  },
+  {
+   "id": "w_impact0",
+   "script": "worldtest.py",
+   "args": [
+    "impact",
+    "0"
+   ],
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "32",
+    "T": "12"
+   }
+  },
+  {
+   "id": "w_cave0",
+   "script": "worldtest.py",
+   "args": [
+    "cave",
+    "0"
+   ],
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "32",
+    "T": "12"
+   }
+  },
+  {
+   "id": "w_space0",
+   "script": "worldtest.py",
+   "args": [
+    "space",
     "0"
    ],
    "env": {

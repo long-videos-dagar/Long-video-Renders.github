@@ -31,8 +31,14 @@ def smooth01(u): u = max(0.0, min(1.0, u)); return u * u * (3 - 2 * u)
 # ------------------------------------------------------------------ PBR texture layers
 def _tex_paths(kws, aid=None, res='2k', avoid=()):
     if not PH: return None
+    if aid:
+        try:
+            p = lib.ph_texture(aid, os.environ.get('PH_RES', res))
+            if p: return p
+        except Exception as e:
+            lib.log('terra tex aid fail', aid, e)
     try:
-        aid = aid or lib.ph_find('textures', *kws, avoid=avoid)
+        aid = lib.ph_find('textures', *kws, avoid=avoid)
         return lib.ph_texture(aid, os.environ.get('PH_RES', res))
     except Exception as e:
         lib.log('terra tex fail', kws, e); return None
@@ -529,14 +535,14 @@ def plant_collection(kind, seed=0):
         c.objects.link(o)
     if kind == 'cycad':
         h = r.uniform(.6, 1.8); tr = T.cyl(cn + '_trunk', .28, h, (0, 0, h / 2), bark, v=12); tr.parent = root; link(tr)
-        for k in range(18):
-            f = _frond(f'{cn}_f{k}', r.uniform(1.4, 2.0), .5, .35, root, (0, 0, h), k * math.tau / 18 + r.uniform(-.1, .1), math.radians(r.uniform(25, 55))); link(f)
+        for k in range(30):
+            f = _frond(f'{cn}_f{k}', r.uniform(1.5, 2.3), .55, .3, root, (0, 0, h), k * math.tau / 30 * 1.618 + r.uniform(-.1, .1), math.radians(r.uniform(15, 65))); link(f)
     elif kind == 'treefern':
         h = r.uniform(3.5, 6.5); pts = [Vector((0, 0, 0))]
         for k in range(8): pts.append(pts[-1] + Vector((r.uniform(-.08, .08), r.uniform(-.08, .08), h / 8)))
-        tr = T.lib.tube(cn + '_trunk', pts, .16, m=bark); tr.parent = root; link(tr)
-        for k in range(14):
-            f = _frond(f'{cn}_f{k}', r.uniform(2.2, 3.0), .8, .5, root, tuple(pts[-1]), k * math.tau / 14 + r.uniform(-.15, .15), math.radians(r.uniform(15, 50))); link(f)
+        tr = T.lib.tube(cn + '_trunk', pts, .2, m=bark); tr.parent = root; link(tr)
+        for k in range(26):
+            f = _frond(f'{cn}_f{k}', r.uniform(2.4, 3.4), .95, .55, root, tuple(pts[-1]), k * math.tau / 26 * 1.618 + r.uniform(-.15, .15), math.radians(r.uniform(5, 55))); link(f)
     else:
         stem = simple_mat('horsetail', ('grass',), '#4a6a2a', .2, tint='#6a8a3a')
         for k in range(14):
