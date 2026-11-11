@@ -1,4 +1,4 @@
-00:00.895  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.792  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['sand', 'beach'] -> damp_beach_sand
 [lib] ph_find textures ['rock', 'cliff'] -> coast_sand_rocks_02
@@ -17,19 +17,20 @@
 [lib] model coastal_cliff_01 4
 [lib] model coastal_cliff_02 4
 [lib] model coastal_cliff_04 4
-09:43:16 | INFO: Data are loaded, start creating Blender stuff
-09:43:16 | INFO: Blender create Mesh node Object_0
-09:43:16 | INFO: Blender create Mesh node Object_1
-09:43:16 | INFO: Blender create Mesh node Object_2
-09:43:16 | INFO: glTF import finished in 0.29s
+10:12:34 | INFO: Data are loaded, start creating Blender stuff
+10:12:34 | INFO: Blender create Mesh node Object_0
+10:12:34 | INFO: Blender create Mesh node Object_1
+10:12:34 | INFO: Blender create Mesh node Object_2
+10:12:35 | INFO: glTF import finished in 0.21s
 RSS built 2248 MB
 RSS extras 2248 MB
 CLEARCAM l04 0
-RSS lod 2248 MB
-RSS posed 2248 MB
-RSS depsgraph 2248 MB
+CLEARPROPS 21
+RSS lod 2249 MB
+RSS posed 2249 MB
+RSS depsgraph 2249 MB
 OBJECTS 1092 MESHES 171 IMAGES 56 111 Mpx
-02:56.361  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_l04.png'
-RTIME 158.2
-RSS rendered 7613 MB
+01:48.262  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_l04.png'
+RTIME 94.5
+RSS rendered 7576 MB
 RENDERED l04 3.56
