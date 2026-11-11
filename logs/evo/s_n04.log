@@ -1,10 +1,9 @@
-00:00.675  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:01.296  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['snow'] -> snow_02
-[lib] model island_tree_01 17
 [lib] model island_tree_02 17
-[lib] model island_tree_03 17
 [lib] model tree_small_02 12
+[lib] model fir_tree_01 48
 [lib] ph_find textures ['bark', 'palm'] -> palm_tree_bark
 [lib] model fern_02 4
 [lib] model shrub_01 36
@@ -18,17 +17,18 @@
 [lib] model rock_07 4
 [lib] model boulder_01 4
 [lib] ph_find textures ['bark'] -> bark_brown_02
-09:50:20 | INFO: Data are loaded, start creating Blender stuff
-09:50:21 | INFO: Blender create Mesh node ZBuilder_StingrayPBS2_0
-09:50:21 | INFO: glTF import finished in 1.10s
-RSS built 1734 MB
-RSS extras 1734 MB
+10:19:20 | INFO: Data are loaded, start creating Blender stuff
+10:19:20 | INFO: Blender create Mesh node ZBuilder_StingrayPBS2_0
+10:19:21 | INFO: glTF import finished in 1.21s
+RSS built 2091 MB
+RSS extras 2091 MB
 CLEARCAM n04 0
-RSS lod 1756 MB
-RSS posed 1790 MB
-RSS depsgraph 1790 MB
-OBJECTS 3708 MESHES 397 IMAGES 112 198 Mpx
-01:42.473  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_n04.png'
-RTIME 78.5
-RSS rendered 7068 MB
+CLEARPROPS 0
+RSS lod 2130 MB
+RSS posed 2130 MB
+RSS depsgraph 2130 MB
+OBJECTS 3681 MESHES 410 IMAGES 110 196 Mpx
+02:04.017  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_n04.png'
+RTIME 97.7
+RSS rendered 8591 MB
 RENDERED n04 10.78
