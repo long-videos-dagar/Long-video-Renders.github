@@ -1,0 +1,11 @@
+[lib] ph_find textures ['rock', 'mossy'] -> mossy_rock
+[lib] ph_find textures ['rock', 'mossy', 'moss'] -> mossy_rock
+[lib] ph_find textures ['algae', 'moss'] -> mossy_rock
+[lib] model coast_rocks_01 4
+[lib] model coast_rocks_02 4
+[lib] model rock_07 4
+[lib] model rock_09 4
+[lib] model namaqualand_boulder_04 4
+BUILT 15.1
+07:10.100  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/w_shallows0.png'
+RENDERED shallows 0 414.4
