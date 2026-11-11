@@ -1,4 +1,4 @@
-00:01.056  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.926  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['sand', 'beach'] -> damp_beach_sand
 [lib] ph_find textures ['rock', 'cliff'] -> coast_sand_rocks_02
@@ -17,40 +17,40 @@
 [lib] model coastal_cliff_01 4
 [lib] model coastal_cliff_02 4
 [lib] model coastal_cliff_04 4
-10:15:32 | INFO: Data are loaded, start creating Blender stuff
-10:15:32 | INFO: Blender create Mesh node Plane_Material.002_0
-10:15:32 | INFO: Blender create Mesh node Plane_Material.001_0
-10:15:32 | INFO: Blender create Mesh node Sphere_Material_0
-10:15:32 | INFO: glTF import finished in 0.48s
-10:15:33 | INFO: Data are loaded, start creating Blender stuff
-10:15:33 | INFO: Blender create Mesh node Plane_Material.002_0
-10:15:33 | INFO: Blender create Mesh node Plane_Material.001_0
-10:15:33 | INFO: Blender create Mesh node Sphere_Material_0
-10:15:33 | INFO: glTF import finished in 0.51s
-10:15:33 | INFO: Data are loaded, start creating Blender stuff
-10:15:33 | INFO: Blender create Mesh node Plane_Material.002_0
-10:15:34 | INFO: Blender create Mesh node Plane_Material.001_0
-10:15:34 | INFO: Blender create Mesh node Sphere_Material_0
-10:15:34 | INFO: glTF import finished in 0.51s
-10:15:34 | INFO: Data are loaded, start creating Blender stuff
-10:15:34 | INFO: Blender create Mesh node Plane_Material.002_0
-10:15:34 | INFO: Blender create Mesh node Plane_Material.001_0
-10:15:34 | INFO: Blender create Mesh node Sphere_Material_0
-10:15:34 | INFO: glTF import finished in 0.51s
-10:15:35 | INFO: Data are loaded, start creating Blender stuff
-10:15:35 | INFO: Blender create Mesh node Plane_Material.002_0
-10:15:35 | INFO: Blender create Mesh node Plane_Material.001_0
-10:15:35 | INFO: Blender create Mesh node Sphere_Material_0
-10:15:35 | INFO: glTF import finished in 0.53s
-RSS built 2278 MB
-RSS extras 2278 MB
+10:30:47 | INFO: Data are loaded, start creating Blender stuff
+10:30:47 | INFO: Blender create Mesh node Plane_Material.002_0
+10:30:47 | INFO: Blender create Mesh node Plane_Material.001_0
+10:30:47 | INFO: Blender create Mesh node Sphere_Material_0
+10:30:48 | INFO: glTF import finished in 0.55s
+10:30:48 | INFO: Data are loaded, start creating Blender stuff
+10:30:48 | INFO: Blender create Mesh node Plane_Material.002_0
+10:30:48 | INFO: Blender create Mesh node Plane_Material.001_0
+10:30:48 | INFO: Blender create Mesh node Sphere_Material_0
+10:30:48 | INFO: glTF import finished in 0.57s
+10:30:49 | INFO: Data are loaded, start creating Blender stuff
+10:30:49 | INFO: Blender create Mesh node Plane_Material.002_0
+10:30:49 | INFO: Blender create Mesh node Plane_Material.001_0
+10:30:49 | INFO: Blender create Mesh node Sphere_Material_0
+10:30:49 | INFO: glTF import finished in 0.59s
+10:30:49 | INFO: Data are loaded, start creating Blender stuff
+10:30:50 | INFO: Blender create Mesh node Plane_Material.002_0
+10:30:50 | INFO: Blender create Mesh node Plane_Material.001_0
+10:30:50 | INFO: Blender create Mesh node Sphere_Material_0
+10:30:50 | INFO: glTF import finished in 0.62s
+10:30:50 | INFO: Data are loaded, start creating Blender stuff
+10:30:51 | INFO: Blender create Mesh node Plane_Material.002_0
+10:30:51 | INFO: Blender create Mesh node Plane_Material.001_0
+10:30:51 | INFO: Blender create Mesh node Sphere_Material_0
+10:30:51 | INFO: glTF import finished in 0.65s
+RSS built 2275 MB
+RSS extras 2275 MB
 CLEARCAM d02 0
 CLEARPROPS 3
-RSS lod 2278 MB
-RSS posed 2278 MB
-RSS depsgraph 2278 MB
+RSS lod 2276 MB
+RSS posed 2276 MB
+RSS depsgraph 2276 MB
 OBJECTS 1153 MESHES 188 IMAGES 62 114 Mpx
-01:25.019  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_d02.png'
-RTIME 66.2
-RSS rendered 7767 MB
+01:31.438  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_d02.png'
+RTIME 72.7
+RSS rendered 7774 MB
 RENDERED d02 5.29
