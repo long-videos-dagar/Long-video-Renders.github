@@ -1,4 +1,4 @@
-00:00.585  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.648  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['wood', 'floor', 'parquet'] -> wood_floor
 [lib] ph_find textures ['plaster', 'painted'] -> painted_plaster_wall
@@ -14,11 +14,11 @@ RSS built 556 MB
 RSS extras 556 MB
 CLEARCAM l05 0
 CLEARPROPS 1
-RSS lod 638 MB
+RSS lod 639 MB
 RSS posed 641 MB
 RSS depsgraph 641 MB
 OBJECTS 1136 MESHES 690 IMAGES 53 80 Mpx
-00:49.430  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_l05.png'
-RTIME 41.2
-RSS rendered 1711 MB
+00:51.459  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_l05.png'
+RTIME 42.8
+RSS rendered 1709 MB
 RENDERED l05 4.33
