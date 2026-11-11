@@ -1,4 +1,4 @@
-00:00.826  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.873  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['rock', 'cliff', 'lava'] -> coast_sand_rocks_02
 [lib] model namaqualand_boulder_02 4
@@ -11,15 +11,15 @@
 [lib] model moon_rock_06 4
 [lib] model coast_rocks_02 4
 [lib] model coast_land_rocks_03 4
-[lib] ph_find textures [''] -> plywood
-RSS built 1001 MB
-RSS extras 1001 MB
+RSS built 1000 MB
+RSS extras 1000 MB
 CLEARCAM e03 0
-RSS lod 1013 MB
-RSS posed 1015 MB
-RSS depsgraph 1015 MB
-OBJECTS 575 MESHES 81 IMAGES 46 88 Mpx
-01:30.399  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_e03.png'
-RTIME 76.1
-RSS rendered 4249 MB
+CLEARPROPS 0
+RSS lod 1002 MB
+RSS posed 1006 MB
+RSS depsgraph 1006 MB
+OBJECTS 575 MESHES 81 IMAGES 43 75 Mpx
+03:36.910  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_e03.png'
+RTIME 206.6
+RSS rendered 3879 MB
 RENDERED e03 1.32
