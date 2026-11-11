@@ -1,4 +1,4 @@
-00:00.921  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.883  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['rock', 'mossy'] -> mossy_rock
 [lib] ph_find textures ['leaves', 'grass'] -> brown_mud_leaves_01
@@ -11,11 +11,13 @@ RSS built 903 MB
 RSS extras 903 MB
 CLEARCAM m06 0
 CLEARPROPS 0
+BEASTS []
+CAMDBG (-1.0, 10.0, -16.7) ground -17.9 ['seabed', 'seabed_fine', 'water']
 RSS lod 903 MB
 RSS posed 903 MB
 RSS depsgraph 903 MB
 OBJECTS 544 MESHES 197 IMAGES 26 57 Mpx
-06:04.654  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_m06.png'
-RTIME 359.2
-RSS rendered 3203 MB
+05:57.680  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_m06.png'
+RTIME 352.4
+RSS rendered 3183 MB
 RENDERED m06 9.17
