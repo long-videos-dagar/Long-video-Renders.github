@@ -1,4 +1,4 @@
-00:00.643  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.747  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['rock', 'cliff', 'lava'] -> coast_sand_rocks_02
 [lib] model namaqualand_boulder_02 4
@@ -12,20 +12,20 @@
 [lib] model coast_rocks_02 4
 [lib] model coast_land_rocks_03 4
 [lib] ph_find textures ['metal'] -> metal_plate
-/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_a.py:170: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_a.py:172: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
   cv = bpy.data.materials.new(name + '_canvas'); cv.use_nodes = True; N = cv.node_tree.nodes; wv = N.new('ShaderNodeTexWave'); wv.inputs['Scale'].default_value = 3
 [lib] ph_find textures ['plastic'] -> plywood
-[lib] ph_find textures [''] -> plywood
-/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_a.py:71: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_a.py:73: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
   r = random.Random(seed); m = bpy.data.materials.new('ember'); m.use_nodes = True; b = m.node_tree.nodes['Principled BSDF']
-RSS built 1002 MB
-RSS extras 1002 MB
+RSS built 1000 MB
+RSS extras 1000 MB
 CLEARCAM e04 0
-RSS lod 1006 MB
-RSS posed 1008 MB
-RSS depsgraph 1008 MB
+CLEARPROPS 0
+RSS lod 1001 MB
+RSS posed 1002 MB
+RSS depsgraph 1002 MB
 OBJECTS 725 MESHES 198 IMAGES 49 100 Mpx
-02:01.255  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_e04.png'
-RTIME 105.5
-RSS rendered 3946 MB
+03:28.680  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_e04.png'
+RTIME 196.9
+RSS rendered 3716 MB
 RENDERED e04 5.33
