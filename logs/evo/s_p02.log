@@ -1,0 +1,29 @@
+00:00.915  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['snow'] -> snow_02
+[lib] model fir_tree_01 48
+[lib] model pine_tree_01 62
+[lib] model dead_tree_trunk 1
+[lib] model dead_tree_trunk_02 4
+[lib] ph_find textures ['bark', 'palm'] -> palm_tree_bark
+[lib] ph_find textures ['grass'] -> aerial_grass_rock
+[lib] model fern_02 4
+[lib] model moss_01 73
+[lib] model rock_moss_set_01 6
+[lib] model namaqualand_boulder_02 4
+[lib] model namaqualand_boulder_05 3
+[lib] model rock_07 4
+[lib] model boulder_01 4
+/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_a.py:71: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  r = random.Random(seed); m = bpy.data.materials.new('ember'); m.use_nodes = True; b = m.node_tree.nodes['Principled BSDF']
+RSS built 3762 MB
+RSS extras 3762 MB
+CLEARCAM p02 0
+RSS lod 3809 MB
+RSS posed 3837 MB
+RSS depsgraph 3837 MB
+OBJECTS 3974 MESHES 607 IMAGES 88 173 Mpx
+03:23.899  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_p02.png'
+RTIME 173.8
+RSS rendered 14905 MB
+RENDERED p02 7.37
