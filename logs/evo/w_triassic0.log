@@ -1,0 +1,15 @@
+[lib] ph_find textures ['snow'] -> snow_02
+[lib] model pine_tree_01 62
+[lib] model fir_tree_01 48
+[lib] ph_find textures ['bark', 'palm'] -> palm_tree_bark
+[lib] ph_find textures ['grass'] -> aerial_grass_rock
+[lib] model fern_02 4
+[lib] model shrub_03 12
+[lib] model namaqualand_boulder_02 4
+[lib] model rock_07 4
+[lib] model namaqualand_boulder_05 3
+[lib] model boulder_01 4
+BUILT 26.4
+02:06.768  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/w_triassic0.png'
+CAMZ ground 0.87 -> 4
+RENDERED triassic 0 100.0
