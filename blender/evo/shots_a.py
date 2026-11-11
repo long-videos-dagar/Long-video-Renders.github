@@ -323,9 +323,9 @@ def cambrian_life(sh, ter, n_tri=40, n_ano=4, hallu=3, seed=0, area=(-14, 14, 4,
     """procedural crowds (cheap) + a few hero GLBs"""
     r = random.Random(seed); out = dict(tri=[], ano=[])
     for k in range(n_tri):
-        o = CR.trilobite(f'tri{seed}_{k}', r.uniform(.12, .35)); x, y = r.uniform(area[0], area[1]), r.uniform(area[2], area[3]); o.location = (x, y, ter.z(x, y) + .02)
+        o, wk = CR.trilobite(f'tri{seed}_{k}', r.uniform(.12, .35)); x, y = r.uniform(area[0], area[1]), r.uniform(area[2], area[3]); o.location = (x, y, ter.z(x, y) + .02)
         o.rotation_euler = (0, 0, r.uniform(0, 6.3)); v = r.uniform(.03, .12); yaw = o.rotation_euler.z
-        out['tri'].append((o, Vector((x, y)), v, yaw))
+        out['tri'].append((o, Vector((x, y)), v, yaw, wk))
     for k in range(n_ano):
         root, sw = CR.anomalocaris(f'ano{seed}_{k}', r.uniform(.5, .9)); x, y = r.uniform(area[0], area[1]), r.uniform(area[2] + 6, area[3]); z = ter.z(x, y) + r.uniform(1.5, 4)
         out['ano'].append((root, sw, Vector((x, y, z)), r.uniform(.5, 1.2), r.uniform(0, 6.3)))
@@ -333,8 +333,8 @@ def cambrian_life(sh, ter, n_tri=40, n_ano=4, hallu=3, seed=0, area=(-14, 14, 4,
         x, y = r.uniform(-4, 4), r.uniform(6, 14)
         still(sh, 'hallu', (x, y), r.uniform(0, 360), ter, clip='walk', scale=2.5, name=f'hallu{seed}{k}')
     def u(t):
-        for o, p, v, yaw in out['tri']:
-            d = Vector((math.sin(yaw), -math.cos(yaw))); q = p + d * v * t; o.location = (q.x, q.y, ter.z(q.x, q.y) + .02)
+        for o, p, v, yaw, wk in out['tri']:
+            d = Vector((math.sin(yaw), -math.cos(yaw))); q = p + d * v * t; o.location = (q.x, q.y, ter.z(q.x, q.y) + .02); wk(t)
         for root, sw, p, v, ph in out['ano']:
             a = ph + t * v * .3; root.location = p + Vector((math.cos(a) * 6, math.sin(a) * 6, math.sin(t * .7 + ph) * .4)); root.rotation_euler = (0, 0, a + math.pi)
             sw(t, 1.0)
@@ -388,9 +388,10 @@ def s_k05(sh):
     ano = swim(sh, 'anomalo', line3(G(ter, -12, 30, 1.0), G(ter, 8, 14, .7), 0, sh.dur, .1, .4), 'chaser', scale=1.0, wig=(.22, 1.8))
     prey = []
     for k in range(5):
-        o = CR.trilobite(f'runner{k}', .25); prey.append(o)
+        o, wk = CR.trilobite(f'runner{k}', .25); prey.append((o, wk))
     def u(t):
-        for k, o in enumerate(prey):
+        for k, (o, wk) in enumerate(prey):
+            wk(t * 3)
             p0 = Vector((-6 + k * .7, 24 - k * .8)); p1 = Vector((3 + k * .5, 12 + k * .3)); q = p0.lerp(p1, min(1, ease(t / (sh.dur * .7))))
             o.location = (q.x, q.y, ter.z(q.x, q.y) + .02); o.rotation_euler = (0, 0, math.atan2((p1 - p0).x, -(p1 - p0).y))
     sh.updates.append(u)
