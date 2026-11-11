@@ -1,0 +1,20 @@
+[lib] ph_find textures ['forest ground', 'leaves'] -> leaves_forest_ground
+[lib] ph_find textures ['rock', 'cliff'] -> coast_sand_rocks_02
+[lib] ph_find textures ['mud', 'wet ground', 'dirt'] -> red_dirt_mud_01
+[lib] ph_find textures ['snow'] -> snow_02
+[lib] model fir_tree_01 48
+[lib] model pine_tree_01 62
+[lib] model dead_tree_trunk 1
+[lib] model dead_tree_trunk_02 4
+[lib] ph_find textures ['bark', 'palm'] -> palm_tree_bark
+[lib] ph_find textures ['grass'] -> aerial_grass_rock
+[lib] model fern_02 4
+[lib] model moss_01 73
+[lib] model rock_moss_set_01 6
+[lib] model namaqualand_boulder_02 4
+[lib] model namaqualand_boulder_05 3
+[lib] model rock_07 4
+[lib] model boulder_01 4
+BUILT 22.0
+02:08.143  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/w_permian0.png'
+RENDERED permian 0 105.5
