@@ -216,3 +216,188 @@ def board_blink(w, closed):
 def board_reveal(w, title=1.0, dino=1.0):
     N = w['board'].data.materials[0].node_tree.nodes
     N['reveal_title'].outputs[0].default_value = title; N['reveal_dino'].outputs[0].default_value = dino
+
+
+# ------------------------------------------------------------------ prehistoric land: forests, plains, coasts
+FOREST = {
+    # kind: sky, sun(az, el, energy, color), ground layers, trees [(ids, n, heights)], plants [(kind, n)], understory ids, river, sea
+    'permian': dict(sky='haze', sun=(140, 30, 3.5, (1, .9, .75)), ground=('forest ground', 'leaves'), gcol='#5a4a32', drygrass=False,
+                    trees=[(['fir_tree_01', 'pine_tree_01'], 140, (14, 24)), (['dead_tree_trunk', 'dead_tree_trunk_02'], 12, (6, 12))],
+                    plants=[('treefern', 60), ('horsetail', 140), ('cycad', 30)], under=['fern_02', 'moss_01', 'rock_moss_set_01'], river=True),
+    'triassic': dict(sky='day', sun=(150, 40, 4.0, (1, .93, .82)), ground=('dry ground', 'dirt', 'sand'), gcol='#9a6a48', drygrass=False,
+                     trees=[(['pine_tree_01', 'fir_tree_01'], 70, (10, 20))], plants=[('cycad', 90), ('treefern', 40), ('horsetail', 80)],
+                     under=['fern_02', 'shrub_03', 'namaqualand_boulder_02', 'rock_07'], river=True),
+    'jurassic': dict(sky='day', sun=(160, 38, 4.2, (1, .94, .84)), ground=('forest ground', 'grass', 'moss'), gcol='#4a5a2a', drygrass=False,
+                     trees=[(['fir_tree_01', 'pine_tree_01'], 160, (18, 32))], plants=[('treefern', 90), ('cycad', 80), ('horsetail', 120)],
+                     under=['fern_02', 'moss_01', 'rock_moss_set_02', 'root_cluster_01'], river=True),
+    'cretaceous': dict(sky='day', sun=(170, 35, 4.2, (1, .94, .84)), ground=('forest ground', 'grass', 'leaves'), gcol='#4a5a2a', drygrass=False,
+                       trees=[(['island_tree_01', 'island_tree_02', 'island_tree_03', 'tree_small_02'], 140, (10, 22)), (['fir_tree_01'], 40, (18, 28))],
+                       plants=[('cycad', 50), ('treefern', 50)], under=['fern_02', 'shrub_01', 'shrub_02', 'shrub_04', 'searsia_lucida', 'flower_heliophila'], river=True),
+    'paleogene': dict(sky='day', sun=(180, 42, 4.0, (1, .95, .86)), ground=('forest ground', 'leaves', 'grass'), gcol='#4a5a2a', drygrass=False,
+                      trees=[(['island_tree_01', 'island_tree_02', 'island_tree_03', 'tree_small_02'], 220, (10, 24))],
+                      plants=[('treefern', 20)], under=['fern_02', 'shrub_01', 'shrub_02', 'shrub_03', 'nettle_plant', 'periwinkle_plant', 'grass_medium_01'], river=True),
+    'savanna': dict(sky='golden', sun=(200, 28, 4.5, (1, .86, .66)), ground=('dry grass', 'dry ground', 'savanna'), gcol='#a89058', drygrass=True,
+                    trees=[(['quiver_tree_01', 'island_tree_02', 'tree_small_02'], 30, (6, 11))], plants=[],
+                    under=['grass_medium_02', 'grass_medium_01', 'wild_rooibos_bush', 'searsia_burchellii', 'namaqualand_boulder_04', 'dry_branches_medium_01'], river=False),
+}
+
+
+def forest(kind='jurassic', seed=2, focus=(0, 60), clear=()):
+    """a full prehistoric landscape: rolling hills with a river, dense forest around a clearing (focus), mountains on the
+    horizon fading into haze, birds/insects added by shots.  clear = [(x, y, r)] kept open for the action"""
+    K = FOREST[kind]
+    world_sky(K['sky'], strength=1.0)
+    fx, fy = focus
+    def h(x, y):
+        z = TR.fbm(x, y, .006, 5, seed) * 18 + TR.fbm(x, y, .03, 4, seed + 1) * 2.0
+        rv = abs((x - fx) - 40 * math.sin((y - fy) * .012)) if K['river'] else 1e9           # a river meandering through the valley
+        z -= 4.5 * math.exp(-(rv / 14) ** 2)
+        d = math.hypot(x - fx, y - fy); z = z * min(1.0, .35 + d / 260)                     # flatter near the action
+        far = max(0.0, math.hypot(x - fx, y - fy) - 700); z += (TR.ridged(x, y, .0025, 5, seed + 3) * 300 + 80) * TR.smooth01(far / 900)   # mountains far away
+        return z
+    gk = K['ground']
+    ground = TR.blend_mat('ground_' + kind, TR.layer(gk, K['gcol'], 3.0, tint=None),
+                          [(TR.layer(('rock', 'cliff'), '#6a6458', 8.0), dict(slope=(.85, .7), noise=.03)),
+                           (TR.layer(('mud', 'wet ground', 'dirt'), '#4a3a2a', 3.0), dict(height=(-1.5, -3.0), noise=.1)),
+                           (TR.layer(('snow',), '#e8ecf0', 6.0), dict(height=(260, 330)))], bump=.4)
+    ter = TR.Terrain('ground', h, 5200.0, 360, ground, center=(fx, fy), inner=(420, 300))
+    if K['river']:
+        river = TR.ocean('river', 1600, (fx, fy, -2.6), wave=.08, choppy=.2, res=10, col='#2a3a30', murk='#2a3020', foam=False)
+    avoid = [(fx, fy, 28)] + list(clear)
+    edge = lambda x, y: TR.smooth01((math.hypot(x - fx, y - fy) - 30) / 60)                # forest thickens away from the clearing
+    for ids, n, hh in K['trees']:
+        TR.scatter_h(ter, ids, n, (fx - 380, fx + 380, fy - 120, fy + 520), hh, seed=seed, avoid=avoid, slope_min=.8, zrange=(-1.0, 250),
+                     density_fn=edge, fallback=TR.fallback_tree)
+    for pk, n in K['plants']:
+        TR.scatter_plants(ter, pk, n, (fx - 160, fx + 160, fy - 60, fy + 260), seed=seed + 5, avoid=[(fx, fy, 14)] + list(clear), zrange=(-1.0, 200))
+    TR.scatter(ter, K['under'], 900, (fx - 140, fx + 140, fy - 70, fy + 220), seed=seed + 7, scale=(.8, 1.6), avoid=[(fx, fy, 6)] + list(clear),
+               slope_min=.75, zrange=(-1.2, 200), fallback=TR.fallback_fern)
+    TR.scatter(ter, ['namaqualand_boulder_02', 'namaqualand_boulder_05', 'rock_07', 'boulder_01'], 60, (fx - 200, fx + 200, fy - 80, fy + 300), seed=seed + 9,
+               scale=(.6, 2.2), slope_min=.6, fallback=TR.fallback_rock)
+    sun = TR.sun_light(*K['sun'])
+    TR.fog(.00035 if kind != 'savanna' else .0002, (.85, .9, 1.0) if kind != 'savanna' else (1, .9, .75), .4, size=(8000, 8000, 900), center=(fx, fy, -50))
+    TR.wind_setup(.05)
+    return dict(ter=ter, focus=Vector((fx, fy, h(fx, fy))), kind=kind, sea=[river] if K['river'] else [])
+
+
+def forest_tick(w, t):
+    TR.wind_tick(t)
+    if w.get('sea'): TR.ocean_tick(w['sea'], t)
+
+
+def _forest_world(kind):
+    def f(): return forest(kind)
+    return f
+
+
+permian = _forest_world('permian'); triassic = _forest_world('triassic'); jurassic = _forest_world('jurassic')
+cretaceous = _forest_world('cretaceous'); paleogene = _forest_world('paleogene'); savanna = _forest_world('savanna')
+permian_tick = triassic_tick = jurassic_tick = cretaceous_tick = paleogene_tick = savanna_tick = forest_tick
+
+
+# ------------------------------------------------------------------ underwater
+def seafloor(kind='cambrian', seed=4):
+    """ancient sea floor: sand + rock terrain, water volume with sun shafts and caustics, the wavy surface overhead,
+    sponges / algae / stromatolites by era, drifting marine snow"""
+    world_sky('day', strength=.6, tint=(.5, .8, .9))
+    def h(x, y): return TR.fbm(x, y, .03, 5, seed) * 2.5 + TR.ridged(x, y, .06, 3, seed) * .8 - 18
+    base = TR.layer(('sand', 'beach'), '#c8b896', 2.0, tint='#a8c0b0')
+    rules = [(TR.layer(('rock', 'mossy'), '#5a6458', 3.0, tint='#7a9a88'), dict(slope=(.9, .75), noise=.15))]
+    m = TR.blend_mat('seafloor_' + kind, base, rules, bump=.5)
+    nd = m.node_tree.nodes; b = nd['Principled BSDF']                                   # animated caustics added as emission ripples
+    tc = nd.new('ShaderNodeTexCoord'); mp = nd.new('ShaderNodeMapping'); mp.name = 'caustic_flow'; m.node_tree.links.new(tc.outputs['Object'], mp.inputs['Vector'])
+    vo = nd.new('ShaderNodeTexVoronoi'); vo.feature = 'SMOOTH_F1' if hasattr(vo, 'feature') else vo.feature; vo.voronoi_dimensions = '4D'; vo.name = 'caustic'
+    vo.inputs['Scale'].default_value = .9; m.node_tree.links.new(mp.outputs['Vector'], vo.inputs['Vector'])
+    cp = nd.new('ShaderNodeMath'); cp.operation = 'POWER'; m.node_tree.links.new(vo.outputs['Distance'], cp.inputs[0]); cp.inputs[1].default_value = 4.0
+    cm = nd.new('ShaderNodeMath'); cm.operation = 'MULTIPLY'; m.node_tree.links.new(cp.outputs[0], cm.inputs[0]); cm.inputs[1].default_value = 1.6
+    m.node_tree.links.new(cm.outputs[0], b.inputs['Emission Strength']); b.inputs['Emission Color'].default_value = (.55, .85, .9, 1)
+    ter = TR.Terrain('seabed', h, 900.0, 240, m, center=(0, 60), inner=(160, 220))
+    water = T.box('water', (900, 900, 18.5), (0, 60, -9.25), None)
+    wm = bpy.data.materials.new('water_vol'); wm.use_nodes = True; N = wm.node_tree.nodes; N.remove(N['Principled BSDF'])
+    pv = N.new('ShaderNodeVolumePrincipled'); pv.inputs['Color'].default_value = (.35, .75, .8, 1); pv.inputs['Density'].default_value = .045
+    pv.inputs['Absorption Color'].default_value = (.1, .45, .5, 1); pv.inputs['Anisotropy'].default_value = .6
+    wm.node_tree.links.new(pv.outputs[0], N['Material Output'].inputs['Volume']); water.data.materials.clear(); water.data.materials.append(wm)
+    surf = TR.ocean('surface', 900, (0, 60, -.1), wave=.5, choppy=.6, res=10, col='#5aa0b0', murk='#2a6a70', foam=False)
+    TR.sun_light(160, 65, 6.0, (.95, 1, 1), 1.5)
+    r = random.Random(seed)
+    life = []
+    if kind in ('cambrian', 'devonian_sea', 'ediacaran'):
+        sponge = TR.simple_mat('sponge', ('rock', 'coral'), '#c89a6a', .3, tint='#d8a070')
+        for k in range(160 if kind != 'ediacaran' else 40):
+            x, y = r.uniform(-60, 60), r.uniform(0, 160); z = ter.z(x, y)
+            for j in range(r.randint(1, 4)):
+                hh = r.uniform(.4, 2.2); o = T.cyl(f'sponge{k}_{j}', r.uniform(.12, .3), hh, (x + r.uniform(-.4, .4), y + r.uniform(-.4, .4), z + hh / 2), sponge, v=10)
+                o.rotation_euler = (r.uniform(-.2, .2), r.uniform(-.2, .2), 0)
+        alg = TR.simple_mat('algae', ('leaves', 'grass'), '#3a6a3a', .2, tint='#4a8a4a')
+        for k in range(220):
+            x, y = r.uniform(-60, 60), r.uniform(-10, 170); z = ter.z(x, y); hh = r.uniform(.8, 3.5)
+            pts = [Vector((x, y, z)) + Vector((math.sin(j * .9 + k) * .15 * j / 6, 0, hh * j / 6)) for j in range(7)]
+            o = T.lib.tube(f'algae{k}', pts, .03, m=alg)
+            wv = o.modifiers.new('sway', 'WAVE') if o.type == 'MESH' else None
+        if kind == 'ediacaran':
+            import creatures as CR
+            for k in range(40):
+                x, y = r.uniform(-25, 25), r.uniform(10, 80); z = ter.z(x, y)
+                d = CR.dickinsonia(f'dick{k}', r.uniform(.3, 1.2)); d.location = (x, y, z + .03); d.rotation_euler = (0, 0, r.uniform(0, 6.3))
+                f = CR.charnia(f'charnia{k}', r.uniform(.6, 1.6)); f.location = (x + 2, y + 1, z); life.append(f)
+    if kind == 'shallows':
+        import creatures as CR
+        CR.stromatolite_field(ter, 180, (-60, 60, 0, 160), seed)
+    TR.scatter(ter, ['coast_rocks_01', 'coast_rocks_02', 'rock_07', 'rock_09', 'namaqualand_boulder_04'], 120, (-80, 80, -10, 200), seed=seed,
+               scale=(.6, 2.5), slope_min=.5, fallback=TR.fallback_rock)
+    snow = [TR.smoke_column(f'snow{k}', (r.uniform(-30, 30), r.uniform(10, 120), -18), rate=1.0, life=20, rise=.6, r0=.05, r1=.12, wind=(.2, .1),
+                            turb=3.0, col=(.9, .95, .95), density=.0, voxel=.2, seed=k) for k in range(0)]
+    return dict(ter=ter, sea=[surf], life=life, z0=-18)
+
+
+def seafloor_tick(w, t):
+    TR.ocean_tick(w['sea'], t)
+    for m in bpy.data.materials:
+        if m.name.startswith('seafloor_') and m.node_tree:
+            n = m.node_tree.nodes.get('caustic')
+            if n: n.inputs['W'].default_value = t * .35
+    for k, f in enumerate(w.get('life', [])): f.rotation_euler = (math.sin(t * .8 + k) * .08, math.cos(t * .6 + k) * .06, f.rotation_euler.z)
+
+
+def cambrian(): return seafloor('cambrian')
+def devonian_sea(): return seafloor('devonian_sea', 6)
+def ediacaran(): return seafloor('ediacaran', 7)
+def shallows():
+    w = seafloor('shallows', 8)
+    return w
+cambrian_tick = devonian_sea_tick = ediacaran_tick = shallows_tick = seafloor_tick
+
+
+def microbes(seed=5):
+    """the microscopic world: deep blue-green water, drifting bacteria and cocci, out-of-focus particles everywhere"""
+    import creatures as CR
+    lib.world_color('#04141a', 1.0)
+    r = random.Random(seed); out = []
+    for k in range(70):
+        kind = r.choice(['rod', 'rod', 'coccus', 'chain'])
+        m = CR.microbe(f'mic{k}', kind, r.uniform(.15, .45), r.choice(['#7ac8a0', '#9ad0b8', '#c8b07a', '#a8c86a']), k)
+        m.location = (r.uniform(-6, 6), r.uniform(0, 14), r.uniform(-3, 3)); m.rotation_euler = (r.uniform(0, 6.3), r.uniform(0, 6.3), r.uniform(0, 6.3))
+        out.append((m, Vector(m.location), Vector((r.uniform(-.2, .2), r.uniform(-.15, .15), r.uniform(-.1, .1))), r.uniform(0, 6.3)))
+    dust = TR.simple_mat('motes', ('',), '#cfeee8', .2)
+    for k in range(500):
+        o = T.lib.sphere(f'mote{k}', r.uniform(.005, .03), (r.uniform(-8, 8), r.uniform(-2, 20), r.uniform(-5, 5)), dust, seg=6, rings=4)
+    l1 = bpy.data.lights.new('micro_key', 'AREA'); l1.energy = 900; l1.size = 8; l1.color = (.7, 1, .95)
+    o1 = bpy.data.objects.new('micro_key', l1); TR.coll().objects.link(o1); o1.location = (0, 6, 9); o1.rotation_euler = (0, 0, 0)
+    l2 = bpy.data.lights.new('micro_rim', 'AREA'); l2.energy = 600; l2.size = 6; l2.color = (.4, .7, 1)
+    o2 = bpy.data.objects.new('micro_rim', l2); TR.coll().objects.link(o2); o2.location = (0, 20, 0); o2.rotation_euler = (math.radians(90), 0, math.pi)
+    vol = T.box('micro_water', (40, 40, 20), (0, 8, 0), None)
+    wm = bpy.data.materials.new('micro_vol'); wm.use_nodes = True; N = wm.node_tree.nodes; N.remove(N['Principled BSDF'])
+    sv = N.new('ShaderNodeVolumeScatter'); sv.inputs['Density'].default_value = .02; sv.inputs['Color'].default_value = (.5, .9, .85, 1)
+    wm.node_tree.links.new(sv.outputs[0], N['Material Output'].inputs['Volume']); vol.data.materials.clear(); vol.data.materials.append(wm)
+    return dict(cells=out)
+
+
+def microbes_tick(w, t):
+    for m, p0, v, ph in w['cells']:
+        m.location = p0 + v * t + Vector((math.sin(t * .7 + ph) * .15, math.cos(t * .5 + ph) * .1, math.sin(t * .9 + ph) * .12))
+        m.rotation_euler = (m.rotation_euler.x, m.rotation_euler.y, ph + t * .2)
+
+
+def black():
+    lib.world_color('#000000', 0.0)
+    return {}

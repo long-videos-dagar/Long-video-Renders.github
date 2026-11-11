@@ -448,3 +448,135 @@ def smoke_column(name, base, rate=6.0, life=14.0, rise=7.0, spread=.55, r0=3.0, 
         co += [0, 0, 0] * (n - cnt); rad += [0.0] * (n - cnt)
         me.vertices.foreach_set('co', co); me.attributes['rad'].data.foreach_set('value', rad); me.update()
     return u
+
+
+# ------------------------------------------------------------------ model heights (so scatter can ask for real-world sizes)
+def phc_height(c):
+    if c is None: return 1.0
+    if 'h' in c: return c['h']
+    pts = [o.matrix_world @ Vector(v) for o in c.all_objects if o.type == 'MESH' for v in o.bound_box]
+    h = (max(p.z for p in pts) - min(p.z for p in pts)) if pts else 1.0
+    c['h'] = max(h, .01); return c['h']
+
+
+def scatter_h(ter, ids, n, area, heights=(8, 14), **kw):
+    """scatter with target heights in metres (each model scaled from its own bounding box)"""
+    cs = [(a, phc(a)) for a in ids]; cs = [(a, c) for a, c in cs if c is not None]
+    out = []
+    if not cs:
+        return scatter(ter, [], n, area, **kw)
+    per = max(1, n // len(cs))
+    for k, (a, c) in enumerate(cs):
+        h = phc_height(c); lo, hi = heights[0] / h, heights[1] / h
+        kw2 = dict(kw); kw2['seed'] = kw.get('seed', 0) * 31 + k
+        out += scatter(ter, [a], per, area, scale=(lo, hi), **kw2)
+    return out
+
+
+# ------------------------------------------------------------------ procedural prehistoric plants (cycads, tree ferns, horsetails)
+def _frond_mat():
+    key = 'frond'
+    if key in _MAT: return _MAT[key]
+    m = bpy.data.materials.new(key); m.use_nodes = True; N, L = m.node_tree.nodes, m.node_tree.links; b = N['Principled BSDF']
+    tc = N.new('ShaderNodeTexCoord'); sp = N.new('ShaderNodeSeparateXYZ'); L.new(tc.outputs['UV'], sp.inputs[0])
+    # pinnate leaflets: a sawtooth along the frond (u) cut by the distance from the rachis (v)
+    mu = N.new('ShaderNodeMath'); mu.operation = 'MULTIPLY'; L.new(sp.outputs['X'], mu.inputs[0]); mu.inputs[1].default_value = 34
+    fr = N.new('ShaderNodeMath'); fr.operation = 'FRACT'; L.new(mu.outputs[0], fr.inputs[0])
+    av = N.new('ShaderNodeMath'); av.operation = 'SUBTRACT'; L.new(sp.outputs['Y'], av.inputs[0]); av.inputs[1].default_value = .5
+    ab = N.new('ShaderNodeMath'); ab.operation = 'ABSOLUTE'; L.new(av.outputs[0], ab.inputs[0])
+    sh_ = N.new('ShaderNodeMath'); sh_.operation = 'MULTIPLY'; L.new(ab.outputs[0], sh_.inputs[0]); sh_.inputs[1].default_value = 1.6
+    lt = N.new('ShaderNodeMath'); lt.operation = 'SUBTRACT'; L.new(fr.outputs[0], lt.inputs[0]); L.new(sh_.outputs[0], lt.inputs[1])
+    al = N.new('ShaderNodeMath'); al.operation = 'GREATER_THAN'; L.new(lt.outputs[0], al.inputs[0]); al.inputs[1].default_value = -.15
+    rach = N.new('ShaderNodeMath'); rach.operation = 'LESS_THAN'; L.new(ab.outputs[0], rach.inputs[0]); rach.inputs[1].default_value = .035
+    mx = N.new('ShaderNodeMath'); mx.operation = 'MAXIMUM'; L.new(al.outputs[0], mx.inputs[0]); L.new(rach.outputs[0], mx.inputs[1])
+    tip = N.new('ShaderNodeMapRange'); L.new(sp.outputs['X'], tip.inputs[0]); tip.inputs[1].default_value = 1.0; tip.inputs[2].default_value = .85
+    ab2 = N.new('ShaderNodeMath'); ab2.operation = 'LESS_THAN'; L.new(ab.outputs[0], ab2.inputs[0]); L.new(tip.outputs[0], ab2.inputs[1])
+    a2 = N.new('ShaderNodeMath'); a2.operation = 'MULTIPLY'; L.new(mx.outputs[0], a2.inputs[0]); L.new(ab2.outputs[0], a2.inputs[1])
+    L.new(a2.outputs[0], b.inputs['Alpha'])
+    nz = N.new('ShaderNodeTexNoise'); nz.inputs['Scale'].default_value = 6; L.new(tc.outputs['Object'], nz.inputs['Vector'])
+    cr = N.new('ShaderNodeValToRGB'); L.new(nz.outputs['Fac'], cr.inputs[0]); cr.color_ramp.elements[0].color = (.05, .14, .03, 1); cr.color_ramp.elements[1].color = (.16, .3, .07, 1)
+    L.new(cr.outputs['Color'], b.inputs['Base Color']); b.inputs['Roughness'].default_value = .55
+    if 'Subsurface Weight' in b.inputs: b.inputs['Subsurface Weight'].default_value = .15
+    if 'Transmission Weight' in b.inputs: b.inputs['Transmission Weight'].default_value = .1
+    _MAT[key] = m; return m
+
+
+def _frond(name, length, width, droop, parent, base, yaw, pitch):
+    bm = bmesh.new(); uv = bm.loops.layers.uv.new('UVMap'); n = 12; prev = None
+    for i in range(n + 1):
+        u = i / n; w = width * math.sin(math.pi * min(1, u * 1.1 + .05)) ** .6
+        y = length * u * math.cos(pitch); z = length * u * math.sin(pitch) - droop * length * u * u
+        row = [bm.verts.new((-w / 2, y, z)), bm.verts.new((w / 2, y, z))]
+        if prev:
+            f = bm.faces.new((prev[0], prev[1], row[1], row[0]))
+            for lp, (a, c) in zip(f.loops, ((u - 1 / n, 0), (u - 1 / n, 1), (u, 1), (u, 0))): lp[uv].uv = (a, c)
+        prev = row
+    me = bpy.data.meshes.new(name); bm.to_mesh(me); bm.free(); me.materials.append(_frond_mat())
+    o = bpy.data.objects.new(name, me); coll().objects.link(o); o.parent = parent; o.location = base; o.rotation_euler = (0, 0, yaw)
+    return o
+
+
+def plant_collection(kind, seed=0):
+    """build a plant once into a hidden collection (instanced across the world).  kind: cycad / treefern / horsetail"""
+    cn = f'PLANT_{kind}_{seed}'
+    if cn in bpy.data.collections: return bpy.data.collections[cn]
+    r = random.Random(seed)
+    c = bpy.data.collections.new(cn); bpy.context.scene.collection.children.link(c)
+    root = bpy.data.objects.new(cn + '_root', None); c.objects.link(root)
+    bark = simple_mat('cycadbark', ('bark', 'palm'), '#5a4a38', .4, tint='#8a7a60')
+    def link(o):
+        for cc in list(o.users_collection): cc.objects.unlink(o)
+        c.objects.link(o)
+    if kind == 'cycad':
+        h = r.uniform(.6, 1.8); tr = T.cyl(cn + '_trunk', .28, h, (0, 0, h / 2), bark, v=12); tr.parent = root; link(tr)
+        for k in range(18):
+            f = _frond(f'{cn}_f{k}', r.uniform(1.4, 2.0), .5, .35, root, (0, 0, h), k * math.tau / 18 + r.uniform(-.1, .1), math.radians(r.uniform(25, 55))); link(f)
+    elif kind == 'treefern':
+        h = r.uniform(3.5, 6.5); pts = [Vector((0, 0, 0))]
+        for k in range(8): pts.append(pts[-1] + Vector((r.uniform(-.08, .08), r.uniform(-.08, .08), h / 8)))
+        tr = T.lib.tube(cn + '_trunk', pts, .16, m=bark); tr.parent = root; link(tr)
+        for k in range(14):
+            f = _frond(f'{cn}_f{k}', r.uniform(2.2, 3.0), .8, .5, root, tuple(pts[-1]), k * math.tau / 14 + r.uniform(-.15, .15), math.radians(r.uniform(15, 50))); link(f)
+    else:
+        stem = simple_mat('horsetail', ('grass',), '#4a6a2a', .2, tint='#6a8a3a')
+        for k in range(14):
+            a = r.uniform(0, math.tau); d = r.uniform(0, .35); hh = r.uniform(.6, 1.6)
+            o = T.cyl(f'{cn}_s{k}', .025, hh, (math.cos(a) * d, math.sin(a) * d, hh / 2), stem, v=6); o.parent = root; link(o)
+    c.instance_offset = (0, 0, 0)
+    bpy.context.view_layer.layer_collection.children[cn].exclude = True
+    return c
+
+
+def scatter_plants(ter, kind, n, area, seed=0, scale=(.8, 1.3), **kw):
+    cs = [plant_collection(kind, seed * 10 + k) for k in range(3)]
+    r = random.Random(seed); out = []; tries = 0
+    avoid = kw.get('avoid', ()); slope_min = kw.get('slope_min', .8); zr = kw.get('zrange', (-1e9, 1e9)); dfn = kw.get('density_fn')
+    while len(out) < n and tries < n * 8:
+        tries += 1; x = r.uniform(area[0], area[1]); y = r.uniform(area[2], area[3])
+        if any((x - ax) ** 2 + (y - ay) ** 2 < ar * ar for ax, ay, ar in avoid): continue
+        if dfn and r.random() > dfn(x, y): continue
+        if ter.normal(x, y).z < slope_min: continue
+        z = ter.z(x, y)
+        if not (zr[0] < z < zr[1]): continue
+        out.append(inst(r.choice(cs), (x, y, z - .05), r.uniform(0, math.tau), r.uniform(*scale)))
+    return out
+
+
+# ------------------------------------------------------------------ wind: every leafy model sways (shared mesh -> same phase, small amplitude)
+def wind_setup(strength=.06):
+    """add a gentle sway to vegetation source meshes: a Simple Deform 'bend' whose angle is animated by wind_tick"""
+    for c in bpy.data.collections:
+        if not (c.name.startswith('PHC_') or c.name.startswith('PLANT_')): continue
+        if not any(k in c.name.lower() for k in ('tree', 'fern', 'shrub', 'grass', 'plant', 'bush', 'sapling', 'cycad', 'horsetail', 'flower', 'rooibos', 'searsia', 'nettle')): continue
+        for o in c.all_objects:
+            if o.type != 'MESH' or o.modifiers.get('wind'): continue
+            md = o.modifiers.new('wind', 'SIMPLE_DEFORM'); md.deform_method = 'BEND'; md.deform_axis = 'X'; md.angle = 0.0
+            o['wind_amp'] = strength * (1.6 if any(k in c.name.lower() for k in ('grass', 'fern', 'plant', 'horsetail')) else 1.0)
+
+
+def wind_tick(t, gust=1.0):
+    for o in bpy.data.objects:
+        md = o.modifiers.get('wind') if o.type == 'MESH' else None
+        if md is None: continue
+        a = o.get('wind_amp', .05)
+        md.angle = a * gust * (math.sin(t * 1.3 + hash(o.name) % 7) * .6 + math.sin(t * 3.1 + hash(o.name) % 5) * .4)
