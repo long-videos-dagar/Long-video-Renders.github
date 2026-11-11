@@ -1,37 +1,37 @@
-00:00.902  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.467  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['rock', 'mossy'] -> mossy_rock
-[lib] ph_find textures ['rock', 'coral'] -> coral_fort_wall_01
 [lib] ph_find textures ['leaves', 'grass'] -> brown_mud_leaves_01
 [lib] model coast_rocks_01 4
 [lib] model coast_rocks_02 4
 [lib] model rock_07 4
 [lib] model rock_09 4
 [lib] model namaqualand_boulder_04 4
-09:37:44 | INFO: Data are loaded, start creating Blender stuff
-09:37:44 | INFO: Blender create Mesh node Cube.001_Material_0
-09:37:44 | INFO: Blender create Mesh node Cube.002_Material_0
-09:37:44 | INFO: Blender create Mesh node Cube.003_Material_0
-09:37:44 | INFO: Blender create Mesh node Cube.004_Material.002_0
-09:37:44 | INFO: Blender create Mesh node Cube.005_Material.002_0
-09:37:44 | INFO: Blender create Mesh node Cube.006_Material.002_0
-09:37:44 | INFO: Blender create Mesh node Cube.007_Material.002_0
-09:37:44 | INFO: Blender create Mesh node Cube.008_Material.002_0
-09:37:44 | INFO: Blender create Mesh node Cube.009_Material.002_0
-09:37:44 | INFO: Blender create Mesh node Cube.010_Material.002_0
-09:37:44 | INFO: Blender create Mesh node Cube.011_Material.003_0
-09:37:44 | INFO: Blender create Mesh node Cube.012_Material.002_0
-09:37:44 | INFO: Blender create Mesh node Cube.014_Material_0
-09:37:44 | INFO: Blender create Mesh node Cylinder_Material.001_0
-09:37:44 | INFO: glTF import finished in 0.14s
-RSS built 899 MB
-RSS extras 899 MB
+10:09:16 | INFO: Data are loaded, start creating Blender stuff
+10:09:16 | INFO: Blender create Mesh node Cube.001_Material_0
+10:09:16 | INFO: Blender create Mesh node Cube.002_Material_0
+10:09:16 | INFO: Blender create Mesh node Cube.003_Material_0
+10:09:16 | INFO: Blender create Mesh node Cube.004_Material.002_0
+10:09:16 | INFO: Blender create Mesh node Cube.005_Material.002_0
+10:09:16 | INFO: Blender create Mesh node Cube.006_Material.002_0
+10:09:16 | INFO: Blender create Mesh node Cube.007_Material.002_0
+10:09:16 | INFO: Blender create Mesh node Cube.008_Material.002_0
+10:09:16 | INFO: Blender create Mesh node Cube.009_Material.002_0
+10:09:16 | INFO: Blender create Mesh node Cube.010_Material.002_0
+10:09:16 | INFO: Blender create Mesh node Cube.011_Material.003_0
+10:09:16 | INFO: Blender create Mesh node Cube.012_Material.002_0
+10:09:16 | INFO: Blender create Mesh node Cube.014_Material_0
+10:09:16 | INFO: Blender create Mesh node Cylinder_Material.001_0
+10:09:16 | INFO: glTF import finished in 0.08s
+RSS built 902 MB
+RSS extras 902 MB
 CLEARCAM k04 0
-RSS lod 899 MB
-RSS posed 899 MB
-RSS depsgraph 899 MB
-OBJECTS 781 MESHES 409 IMAGES 29 70 Mpx
-05:38.786  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_k04.png'
-RTIME 326.1
-RSS rendered 3002 MB
+CLEARPROPS 8
+RSS lod 902 MB
+RSS posed 902 MB
+RSS depsgraph 902 MB
+OBJECTS 831 MESHES 458 IMAGES 26 57 Mpx
+03:32.180  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_k04.png'
+RTIME 204.4
+RSS rendered 2970 MB
 RENDERED k04 1.56
