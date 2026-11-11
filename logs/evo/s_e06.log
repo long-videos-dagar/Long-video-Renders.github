@@ -1,0 +1,21 @@
+00:00.681  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['rock', 'mossy'] -> mossy_rock
+[lib] ph_find textures ['rock', 'mossy', 'moss'] -> mossy_rock
+[lib] ph_find textures ['algae', 'moss'] -> mossy_rock
+[lib] model coast_rocks_01 4
+[lib] model coast_rocks_02 4
+[lib] model rock_07 4
+[lib] model rock_09 4
+[lib] model namaqualand_boulder_04 4
+RSS built 901 MB
+RSS extras 901 MB
+CLEARCAM e06 0
+RSS lod 901 MB
+RSS posed 901 MB
+RSS depsgraph 901 MB
+OBJECTS 331 MESHES 205 IMAGES 23 45 Mpx
+03:07.117  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_e06.png'
+RTIME 181.2
+RSS rendered 2889 MB
+RENDERED e06 1.2
