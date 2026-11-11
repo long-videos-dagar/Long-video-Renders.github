@@ -56,6 +56,8 @@ def cast(sh, cid, preset):
 
 def stage(sh, world, mood='day', elev=35, az=200):
     F.setup(sh, mood, elev, az, town=False, haze=False); sh.town = False
+    cy = bpy.context.scene.cycles
+    cy.volume_step_rate = float(os.environ.get('VOLSTEP', 1.0)); cy.volume_max_steps = int(os.environ.get('VOLMAX', 1024))   # coarser volume marching for the final
     for o in [o for o in bpy.data.objects if o.name.startswith('sun')]: bpy.data.objects.remove(o)
     w = getattr(W, world)()
     tick = getattr(W, world + '_tick', None)
@@ -285,11 +287,15 @@ def _clear_props(self, rad=1.7):
     """also hide scattered props (rocks, trees, plants) the camera would pass through or sit inside"""
     _clear0(self, rad)
     if self.cam is None: return
-    cps = [Vector(self.cam[1](self.dur * k / 12)[0]) for k in range(13)]; n = 0
+    cps = []
+    for k in range(13):                                 # lens path + the sight line to the subject (props must not sit inside either)
+        r_ = self.cam[1](self.dur * k / 12); c0, tg = Vector(r_[0]), Vector(r_[1])
+        cps += [q for q in (c0.lerp(tg, u) for u in (0, .25, .5, .75, .92)) if (q - c0).length < 15.0]   # near the lens only: no holes in far forests
+    n = 0
     for e in bpy.data.objects:
         if e.instance_type != 'COLLECTION' or e.instance_collection is None or e.hide_render: continue
         cen, r = _coll_radius(e.instance_collection); r *= max(e.scale); c = e.matrix_world @ cen
-        if any((c - p).length < r * .9 + .4 for p in cps): e.hide_render = True; n += 1
+        if any((c - p).length < r * .75 + .3 for p in cps): e.hide_render = True; n += 1
     print('CLEARPROPS', n, flush=True)
     if os.environ.get('CAMDBG'):                      # what is the lens inside of?
         p = Vector(self.cam[1](self.dur * .6)[0]); bpy.context.view_layer.update(); hits = []

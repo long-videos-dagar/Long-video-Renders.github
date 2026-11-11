@@ -236,6 +236,7 @@ def s_a03(sh):
 def s_a04(sh):
     """impact: fireball, shockwave, earthquakes, a wall of dust"""
     w, ter = nat(sh, 'impact'); fx, fy = fz(w); impact_phase(sh, w, lambda t: dict(boom=t / 10.0, burn=1 if t > 6 else 0))
+    sh.updates.append(lambda t: setattr(bpy.context.scene.view_settings, 'exposure', -.45 - 1.6 * min(1.0, t / 2.5)))
     for k, (x, y) in enumerate([(-8, 30), (10, 36), (-20, 50), (16, 60)]): falling_tree(sh, ter, (fx + x, fy + y), 3.0 + k * .4, 180 + k * 10, 18)
     sh.camera(cam_fn([(0, G(ter, fx, fy - 20, 6), (fx + 200, fy + 3200, 400), 22), (sh.dur, G(ter, fx, fy - 26, 8), (fx + 200, fy + 3200, 900), 20)], shake=.006,
                      quake=lambda t: .08 * math.exp(-max(0, t - 2.5) * .25) if t > 2.5 else .01), fstop=16)
@@ -264,12 +265,12 @@ def s_a06(sh):
     """a bird flies calmly out of the smoke"""
     w, ter = nat(sh, 'impact'); fx, fy = fz(w); impact_phase(sh, w, lambda t: dict(burn=1))
     bpy.context.scene.view_settings.exposure = -.6
-    sm = TR.smoke_column('wall', G(ter, fx, fy + 14), rate=20, life=12, rise=1.5, r0=6, r1=14, wind=(0, -1.0), turb=4, col=(.35, .33, .31), density=.04, voxel=.4, seed=9)
+    sm = TR.plume('wall', G(ter, fx, fy + 30, -1), height=26, r0=6, r1=11, drift=(3, 0), col=(.3, .28, .26), density=.35, speed=1.2, seed=9)
     sh.updates.append(sm)
     hz = ter.z(fx, fy)
-    swim(sh, 'pigeon', line3((fx, fy + 22, hz + 4), (fx + .4, fy - 1, hz + 3.2), 0, sh.dur * 1.05, .15, .9), 'survivor', clip='fly', scale=1.0)
+    swim(sh, 'pigeon', line3((fx, fy + 30, hz + 6), (fx + .4, fy - 1, hz + 3.2), 0, sh.dur * 1.05, .15, .9), 'survivor', clip='fly', scale=1.0)
     sh.camera(cam_fn([(0, (fx + .6, fy - 3, hz + 3.0), (fx, fy + 10, hz + 3.6), 35), (sh.dur, (fx + .8, fy - 3.4, hz + 3.0), (fx, fy, hz + 3.4), 35)], shake=.003,
-                     focus=lambda t: Vector((fx, fy + 22 - 23 * t / sh.dur, hz + 3.6))), fstop=4)
+                     focus=lambda t: Vector((fx, fy + 30 - 31 * t / sh.dur, hz + 4.5))), fstop=5)
 
 
 def leaf_pile(ter, x, y, n=60, seed=0):

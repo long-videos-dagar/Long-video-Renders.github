@@ -1,5 +1,5 @@
 {
- "rev": 16,
+ "rev": 17,
  "mode": "tasks",
  "tasks": [
   {
@@ -14,7 +14,8 @@
     "USE_PH": "1",
     "RW": "960",
     "RH": "540",
-    "SAMPLES": "24"
+    "SAMPLES": "24",
+    "CAMDBG": "1"
    }
   },
   {
@@ -29,7 +30,8 @@
     "USE_PH": "1",
     "RW": "960",
     "RH": "540",
-    "SAMPLES": "24"
+    "SAMPLES": "24",
+    "CAMDBG": "1"
    }
   },
   {
@@ -49,21 +51,6 @@
    }
   },
   {
-   "id": "s_l03",
-   "script": "story.py",
-   "args": [
-    "still",
-    "l03"
-   ],
-   "t": 7.97,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
    "id": "s_m06",
    "script": "story.py",
    "args": [
@@ -80,36 +67,6 @@
    }
   },
   {
-   "id": "s_p05",
-   "script": "story.py",
-   "args": [
-    "still",
-    "p05"
-   ],
-   "t": 6.67,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
-   "id": "s_p10",
-   "script": "story.py",
-   "args": [
-    "still",
-    "p10"
-   ],
-   "t": 2.63,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
    "id": "s_d03",
    "script": "story.py",
    "args": [
@@ -121,52 +78,8 @@
     "USE_PH": "1",
     "RW": "960",
     "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
-   "id": "s_d05",
-   "script": "story.py",
-   "args": [
-    "still",
-    "d05"
-   ],
-   "t": 7.12,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
-   "id": "s_a01",
-   "script": "story.py",
-   "args": [
-    "still",
-    "a01"
-   ],
-   "t": 3.1,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
-   "id": "s_a03",
-   "script": "story.py",
-   "args": [
-    "still",
-    "a03"
-   ],
-   "t": 1.68,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
+    "SAMPLES": "24",
+    "CAMDBG": "1"
    }
   },
   {
@@ -181,7 +94,8 @@
     "USE_PH": "1",
     "RW": "960",
     "RH": "540",
-    "SAMPLES": "24"
+    "SAMPLES": "24",
+    "CAMDBG": "1"
    }
   },
   {
@@ -196,7 +110,8 @@
     "USE_PH": "1",
     "RW": "960",
     "RH": "540",
-    "SAMPLES": "24"
+    "SAMPLES": "24",
+    "CAMDBG": "1"
    }
   },
   {
@@ -211,52 +126,128 @@
     "USE_PH": "1",
     "RW": "960",
     "RH": "540",
-    "SAMPLES": "24"
+    "SAMPLES": "24",
+    "CAMDBG": "1"
    }
   },
   {
-   "id": "s_n04",
+   "id": "v_e01",
    "script": "story.py",
    "args": [
     "still",
-    "n04"
+    "e01"
    ],
-   "t": 10.78,
+   "t": 3.77,
    "env": {
     "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
+    "RW": "1920",
+    "RH": "1080",
+    "SAMPLES": "12",
+    "FAST": "1",
+    "ADAPT": ".05",
+    "VOLSTEP": "4",
+    "VOLMAX": "128",
+    "NOFOG": "1"
    }
   },
   {
-   "id": "s_h01",
+   "id": "v_p08",
    "script": "story.py",
    "args": [
     "still",
-    "h01"
+    "p08"
    ],
-   "t": 8.03,
+   "t": 6.1,
    "env": {
     "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
+    "RW": "1920",
+    "RH": "1080",
+    "SAMPLES": "12",
+    "FAST": "1",
+    "ADAPT": ".05",
+    "VOLSTEP": "4",
+    "VOLMAX": "128",
+    "NOFOG": "1"
    }
   },
   {
-   "id": "s_p01",
+   "id": "v_k01",
    "script": "story.py",
    "args": [
     "still",
-    "p01"
+    "k01"
    ],
-   "t": 4.07,
+   "t": 6.21,
    "env": {
     "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
+    "RW": "1920",
+    "RH": "1080",
+    "SAMPLES": "12",
+    "FAST": "1",
+    "ADAPT": ".05",
+    "VOLSTEP": "4",
+    "VOLMAX": "128",
+    "NOFOG": "1"
+   }
+  },
+  {
+   "id": "v_c07",
+   "script": "story.py",
+   "args": [
+    "still",
+    "c07"
+   ],
+   "t": 1.1,
+   "env": {
+    "USE_PH": "1",
+    "RW": "1920",
+    "RH": "1080",
+    "SAMPLES": "12",
+    "FAST": "1",
+    "ADAPT": ".05",
+    "VOLSTEP": "4",
+    "VOLMAX": "128",
+    "NOFOG": "1"
+   }
+  },
+  {
+   "id": "v_h07",
+   "script": "story.py",
+   "args": [
+    "still",
+    "h07"
+   ],
+   "t": 6.29,
+   "env": {
+    "USE_PH": "1",
+    "RW": "1920",
+    "RH": "1080",
+    "SAMPLES": "12",
+    "FAST": "1",
+    "ADAPT": ".05",
+    "VOLSTEP": "4",
+    "VOLMAX": "128",
+    "NOFOG": "1"
+   }
+  },
+  {
+   "id": "v_m01",
+   "script": "story.py",
+   "args": [
+    "still",
+    "m01"
+   ],
+   "t": 6.63,
+   "env": {
+    "USE_PH": "1",
+    "RW": "1920",
+    "RH": "1080",
+    "SAMPLES": "12",
+    "FAST": "1",
+    "ADAPT": ".05",
+    "VOLSTEP": "4",
+    "VOLMAX": "128",
+    "NOFOG": "1"
    }
   }
  ]

@@ -29,13 +29,17 @@ def at_after(t0, fn):
     return lambda t: fn(max(0.0, t - t0))
 
 
+# ground speeds (m/s at registry size) that keep feet planted - measured once on CI (zoo test) instead of per shot
+STRIDE = {('stego', 'walk'): 2.23, ('raptor', 'walk'): 1.49, ('tricera', 'walk'): .76, ('deer', 'walk'): .6, ('ptero2', 'walk'): .49,
+          ('raptor', 'run'): 4.6, ('trex', 'run'): 8.5, ('compy', 'run'): 2.2, ('tricera', 'run'): 3.2, ('stego', 'run'): 4.0, ('deer', 'run'): 3.5,
+          ('argentino', 'walk'): 2.4, ('sauropod', 'walk'): 2.0, ('trex2', 'walk'): 2.6, ('rat', 'walk'): .18, ('rat', 'run'): .7, ('tiktaalik', 'walk'): .25}
+
+
 def stride_of(b, clip, anim=1.0):
-    L = max(b.size.x, b.size.y)
-    try: v = CR.beast_stride(b, CR.clip_of(b, clip), anim)
-    except Exception: v = 0.0
-    lo, hi = ((.12 * L, 1.0 * L) if clip == 'walk' else (.35 * L, 4.0 * L))
-    if not (lo <= v <= hi): v = (.3 if clip == 'walk' else 1.1) * L * anim
-    return v
+    L = max(b.size.x, b.size.y); L0 = CR.SPEC[b.kind].get('length', L) or L
+    v = STRIDE.get((b.kind, clip))
+    if v is None: v = (.3 if clip == 'walk' else 1.1) * L0
+    return v * (L / L0) * anim
 
 
 def go(sh, kind, pts, ter, clip='walk', anim=1.0, speed=None, name=None, phase=0.0, scale=1.0, t0=0.0):
@@ -317,7 +321,7 @@ def s_m03(sh):
 def s_m06(sh):
     """Ediacaran sea floor: Dickinsonia - a pancake and a pillow had a baby"""
     w, ter = nat(sh, 'ediacaran')
-    sh.camera(cam_fn([(0, G(ter, -4, 6, 2.2), G(ter, 0, 16, 0), 26), (sh.dur * .6, G(ter, -1, 10, 1.2), G(ter, 0, 15, 0), 30), (sh.dur, G(ter, 0, 12, .7), G(ter, 0, 15, 0), 38)],
+    sh.camera(cam_fn([(0, G(ter, -4, 7, 4.0), G(ter, 0, 16, 0), 26), (sh.dur * .6, G(ter, -1.5, 11, 2.6), G(ter, 0, 15, 0), 32), (sh.dur, G(ter, -.6, 12.6, 1.8), G(ter, 0, 15, 0), 40)],
                      shake=.002), fstop=6)
 
 
@@ -445,7 +449,7 @@ def s_l01(sh):
 
 def s_l02(sh):
     """early land arthropods crawl across the rocks"""
-    w, ter = nat(sh, 'coast'); r = random.Random(2); crawlers = []; Y = find_y(ter, 0, 20, lambda z: z > 1.2)
+    w, ter = nat(sh, 'coast'); r = random.Random(2); crawlers = []; Y = find_y(ter, 0, -20, lambda z: z > .35)
     for k in range(5):
         root, segs = millipede(f'mill{k}', 14, .035); p0 = Vector((r.uniform(-1, 1), Y + 1 + r.uniform(-1, 1))); a = r.uniform(0, 6.3); crawlers.append((segs, p0, a, r.uniform(.05, .1)))
     def u(t):

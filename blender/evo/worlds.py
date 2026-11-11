@@ -71,8 +71,7 @@ def young_earth(seed=1):
                        density=.12, glow=.35 if k < 3 else 0.0, speed=8.0 + k, seed=k) for k, (cx, cy, r, hh) in enumerate(V)]
     # boiling sea + steam
     sea = TR.ocean('sea', 900, (-420, 300, -6.5), wave=1.4, choppy=1.6, col='#1a2a26', murk='#3a3020', foam=True)
-    steam = [TR.plume(f'steam{k}', (-200 - k * 70, 160 + k * 80, -7), height=60, r0=8, r1=30, drift=(25, 8), col=(.8, .78, .76), density=.025, speed=3, seed=k + 9)
-             for k in range(3)]
+    steam = []
     # rubble + boulders everywhere
     TR.scatter(ter, ['namaqualand_boulder_02', 'namaqualand_boulder_04', 'namaqualand_boulder_05', 'rock_07', 'rock_09', 'boulder_01', 'moon_rock_03', 'moon_rock_06'],
                420, (-140, 140, 10, 260), seed=seed, scale=(.6, 2.6), slope_min=.6, zrange=(-2, 400), fallback=TR.fallback_rock)
@@ -462,7 +461,7 @@ def impact(seed=13):
     pv = N.new('ShaderNodeVolumePrincipled'); pv.inputs['Density'].default_value = .01; pv.inputs['Emission Strength'].default_value = 5; pv.inputs['Emission Color'].default_value = (1, .45, .12, 1)
     fire_m.node_tree.links.new(pv.outputs[0], N['Material Output'].inputs['Volume'])
     fb = T.lib.sphere('fireball', 1, (fx + 200, fy + 3200, 0), fire_m, seg=24, rings=12)
-    dust = TR.smoke_column('dustwall', (fx + 200, fy + 2600, 0), rate=10, life=20, rise=30, r0=200, r1=900, wind=(0, -60), turb=200, col=(.25, .2, .17), density=.004, voxel=40, seed=5)
+    dust = TR.smoke_column('dustwall', (fx + 200, fy + 2600, 0), rate=10, life=20, rise=30, r0=200, r1=900, wind=(0, -60), turb=200, col=(.25, .2, .17), density=.0015, voxel=40, seed=5)
     flash = bpy.data.lights.new('flash', 'SUN'); flash.energy = 0; flash.color = (1, .85, .7); fo = bpy.data.objects.new('flash', flash); bpy.context.scene.collection.objects.link(fo)
     fo.rotation_euler = (math.radians(80), 0, math.radians(180))
     fires = [TR.smoke_column(f'fire{k}', (fx + x, fy + y, w['ter'].z(fx + x, fy + y)), rate=4, life=6, rise=6, r0=3, r1=14, wind=(4, -2), turb=4, col=(.06, .05, .05),
