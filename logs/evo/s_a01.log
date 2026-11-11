@@ -1,4 +1,4 @@
-00:00.656  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:01.110  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['snow'] -> snow_02
 [lib] model island_tree_01 17
@@ -16,28 +16,28 @@
 [lib] model namaqualand_boulder_05 3
 [lib] model rock_07 4
 [lib] model boulder_01 4
-10:31:09 | INFO: Data are loaded, start creating Blender stuff
-10:31:10 | INFO: Blender create Mesh node U3DMesh_CH_NPC_MOB_Tricera_A01_MI_BYN_0
-10:31:10 | INFO: glTF import finished in 1.18s
-10:31:11 | INFO: Data are loaded, start creating Blender stuff
-10:31:12 | INFO: Blender create Mesh node U3DMesh_CH_NPC_MOB_Tricera_A01_MI_BYN_0
-10:31:12 | INFO: glTF import finished in 1.20s
-10:31:13 | INFO: Data are loaded, start creating Blender stuff
-10:31:14 | INFO: Blender create Mesh node mesh_0
-10:31:14 | INFO: glTF import finished in 1.19s
-10:31:16 | INFO: Data are loaded, start creating Blender stuff
-10:31:17 | INFO: Blender create Mesh node Object_0
-10:31:17 | INFO: Blender create Mesh node Object_1
-10:31:17 | INFO: glTF import finished in 1.25s
-RSS built 4458 MB
-RSS extras 4458 MB
+10:49:59 | INFO: Data are loaded, start creating Blender stuff
+10:49:59 | INFO: Blender create Mesh node U3DMesh_CH_NPC_MOB_Tricera_A01_MI_BYN_0
+10:50:00 | INFO: glTF import finished in 1.35s
+10:50:01 | INFO: Data are loaded, start creating Blender stuff
+10:50:02 | INFO: Blender create Mesh node U3DMesh_CH_NPC_MOB_Tricera_A01_MI_BYN_0
+10:50:02 | INFO: glTF import finished in 1.37s
+10:50:03 | INFO: Data are loaded, start creating Blender stuff
+10:50:04 | INFO: Blender create Mesh node mesh_0
+10:50:05 | INFO: glTF import finished in 1.29s
+10:50:06 | INFO: Data are loaded, start creating Blender stuff
+10:50:07 | INFO: Blender create Mesh node Object_0
+10:50:07 | INFO: Blender create Mesh node Object_1
+10:50:08 | INFO: glTF import finished in 1.41s
+RSS built 4449 MB
+RSS extras 4449 MB
 CLEARCAM a01 0
 CLEARPROPS 0
-RSS lod 4488 MB
-RSS posed 4488 MB
-RSS depsgraph 4488 MB
-OBJECTS 3947 MESHES 539 IMAGES 123 190 Mpx
-02:32.020  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_a01.png'
-RTIME 108.2
-RSS rendered 15236 MB
+RSS lod 4470 MB
+RSS posed 4489 MB
+RSS depsgraph 4489 MB
+OBJECTS 3948 MESHES 539 IMAGES 123 190 Mpx
+03:07.609  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_a01.png'
+RTIME 142.7
+RSS rendered 15238 MB
 RENDERED a01 3.1
