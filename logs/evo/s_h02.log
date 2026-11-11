@@ -1,4 +1,4 @@
-00:00.677  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.964  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['snow'] -> snow_02
 [lib] model quiver_tree_01 4
@@ -16,65 +16,66 @@
 [lib] model boulder_01 4
 /home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_c.py:42: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
   gm = bpy.data.materials.new('treeglow'); gm.use_nodes = True; bs = gm.node_tree.nodes['Principled BSDF']
-09:50:59 | INFO: Data are loaded, start creating Blender stuff
-09:50:59 | INFO: Blender create Mesh node Object_0
-09:50:59 | INFO: glTF import finished in 0.21s
+10:20:25 | INFO: Data are loaded, start creating Blender stuff
+10:20:25 | INFO: Blender create Mesh node Object_0
+10:20:25 | INFO: glTF import finished in 0.33s
 /home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_c.py:22: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
   m = bpy.data.materials.new(b.name + '_skin'); m.use_nodes = True; N = m.node_tree.nodes; bs = N['Principled BSDF']
-09:51:00 | INFO: Data are loaded, start creating Blender stuff
-09:51:00 | INFO: Blender create Mesh node Object_0
-09:51:00 | INFO: Blender create Mesh node Object_1
-09:51:00 | INFO: Blender create Mesh node Object_2
-09:51:00 | INFO: Blender create Mesh node Object_3
-09:51:01 | INFO: glTF import finished in 0.73s
-09:51:01 | INFO: Data are loaded, start creating Blender stuff
-09:51:02 | INFO: Blender create Mesh node default002_default002_default_0
-09:51:02 | INFO: Blender create Mesh node default002_default002_default_0
-09:51:02 | INFO: Blender create Mesh node default002_default002_default_0
-09:51:03 | INFO: Blender create Mesh node default002_default002_default_0
-09:51:03 | INFO: glTF import finished in 1.80s
-09:51:04 | INFO: Data are loaded, start creating Blender stuff
-09:51:04 | INFO: Blender create Mesh node Cerchio_Materiale_Tra_0
-09:51:04 | INFO: Blender create Mesh node Haircut_obj_default_Transparency_Tra_0
-09:51:05 | INFO: Blender create Mesh node Haircut_obj_default_Transparency_Tra_0
-09:51:05 | INFO: Blender create Mesh node Cilindro_001_Materiale_001_Tra_0
-09:51:05 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
-09:51:05 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
-09:51:05 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
-09:51:05 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
-09:51:06 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
-09:51:06 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
-09:51:06 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
-09:51:06 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
-09:51:07 | INFO: Blender create Mesh node 0
-09:51:07 | INFO: Blender create Mesh node 1
-09:51:07 | INFO: Blender create Mesh node 2
-09:51:07 | INFO: Blender create Mesh node 3
-09:51:07 | INFO: Blender create Mesh node 4
-09:51:07 | INFO: Blender create Mesh node 5
-09:51:07 | INFO: Blender create Mesh node 6
-09:51:07 | INFO: Blender create Mesh node 7
-09:51:07 | INFO: Blender create Mesh node 8
-09:51:07 | INFO: Blender create Mesh node 9
-09:51:07 | INFO: Blender create Mesh node 10
-09:51:07 | INFO: Blender create Mesh node 11
-09:51:07 | INFO: Blender create Mesh node 12
-09:51:07 | INFO: Blender create Mesh node 13
-09:51:07 | INFO: glTF import finished in 3.37s
-09:51:08 | INFO: Data are loaded, start creating Blender stuff
-09:51:09 | INFO: Blender create Mesh node default002_default002_default_0
-09:51:09 | INFO: Blender create Mesh node default002_default002_default_0
-09:51:09 | INFO: Blender create Mesh node default002_default002_default_0
-09:51:10 | INFO: Blender create Mesh node default002_default002_default_0
-09:51:10 | INFO: glTF import finished in 2.08s
-RSS built 1953 MB
-RSS extras 1953 MB
+10:20:26 | INFO: Data are loaded, start creating Blender stuff
+10:20:26 | INFO: Blender create Mesh node Object_0
+10:20:26 | INFO: Blender create Mesh node Object_1
+10:20:26 | INFO: Blender create Mesh node Object_2
+10:20:26 | INFO: Blender create Mesh node Object_3
+10:20:27 | INFO: glTF import finished in 1.01s
+10:20:28 | INFO: Data are loaded, start creating Blender stuff
+10:20:29 | INFO: Blender create Mesh node default002_default002_default_0
+10:20:29 | INFO: Blender create Mesh node default002_default002_default_0
+10:20:30 | INFO: Blender create Mesh node default002_default002_default_0
+10:20:30 | INFO: Blender create Mesh node default002_default002_default_0
+10:20:31 | INFO: glTF import finished in 2.74s
+10:20:32 | INFO: Data are loaded, start creating Blender stuff
+10:20:33 | INFO: Blender create Mesh node Cerchio_Materiale_Tra_0
+10:20:33 | INFO: Blender create Mesh node Haircut_obj_default_Transparency_Tra_0
+10:20:33 | INFO: Blender create Mesh node Haircut_obj_default_Transparency_Tra_0
+10:20:33 | INFO: Blender create Mesh node Cilindro_001_Materiale_001_Tra_0
+10:20:33 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+10:20:34 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+10:20:34 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+10:20:34 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+10:20:35 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+10:20:35 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+10:20:35 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+10:20:36 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+10:20:36 | INFO: Blender create Mesh node 0
+10:20:36 | INFO: Blender create Mesh node 1
+10:20:36 | INFO: Blender create Mesh node 2
+10:20:36 | INFO: Blender create Mesh node 3
+10:20:36 | INFO: Blender create Mesh node 4
+10:20:36 | INFO: Blender create Mesh node 5
+10:20:36 | INFO: Blender create Mesh node 6
+10:20:36 | INFO: Blender create Mesh node 7
+10:20:36 | INFO: Blender create Mesh node 8
+10:20:36 | INFO: Blender create Mesh node 9
+10:20:36 | INFO: Blender create Mesh node 10
+10:20:36 | INFO: Blender create Mesh node 11
+10:20:36 | INFO: Blender create Mesh node 12
+10:20:36 | INFO: Blender create Mesh node 13
+10:20:37 | INFO: glTF import finished in 5.16s
+10:20:38 | INFO: Data are loaded, start creating Blender stuff
+10:20:39 | INFO: Blender create Mesh node default002_default002_default_0
+10:20:39 | INFO: Blender create Mesh node default002_default002_default_0
+10:20:40 | INFO: Blender create Mesh node default002_default002_default_0
+10:20:40 | INFO: Blender create Mesh node default002_default002_default_0
+10:20:41 | INFO: glTF import finished in 2.93s
+RSS built 2023 MB
+RSS extras 2023 MB
 CLEARCAM h02 0
-RSS lod 2206 MB
-RSS posed 2266 MB
-RSS depsgraph 2266 MB
+CLEARPROPS 0
+RSS lod 2215 MB
+RSS posed 2263 MB
+RSS depsgraph 2263 MB
 OBJECTS 4643 MESHES 243 IMAGES 117 165 Mpx
-02:15.051  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_h02.png'
-RTIME 94.5
-RSS rendered 6279 MB
+02:46.153  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_h02.png'
+RTIME 126.9
+RSS rendered 6418 MB
 RENDERED h02 6.5
