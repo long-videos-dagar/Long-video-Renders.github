@@ -1,4 +1,4 @@
-00:00.803  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.978  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['sand', 'beach'] -> damp_beach_sand
 [lib] ph_find textures ['rock', 'cliff'] -> coast_sand_rocks_02
@@ -17,17 +17,17 @@
 [lib] model coastal_cliff_01 4
 [lib] model coastal_cliff_02 4
 [lib] model coastal_cliff_04 4
-RSS built 1914 MB
-RSS extras 1914 MB
+RSS built 1916 MB
+RSS extras 1916 MB
 CLEARCAM l02 0
 CLEARPROPS 0
 BEASTS [('PLANT_horsetail_110_root', (0.0, 0.0, 0.0), (1.0, 1.0, 1.0)), ('PLANT_horsetail_111_root', (0.0, 0.0, 0.0), (1.0, 1.0, 1.0)), ('PLANT_horsetail_112_root', (0.0, 0.0, 0.0), (1.0, 1.0, 1.0))]
-CAMDBG (-1.21, 40.79, 1.97) ground 1.23 ['coast', 'coast_fine', 'haze', 'sea']
+CAMDBG (-1.21, 33.79, 1.2) ground 0.47 ['coast', 'coast_fine', 'haze', 'sea']
 RSS lod 2250 MB
 RSS posed 2250 MB
 RSS depsgraph 2250 MB
 OBJECTS 1148 MESHES 237 IMAGES 52 106 Mpx
-02:38.393  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_l02.png'
-RTIME 145.9
-RSS rendered 7523 MB
+02:51.715  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_l02.png'
+RTIME 132.7
+RSS rendered 7554 MB
 RENDERED l02 3.56
