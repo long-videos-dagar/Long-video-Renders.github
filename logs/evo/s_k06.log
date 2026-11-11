@@ -1,0 +1,27 @@
+00:01.013  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['rock', 'mossy'] -> mossy_rock
+[lib] ph_find textures ['rock', 'coral'] -> coral_fort_wall_01
+[lib] ph_find textures ['leaves', 'grass'] -> brown_mud_leaves_01
+[lib] model coast_rocks_01 4
+[lib] model coast_rocks_02 4
+[lib] model rock_07 4
+[lib] model rock_09 4
+[lib] model namaqualand_boulder_04 4
+[lib] ph_find textures ['rock'] -> coast_sand_rocks_02
+09:40:25 | INFO: Data are loaded, start creating Blender stuff
+09:40:25 | INFO: Blender create Mesh node Object_0
+09:40:25 | INFO: Blender create Mesh node Object_1
+09:40:25 | INFO: glTF import finished in 0.35s
+[lib] ph_find textures ['rock'] -> coast_sand_rocks_02
+RSS built 925 MB
+RSS extras 925 MB
+CLEARCAM k06 0
+RSS lod 925 MB
+RSS posed 925 MB
+RSS depsgraph 925 MB
+OBJECTS 812 MESHES 462 IMAGES 32 82 Mpx
+05:00.175  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_k06.png'
+RTIME 293.4
+RSS rendered 3085 MB
+RENDERED k06 4.87
