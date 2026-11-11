@@ -93,6 +93,13 @@ jobs:
               for t in 1 2 3 4 5 6; do gh run download $R -n $n -D dl/$n 2>/dev/null && break; rm -rf "dl/$n"; sleep $((t * 20)); done
             done
           done
+          for RR in $(jq -r '(.also_repo_runs // [])[]' blender/evo/job.json); do      # chunks rendered by the twin repo ("owner/repo:run")
+            REPO=${RR%%:*}; R=${RR##*:}
+            for n in $(gh api "repos/$REPO/actions/runs/$R/artifacts?per_page=100" --paginate --jq '.artifacts[] | select(.name|startswith("chunk-")) | .name'); do
+              [ -d "dl/$n" ] && continue
+              for t in 1 2 3 4 5 6; do gh run download $R -R $REPO -n $n -D dl/$n 2>/dev/null && break; rm -rf "dl/$n"; sleep $((t * 20)); done
+            done
+          done
           find dl -name '*.mp4' -exec mv -t art {} +; echo "chunks: $(ls art | wc -l)"
       - run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null; pip install -q pillow numpy
