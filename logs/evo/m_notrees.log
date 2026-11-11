@@ -1,0 +1,16 @@
+[lib] ph_find textures ['snow'] -> snow_02
+[lib] ph_find textures ['bark', 'palm'] -> palm_tree_bark
+[lib] model fern_02 4
+[lib] model shrub_01 36
+[lib] model shrub_02 12
+[lib] model shrub_03 12
+[lib] model grass_medium_01 103
+[lib] model periwinkle_plant 42
+[lib] model namaqualand_boulder_02 4
+[lib] model namaqualand_boulder_05 3
+[lib] model rock_07 4
+[lib] model boulder_01 4
+BUILT 8.4 MAXRSS 623 MB
+01:22.198  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/m_notrees.png'
+CAMZ ground 0.87 -> 5
+RENDERED cretaceous 0 73.1 MAXRSS 3596 MB
