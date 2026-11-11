@@ -363,3 +363,132 @@ def beast_stride(b, clip, anim_speed=1.0):
             if a.z < thr and c.z < thr: best.append(((c - a).xy).length * FPS / step)
     if not best: return 1.0
     best.sort(); return best[len(best) // 2]
+
+
+# ------------------------------------------------------------------ registry: real-world size + clip names per model
+SPEC = {
+    'trex':        dict(length=12.0, clips=dict(run='run', idle='idle', roar='roar', bite='bite', tail='attack_tail')),
+    'trex2':       dict(length=12.0, clips=dict(idle='01_Idle', walk='02_Walk', run='03_Run', attack='04_Attack')),
+    'triceratops': dict(length=8.0, clips=dict(walk='Skin')),
+    'tricera':     dict(glb='triceratops2', length=8.0, clips=dict(walk='Walk', run='Run', idle='Idle', graze='NoseDirt', attack='Attack')),
+    'stego':       dict(glb='stegosaurus', length=8.5, clips=dict(walk='Walk', run='Run', idle='IdleB', roar='Roar', eat='Eat', tail='TailWhip')),
+    'argentino':   dict(glb='sauropod', length=32.0, clips=dict(walk='ArmatureAction')),
+    'sauropod':    dict(glb='sauropod2', length=24.0, clips=dict(walk='Animation')),
+    'ptero':       dict(glb='pteranodon', length=6.5, clips=dict(fly='fly', roar='roar', sit='sit')),
+    'ptero2':      dict(glb='pteranodon2', length=6.0, clips=dict(fly='flying', stand='standing', walk='walking')),
+    'raptor':      dict(length=2.0, clips=dict(walk='Walk', jog='Jog', run='Sprint', idle='Idle_02', call='Call_Alert', sniff='Sniff', leap='Leap_01', roar='Roar_01')),
+    'compy':       dict(length=1.0, clips=dict(run='Take')),
+    'anomalo':     dict(glb='anomalocaris', length=1.0, clips={}),
+    'anomalo2':    dict(glb='anomalocaris2', length=.9, clips={}),
+    'trilobite':   dict(length=.3, clips={}),
+    'hallu':       dict(glb='hallucigenia', length=.25, clips=dict(walk='Scene')),
+    'dunkle':      dict(glb='dunkleosteus', length=6.0, clips={}),
+    'coelacanth':  dict(length=1.8, clips=dict(swim='Fish')),
+    'tiktaalik':   dict(glb='tiktaalik2', length=2.6, clips=dict(walk='walk_on_land')),
+    'rat':         dict(length=.32, clips=dict(walk='walk_A2', run='run_A2', idle='idle_A2', look='idle_A3')),
+    'mouse':       dict(length=.14, clips=dict(walk='Armature')),
+    'monkey':      dict(height=.7, clips=dict(dance='Take')),
+    'bat':         dict(length=.35, clips=dict(fly='Armature')),
+    'cat':         dict(length=.55, clips=dict(walk='Take')),
+    'neander':     dict(glb='neanderthal', height=1.66, clips=dict(idle='TempMotion')),
+    'neander2':    dict(glb='neanderthal2', height=1.35, clips=dict(idle='mixamo')),
+    'erectus':     dict(glb='homo_erectus', height=1.6, clips={}),
+    'lucy':        dict(height=1.1, clips={}),
+    'pigeon':      dict(glb='pigeon2', length=.35, clips=dict(fly='metarig')),
+    'dragonfly':   dict(length=.12, clips=dict(fly='Animation')),
+    'dragonfly2':  dict(length=.12, clips=dict(fly='Armature')),
+    'archaeo':     dict(glb='archaeopteryx', length=.55, clips=dict(shake='Slap_wings', look='Tilt_head')),
+    'deer':        dict(length=1.8, clips=dict(walk='walk', run='run', idle='Idle')),
+}
+
+
+def beast(sh, kind, name=None, clip=None, speed=1.0, phase=0.0, scale=1.0, **kw):
+    """Beast from the registry; clip is a registry key (walk/run/idle...)"""
+    sp = SPEC[kind]; glb = sp.get('glb', kind) + '.glb'
+    ck = sp['clips'].get(clip, clip) if clip else (next(iter(sp['clips'].values())) if sp['clips'] else 'none')
+    size = dict(length=sp['length'] * scale) if 'length' in sp else dict(height=sp['height'] * scale)
+    if 'face' in sp and 'face_axis' not in kw: kw['face_axis'] = sp['face']
+    b = Beast(sh, glb, name or kind, clip=ck, speed=speed, phase=phase, **size, **kw)
+    b.kind = kind; return b
+
+
+def clip_of(b, key):
+    return SPEC[b.kind]['clips'].get(key, key)
+
+
+def wiggle(b, amp=.25, freq=2.0, axis='Z', mode='BEND'):
+    """procedural swim/undulation for static (unrigged) models: an animated bend on every mesh"""
+    mods = []
+    for o in b.m['objs']:
+        if o.type != 'MESH': continue
+        md = o.modifiers.new('wig', 'SIMPLE_DEFORM'); md.deform_method = mode; md.deform_axis = axis; md.angle = 0; mods.append(md)
+    def tick(t):
+        for md in mods: md.angle = amp * math.sin(t * freq * math.tau)
+    b.sh.updates.append(tick); return b
+
+
+def path_poly(pts, speed, yaw_off=0.0, loop=False):
+    """move along a polyline [(x, y), ...] at speed m/s, yaw follows the path (degrees, 0 = facing -Y)"""
+    P = [Vector(p) for p in pts]; L = [0.0]
+    for a, c in zip(P, P[1:]): L.append(L[-1] + (c - a).length)
+    def fn(t):
+        s = speed * t
+        if loop: s %= L[-1]
+        s = max(0.0, min(L[-1] - 1e-4, s))
+        i = max(0, next((k for k in range(1, len(L)) if L[k] >= s), len(L) - 1) - 1)
+        u = (s - L[i]) / max(1e-6, L[i + 1] - L[i]); p = P[i].lerp(P[i + 1], u); d = P[i + 1] - P[i]
+        yaw = math.degrees(math.atan2(d.x, -d.y)) + yaw_off
+        return (p.x, p.y, yaw)
+    return fn
+
+
+def rootmotion(b, clip, start, yaw, speed=1.0, ter=None, hips=('hips', 'pelvis')):
+    """clips that travel on their own (mocap with root motion): the root is advanced by one cycle's travel each loop so
+    the walk continues seamlessly with planted feet.  start=(x, y), yaw in degrees (0 = facing -Y)"""
+    ck = clip_of(b, clip); act = b.action(ck); b.set_clip(ck, speed)
+    pb = next((p for p in b.arm.pose.bones if any(h in p.name.lower() for h in hips)), None) if b.arm else None
+    D = Vector((0, 0, 0))
+    if pb is not None and act is not None:
+        ad = b.arm.animation_data; keep = ad.action; ad.action = act; sc = bpy.context.scene
+        b.root.location = (0, 0, 0); b.root.rotation_euler = (0, 0, 0); f0, f1 = act.frame_range
+        sc.frame_set(int(f0)); bpy.context.view_layer.update(); p0 = b.arm.matrix_world @ pb.head
+        sc.frame_set(int(f1)); bpy.context.view_layer.update(); p1 = b.arm.matrix_world @ pb.head
+        ad.action = keep; D = Vector((p1.x - p0.x, p1.y - p0.y, 0)); b.cycle = (f1 - f0)
+        if D.length > 1e-3:                       # face the travel direction: turn the pivot so the walk goes along -Y
+            a = math.atan2(D.x, -D.y); pv = b.pivot; pv.rotation_euler = (0, 0, pv.rotation_euler.z - a)
+            c, s_ = math.cos(-a), math.sin(-a); loc = Vector(pv.location); pv.location = (loc.x * c - loc.y * s_, loc.x * s_ + loc.y * c, loc.z)
+            D = Vector((0, -D.length, 0))
+    else:
+        b.cycle = 1e9
+    cy = math.radians(yaw); R = lambda v: Vector((v.x * math.cos(cy) - v.y * math.sin(cy), v.x * math.sin(cy) + v.y * math.cos(cy), 0))
+    def fn(t):
+        k = math.floor(max(0.0, t) * speed * FPS / max(1, b.cycle)); o = R(D * k)
+        return (start[0] + o.x, start[1] + o.y, yaw)
+    b.move(fn)
+    if ter: b.on(ter)
+    b.travel = D.length * speed * FPS / max(1, b.cycle)
+    return b
+
+
+def addpose(b, bones, at=0.0, ramp=.3, until=None):
+    """lay a hand-made pose over the playing clip: bones = {name_substring: (rx, ry, rz) degrees}; an extra NLA track,
+    REPLACE for those channels only, faded in over `ramp` seconds from shot time `at` (and out again at `until`)"""
+    if b.arm is None: return
+    act = bpy.data.actions.new(b.name + '_pose'); fr = 1
+    sel = {}
+    for pb in b.arm.pose.bones:
+        for k, rot in bones.items():
+            if k.lower() in pb.name.lower() and pb.name not in sel: sel[pb.name] = rot
+    ad = b.arm.animation_data or b.arm.animation_data_create(); keep = ad.action; ad.action = act
+    from mathutils import Euler
+    for nm, rot in sel.items():
+        pb = b.arm.pose.bones[nm]; pb.rotation_mode = 'QUATERNION'
+        pb.rotation_quaternion = Euler([math.radians(v) for v in rot]).to_quaternion(); pb.keyframe_insert('rotation_quaternion', frame=fr)
+    ad.action = keep
+    tr = ad.nla_tracks.new(); st = tr.strips.new('pose', 1, act); st.frame_end = 1 + 99999; st.blend_type = 'REPLACE'; st.extrapolation = 'HOLD'
+    st.use_animated_influence = True; inf = st.fcurves.find('influence') if hasattr(st, 'fcurves') else None
+    def key(f, v):
+        st.influence = v; st.keyframe_insert('influence', frame=f)
+    a0 = 1 + at * FPS; key(1, 0.0); key(a0, 0.0); key(a0 + ramp * FPS, 1.0)
+    if until is not None: key(1 + until * FPS, 1.0); key(1 + (until + ramp) * FPS, 0.0)
+    return st

@@ -1,335 +1,135 @@
 {
- "rev": 11,
+ "rev": 12,
  "mode": "tasks",
  "tasks": [
   {
-   "id": "w_young_earth0",
-   "script": "worldtest.py",
+   "id": "z0_0",
+   "script": "zootest.py",
    "args": [
-    "young_earth",
+    "trex,trex2,tricera,triceratops,stego",
     "0"
    ],
    "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
+    "RW": "1280",
+    "RH": "720",
+    "T": "1.0"
    }
   },
   {
-   "id": "w_young_earth1",
-   "script": "worldtest.py",
+   "id": "z0_1",
+   "script": "zootest.py",
    "args": [
-    "young_earth",
+    "trex,trex2,tricera,triceratops,stego",
     "1"
    ],
    "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
+    "RW": "1280",
+    "RH": "720",
+    "T": "1.0"
    }
   },
   {
-   "id": "w_young_earth2",
-   "script": "worldtest.py",
+   "id": "z1_0",
+   "script": "zootest.py",
    "args": [
-    "young_earth",
-    "2"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
-   }
-  },
-  {
-   "id": "w_young_earth3",
-   "script": "worldtest.py",
-   "args": [
-    "young_earth",
-    "3"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
-   }
-  },
-  {
-   "id": "w_classroom0",
-   "script": "worldtest.py",
-   "args": [
-    "classroom",
+    "argentino,sauropod,ptero,ptero2,dunkle",
     "0"
    ],
    "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
+    "RW": "1280",
+    "RH": "720",
+    "T": "1.0"
    }
   },
   {
-   "id": "w_permian0",
-   "script": "worldtest.py",
+   "id": "z1_1",
+   "script": "zootest.py",
    "args": [
-    "permian",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
-   }
-  },
-  {
-   "id": "w_triassic0",
-   "script": "worldtest.py",
-   "args": [
-    "triassic",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
-   }
-  },
-  {
-   "id": "w_jurassic0",
-   "script": "worldtest.py",
-   "args": [
-    "jurassic",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
-   }
-  },
-  {
-   "id": "w_jurassic1",
-   "script": "worldtest.py",
-   "args": [
-    "jurassic",
+    "argentino,sauropod,ptero,ptero2,dunkle",
     "1"
    ],
    "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
+    "RW": "1280",
+    "RH": "720",
+    "T": "1.0"
    }
   },
   {
-   "id": "w_jurassic2",
-   "script": "worldtest.py",
+   "id": "z2_0",
+   "script": "zootest.py",
    "args": [
-    "jurassic",
-    "2"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
-   }
-  },
-  {
-   "id": "w_cretaceous0",
-   "script": "worldtest.py",
-   "args": [
-    "cretaceous",
+    "raptor,compy,deer,tiktaalik,coelacanth,neander,neander2",
     "0"
    ],
    "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
+    "RW": "1280",
+    "RH": "720",
+    "T": "1.0"
    }
   },
   {
-   "id": "w_paleogene0",
-   "script": "worldtest.py",
+   "id": "z2_1",
+   "script": "zootest.py",
    "args": [
-    "paleogene",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
-   }
-  },
-  {
-   "id": "w_savanna0",
-   "script": "worldtest.py",
-   "args": [
-    "savanna",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
-   }
-  },
-  {
-   "id": "w_cambrian0",
-   "script": "worldtest.py",
-   "args": [
-    "cambrian",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
-   }
-  },
-  {
-   "id": "w_cambrian1",
-   "script": "worldtest.py",
-   "args": [
-    "cambrian",
+    "raptor,compy,deer,tiktaalik,coelacanth,neander,neander2",
     "1"
    ],
    "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
+    "RW": "1280",
+    "RH": "720",
+    "T": "1.0"
    }
   },
   {
-   "id": "w_ediacaran0",
-   "script": "worldtest.py",
+   "id": "z3_0",
+   "script": "zootest.py",
    "args": [
-    "ediacaran",
+    "rat,mouse,cat,monkey,bat,pigeon,archaeo",
     "0"
    ],
    "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
+    "RW": "1280",
+    "RH": "720",
+    "T": "1.0"
    }
   },
   {
-   "id": "w_devonian_sea0",
-   "script": "worldtest.py",
+   "id": "z3_1",
+   "script": "zootest.py",
    "args": [
-    "devonian_sea",
-    "0"
+    "rat,mouse,cat,monkey,bat,pigeon,archaeo",
+    "1"
    ],
    "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
+    "RW": "1280",
+    "RH": "720",
+    "T": "1.0"
    }
   },
   {
-   "id": "w_shallows0",
-   "script": "worldtest.py",
+   "id": "z4_0",
+   "script": "zootest.py",
    "args": [
-    "shallows",
+    "dragonfly,dragonfly2,hallu,trilobite,anomalo,anomalo2",
     "0"
    ],
    "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
+    "RW": "1280",
+    "RH": "720",
+    "T": "1.0"
    }
   },
   {
-   "id": "w_coast0",
-   "script": "worldtest.py",
+   "id": "z4_1",
+   "script": "zootest.py",
    "args": [
-    "coast",
-    "0"
+    "dragonfly,dragonfly2,hallu,trilobite,anomalo,anomalo2",
+    "1"
    ],
    "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
-   }
-  },
-  {
-   "id": "w_impact0",
-   "script": "worldtest.py",
-   "args": [
-    "impact",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
-   }
-  },
-  {
-   "id": "w_cave0",
-   "script": "worldtest.py",
-   "args": [
-    "cave",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
-   }
-  },
-  {
-   "id": "w_space0",
-   "script": "worldtest.py",
-   "args": [
-    "space",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "32",
-    "T": "12"
+    "RW": "1280",
+    "RH": "720",
+    "T": "1.0"
    }
   }
  ]
