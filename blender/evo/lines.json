@@ -1,0 +1,822 @@
+[
+ {
+  "id": "L000",
+  "scene": 1,
+  "who": "teacher",
+  "voice": "kokoro:am_adam",
+  "speed": 0.98,
+  "text": "Alright, class. Today we're going to learn how life evolved on Earth.",
+  "out": "audio/voiceover/evo/L000.wav",
+  "dur": 3.52
+ },
+ {
+  "id": "L001",
+  "scene": 1,
+  "who": "kevin",
+  "voice": "kokoro:am_puck",
+  "speed": 1.0,
+  "text": "Sir, does that mean humans came from dinosaurs?",
+  "out": "audio/voiceover/evo/L001.wav",
+  "dur": 2.41
+ },
+ {
+  "id": "L002",
+  "scene": 1,
+  "who": "teacher",
+  "voice": "kokoro:am_adam",
+  "speed": 0.98,
+  "text": "No, Kevin. And that is exactly why you need to pay attention.",
+  "out": "audio/voiceover/evo/L002.wav",
+  "dur": 3.41
+ },
+ {
+  "id": "L003",
+  "scene": 1,
+  "who": "teacher",
+  "voice": "kokoro:am_adam",
+  "speed": 0.98,
+  "text": "Millions of years ago, this planet belonged to creatures that would make your school principal look terrifyingly friendly.",
+  "out": "audio/voiceover/evo/L003.wav",
+  "dur": 6.21
+ },
+ {
+  "id": "L004",
+  "scene": 1,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "But the story of life didn't begin with dinosaurs. Not even close. To understand how we got here, we need to go back billions of years, to a time when Earth was barely recognizable. And also very rude.",
+  "out": "audio/voiceover/evo/L004.wav",
+  "dur": 12.08
+ },
+ {
+  "id": "L005",
+  "scene": 2,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Earth formed about four point five four billion years ago. And trust me, it was not a five-star holiday destination.",
+  "out": "audio/voiceover/evo/L005.wav",
+  "dur": 6.69
+ },
+ {
+  "id": "L006",
+  "scene": 2,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Imagine a planet covered in volcanoes, constantly bombarded by space rocks, with an atmosphere you could not breathe for even one second. The reviews would just say: \"Would not visit. Too many meteors.\"",
+  "out": "audio/voiceover/evo/L006.wav",
+  "dur": 11.84
+ },
+ {
+  "id": "L007",
+  "scene": 2,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "No beaches. No trees. No Wi-Fi. Just extreme heat and a very serious lack of oxygen.",
+  "out": "audio/voiceover/evo/L007.wav",
+  "dur": 6.04
+ },
+ {
+  "id": "L008",
+  "scene": 2,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "But eventually, something extraordinary happened.",
+  "out": "audio/voiceover/evo/L008.wav",
+  "dur": 2.77
+ },
+ {
+  "id": "L009",
+  "scene": 2,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "By around three point five billion years ago, there is solid evidence that simple life existed on Earth. Not lions. Not sharks. Not even a particularly ambitious goldfish.",
+  "out": "audio/voiceover/evo/L009.wav",
+  "dur": 10.73
+ },
+ {
+  "id": "L010",
+  "scene": 2,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Just tiny organisms, invisible to the naked eye. And these tiny life forms were about to change the entire planet.",
+  "out": "audio/voiceover/evo/L010.wav",
+  "dur": 7.2
+ },
+ {
+  "id": "L011",
+  "scene": 3,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Some organisms developed a remarkable trick: photosynthesis. They used sunlight to make energy, and released oxygen as a byproduct. Basically, the world's first very productive, very smelly garden.",
+  "out": "audio/voiceover/evo/L011.wav",
+  "dur": 12.42
+ },
+ {
+  "id": "L012",
+  "scene": 3,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Over enormous stretches of time, oxygen began piling up in the atmosphere. Around two point four billion years ago this helped trigger one of Earth's biggest transformations: the Great Oxidation Event.",
+  "out": "audio/voiceover/evo/L012.wav",
+  "dur": 11.74
+ },
+ {
+  "id": "L013",
+  "scene": 3,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "In other words, tiny organisms with no brains, no plans and no LinkedIn profiles accidentally rewrote the atmosphere of an entire planet. Some of the older, oxygen-hating life did not take this well.",
+  "out": "audio/voiceover/evo/L013.wav",
+  "dur": 12.76
+ },
+ {
+  "id": "L014",
+  "scene": 3,
+  "who": "teacher",
+  "voice": "kokoro:am_adam",
+  "speed": 0.98,
+  "text": "Remember, class. Sometimes the smallest things make the biggest difference.",
+  "out": "audio/voiceover/evo/L014.wav",
+  "dur": 4.0
+ },
+ {
+  "id": "L015",
+  "scene": 3,
+  "who": "rohan",
+  "voice": "kokoro:am_eric",
+  "speed": 0.88,
+  "text": "Like homework, sir?",
+  "out": "audio/voiceover/evo/L015.wav",
+  "dur": 1.22
+ },
+ {
+  "id": "L016",
+  "scene": 3,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Much later, around two billion years ago, more complex cells evolved. Then cells started teaming up into multicellular organisms. Life was getting complicated, and evolution was experimenting with some seriously strange designs.",
+  "out": "audio/voiceover/evo/L016.wav",
+  "dur": 14.43
+ },
+ {
+  "id": "L017",
+  "scene": 4,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "About five hundred and forty-one million years ago, during the Cambrian Period, animal life exploded in variety. Scientists call it the Cambrian explosion. Which is dramatic, but fair.",
+  "out": "audio/voiceover/evo/L017.wav",
+  "dur": 11.58
+ },
+ {
+  "id": "L018",
+  "scene": 4,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Suddenly, the oceans became a biological playground. A very dangerous playground, with no teachers on duty.",
+  "out": "audio/voiceover/evo/L018.wav",
+  "dur": 6.71
+ },
+ {
+  "id": "L019",
+  "scene": 4,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Some creatures developed eyes. Others developed shells. Some developed spikes. And some looked like evolution designed them after a very long night and a very strange dare.",
+  "out": "audio/voiceover/evo/L019.wav",
+  "dur": 10.23
+ },
+ {
+  "id": "L020",
+  "scene": 4,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Predators and prey were locked in an evolutionary arms race. If you couldn't swim fast, hide well, or defend yourself... well, you were probably somebody's lunch. Possibly a very small lunch.",
+  "out": "audio/voiceover/evo/L020.wav",
+  "dur": 11.06
+ },
+ {
+  "id": "L021",
+  "scene": 4,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Jaws arrived a bit later, and they were a game changer. From here, vertebrates became increasingly successful in the oceans.",
+  "out": "audio/voiceover/evo/L021.wav",
+  "dur": 7.26
+ },
+ {
+  "id": "L022",
+  "scene": 5,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "For billions of years, life had been strictly an underwater affair. Then plants started colonizing the land, followed by animals. Not because the land was nice. Because it was available.",
+  "out": "audio/voiceover/evo/L022.wav",
+  "dur": 10.92
+ },
+ {
+  "id": "L023",
+  "scene": 5,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Then came one of evolution's boldest experiments: vertebrates moving onto land.",
+  "out": "audio/voiceover/evo/L023.wav",
+  "dur": 5.08
+ },
+ {
+  "id": "L024",
+  "scene": 5,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Some ancient fish had thick, fleshy fins with bones inside, great for pushing around in shallow water. Over many generations, their descendants evolved real limbs and became the first four-limbed vertebrates.",
+  "out": "audio/voiceover/evo/L024.wav",
+  "dur": 12.44
+ },
+ {
+  "id": "L025",
+  "scene": 5,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Congratulations, evolution. You invented legs. They don't work yet, but legs!",
+  "out": "audio/voiceover/evo/L025.wav",
+  "dur": 5.08
+ },
+ {
+  "id": "L026",
+  "scene": 5,
+  "who": "priya",
+  "voice": "kokoro:af_nova",
+  "speed": 1.02,
+  "text": "So technically, my legs are ancient fish technology?",
+  "out": "audio/voiceover/evo/L026.wav",
+  "dur": 2.87
+ },
+ {
+  "id": "L027",
+  "scene": 5,
+  "who": "teacher",
+  "voice": "kokoro:am_adam",
+  "speed": 0.98,
+  "text": "That's one way of putting it.",
+  "out": "audio/voiceover/evo/L027.wav",
+  "dur": 1.46
+ },
+ {
+  "id": "L028",
+  "scene": 5,
+  "who": "priya",
+  "voice": "kokoro:af_nova",
+  "speed": 1.02,
+  "text": "I want a refund.",
+  "out": "audio/voiceover/evo/L028.wav",
+  "dur": 1.34
+ },
+ {
+  "id": "L029",
+  "scene": 6,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "But before dinosaurs became the superstars of Earth, our planet went through one of its darkest chapters.",
+  "out": "audio/voiceover/evo/L029.wav",
+  "dur": 5.93
+ },
+ {
+  "id": "L030",
+  "scene": 6,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "About two hundred and fifty-two million years ago, the Permian mass extinction wiped out most marine species and many land animals. It is the closest life has ever come to being deleted.",
+  "out": "audio/voiceover/evo/L030.wav",
+  "dur": 11.44
+ },
+ {
+  "id": "L031",
+  "scene": 6,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Life slowly recovered. And around two hundred and thirty million years ago, the first dinosaurs appeared.",
+  "out": "audio/voiceover/evo/L031.wav",
+  "dur": 5.94
+ },
+ {
+  "id": "L032",
+  "scene": 6,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "At first, dinosaurs weren't the enormous monsters you're imagining. Many were small, agile animals. Think less \"movie monster\", more \"nervous chicken that is somehow your problem\".",
+  "out": "audio/voiceover/evo/L032.wav",
+  "dur": 10.27
+ },
+ {
+  "id": "L033",
+  "scene": 6,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Over millions of years, they diversified into an incredible variety of forms.",
+  "out": "audio/voiceover/evo/L033.wav",
+  "dur": 5.08
+ },
+ {
+  "id": "L034",
+  "scene": 6,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Some became enormous plant-eaters. Others became terrifying predators.",
+  "out": "audio/voiceover/evo/L034.wav",
+  "dur": 4.46
+ },
+ {
+  "id": "L035",
+  "scene": 6,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Quick fun fact: Stegosaurus and T-rex never met. Stegosaurus lived roughly eighty million years before T-rex. That means T-rex lived closer in time to you than to Stegosaurus.",
+  "out": "audio/voiceover/evo/L035.wav",
+  "dur": 11.35
+ },
+ {
+  "id": "L036",
+  "scene": 6,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Welcome to the Mesozoic Era. The age of dinosaurs.",
+  "out": "audio/voiceover/evo/L036.wav",
+  "dur": 3.53
+ },
+ {
+  "id": "L037",
+  "scene": 6,
+  "who": "kevin",
+  "voice": "kokoro:am_puck",
+  "speed": 1.0,
+  "text": "Sir, could we keep one as a class pet?",
+  "out": "audio/voiceover/evo/L037.wav",
+  "dur": 1.73
+ },
+ {
+  "id": "L038",
+  "scene": 6,
+  "who": "teacher",
+  "voice": "kokoro:am_adam",
+  "speed": 0.98,
+  "text": "Kevin, you can't even keep your attendance above fifty percent.",
+  "out": "audio/voiceover/evo/L038.wav",
+  "dur": 3.27
+ },
+ {
+  "id": "L039",
+  "scene": 7,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "For more than a hundred and sixty million years, dinosaurs dominated many land ecosystems. That is a longer reign than any dynasty, empire, or reality TV show in history.",
+  "out": "audio/voiceover/evo/L039.wav",
+  "dur": 11.01
+ },
+ {
+  "id": "L040",
+  "scene": 7,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "And yes, those flying reptiles above them? Pterosaurs. Cousins, not dinosaurs. They hate being mixed up. Very sensitive about it.",
+  "out": "audio/voiceover/evo/L040.wav",
+  "dur": 7.96
+ },
+ {
+  "id": "L041",
+  "scene": 7,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "But here's something even more interesting.",
+  "out": "audio/voiceover/evo/L041.wav",
+  "dur": 2.6
+ },
+ {
+  "id": "L042",
+  "scene": 7,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Not all dinosaurs were covered in scales. Many theropod dinosaurs had feathers or feather-like coverings. Fluffy, but still fully capable of ruining your day.",
+  "out": "audio/voiceover/evo/L042.wav",
+  "dur": 9.69
+ },
+ {
+  "id": "L043",
+  "scene": 7,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "And birds? Birds evolved from small feathered theropod dinosaurs.",
+  "out": "audio/voiceover/evo/L043.wav",
+  "dur": 4.01
+ },
+ {
+  "id": "L044",
+  "scene": 7,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "That's right. The pigeon outside your house is part of the dinosaur family. Yes, the one that stole your sandwich.",
+  "out": "audio/voiceover/evo/L044.wav",
+  "dur": 6.65
+ },
+ {
+  "id": "L045",
+  "scene": 7,
+  "who": "sam",
+  "voice": "kokoro:am_fenrir",
+  "speed": 1.02,
+  "text": "So when a pigeon attacks my food, it's technically a dinosaur attack?",
+  "out": "audio/voiceover/evo/L045.wav",
+  "dur": 3.63
+ },
+ {
+  "id": "L046",
+  "scene": 7,
+  "who": "teacher",
+  "voice": "kokoro:am_adam",
+  "speed": 0.98,
+  "text": "Yes. And unfortunately, the pigeon usually wins.",
+  "out": "audio/voiceover/evo/L046.wav",
+  "dur": 2.81
+ },
+ {
+  "id": "L047",
+  "scene": 8,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "But even the most successful creatures in Earth's history were not invincible.",
+  "out": "audio/voiceover/evo/L047.wav",
+  "dur": 4.31
+ },
+ {
+  "id": "L048",
+  "scene": 8,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "The end of the Cretaceous Period brought one of the most devastating events the history of life has ever seen.",
+  "out": "audio/voiceover/evo/L048.wav",
+  "dur": 6.43
+ },
+ {
+  "id": "L049",
+  "scene": 8,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "An asteroid roughly ten kilometers wide slammed into what is now Mexico's Yucatan Peninsula. For scale, that is a little taller than Mount Everest, traveling at hypersonic speed. Nobody had time to say \"huh\".",
+  "out": "audio/voiceover/evo/L049.wav",
+  "dur": 12.7
+ },
+ {
+  "id": "L050",
+  "scene": 8,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Global ecosystems collapsed. Around three-quarters of Earth's species disappeared. All non-avian dinosaurs went extinct.",
+  "out": "audio/voiceover/evo/L050.wav",
+  "dur": 7.26
+ },
+ {
+  "id": "L051",
+  "scene": 8,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "But not every dinosaur lineage disappeared. Birds survived. They are the living descendants of dinosaurs. Which means dinosaurs technically won, they just downsized.",
+  "out": "audio/voiceover/evo/L051.wav",
+  "dur": 9.47
+ },
+ {
+  "id": "L052",
+  "scene": 8,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "And while the giants were disappearing, another group of animals was about to get a very big opportunity.",
+  "out": "audio/voiceover/evo/L052.wav",
+  "dur": 6.06
+ },
+ {
+  "id": "L053",
+  "scene": 9,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Mammals had existed long before the asteroid arrived. They'd just spent that time hiding, eating bugs, and keeping a low profile. After the extinction, many surviving groups diversified into new ecological roles.",
+  "out": "audio/voiceover/evo/L053.wav",
+  "dur": 12.71
+ },
+ {
+  "id": "L054",
+  "scene": 9,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Over millions of years, mammals spread into forests, oceans, grasslands and skies. Yes, even skies. Bats are mammals. Bats are the proof that evolution gets bored.",
+  "out": "audio/voiceover/evo/L054.wav",
+  "dur": 10.35
+ },
+ {
+  "id": "L055",
+  "scene": 9,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "The planet was changing. And somewhere on the evolutionary tree, our own ancestors were beginning their journey.",
+  "out": "audio/voiceover/evo/L055.wav",
+  "dur": 6.5
+ },
+ {
+  "id": "L056",
+  "scene": 9,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Early primates evolved tens of millions of years ago, developing grasping hands and forward-facing eyes. Perfect for climbing, grabbing fruit, and, eventually, doomscrolling.",
+  "out": "audio/voiceover/evo/L056.wav",
+  "dur": 10.27
+ },
+ {
+  "id": "L057",
+  "scene": 9,
+  "who": "kevin",
+  "voice": "kokoro:am_puck",
+  "speed": 1.0,
+  "text": "So we evolved from monkeys?",
+  "out": "audio/voiceover/evo/L057.wav",
+  "dur": 1.36
+ },
+ {
+  "id": "L058",
+  "scene": 9,
+  "who": "teacher",
+  "voice": "kokoro:am_adam",
+  "speed": 0.98,
+  "text": "No. Humans and modern monkeys share common ancestors. Evolution is a family tree, not a ladder.",
+  "out": "audio/voiceover/evo/L058.wav",
+  "dur": 5.75
+ },
+ {
+  "id": "L059",
+  "scene": 9,
+  "who": "kevin",
+  "voice": "kokoro:am_puck",
+  "speed": 1.0,
+  "text": "So we're cousins?",
+  "out": "audio/voiceover/evo/L059.wav",
+  "dur": 0.84
+ },
+ {
+  "id": "L060",
+  "scene": 9,
+  "who": "teacher",
+  "voice": "kokoro:am_adam",
+  "speed": 0.98,
+  "text": "Very distant cousins. Now please stop asking whether you can bring a T-rex to school.",
+  "out": "audio/voiceover/evo/L060.wav",
+  "dur": 4.71
+ },
+ {
+  "id": "L061",
+  "scene": 10,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Several million years ago, the branch of the evolutionary tree leading toward humans split from the branch leading to our closest living relatives: chimpanzees and bonobos. Awkward family reunion, still pending.",
+  "out": "audio/voiceover/evo/L061.wav",
+  "dur": 12.53
+ },
+ {
+  "id": "L062",
+  "scene": 10,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "And human evolution was not a straight line. It was a messy, branching family tree with lots of different species, a few of which probably gave up on the group chat early.",
+  "out": "audio/voiceover/evo/L062.wav",
+  "dur": 9.98
+ },
+ {
+  "id": "L063",
+  "scene": 10,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Some early human relatives walked on two legs. This freed their hands, which would turn out to be a very big deal.",
+  "out": "audio/voiceover/evo/L063.wav",
+  "dur": 6.72
+ },
+ {
+  "id": "L064",
+  "scene": 10,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Later, members of the genus Homo built increasingly complex tools and spread into new environments.",
+  "out": "audio/voiceover/evo/L064.wav",
+  "dur": 6.05
+ },
+ {
+  "id": "L065",
+  "scene": 10,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Neanderthals, our close cousins, lived alongside our ancestors for a while. They're gone now, but many people today still carry a little Neanderthal DNA. So technically, they're still at the family barbecue.",
+  "out": "audio/voiceover/evo/L065.wav",
+  "dur": 12.38
+ },
+ {
+  "id": "L066",
+  "scene": 10,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Modern humans, Homo sapiens, appeared in Africa around three hundred thousand years ago.",
+  "out": "audio/voiceover/evo/L066.wav",
+  "dur": 5.68
+ },
+ {
+  "id": "L067",
+  "scene": 10,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "We developed language, cooperation, culture and increasingly clever technology. We learned to farm, build cities, create civilizations and explore the world well beyond our immediate surroundings.",
+  "out": "audio/voiceover/evo/L067.wav",
+  "dur": 11.72
+ },
+ {
+  "id": "L068",
+  "scene": 10,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Not bad for a species that started out by throwing rocks at things.",
+  "out": "audio/voiceover/evo/L068.wav",
+  "dur": 3.92
+ },
+ {
+  "id": "L069",
+  "scene": 11,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "From stone tools to smartphones. From hunting in forests to ordering food from an app, and then complaining the app is slow.",
+  "out": "audio/voiceover/evo/L069.wav",
+  "dur": 7.2
+ },
+ {
+  "id": "L070",
+  "scene": 11,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "After billions of years of evolution, nature produced a species capable of sending rockets into space...",
+  "out": "audio/voiceover/evo/L070.wav",
+  "dur": 6.59
+ },
+ {
+  "id": "L071",
+  "scene": 11,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "...and that species then used its giant brain to watch videos of cats falling off tables.",
+  "out": "audio/voiceover/evo/L071.wav",
+  "dur": 5.34
+ },
+ {
+  "id": "L072",
+  "scene": 11,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "But here's the important part: evolution didn't stop when humans appeared.",
+  "out": "audio/voiceover/evo/L072.wav",
+  "dur": 4.31
+ },
+ {
+  "id": "L073",
+  "scene": 11,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Life continues to change. Populations adapt. Natural selection keeps going. And the world around us keeps changing too.",
+  "out": "audio/voiceover/evo/L073.wav",
+  "dur": 7.49
+ },
+ {
+  "id": "L074",
+  "scene": 12,
+  "who": "teacher",
+  "voice": "kokoro:am_adam",
+  "speed": 0.98,
+  "text": "So, class. That's the story of evolution.",
+  "out": "audio/voiceover/evo/L074.wav",
+  "dur": 2.2
+ },
+ {
+  "id": "L075",
+  "scene": 12,
+  "who": "kevin",
+  "voice": "kokoro:am_puck",
+  "speed": 1.0,
+  "text": "Sir... after all those billions of years, volcanoes, dinosaurs, asteroids and evolution...",
+  "out": "audio/voiceover/evo/L075.wav",
+  "dur": 5.16
+ },
+ {
+  "id": "L076",
+  "scene": 12,
+  "who": "teacher",
+  "voice": "kokoro:am_adam",
+  "speed": 0.98,
+  "text": "Yes?",
+  "out": "audio/voiceover/evo/L076.wav",
+  "dur": 0.6
+ },
+ {
+  "id": "L077",
+  "scene": 12,
+  "who": "kevin",
+  "voice": "kokoro:am_puck",
+  "speed": 1.0,
+  "text": "We still have to do homework?",
+  "out": "audio/voiceover/evo/L077.wav",
+  "dur": 1.35
+ },
+ {
+  "id": "L078",
+  "scene": 12,
+  "who": "teacher",
+  "voice": "kokoro:am_adam",
+  "speed": 0.98,
+  "text": "Evolution made you smarter. It didn't make you exempt from homework.",
+  "out": "audio/voiceover/evo/L078.wav",
+  "dur": 3.62
+ },
+ {
+  "id": "L079",
+  "scene": 12,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "From microscopic organisms to dinosaurs, from tiny mammals to humans, life has taken an unbelievable journey. Billions of years of change brought us here.",
+  "out": "audio/voiceover/evo/L079.wav",
+  "dur": 9.44
+ },
+ {
+  "id": "L080",
+  "scene": 12,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "And who knows what evolution has planned next?",
+  "out": "audio/voiceover/evo/L080.wav",
+  "dur": 2.71
+ },
+ {
+  "id": "L081",
+  "scene": 12,
+  "who": "narrator",
+  "voice": "kokoro:bm_george",
+  "speed": 1.1,
+  "text": "Because the story of life is far from over.",
+  "out": "audio/voiceover/evo/L081.wav",
+  "dur": 2.8
+ }
+]

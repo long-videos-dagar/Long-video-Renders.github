@@ -2,7 +2,7 @@
  "fps": 24,
  "w": 1920,
  "h": 1080,
- "total": 790.87,
+ "total": 686.77,
  "voice": "voice.wav",
  "trans": {},
  "subs": [],
@@ -27,7 +27,7 @@
    "id": "c03",
    "world": "classroom",
    "t0": 6.6,
-   "dur": 5.32,
+   "dur": 4.37,
    "desc": "teacher turns around, already tired: Alright class...",
    "lines": [
     "L000"
@@ -36,8 +36,8 @@
   {
    "id": "c04",
    "world": "classroom",
-   "t0": 11.92,
-   "dur": 4.02,
+   "t0": 10.97,
+   "dur": 3.26,
    "desc": "Kevin raises his hand, confident: does that mean humans came from dinosaurs?",
    "lines": [
     "L001"
@@ -46,7 +46,7 @@
   {
    "id": "c05",
    "world": "classroom",
-   "t0": 15.94,
+   "t0": 14.23,
    "dur": 2.6,
    "desc": "teacher slowly removes his glasses. silence. a cricket gives up",
    "lines": []
@@ -54,8 +54,8 @@
   {
    "id": "c06",
    "world": "classroom",
-   "t0": 18.54,
-   "dur": 5.13,
+   "t0": 16.83,
+   "dur": 4.26,
    "desc": "teacher: No, Kevin...",
    "lines": [
     "L002"
@@ -64,7 +64,7 @@
   {
    "id": "c07",
    "world": "classroom",
-   "t0": 23.67,
+   "t0": 21.09,
    "dur": 2.2,
    "desc": "students laugh; Kevin laughs a second late",
    "lines": []
@@ -72,7 +72,7 @@
   {
    "id": "c08",
    "world": "classroom",
-   "t0": 25.87,
+   "t0": 23.29,
    "dur": 2.6,
    "desc": "teacher draws a big chalk T-rex - annoyingly good",
    "lines": []
@@ -80,8 +80,8 @@
   {
    "id": "c09",
    "world": "classroom",
-   "t0": 28.47,
-   "dur": 7.97,
+   "t0": 25.89,
+   "dur": 7.06,
    "desc": "teacher: millions of years ago this planet belonged to creatures...",
    "lines": [
     "L003"
@@ -90,7 +90,7 @@
   {
    "id": "c10",
    "world": "classroom",
-   "t0": 36.44,
+   "t0": 32.95,
    "dur": 3.6,
    "desc": "slow push toward the chalk dinosaur; Kevin stares; the chalk eye BLINKS",
    "lines": []
@@ -98,7 +98,7 @@
   {
    "id": "c11",
    "world": "classroom",
-   "t0": 40.04,
+   "t0": 36.55,
    "dur": 2.8,
    "desc": "Kevin looks at the teacher (not looking), back at the board: it blinks again",
    "lines": []
@@ -106,8 +106,8 @@
   {
    "id": "c12",
    "world": "classroom",
-   "t0": 42.84,
-   "dur": 14.7,
+   "t0": 39.35,
+   "dur": 12.93,
    "desc": "sounds fade; narrator; camera pushes INTO the board, chalk dust turns into real dinosaur skin",
    "lines": [
     "L004"
@@ -116,7 +116,7 @@
   {
    "id": "c13",
    "world": "young_earth",
-   "t0": 57.54,
+   "t0": 52.28,
    "dur": 3.0,
    "desc": "ROAR. the camera flies through the dinosaur eye and comes out over a lava-covered planet",
    "lines": []
@@ -124,8 +124,8 @@
   {
    "id": "e01",
    "world": "young_earth",
-   "t0": 60.54,
-   "dur": 8.88,
+   "t0": 55.28,
+   "dur": 7.54,
    "desc": "drone sweep over the hostile young Earth: volcanoes, lava, boiling sea, orange clouds",
    "lines": [
     "L005"
@@ -134,8 +134,8 @@
   {
    "id": "e02",
    "world": "young_earth",
-   "t0": 69.42,
-   "dur": 14.4,
+   "t0": 62.82,
+   "dur": 12.69,
    "desc": "meteors hammer the surface, volcanoes erupt",
    "lines": [
     "L006"
@@ -144,7 +144,7 @@
   {
    "id": "e03",
    "world": "young_earth",
-   "t0": 83.82,
+   "t0": 75.51,
    "dur": 2.2,
    "desc": "a meteor crashes into the ocean - huge splash",
    "lines": []
@@ -152,8 +152,8 @@
   {
    "id": "e04",
    "world": "young_earth",
-   "t0": 86.02,
-   "dur": 10.18,
+   "t0": 77.71,
+   "dur": 8.89,
    "desc": "cartoon guy in a tiny beach chair, sunglasses, sipping a drink while lava rains; the drink catches fire, he keeps sipping",
    "lines": [
     "L007"
@@ -162,8 +162,8 @@
   {
    "id": "e05",
    "world": "young_earth",
-   "t0": 96.2,
-   "dur": 4.47,
+   "t0": 86.6,
+   "dur": 3.62,
    "desc": "time-lapse: the planet cools, the oceans settle",
    "lines": [
     "L008"
@@ -172,7 +172,7 @@
   {
    "id": "e06",
    "world": "microbes",
-   "t0": 100.67,
+   "t0": 90.22,
    "dur": 2.0,
    "desc": "the camera dives beneath the ocean surface",
    "lines": []
@@ -180,8 +180,8 @@
   {
    "id": "e07",
    "world": "microbes",
-   "t0": 102.67,
-   "dur": 13.4,
+   "t0": 92.22,
+   "dur": 11.58,
    "desc": "microscopic world: bacteria drifting in ancient water",
    "lines": [
     "L009"
@@ -190,8 +190,8 @@
   {
    "id": "e08",
    "world": "microbes",
-   "t0": 116.07,
-   "dur": 9.38,
+   "t0": 103.8,
+   "dur": 8.05,
    "desc": "one bumps into another. neither apologizes",
    "lines": [
     "L010"
@@ -200,8 +200,8 @@
   {
    "id": "m01",
    "world": "shallows",
-   "t0": 125.45,
-   "dur": 14.92,
+   "t0": 111.85,
+   "dur": 13.27,
    "desc": "cyanobacteria mats soaking up sunlight in shallow water, looking pleased",
    "lines": [
     "L011"
@@ -210,8 +210,8 @@
   {
    "id": "m02",
    "world": "shallows",
-   "t0": 140.37,
-   "dur": 14.4,
+   "t0": 125.12,
+   "dur": 12.59,
    "desc": "oxygen bubbles rising from the microbial mats, sky slowly turning blue",
    "lines": [
     "L012"
@@ -220,8 +220,8 @@
   {
    "id": "m03",
    "world": "shallows",
-   "t0": 154.77,
-   "dur": 15.6,
+   "t0": 137.71,
+   "dur": 13.61,
    "desc": "the screen fills with oxygen molecules; oxygen-hating microbes shrivel",
    "lines": [
     "L013"
@@ -230,8 +230,8 @@
   {
    "id": "m04",
    "world": "classroom",
-   "t0": 170.37,
-   "dur": 5.7,
+   "t0": 151.32,
+   "dur": 4.85,
    "desc": "classroom: teacher - the smallest things make the biggest difference",
    "lines": [
     "L014"
@@ -240,8 +240,8 @@
   {
    "id": "m05",
    "world": "classroom",
-   "t0": 176.07,
-   "dur": 4.8,
+   "t0": 156.17,
+   "dur": 4.27,
    "desc": "Rohan wakes up: Like homework, sir? teacher stares; Rohan slowly lowers his head back onto the desk",
    "lines": [
     "L015"
@@ -250,8 +250,8 @@
   {
    "id": "m06",
    "world": "ediacaran",
-   "t0": 180.87,
-   "dur": 17.53,
+   "t0": 160.44,
+   "dur": 15.28,
    "desc": "cells clump into multicellular life; Dickinsonia - a pancake and a pillow had a baby",
    "lines": [
     "L016"
@@ -260,8 +260,8 @@
   {
    "id": "k01",
    "world": "cambrian",
-   "t0": 198.4,
-   "dur": 14.13,
+   "t0": 175.72,
+   "dur": 12.43,
    "desc": "the camera races through a crowded ancient ocean - the Cambrian explosion",
    "lines": [
     "L017"
@@ -270,8 +270,8 @@
   {
    "id": "k02",
    "world": "cambrian",
-   "t0": 212.53,
-   "dur": 8.77,
+   "t0": 188.15,
+   "dur": 7.56,
    "desc": "trilobites, Hallucigenia, sponges: a dangerous playground",
    "lines": [
     "L018"
@@ -280,8 +280,8 @@
   {
    "id": "k03",
    "world": "cambrian",
-   "t0": 221.3,
-   "dur": 12.63,
+   "t0": 195.71,
+   "dur": 11.08,
    "desc": "Anomalocaris swims straight toward the camera",
    "lines": [
     "L019"
@@ -290,7 +290,7 @@
   {
    "id": "k04",
    "world": "cambrian",
-   "t0": 233.93,
+   "t0": 206.79,
    "dur": 2.6,
    "desc": "Anomalocaris opens its mouth; a tiny cartoon fish gasps and reverses at top speed",
    "lines": []
@@ -298,8 +298,8 @@
   {
    "id": "k05",
    "world": "cambrian",
-   "t0": 236.53,
-   "dur": 13.67,
+   "t0": 209.39,
+   "dur": 11.91,
    "desc": "arms race: predators chase, prey hides",
    "lines": [
     "L020"
@@ -308,8 +308,8 @@
   {
    "id": "k06",
    "world": "devonian_sea",
-   "t0": 250.2,
-   "dur": 9.35,
+   "t0": 221.3,
+   "dur": 8.11,
    "desc": "a fish with brand-new jaws looks proud and bites the nearest rock",
    "lines": [
     "L021"
@@ -318,8 +318,8 @@
   {
    "id": "l01",
    "world": "coast",
-   "t0": 259.55,
-   "dur": 13.5,
+   "t0": 229.41,
+   "dur": 11.77,
    "desc": "the camera rises out of the water to a coastline carpeted with early plants",
    "lines": [
     "L022"
@@ -328,8 +328,8 @@
   {
    "id": "l02",
    "world": "coast",
-   "t0": 273.05,
-   "dur": 6.97,
+   "t0": 241.18,
+   "dur": 5.93,
    "desc": "early land arthropods crawl across the rocks",
    "lines": [
     "L023"
@@ -338,8 +338,8 @@
   {
    "id": "l03",
    "world": "coast",
-   "t0": 280.02,
-   "dur": 15.4,
+   "t0": 247.11,
+   "dur": 13.29,
    "desc": "a lobe-finned fish paddles in the shallows on thick fleshy fins",
    "lines": [
     "L024"
@@ -348,8 +348,8 @@
   {
    "id": "l04",
    "world": "coast",
-   "t0": 295.42,
-   "dur": 7.0,
+   "t0": 260.4,
+   "dur": 5.93,
    "desc": "Tiktaalik hauls itself through the mud, gets stuck, stares at the camera",
    "lines": [
     "L025"
@@ -358,8 +358,8 @@
   {
    "id": "l05",
    "world": "classroom",
-   "t0": 302.42,
-   "dur": 9.73,
+   "t0": 266.33,
+   "dur": 7.22,
    "desc": "classroom: Priya - ancient fish technology? I want a refund",
    "lines": [
     "L026",
@@ -370,8 +370,8 @@
   {
    "id": "p01",
    "world": "permian",
-   "t0": 312.15,
-   "dur": 8.07,
+   "t0": 273.55,
+   "dur": 6.78,
    "desc": "a lush ancient forest; timeline slam: 252 MILLION YEARS AGO - PERMIAN MASS EXTINCTION",
    "lines": [
     "L029"
@@ -380,8 +380,8 @@
   {
    "id": "p02",
    "world": "permian",
-   "t0": 320.22,
-   "dur": 14.03,
+   "t0": 280.33,
+   "dur": 12.29,
    "desc": "volcanic eruptions, collapsing ecosystems, a changing climate",
    "lines": [
     "L030"
@@ -390,7 +390,7 @@
   {
    "id": "p03",
    "world": "black",
-   "t0": 334.25,
+   "t0": 292.62,
    "dur": 2.2,
    "desc": "fade to black. silence",
    "lines": []
@@ -398,8 +398,8 @@
   {
    "id": "p04",
    "world": "triassic",
-   "t0": 336.45,
-   "dur": 8.05,
+   "t0": 294.82,
+   "dur": 6.79,
    "desc": "a new ecosystem fades in",
    "lines": [
     "L031"
@@ -408,8 +408,8 @@
   {
    "id": "p05",
    "world": "triassic",
-   "t0": 344.5,
-   "dur": 12.8,
+   "t0": 301.61,
+   "dur": 11.12,
    "desc": "small early dinosaurs dart through the forest - nervous chickens",
    "lines": [
     "L032"
@@ -418,8 +418,8 @@
   {
    "id": "p06",
    "world": "jurassic",
-   "t0": 357.3,
-   "dur": 7.15,
+   "t0": 312.73,
+   "dur": 5.93,
    "desc": "time-lapse across Triassic, Jurassic, Cretaceous: dinosaurs grow bigger",
    "lines": [
     "L033"
@@ -428,8 +428,8 @@
   {
    "id": "p07",
    "world": "jurassic",
-   "t0": 364.45,
-   "dur": 6.47,
+   "t0": 318.66,
+   "dur": 5.31,
    "desc": "a giant sauropod walks through the forest; the ground shakes; birds scatter",
    "lines": [
     "L034"
@@ -438,8 +438,8 @@
   {
    "id": "p08",
    "world": "jurassic",
-   "t0": 370.92,
-   "dur": 14.0,
+   "t0": 323.97,
+   "dur": 12.2,
    "desc": "Stegosaurus in a Jurassic forest; then Triceratops and a T-rex in a later Cretaceous landscape",
    "lines": [
     "L035"
@@ -448,7 +448,7 @@
   {
    "id": "p09",
    "world": "split",
-   "t0": 384.92,
+   "t0": 336.17,
    "dur": 3.0,
    "desc": "split screen across a gap in time: the Stegosaurus waves goodbye; the T-rex has no idea who he is",
    "lines": []
@@ -456,8 +456,8 @@
   {
    "id": "p10",
    "world": "cretaceous",
-   "t0": 387.92,
-   "dur": 5.3,
+   "t0": 339.17,
+   "dur": 4.38,
    "desc": "Mesozoic panorama",
    "lines": [
     "L036"
@@ -466,7 +466,7 @@
   {
    "id": "p11",
    "world": "cretaceous",
-   "t0": 393.22,
+   "t0": 343.55,
    "dur": 2.6,
    "desc": "T-rex roars directly into the camera",
    "lines": []
@@ -474,8 +474,8 @@
   {
    "id": "p12",
    "world": "classroom",
-   "t0": 395.82,
-   "dur": 7.74,
+   "t0": 346.15,
+   "dur": 6.2,
    "desc": "classroom: Kevin - class pet? teacher - attendance above fifty percent",
    "lines": [
     "L037",
@@ -485,8 +485,8 @@
   {
    "id": "d01",
    "world": "jurassic",
-   "t0": 403.56,
-   "dur": 13.55,
+   "t0": 352.35,
+   "dur": 11.86,
    "desc": "drone: a herd of enormous sauropods crosses a valley",
    "lines": [
     "L039"
@@ -495,8 +495,8 @@
   {
    "id": "d02",
    "world": "coast_cretaceous",
-   "t0": 417.11,
-   "dur": 10.0,
+   "t0": 364.21,
+   "dur": 8.81,
    "desc": "pterosaurs glide over the coastline; caption NOT A DINOSAUR",
    "lines": [
     "L040"
@@ -505,8 +505,8 @@
   {
    "id": "d03",
    "world": "cretaceous",
-   "t0": 427.11,
-   "dur": 4.37,
+   "t0": 373.02,
+   "dur": 3.45,
    "desc": "a pack of small theropods sprints through a forest; a T-rex hunts",
    "lines": [
     "L041"
@@ -515,8 +515,8 @@
   {
    "id": "d04",
    "world": "cretaceous",
-   "t0": 431.48,
-   "dur": 12.0,
+   "t0": 376.47,
+   "dur": 10.54,
    "desc": "a feathered dinosaur shakes out its feathers like a wet dog",
    "lines": [
     "L042"
@@ -525,8 +525,8 @@
   {
    "id": "d05",
    "world": "cretaceous",
-   "t0": 443.48,
-   "dur": 13.98,
+   "t0": 387.01,
+   "dur": 11.86,
    "desc": "a small bird lands on a giant dinosaur head; the dinosaur does not react",
    "lines": [
     "L043",
@@ -536,8 +536,8 @@
   {
    "id": "d06",
    "world": "classroom",
-   "t0": 457.46,
-   "dur": 9.25,
+   "t0": 398.87,
+   "dur": 7.64,
    "desc": "classroom: Sam - pigeon attack? teacher - the pigeon usually wins",
    "lines": [
     "L045",
@@ -547,8 +547,8 @@
   {
    "id": "a01",
    "world": "cretaceous",
-   "t0": 466.71,
-   "dur": 6.1,
+   "t0": 406.51,
+   "dur": 5.16,
    "desc": "peaceful Cretaceous: dinosaurs graze, a dragonfly lands on a Triceratops",
    "lines": [
     "L047"
@@ -557,8 +557,8 @@
   {
    "id": "a02",
    "world": "cretaceous",
-   "t0": 472.81,
-   "dur": 8.4,
+   "t0": 411.67,
+   "dur": 7.28,
    "desc": "a bright dot appears in the sky - slow cinematic zoom",
    "lines": [
     "L048"
@@ -567,7 +567,7 @@
   {
    "id": "a03",
    "world": "impact",
-   "t0": 481.21,
+   "t0": 418.95,
    "dur": 2.8,
    "desc": "the asteroid enters the atmosphere; the sky glows orange; white flash",
    "lines": []
@@ -575,8 +575,8 @@
   {
    "id": "a04",
    "world": "impact",
-   "t0": 484.01,
-   "dur": 15.3,
+   "t0": 421.75,
+   "dur": 13.55,
    "desc": "impact: fireball, shockwave, earthquakes, a wall of dust",
    "lines": [
     "L049"
@@ -585,8 +585,8 @@
   {
    "id": "a05",
    "world": "impact",
-   "t0": 499.31,
-   "dur": 9.65,
+   "t0": 435.3,
+   "dur": 8.11,
    "desc": "forests burn, the sky goes dark, dinosaurs struggle in the cold",
    "lines": [
     "L050"
@@ -595,8 +595,8 @@
   {
    "id": "a06",
    "world": "impact",
-   "t0": 508.96,
-   "dur": 12.17,
+   "t0": 443.41,
+   "dur": 10.32,
    "desc": "a bird flies calmly out of the smoke",
    "lines": [
     "L051"
@@ -605,8 +605,8 @@
   {
    "id": "a07",
    "world": "impact",
-   "t0": 521.13,
-   "dur": 8.0,
+   "t0": 453.73,
+   "dur": 6.91,
    "desc": "the camera pans down through the smoke to a tiny mammal under fallen leaves, blinking",
    "lines": [
     "L052"
@@ -615,8 +615,8 @@
   {
    "id": "n01",
    "world": "paleogene",
-   "t0": 529.13,
-   "dur": 15.75,
+   "t0": 460.64,
+   "dur": 13.56,
    "desc": "small early mammals scurry through the forest",
    "lines": [
     "L053"
@@ -625,8 +625,8 @@
   {
    "id": "n02",
    "world": "paleogene",
-   "t0": 544.88,
-   "dur": 12.92,
+   "t0": 474.2,
+   "dur": 11.2,
    "desc": "mammals spread: grasslands, oceans, bats in the sky",
    "lines": [
     "L054"
@@ -635,7 +635,7 @@
   {
    "id": "n03",
    "world": "paleogene",
-   "t0": 557.8,
+   "t0": 485.4,
    "dur": 3.0,
    "desc": "a tiny mammal looks up at a giant dinosaur skeleton, checks both ways, walks off with confidence",
    "lines": []
@@ -643,8 +643,8 @@
   {
    "id": "n04",
    "world": "paleogene",
-   "t0": 560.8,
-   "dur": 20.98,
+   "t0": 488.4,
+   "dur": 17.97,
    "desc": "an ancient primate climbs a tree, grasping hands, forward-facing eyes",
    "lines": [
     "L055",
@@ -654,8 +654,8 @@
   {
    "id": "n05",
    "world": "classroom",
-   "t0": 581.78,
-   "dur": 17.82,
+   "t0": 506.37,
+   "dur": 14.56,
    "desc": "classroom: Kevin - monkeys? cousins? teacher - stop asking about the T-rex",
    "lines": [
     "L057",
@@ -667,8 +667,8 @@
   {
    "id": "h01",
    "world": "savanna",
-   "t0": 599.6,
-   "dur": 15.38,
+   "t0": 520.93,
+   "dur": 13.38,
    "desc": "a primate in the forest transitions across millions of years to the African savanna",
    "lines": [
     "L061"
@@ -677,8 +677,8 @@
   {
    "id": "h02",
    "world": "savanna",
-   "t0": 614.98,
-   "dur": 12.53,
+   "t0": 534.31,
+   "dur": 10.83,
    "desc": "a branching family tree of hominins",
    "lines": [
     "L062"
@@ -687,8 +687,8 @@
   {
    "id": "h03",
    "world": "savanna",
-   "t0": 627.51,
-   "dur": 8.8,
+   "t0": 545.14,
+   "dur": 7.57,
    "desc": "Australopithecus walks upright across the savanna",
    "lines": [
     "L063"
@@ -697,8 +697,8 @@
   {
    "id": "h04",
    "world": "savanna",
-   "t0": 636.31,
-   "dur": 8.2,
+   "t0": 552.71,
+   "dur": 6.9,
    "desc": "early Homo knapping stone tools",
    "lines": [
     "L064"
@@ -707,8 +707,8 @@
   {
    "id": "h05",
    "world": "cave",
-   "t0": 644.51,
-   "dur": 14.85,
+   "t0": 559.61,
+   "dur": 13.23,
    "desc": "a Neanderthal gives a thumbs-up from a cave",
    "lines": [
     "L065"
@@ -717,8 +717,8 @@
   {
    "id": "h06",
    "world": "savanna",
-   "t0": 659.36,
-   "dur": 7.77,
+   "t0": 572.84,
+   "dur": 6.53,
    "desc": "early Homo sapiens appear",
    "lines": [
     "L066"
@@ -727,8 +727,8 @@
   {
    "id": "h07",
    "world": "cave",
-   "t0": 667.13,
-   "dur": 14.4,
+   "t0": 579.37,
+   "dur": 12.57,
    "desc": "humans making tools, hunting, communicating, painting animals on a cave wall",
    "lines": [
     "L067"
@@ -737,8 +737,8 @@
   {
    "id": "h08",
    "world": "city",
-   "t0": 681.53,
-   "dur": 5.77,
+   "t0": 591.94,
+   "dur": 4.77,
    "desc": "ancient settlements transform into modern cities",
    "lines": [
     "L068"
@@ -747,8 +747,8 @@
   {
    "id": "t01",
    "world": "city",
-   "t0": 687.3,
-   "dur": 9.53,
+   "t0": 596.71,
+   "dur": 8.05,
    "desc": "time-lapse: stone tools to metal, villages to cities to skyscrapers",
    "lines": [
     "L069"
@@ -757,7 +757,7 @@
   {
    "id": "t02",
    "world": "cave",
-   "t0": 696.83,
+   "t0": 604.76,
    "dur": 4.2,
    "desc": "a caveman pokes a smartphone; it lights up; he screams, throws it, then slowly picks it back up",
    "lines": []
@@ -765,8 +765,8 @@
   {
    "id": "t03",
    "world": "space",
-   "t0": 701.03,
-   "dur": 8.57,
+   "t0": 608.96,
+   "dur": 7.44,
    "desc": "a rocket launches into space",
    "lines": [
     "L070"
@@ -775,8 +775,8 @@
   {
    "id": "t04",
    "world": "livingroom",
-   "t0": 709.6,
-   "dur": 7.35,
+   "t0": 616.4,
+   "dur": 6.19,
    "desc": "a human on a sofa scrolling, dead-eyed; a cat falls off a table on the phone",
    "lines": [
     "L071"
@@ -785,7 +785,7 @@
   {
    "id": "t05",
    "world": "montage",
-   "t0": 716.95,
+   "t0": 622.59,
    "dur": 3.0,
    "desc": "montage: medicine, satellites, space - then a cat falls off a table; the human laughs",
    "lines": []
@@ -793,8 +793,8 @@
   {
    "id": "t06",
    "world": "savanna",
-   "t0": 719.95,
-   "dur": 6.2,
+   "t0": 625.59,
+   "dur": 5.16,
    "desc": "evolution did not stop",
    "lines": [
     "L072"
@@ -803,8 +803,8 @@
   {
    "id": "t07",
    "world": "montage",
-   "t0": 726.15,
-   "dur": 9.75,
+   "t0": 630.75,
+   "dur": 8.34,
    "desc": "life keeps changing: populations adapt",
    "lines": [
     "L073"
@@ -813,7 +813,7 @@
   {
    "id": "b01",
    "world": "classroom",
-   "t0": 735.9,
+   "t0": 639.09,
    "dur": 3.0,
    "desc": "the camera flies backward through the dinosaur eye; it becomes chalk; Kevin staring, mouth open",
    "lines": []
@@ -821,8 +821,8 @@
   {
    "id": "b02",
    "world": "classroom",
-   "t0": 738.9,
-   "dur": 4.87,
+   "t0": 642.09,
+   "dur": 4.05,
    "desc": "teacher: so, class...",
    "lines": [
     "L074"
@@ -831,8 +831,8 @@
   {
    "id": "b03",
    "world": "classroom",
-   "t0": 743.77,
-   "dur": 10.88,
+   "t0": 646.14,
+   "dur": 8.66,
    "desc": "Kevin: we still have to do homework?",
    "lines": [
     "L075",
@@ -843,7 +843,7 @@
   {
    "id": "b04",
    "world": "classroom",
-   "t0": 754.65,
+   "t0": 654.8,
    "dur": 3.0,
    "desc": "the teacher drops an enormous stack of notebooks; the room shakes; a pencil rolls off",
    "lines": []
@@ -851,8 +851,8 @@
   {
    "id": "b05",
    "world": "classroom",
-   "t0": 757.65,
-   "dur": 5.32,
+   "t0": 657.8,
+   "dur": 4.47,
    "desc": "teacher: evolution did not make you exempt from homework",
    "lines": [
     "L078"
@@ -861,7 +861,7 @@
   {
    "id": "b06",
    "world": "classroom",
-   "t0": 762.97,
+   "t0": 662.27,
    "dur": 3.0,
    "desc": "the class groans; Rohan wakes, sees the stack, goes back to sleep out of principle",
    "lines": []
@@ -869,8 +869,8 @@
   {
    "id": "b07",
    "world": "classroom",
-   "t0": 765.97,
-   "dur": 11.9,
+   "t0": 665.27,
+   "dur": 10.29,
    "desc": "narrator over the class",
    "lines": [
     "L079"
@@ -879,8 +879,8 @@
   {
    "id": "b08",
    "world": "space",
-   "t0": 777.87,
-   "dur": 8.5,
+   "t0": 675.56,
+   "dur": 6.71,
    "desc": "the camera pulls out through the classroom window: Earth from space, calm and blue",
    "lines": [
     "L080",
@@ -890,7 +890,7 @@
   {
    "id": "b09",
    "world": "space",
-   "t0": 786.37,
+   "t0": 682.27,
    "dur": 4.5,
    "desc": "END CARD: LIFE IS STILL EVOLVING. (And so is Kevin's homework.)",
    "lines": []

@@ -130,4 +130,4 @@ def build(lines_json, out_dir):
 
 
 if __name__ == '__main__':
-    build(sys.argv[1], os.path.dirname(os.path.abspath(__file__)))
+    build(sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lines.json'), os.path.dirname(os.path.abspath(__file__)))
