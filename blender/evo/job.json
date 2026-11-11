@@ -1,91 +1,16 @@
 {
- "rev": 18,
- "mode": "tasks",
- "tasks": [
-  {
-   "id": "m_base",
-   "script": "worldtest.py",
-   "args": [
-    "cretaceous",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "1920",
-    "RH": "1080",
-    "SAMPLES": "8",
-    "T": "3",
-    "NOFOG": "1"
-   }
-  },
-  {
-   "id": "m_nowind",
-   "script": "worldtest.py",
-   "args": [
-    "cretaceous",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "1920",
-    "RH": "1080",
-    "SAMPLES": "8",
-    "T": "3",
-    "NOFOG": "1",
-    "NOWIND": "1"
-   }
-  },
-  {
-   "id": "m_nounder",
-   "script": "worldtest.py",
-   "args": [
-    "cretaceous",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "1920",
-    "RH": "1080",
-    "SAMPLES": "8",
-    "T": "3",
-    "NOFOG": "1",
-    "NOUNDER": "1"
-   }
-  },
-  {
-   "id": "m_notrees",
-   "script": "worldtest.py",
-   "args": [
-    "cretaceous",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "1920",
-    "RH": "1080",
-    "SAMPLES": "8",
-    "T": "3",
-    "NOFOG": "1",
-    "NOTREES": "1"
-   }
-  },
-  {
-   "id": "m_ph512",
-   "script": "worldtest.py",
-   "args": [
-    "cretaceous",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "1920",
-    "RH": "1080",
-    "SAMPLES": "8",
-    "T": "3",
-    "NOFOG": "1",
-    "PH_RES": "1k",
-    "PH_MODEL_RES": "1k"
-   }
-  }
- ]
+ "rev": 19,
+ "mode": "video",
+ "only": "c01,c02,c03,c04,c05,c06,c07,c08,c09,c10,c11,c12,m04,m05,l05,p12,d06,n05,b01,b02,b03,b04,b05,b06,b07",
+ "chunk": 24,
+ "handle": 0.25,
+ "env": {
+  "RW": "1920",
+  "RH": "1080",
+  "SAMPLES": "32",
+  "ADAPT": ".02"
+ },
+ "w": 1920,
+ "h": 1080,
+ "samples": 32
 }
