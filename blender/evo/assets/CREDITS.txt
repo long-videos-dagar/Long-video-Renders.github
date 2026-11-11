@@ -1,0 +1,3 @@
+3D model credits (Creative Commons Attribution 4.0 - http://creativecommons.org/licenses/by/4.0/)
+- trex.glb: "Animated Tyrannosaurus Rex Dinosaur Running Loop" (https://skfb.ly/o9nF6) by LasquetiSpice, CC BY 4.0
+Environment models/textures/HDRIs: Poly Haven (CC0). Fonts: Google Fonts (SIL OFL 1.1).

@@ -1,7 +1,7 @@
 """python3 worldtest.py -- <world> <view> out.png   (CI/local set check, no actors)"""
 import sys, os, math, time
 H_ = os.path.dirname(os.path.abspath(__file__)); R_ = os.path.dirname(H_)
-for d in (H_, os.path.join(R_, 'west'), os.path.join(R_, 'zombie'), R_): sys.path.insert(0, d)
+for d in (H_, os.path.join(R_, 'west'), os.path.join(R_, 'zombie'), os.path.join(R_, 'gta'), R_): sys.path.insert(0, d)
 import bpy
 from mathutils import Vector
 import worlds as W, terra as TR
@@ -11,7 +11,7 @@ sc = bpy.context.scene; sc.render.engine = 'CYCLES'; sc.cycles.samples = int(os.
 sc.render.resolution_x = int(os.environ.get('RW', 1920)); sc.render.resolution_y = int(os.environ.get('RH', 1080))
 sc.cycles.max_bounces = 6; sc.cycles.volume_bounces = 1; sc.cycles.volume_step_rate = 4.0 if os.environ.get('FASTVOL') else 1.0
 t0 = time.time(); w = getattr(W, wname)(); print('BUILT', round(time.time() - t0, 1), flush=True)
-VIEWS = {'young_earth': [((0, -20, 30), (0, 260, 40), 24), ((-40, 60, 8), (10, 200, 20), 18), ((60, 150, 120), (-60, 330, 30), 20), ((-150, 80, 6), (-300, 260, 5), 22)]}
+VIEWS = {'classroom': [((0, -3.7, 1.7), (0, 4.0, 1.4), 20), ((-3.5, 3.2, 2.2), (1.0, -2.0, .8), 18), ((0, 1.0, 1.55), (0, 4.5, 1.75), 30)], 'young_earth': [((0, -20, 30), (0, 260, 40), 24), ((-40, 60, 8), (10, 200, 20), 18), ((60, 150, 120), (-60, 330, 30), 20), ((-150, 80, 6), (-300, 260, 5), 22)]}
 p, tg, lens = VIEWS[wname][view]
 cam = bpy.data.objects.new('cam', bpy.data.cameras.new('cam')); sc.collection.objects.link(cam); sc.camera = cam; cam.data.clip_end = 20000
 cam.location = p; cam.rotation_euler = (Vector(tg) - Vector(p)).to_track_quat('-Z', 'Y').to_euler(); cam.data.lens = lens
