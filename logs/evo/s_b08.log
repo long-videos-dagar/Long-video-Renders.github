@@ -1,0 +1,25 @@
+00:00.962  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg <urlopen error [Errno 101] Network is unreachable>
+[lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg <urlopen error [Errno 101] Network is unreachable>
+[lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg <urlopen error [Errno 101] Network is unreachable>
+[lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg <urlopen error [Errno 101] Network is unreachable>
+[lib] earth tex fail https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg download failed https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg
+[lib] earth tex https://upload.wikimedia.org/wikipedia/commons/c/cd/Land_ocean_ice_2048.jpg
+[lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg <urlopen error [Errno 101] Network is unreachable>
+[lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg <urlopen error [Errno 101] Network is unreachable>
+[lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg <urlopen error [Errno 101] Network is unreachable>
+[lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg <urlopen error [Errno 101] Network is unreachable>
+[lib] earth tex fail https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg download failed https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg
+[lib] earth tex https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/textures/planets/earth_clouds_1024.png
+RSS built 532 MB
+RSS extras 532 MB
+CLEARCAM b08 0
+RSS lod 532 MB
+RSS posed 532 MB
+RSS depsgraph 532 MB
+OBJECTS 5 MESHES 3 IMAGES 3 4 Mpx
+13:31.548  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_b08.png'
+RTIME 36.9
+RSS rendered 1032 MB
+RENDERED b08 4.03
