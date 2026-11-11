@@ -1,4 +1,4 @@
-00:00.612  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.916  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['snow'] -> snow_02
 [lib] model pine_tree_01 62
@@ -14,11 +14,12 @@
 RSS built 3435 MB
 RSS extras 3435 MB
 CLEARCAM p04 0
-RSS lod 3747 MB
-RSS posed 3768 MB
-RSS depsgraph 3768 MB
+CLEARPROPS 0
+RSS lod 3738 MB
+RSS posed 3757 MB
+RSS depsgraph 3757 MB
 OBJECTS 3710 MESHES 352 IMAGES 79 163 Mpx
-02:24.181  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_p04.png'
-RTIME 110.7
-RSS rendered 14971 MB
+02:41.016  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_p04.png'
+RTIME 112.1
+RSS rendered 14969 MB
 RENDERED p04 4.07
