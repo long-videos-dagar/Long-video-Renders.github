@@ -1,6 +1,3 @@
-[lib] ph_find textures ['forest ground', 'grass', 'moss'] -> aerial_grass_rock
-[lib] ph_find textures ['rock', 'cliff'] -> coast_sand_rocks_02
-[lib] ph_find textures ['mud', 'wet ground', 'dirt'] -> red_dirt_mud_01
 [lib] ph_find textures ['snow'] -> snow_02
 [lib] model fir_tree_01 48
 [lib] model pine_tree_01 62
@@ -14,6 +11,7 @@
 [lib] model namaqualand_boulder_05 3
 [lib] model rock_07 4
 [lib] model boulder_01 4
-BUILT 22.8
-01:28.622  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/w_jurassic2.png'
-RENDERED jurassic 2 65.4
+BUILT 23.8
+02:52.165  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/w_jurassic2.png'
+CAMZ ground 3.56 -> 6
+RENDERED jurassic 2 147.9
