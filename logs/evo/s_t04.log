@@ -1,0 +1,39 @@
+00:00.794  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['marble', 'floor', 'tiles'] -> floor_tiles_06
+[lib] ph_find textures ['plaster', 'painted', 'wall'] -> painted_plaster_wall
+[lib] ph_find textures ['plaster', 'painted', 'wall'] -> painted_plaster_wall
+[lib] ph_find textures ['wood', 'planks', 'door'] -> wood_planks_dirt
+[lib] model sofa_03 1
+[lib] model throw_pillows_01 2
+[lib] model modern_coffee_table_01 1
+[lib] model modern_wooden_cabinet 5
+[lib] model Television_01 1
+[lib] model potted_plant_02 3
+[lib] model wall_clock 4
+[lib] model hanging_picture_frame_01 1
+[lib] model hanging_picture_frame_02 1
+[lib] model wicker_basket_01 1
+[lib] ph_find textures ['wood', 'planks'] -> wood_planks_dirt
+[lib] ph_find textures ['wood', 'veneer', 'oak'] -> oak_veneer_01
+[lib] model painted_wooden_nightstand 2
+[lib] ph_find textures ['wood', 'veneer'] -> rosewood_veneer1
+[lib] model gaming_console 2
+[lib] model gamepad 1
+[lib] model plastic_monobloc_chair_01 1
+[lib] model steel_frame_shelves_01 1
+[lib] model ceiling_fan 2
+[lib] ph_find textures [''] -> plywood
+/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_c.py:143: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  sm = bpy.data.materials.new(name + '_screen'); sm.use_nodes = True; b = sm.node_tree.nodes['Principled BSDF']
+RSS built 585 MB
+RSS extras 585 MB
+CLEARCAM t04 0
+RSS lod 587 MB
+RSS posed 587 MB
+RSS depsgraph 587 MB
+OBJECTS 300 MESHES 216 IMAGES 99 111 Mpx
+01:24.555  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_t04.png'
+RTIME 41.5
+RSS rendered 1924 MB
+RENDERED t04 3.71
