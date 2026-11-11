@@ -1,0 +1,14 @@
+00:00.720  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures [''] -> plywood
+RSS built 533 MB
+RSS extras 533 MB
+CLEARCAM e08 0
+RSS lod 558 MB
+RSS posed 561 MB
+RSS depsgraph 561 MB
+OBJECTS 999 MESHES 720 IMAGES 4 14 Mpx
+00:47.018  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_e08.png'
+RTIME 42.8
+RSS rendered 1145 MB
+RENDERED e08 4.83
