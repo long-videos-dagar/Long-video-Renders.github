@@ -24,3 +24,13 @@ Environment models/textures/HDRIs: Poly Haven (CC0). Fonts: Google Fonts (SIL OF
 - cat: "An Animated Cat" (https://sketchfab.com/3d-models/an-animated-cat-aec25699660043a29595f9572149d1e8) by Evil_Katz, CC Attribution
 - neanderthal: "Neanderthal" (https://sketchfab.com/3d-models/neanderthal-f7a0890f15654e02b4ec34f5db48f52e) by gb.prof.69, CC Attribution
 - neanderthal2: "Animated 3d scan of a neanderthal boy ТashikТash" (https://sketchfab.com/3d-models/animated-3d-scan-of-a-neanderthal-boy-ashikash-b7f5751159da4245896c30fd0d142a59) by darwinmuseum.ru, CC Attribution
+- pigeon: "Pigeon Rigged" (https://sketchfab.com/3d-models/pigeon-rigged-2e660a43215f4728902715b171302b34) by Dragon_monkey, CC Attribution
+- pigeon2: "Animated-pigeon-3d-model" (https://sketchfab.com/3d-models/animated-pigeon-3d-model-f1397b88dc6744578767fa3253ac7bbc) by xyina124, CC Attribution
+- dragonfly: "CC0 オオシオカラトンボ ♂ Greater Blue Skimmer" (https://sketchfab.com/3d-models/cc0-greater-blue-skimmer-cde335d1ac534a99a6a4e1d8ac816329) by ffish.asia / floraZia.com, CC0 Public Domain
+- dragonfly2: "Dragonfly" (https://sketchfab.com/3d-models/dragonfly-fa3e5f2704904218a0e971e4edf63e20) by erlanggart, CC Attribution
+- homo_erectus: "Turkana Boy (Homo erectus)" (https://sketchfab.com/3d-models/turkana-boy-homo-erectus-3d2174c04bcc4be6922c0160bbc34047) by Dr. Keith Chan, CC Attribution
+- lucy: "Lucy (Australopithecus afarensis)" (https://sketchfab.com/3d-models/lucy-australopithecus-afarensis-13af97134d6e4bd0b54a3d3b9b77735d) by Dr. Keith Chan, CC Attribution
+- archaeopteryx: "Archaeopteryx" (https://sketchfab.com/3d-models/archaeopteryx-cbec5591c584438392824d13fbef401b) by khata, CC Attribution
+- coelacanth: "Coelacanth swimming" (https://sketchfab.com/3d-models/coelacanth-swimming-6ffcdbccc8914fa7bc9db4265df3aeb2) by windu101, CC Attribution
+- deer: "Deer Animations" (https://sketchfab.com/3d-models/deer-animations-52782147235d4343bafb004a4f9b614c) by j_mali, CC Attribution
+- chimp: "Chester The Chimpanzee - FNAC" (https://sketchfab.com/3d-models/chester-the-chimpanzee-fnac-43e5476ed2d24185b20e641229793aec) by Frond Fox, CC Attribution
