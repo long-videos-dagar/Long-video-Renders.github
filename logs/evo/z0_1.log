@@ -1,0 +1,36 @@
+[lib] ph_find textures ['ground'] -> forrest_ground_01
+08:41:38 | INFO: Data are loaded, start creating Blender stuff
+08:41:38 | INFO: Blender create Mesh node 0
+08:41:39 | INFO: glTF import finished in 1.13s
+BEAST trex [3.97, 12.0, 4.49] stride -
+08:41:39 | INFO: Data are loaded, start creating Blender stuff
+08:41:39 | INFO: Blender create Mesh node Object_3
+08:41:39 | INFO: Blender create Mesh node Object_4
+08:41:39 | INFO: Blender create Mesh node Object_5
+08:41:39 | INFO: Blender create Mesh node Object_6
+08:41:39 | INFO: Blender create Mesh node Object_0
+08:41:39 | INFO: Blender create Mesh node Object_1
+08:41:39 | INFO: Blender create Mesh node Object_2
+08:41:39 | INFO: glTF import finished in 0.32s
+BEAST trex2 [3.05, 12.0, 4.95] stride 0.0
+08:41:39 | INFO: Data are loaded, start creating Blender stuff
+08:41:39 | INFO: Blender create Mesh node U3DMesh_CH_NPC_MOB_Tricera_A01_MI_BYN_0
+08:41:39 | INFO: glTF import finished in 0.22s
+BEAST tricera [2.99, 8.0, 4.39] stride 0.76
+08:41:40 | INFO: Data are loaded, start creating Blender stuff
+08:41:40 | INFO: Blender create Mesh node Object_0
+08:41:40 | INFO: Blender create Mesh node Object_1
+08:41:40 | INFO: Blender create Mesh node Object_2
+08:41:40 | INFO: Blender create Mesh node Object_3
+08:41:40 | INFO: Blender create Mesh node Object_4
+08:41:40 | INFO: Blender create Mesh node Object_5
+08:41:40 | INFO: glTF import finished in 0.65s
+BEAST triceratops [2.31, 8.0, 3.59] stride 0.0
+08:41:41 | INFO: Data are loaded, start creating Blender stuff
+08:41:41 | INFO: Blender create Mesh node Eyes_Eyes_0
+08:41:41 | INFO: Blender create Mesh node HeadSpikes_Material_0
+08:41:41 | INFO: Blender create Mesh node 0
+08:41:41 | INFO: glTF import finished in 0.37s
+BEAST stego [2.52, 8.5, 4.51] stride 2.23
+00:37.206  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/z0_1.png'
+RENDERED
