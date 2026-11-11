@@ -1,0 +1,13 @@
+[lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg <urlopen error [Errno 101] Network is unreachable>
+[lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg <urlopen error [Errno 101] Network is unreachable>
+[lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg <urlopen error [Errno 101] Network is unreachable>
+[lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg <urlopen error [Errno 101] Network is unreachable>
+[lib] nasa tex fail download failed https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg
+[lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg <urlopen error [Errno 101] Network is unreachable>
+[lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg <urlopen error [Errno 101] Network is unreachable>
+[lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg <urlopen error [Errno 101] Network is unreachable>
+[lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg <urlopen error [Errno 101] Network is unreachable>
+[lib] nasa tex fail download failed https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg
+BUILT 773.2
+13:39.332  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/w_space0.png'
+RENDERED space 0 45.3
