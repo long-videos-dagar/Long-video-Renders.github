@@ -123,6 +123,10 @@ def build(lines_json, out_dir):
         end = (cur + TAIL) if lids else t0
         end = max(end + extra, t0 + 1.2)
         shots.append(dict(id=sid, world=world, t0=round(t0, 3), dur=round(end - t0, 3), desc=desc, lines=lids))
+        if world == 'split':                  # two halves rendered separately, stacked side by side in compose
+            shots[-1]['render'] = False; shots[-1]['parts'] = [sid + 'a', sid + 'b']
+            for pid, pw in ((sid + 'a', 'jurassic'), (sid + 'b', 'cretaceous')):
+                shots.append(dict(id=pid, world=pw, t0=round(t0, 3), dur=round(end - t0, 3), desc=desc + ' (half)', lines=[], part_of=sid))
         t = end
     json.dump(dict(fps=24, w=1920, h=1080, total=round(t, 2), voice='voice.wav', trans={}, subs=[], shots=shots), open(os.path.join(out_dir, 'shots.json'), 'w'), indent=1)
     json.dump(voice, open(os.path.join(out_dir, 'voice.json'), 'w'), indent=1)

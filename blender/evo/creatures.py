@@ -322,9 +322,12 @@ class Beast:
     def _tick(self, t):
         bpy.context.scene.frame_set(int(t * FPS) + 1, subframe=(t * FPS) % 1.0)
         if self.path:
-            x, y, yaw = self.path(t)
-            z = self.ground.z(x, y) + getattr(self, 'lift', 0) if self.ground else self.root.location.z
-            self.root.location = (x, y, z); self.root.rotation_euler = (0, 0, math.radians(yaw))
+            r = self.path(t); x, y, yaw = r[:3]
+            if len(r) > 3: z = r[3]
+            else: z = self.ground.z(x, y) + getattr(self, 'lift', 0) if self.ground else self.root.location.z
+            pitch = r[4] if len(r) > 4 else 0.0; roll = r[5] if len(r) > 5 else 0.0
+            self.root.location = (x, y, z); self.root.rotation_euler = (math.radians(pitch), math.radians(roll), math.radians(yaw))
+            self.root.rotation_mode = 'ZXY'
 
     def head(self):
         """world position of the head (highest-forward point estimate)"""
@@ -398,7 +401,7 @@ SPEC = {
     'dragonfly':   dict(length=.12, clips=dict(fly='Animation')),
     'dragonfly2':  dict(length=.12, clips=dict(fly='Armature')),
     'archaeo':     dict(glb='archaeopteryx', length=.55, clips=dict(shake='Slap_wings', look='Tilt_head')),
-    'deer':        dict(length=1.8, clips=dict(walk='walk', run='run', idle='Idle')),
+    'deer':        dict(paint='#7a5434', length=1.8, clips=dict(walk='walk', run='run', idle='Idle')),
 }
 
 
@@ -409,6 +412,11 @@ def beast(sh, kind, name=None, clip=None, speed=1.0, phase=0.0, scale=1.0, **kw)
     size = dict(length=sp['length'] * scale) if 'length' in sp else dict(height=sp['height'] * scale)
     if 'face' in sp and 'face_axis' not in kw: kw['face_axis'] = sp['face']
     b = Beast(sh, glb, name or kind, clip=ck, speed=speed, phase=phase, **size, **kw)
+    if 'paint' in sp:                               # untextured scans: a plain fur/skin colour
+        m = pmat(kind + '_paint', sp['paint'], .7)
+        for o in b.m['objs']:
+            if o.type == 'MESH':
+                for k in range(len(o.material_slots)): o.material_slots[k].material = m
     b.kind = kind; return b
 
 

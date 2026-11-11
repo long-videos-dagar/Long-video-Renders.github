@@ -427,11 +427,17 @@ def smoke_column(name, base, rate=6.0, life=14.0, rise=7.0, spread=.55, r0=3.0, 
     md = o.modifiers.new('vol', 'NODES'); md.node_group = _points_volume_group(name + '_gn', voxel)
     m = bpy.data.materials.new(name + '_smoke'); m.use_nodes = True; N, L = m.node_tree.nodes, m.node_tree.links; out = N['Material Output']; N.remove(N['Principled BSDF'])
     pv = N.new('ShaderNodeVolumePrincipled'); pv.inputs['Color'].default_value = (*col, 1); pv.inputs['Anisotropy'].default_value = .3
-    tc = N.new('ShaderNodeTexCoord'); nz = N.new('ShaderNodeTexNoise'); nz.inputs['Scale'].default_value = .045; nz.inputs['Detail'].default_value = 10; nz.inputs['Roughness'].default_value = .7; nz.inputs['Distortion'].default_value = .8
+    # erosion noise sized to the plume (features ~ puff/2 and ~ puff/7) so the puffs break into billows and wisps instead of balls
+    tc = N.new('ShaderNodeTexCoord'); nz = N.new('ShaderNodeTexNoise'); nz.name = 'smoke_noise'; nz.noise_dimensions = '4D'
+    nz.inputs['Scale'].default_value = 2.2 / max(.05, r1); nz.inputs['Detail'].default_value = 12; nz.inputs['Roughness'].default_value = .62; nz.inputs['Distortion'].default_value = 1.4
     L.new(tc.outputs['Object'], nz.inputs['Vector'])
+    nz2 = N.new('ShaderNodeTexNoise'); nz2.name = 'smoke_noise2'; nz2.noise_dimensions = '4D'; nz2.inputs['Scale'].default_value = 7.0 / max(.05, r1); nz2.inputs['Detail'].default_value = 8
+    L.new(tc.outputs['Object'], nz2.inputs['Vector'])
     at = N.new('ShaderNodeAttribute'); at.attribute_name = 'density'; at.attribute_type = 'GEOMETRY'
-    nr = N.new('ShaderNodeMapRange'); L.new(nz.outputs['Fac'], nr.inputs[0]); nr.inputs[1].default_value = .42; nr.inputs[2].default_value = .78
-    mu = N.new('ShaderNodeMath'); mu.operation = 'MULTIPLY'; L.new(at.outputs['Fac'], mu.inputs[0]); L.new(nr.outputs[0], mu.inputs[1])
+    nr = N.new('ShaderNodeMapRange'); L.new(nz.outputs['Fac'], nr.inputs[0]); nr.inputs[1].default_value = .46; nr.inputs[2].default_value = .72
+    nr2 = N.new('ShaderNodeMapRange'); L.new(nz2.outputs['Fac'], nr2.inputs[0]); nr2.inputs[1].default_value = .3; nr2.inputs[2].default_value = .7
+    mn = N.new('ShaderNodeMath'); mn.operation = 'MULTIPLY'; L.new(nr.outputs[0], mn.inputs[0]); L.new(nr2.outputs[0], mn.inputs[1])
+    mu = N.new('ShaderNodeMath'); mu.operation = 'MULTIPLY'; L.new(at.outputs['Fac'], mu.inputs[0]); L.new(mn.outputs[0], mu.inputs[1])
     mu2 = N.new('ShaderNodeMath'); mu2.operation = 'MULTIPLY'; L.new(mu.outputs[0], mu2.inputs[0]); mu2.inputs[1].default_value = density
     L.new(mu2.outputs[0], pv.inputs['Density'])
     if glow:
@@ -453,6 +459,7 @@ def smoke_column(name, base, rate=6.0, life=14.0, rise=7.0, spread=.55, r0=3.0, 
         cnt = len(rad)
         co += [0, 0, 0] * (n - cnt); rad += [0.0] * (n - cnt)
         me.vertices.foreach_set('co', co); me.attributes['rad'].data.foreach_set('value', rad); me.update()
+        nz.inputs['W'].default_value = t * .08; nz2.inputs['W'].default_value = t * .2           # the billows churn
     return u
 
 

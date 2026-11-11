@@ -11,6 +11,7 @@ else:
     handle = job.get('handle', .25)
     for s in film['shots']:
         if only and s['id'] not in only: continue
+        if s.get('render') is False: continue
         if mode == 'stills':
             for k, f in enumerate(job.get('at', [.5])):
                 out.append(dict(id=f"{s['id']}_{k}", script='story.py', args=['still', s['id']], t=round(s['dur'] * f, 2), env={}))

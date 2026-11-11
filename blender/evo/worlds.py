@@ -511,7 +511,7 @@ def cave(seed=14):
     hole = T.lib.sphere('cave_mouth_cut', 4.5, (0, -6.5, 2.0), None, seg=24, rings=12)
     bo = o.modifiers.new('mouth', 'BOOLEAN'); bo.object = hole; bo.operation = 'DIFFERENCE'; hole.hide_render = True; hole.hide_viewport = True
     floor = TR.simple_mat('cave_floor', ('dirt', 'ground'), '#6a5a48', 1.5); T.box('cave_floor', (24, 34, .1), (0, 8, -.05), floor)
-    _cave_painting('/tmp/evotex/cavepaint.png')
+    import os; os.makedirs('/tmp/evotex', exist_ok=True); _cave_painting('/tmp/evotex/cavepaint.png')
     pm = bpy.data.materials.new('cavepaint'); pm.use_nodes = True; pm.blend_method = 'BLEND' if hasattr(pm, 'blend_method') else None
     N, L = pm.node_tree.nodes, pm.node_tree.links; tx = N.new('ShaderNodeTexImage'); tx.image = bpy.data.images.load('/tmp/evotex/cavepaint.png')
     b = N['Principled BSDF']; L.new(tx.outputs['Color'], b.inputs['Base Color']); L.new(tx.outputs['Alpha'], b.inputs['Alpha']); b.inputs['Roughness'].default_value = .9
@@ -546,12 +546,15 @@ def space(seed=15):
     L.new(vo.outputs['Distance'], cp.inputs[0]); cp.inputs[1].default_value = .025; mul = N.new('ShaderNodeMath'); mul.operation = 'MULTIPLY'; L.new(cp.outputs[0], mul.inputs[0]); mul.inputs[1].default_value = 2.0
     L.new(mul.outputs[0], N['Background'].inputs['Strength'])
     tex = '/tmp/evotex/earth.jpg'; clouds = '/tmp/evotex/clouds.jpg'; os.makedirs('/tmp/evotex', exist_ok=True)
-    for path, url in ((tex, 'https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg'),
-                      (clouds, 'https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg')):
-        if not (os.path.exists(path) and os.path.getsize(path) > 1000) and TR.PH:
-            try: lib._dl(url, path)                 # NASA Visible Earth (public domain)
-            except Exception as e: lib.log('nasa tex fail', e)
-        if os.path.exists(path) and os.path.getsize(path) < 1000: os.remove(path)
+    TJ = 'https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/textures/planets/'
+    for path, urls in ((tex, ['https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg',
+                              'https://upload.wikimedia.org/wikipedia/commons/c/cd/Land_ocean_ice_2048.jpg', TJ + 'earth_atmos_2048.jpg']),
+                       (clouds, ['https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg', TJ + 'earth_clouds_1024.png'])):
+        for url in urls:                            # NASA Blue Marble imagery (public domain), mirrors tried in order
+            if (os.path.exists(path) and os.path.getsize(path) > 1000) or not TR.PH: break
+            try: lib._dl(url, path); lib.log('earth tex', url)
+            except Exception as e: lib.log('earth tex fail', url, e)
+            if os.path.exists(path) and os.path.getsize(path) < 1000: os.remove(path)
     em = bpy.data.materials.new('earth'); em.use_nodes = True; N2, L2 = em.node_tree.nodes, em.node_tree.links; b = N2['Principled BSDF']
     if os.path.exists(tex):
         t1 = N2.new('ShaderNodeTexImage'); t1.image = bpy.data.images.load(tex); L2.new(t1.outputs[0], b.inputs['Base Color'])
@@ -560,7 +563,7 @@ def space(seed=15):
     earth = T.lib.sphere('earth', 6.371, (0, 0, 0), em, seg=128, rings=64)
     cm = bpy.data.materials.new('clouds'); cm.use_nodes = True; N3, L3 = cm.node_tree.nodes, cm.node_tree.links; b3 = N3['Principled BSDF']
     if os.path.exists(clouds):
-        t2 = N3.new('ShaderNodeTexImage'); t2.image = bpy.data.images.load(clouds); L3.new(t2.outputs[0], b3.inputs['Alpha']); b3.inputs['Base Color'].default_value = (1, 1, 1, 1)
+        t2 = N3.new('ShaderNodeTexImage'); t2.image = bpy.data.images.load(clouds); L3.new(t2.outputs['Alpha' if t2.image.depth in (32, 128) and t2.image.channels == 4 else 'Color'], b3.inputs['Alpha']); b3.inputs['Base Color'].default_value = (1, 1, 1, 1)
     else:
         nz = N3.new('ShaderNodeTexNoise'); nz.inputs['Scale'].default_value = 6; nz.inputs['Detail'].default_value = 12
         mr = N3.new('ShaderNodeMapRange'); L3.new(nz.outputs['Fac'], mr.inputs[0]); mr.inputs[1].default_value = .5; mr.inputs[2].default_value = .7; L3.new(mr.outputs[0], b3.inputs['Alpha'])

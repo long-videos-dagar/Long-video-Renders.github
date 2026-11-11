@@ -268,6 +268,9 @@ def s_c12(sh):
     sh.keylight(6)
 
 
+for _p in ('shots_a.py', 'shots_b.py', 'shots_c.py'):
+    exec(compile(open(os.path.join(HERE, _p)).read(), os.path.join(HERE, _p), 'exec'))
+
 SHOTS = {k[2:]: v for k, v in list(globals().items()) if k.startswith('s_') and callable(v)}
 
 if __name__ == '__main__':

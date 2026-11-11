@@ -451,7 +451,30 @@
    "t0": 336.17,
    "dur": 3.0,
    "desc": "split screen across a gap in time: the Stegosaurus waves goodbye; the T-rex has no idea who he is",
-   "lines": []
+   "lines": [],
+   "render": false,
+   "parts": [
+    "p09a",
+    "p09b"
+   ]
+  },
+  {
+   "id": "p09a",
+   "world": "jurassic",
+   "t0": 336.17,
+   "dur": 3.0,
+   "desc": "split screen across a gap in time: the Stegosaurus waves goodbye; the T-rex has no idea who he is (half)",
+   "lines": [],
+   "part_of": "p09"
+  },
+  {
+   "id": "p09b",
+   "world": "cretaceous",
+   "t0": 336.17,
+   "dur": 3.0,
+   "desc": "split screen across a gap in time: the Stegosaurus waves goodbye; the T-rex has no idea who he is (half)",
+   "lines": [],
+   "part_of": "p09"
   },
   {
    "id": "p10",
