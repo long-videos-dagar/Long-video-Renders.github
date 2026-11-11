@@ -1,0 +1,141 @@
+{
+ "trex": {
+  "q": [
+   "tyrannosaurus rex walk",
+   "t-rex roar",
+   "tyrannosaurus"
+  ]
+ },
+ "triceratops": {
+  "q": [
+   "triceratops",
+   "triceratops walk"
+  ]
+ },
+ "stegosaurus": {
+  "q": [
+   "stegosaurus",
+   "stegosaurus walk"
+  ]
+ },
+ "sauropod": {
+  "q": [
+   "brachiosaurus",
+   "diplodocus",
+   "apatosaurus",
+   "sauropod"
+  ]
+ },
+ "pterosaur": {
+  "q": [
+   "pteranodon",
+   "pterosaur flying",
+   "quetzalcoatlus"
+  ]
+ },
+ "raptor": {
+  "q": [
+   "feathered raptor",
+   "velociraptor",
+   "deinonychus",
+   "feathered dinosaur"
+  ]
+ },
+ "smalldino": {
+  "q": [
+   "compsognathus",
+   "coelophysis",
+   "small theropod"
+  ]
+ },
+ "anomalocaris": {
+  "q": [
+   "anomalocaris"
+  ],
+  "animated": false
+ },
+ "trilobite": {
+  "q": [
+   "trilobite"
+  ],
+  "animated": false
+ },
+ "cambrian": {
+  "q": [
+   "hallucigenia",
+   "opabinia",
+   "cambrian",
+   "marrella"
+  ],
+  "animated": false
+ },
+ "dunkleosteus": {
+  "q": [
+   "dunkleosteus",
+   "placoderm",
+   "prehistoric fish"
+  ],
+  "animated": false
+ },
+ "tiktaalik": {
+  "q": [
+   "tiktaalik",
+   "lobe-finned fish",
+   "coelacanth",
+   "ichthyostega"
+  ],
+  "animated": false
+ },
+ "bird": {
+  "q": [
+   "pigeon flying",
+   "bird flying",
+   "sparrow"
+  ]
+ },
+ "mammal": {
+  "q": [
+   "mouse",
+   "shrew",
+   "rat"
+  ]
+ },
+ "primate": {
+  "q": [
+   "monkey",
+   "lemur",
+   "chimpanzee"
+  ]
+ },
+ "bat": {
+  "q": [
+   "bat flying"
+  ]
+ },
+ "cat": {
+  "q": [
+   "cat",
+   "kitten"
+  ]
+ },
+ "dragonfly": {
+  "q": [
+   "dragonfly",
+   "meganeura"
+  ]
+ },
+ "hominin": {
+  "q": [
+   "neanderthal",
+   "caveman",
+   "homo erectus",
+   "australopithecus"
+  ]
+ },
+ "mammoth": {
+  "q": [
+   "woolly mammoth",
+   "mammoth"
+  ]
+ }
+}

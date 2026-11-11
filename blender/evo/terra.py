@@ -375,13 +375,14 @@ def sun_light(az, el, energy=4.0, col=(1, .95, .88), angle=.8):
     o.rotation_euler = (math.radians(90 - el), 0, math.radians(az)); return o
 
 
-def fog(density=.002, col=(.9, .75, .6), anis=.3):
-    """world volume haze (aerial perspective: distant mountains fade, sun rays read)"""
-    w = bpy.context.scene.world
-    if not w or not w.node_tree: return
-    N, L = w.node_tree.nodes, w.node_tree.links; out = next(n for n in N if n.type == 'OUTPUT_WORLD')
+def fog(density=.002, col=(.9, .75, .6), anis=.3, size=(3000, 3000, 600), center=(0, 0, 0)):
+    """aerial haze as a bounded volume box (a world volume would swallow the sky): distant hills fade, sun rays read"""
+    o = T.box('haze', size, (center[0], center[1], center[2] + size[2] / 2 - 20), None)
+    m = bpy.data.materials.new('haze_vol'); m.use_nodes = True; N = m.node_tree.nodes; N.remove(N['Principled BSDF'])
     pv = N.new('ShaderNodeVolumePrincipled'); pv.inputs['Color'].default_value = (*col, 1); pv.inputs['Density'].default_value = density; pv.inputs['Anisotropy'].default_value = anis
-    L.new(pv.outputs[0], out.inputs['Volume'])
+    m.node_tree.links.new(pv.outputs[0], N['Material Output'].inputs['Volume'])
+    o.data.materials.clear(); o.data.materials.append(m); o.visible_shadow = False
+    return o
 
 
 # ------------------------------------------------------------------ particle smoke (buoyant puffs -> volume), deterministic per frame

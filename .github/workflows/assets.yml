@@ -1,0 +1,26 @@
+# Find / download CC-BY or CC0 animated models from Sketchfab (token = repo secret SKETCHFAB_TOKEN, never printed).
+name: assets
+on:
+  push:
+    branches: [claude/long-video]
+    paths: ['blender/evo/assets_job.json']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+      - run: pip install -q pillow
+      - name: search / download
+        env: { SKETCHFAB_TOKEN: '${{ secrets.SKETCHFAB_TOKEN }}' }
+        run: |
+          J=blender/evo/assets_job.json; MODE=$(jq -r .mode $J)
+          if [ "$MODE" = "search" ]; then python scripts/sketchfab.py search blender/evo/assets_queries.json previews/assets; git add previews/assets
+          else python scripts/sketchfab.py download blender/evo/assets_picks.json blender/evo/assets; git add blender/evo/assets; fi
+          echo "token set: $([ -n "$SKETCHFAB_TOKEN" ] && echo yes || echo no)"
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git commit -qm "assets $MODE [skip ci]" || exit 0
+          for i in 1 2 3 4 5; do git pull --rebase --autostash -q && git push -q && break; sleep 5; done

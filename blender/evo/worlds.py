@@ -82,7 +82,7 @@ def young_earth(seed=1):
     for k, (cx, cy, r, hh) in enumerate(V[:3]):                         # crater glow on the ash and slopes
         l = bpy.data.lights.new(f'craterlight{k}', 'POINT'); l.energy = 2.5e5; l.color = (1, .4, .1); l.shadow_soft_size = r * .2
         o = bpy.data.objects.new(f'craterlight{k}', l); TR.coll().objects.link(o); o.location = (cx, cy, ter.z(cx, cy) + 4)
-    TR.fog(.0005, (1.0, .7, .5), .3)
+    TR.fog(.0006, (1.0, .7, .5), .3, center=(0, 300, 0))
     return dict(ter=ter, sea=[sea], volcanoes=V, smoke=plumes + steam)
 
 
