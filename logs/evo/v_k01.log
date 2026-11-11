@@ -1,0 +1,113 @@
+00:00.911  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['rock', 'mossy'] -> mossy_rock
+[lib] ph_find textures ['leaves', 'grass'] -> brown_mud_leaves_01
+[lib] model coast_rocks_01 4
+[lib] model coast_rocks_02 4
+[lib] model rock_07 4
+[lib] model rock_09 4
+[lib] model namaqualand_boulder_04 4
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+11:05:05 | INFO: Data are loaded, start creating Blender stuff
+11:05:06 | INFO: Blender create Mesh node Hallucigenia_Hallucigenia _0
+11:05:06 | INFO: glTF import finished in 1.60s
+11:05:07 | INFO: Data are loaded, start creating Blender stuff
+11:05:08 | INFO: Blender create Mesh node Hallucigenia_Hallucigenia _0
+11:05:09 | INFO: glTF import finished in 1.65s
+11:05:10 | INFO: Data are loaded, start creating Blender stuff
+11:05:10 | INFO: Blender create Mesh node Cube.001_Material_0
+11:05:10 | INFO: Blender create Mesh node Cube.002_Material_0
+11:05:10 | INFO: Blender create Mesh node Cube.003_Material_0
+11:05:10 | INFO: Blender create Mesh node Cube.004_Material.002_0
+11:05:10 | INFO: Blender create Mesh node Cube.005_Material.002_0
+11:05:10 | INFO: Blender create Mesh node Cube.006_Material.002_0
+11:05:10 | INFO: Blender create Mesh node Cube.007_Material.002_0
+11:05:10 | INFO: Blender create Mesh node Cube.008_Material.002_0
+11:05:10 | INFO: Blender create Mesh node Cube.009_Material.002_0
+11:05:10 | INFO: Blender create Mesh node Cube.010_Material.002_0
+11:05:10 | INFO: Blender create Mesh node Cube.011_Material.003_0
+11:05:10 | INFO: Blender create Mesh node Cube.012_Material.002_0
+11:05:10 | INFO: Blender create Mesh node Cube.014_Material_0
+11:05:10 | INFO: Blender create Mesh node Cylinder_Material.001_0
+11:05:10 | INFO: glTF import finished in 0.43s
+RSS built 1153 MB
+RSS extras 1153 MB
+CLEARCAM k01 0
+CLEARPROPS 15
+RSS lod 1153 MB
+RSS posed 1153 MB
+RSS depsgraph 1153 MB
+OBJECTS 3369 MESHES 2747 IMAGES 35 76 Mpx
+11:18.825  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/v_k01.png'
+RTIME 661.9
+RSS rendered 5482 MB
+RENDERED k01 6.21
