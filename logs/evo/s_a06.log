@@ -1,4 +1,4 @@
-00:00.894  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.863  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['snow'] -> snow_02
 [lib] model island_tree_01 17
@@ -17,21 +17,21 @@
 [lib] model rock_07 4
 [lib] model boulder_01 4
 [lib] ph_find textures ['rock'] -> coast_sand_rocks_02
-10:35:23 | INFO: Data are loaded, start creating Blender stuff
-10:35:24 | INFO: Blender create Mesh node Object_0
-10:35:24 | INFO: Blender create Mesh node Object_1
-10:35:24 | INFO: Blender create Mesh node Object_2
-10:35:24 | INFO: Blender create Mesh node Object_3
-10:35:24 | INFO: glTF import finished in 1.62s
-RSS built 4419 MB
-RSS extras 4419 MB
+10:50:02 | INFO: Data are loaded, start creating Blender stuff
+10:50:03 | INFO: Blender create Mesh node Object_0
+10:50:03 | INFO: Blender create Mesh node Object_1
+10:50:03 | INFO: Blender create Mesh node Object_2
+10:50:04 | INFO: Blender create Mesh node Object_3
+10:50:04 | INFO: glTF import finished in 1.47s
+RSS built 4398 MB
+RSS extras 4398 MB
 CLEARCAM a06 0
 CLEARPROPS 0
-RSS lod 4442 MB
-RSS posed 4466 MB
-RSS depsgraph 4466 MB
+RSS lod 4459 MB
+RSS posed 4476 MB
+RSS depsgraph 4476 MB
 OBJECTS 3927 MESHES 544 IMAGES 120 197 Mpx
-02:33.406  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_a06.png'
-RTIME 109.2
-RSS rendered 15073 MB
+02:18.479  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_a06.png'
+RTIME 103.4
+RSS rendered 15170 MB
 RENDERED a06 6.19
