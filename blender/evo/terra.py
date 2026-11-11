@@ -632,10 +632,10 @@ def plume(name, base, height=300.0, r0=10.0, r1=90.0, drift=(60.0, 20.0), col=(.
     cm = node('ShaderNodeCombineXYZ'); L.new(math_('MULTIPLY', qx, sc_), cm.inputs[0]); L.new(math_('MULTIPLY', qy, sc_), cm.inputs[1])
     L.new(math_('MULTIPLY', zr, sc_), cm.inputs[2])
     nz = node('ShaderNodeTexNoise', noise_dimensions='4D'); L.new(cm.outputs[0], nz.inputs['Vector']); nz.inputs['Scale'].default_value = 2.4
-    nz.inputs['Detail'].default_value = 14; nz.inputs['Roughness'].default_value = .6; nz.inputs['Distortion'].default_value = .9
+    nz.inputs['Detail'].default_value = float(os.environ.get('PLUMEDETAIL', 14)); nz.inputs['Roughness'].default_value = .6; nz.inputs['Distortion'].default_value = .9
     L.new(math_('ADD', math_('MULTIPLY', tv.outputs[0], .03), seed * 7.3), nz.inputs['W'])
     nz2 = node('ShaderNodeTexNoise', noise_dimensions='4D'); L.new(cm.outputs[0], nz2.inputs['Vector']); nz2.inputs['Scale'].default_value = 9.0
-    nz2.inputs['Detail'].default_value = 8; nz2.inputs['Roughness'].default_value = .65; L.new(math_('MULTIPLY', tv.outputs[0], .08), nz2.inputs['W'])
+    nz2.inputs['Detail'].default_value = min(8.0, float(os.environ.get('PLUMEDETAIL', 14)) * .6); nz2.inputs['Roughness'].default_value = .65; L.new(math_('MULTIPLY', tv.outputs[0], .08), nz2.inputs['W'])
     billow = math_('MULTIPLY', mrange(nz.outputs['Fac'], .3, .6, .05, 1), mrange(nz2.outputs['Fac'], .32, .62, .25, 1))
     edge = mrange(math_('ADD', d, math_('MULTIPLY', math_('SUBTRACT', nz.outputs['Fac'], .5), 1.2)), .6, 1.05, 1, 0)
     top = mrange(u, .7, 1.0, 1, 0); bot = mrange(Z, -2, height * .02, 0, 1)

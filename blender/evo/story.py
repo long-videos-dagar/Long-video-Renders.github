@@ -57,6 +57,16 @@ def cast(sh, cid, preset):
 def stage(sh, world, mood='day', elev=35, az=200):
     F.setup(sh, mood, elev, az, town=False, haze=False); sh.town = False
     cy = bpy.context.scene.cycles
+    if os.environ.get('GPU'):                          # Kaggle / any NVIDIA box: same scene, same settings, rendered on the GPU
+        pr = bpy.context.preferences.addons['cycles'].preferences
+        for kind in ('OPTIX', 'CUDA'):
+            try:
+                pr.compute_device_type = kind; pr.refresh_devices()
+                devs = [d for d in pr.devices if d.type == kind]
+                if devs:
+                    for d in pr.devices: d.use = d.type == kind
+                    cy.device = 'GPU'; print('GPU', kind, [d.name for d in devs], flush=True); break
+            except Exception as e: print('gpu fail', kind, e)
     cy.volume_step_rate = float(os.environ.get('VOLSTEP', 1.0)); cy.volume_max_steps = int(os.environ.get('VOLMAX', 1024))   # coarser volume marching for the final
     for o in [o for o in bpy.data.objects if o.name.startswith('sun')]: bpy.data.objects.remove(o)
     w = getattr(W, world)()
