@@ -1,4 +1,3 @@
-[lib] ph_find textures ['sand', 'beach'] -> damp_beach_sand
 [lib] ph_find textures ['rock', 'mossy'] -> mossy_rock
 [lib] ph_find textures ['rock', 'coral'] -> coral_fort_wall_01
 [lib] ph_find textures ['leaves', 'grass'] -> brown_mud_leaves_01
@@ -7,6 +6,6 @@
 [lib] model rock_07 4
 [lib] model rock_09 4
 [lib] model namaqualand_boulder_04 4
-BUILT 25.4
-04:48.282  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/w_ediacaran0.png'
-RENDERED ediacaran 0 262.3
+BUILT 6.1
+06:56.946  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/w_ediacaran0.png'
+RENDERED ediacaran 0 410.0
