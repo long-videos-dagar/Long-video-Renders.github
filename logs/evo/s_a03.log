@@ -1,0 +1,31 @@
+00:00.736  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['snow'] -> snow_02
+[lib] model island_tree_01 17
+[lib] model tree_small_02 12
+[lib] model fir_tree_01 48
+[lib] model pine_tree_01 62
+[lib] ph_find textures ['bark', 'palm'] -> palm_tree_bark
+[lib] model fern_02 4
+[lib] model shrub_01 36
+[lib] model shrub_02 12
+[lib] model shrub_03 12
+[lib] model grass_medium_01 103
+[lib] model periwinkle_plant 42
+[lib] model namaqualand_boulder_02 4
+[lib] model namaqualand_boulder_05 3
+[lib] model rock_07 4
+[lib] model boulder_01 4
+[lib] ph_find textures ['rock'] -> coast_sand_rocks_02
+RSS built 4223 MB
+RSS extras 4223 MB
+CLEARCAM a03 0
+CLEARPROPS 0
+RSS lod 4342 MB
+RSS posed 4385 MB
+RSS depsgraph 4385 MB
+OBJECTS 3913 MESHES 538 IMAGES 117 193 Mpx
+01:57.108  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_a03.png'
+RTIME 85.0
+RSS rendered 15133 MB
+RENDERED a03 1.68
