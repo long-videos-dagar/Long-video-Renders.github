@@ -1,4 +1,4 @@
-00:00.808  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.745  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['snow'] -> snow_02
 [lib] model fir_tree_01 48
@@ -14,15 +14,15 @@
 [lib] model namaqualand_boulder_05 3
 [lib] model rock_07 4
 [lib] model boulder_01 4
-RSS built 3763 MB
-RSS extras 3763 MB
+RSS built 3764 MB
+RSS extras 3764 MB
 CLEARCAM p01 0
 CLEARPROPS 0
-RSS lod 3777 MB
-RSS posed 3802 MB
-RSS depsgraph 3802 MB
+RSS lod 3783 MB
+RSS posed 3799 MB
+RSS depsgraph 3799 MB
 OBJECTS 3785 MESHES 424 IMAGES 88 173 Mpx
-02:08.243  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_p01.png'
-RTIME 99.5
-RSS rendered 14571 MB
+02:18.207  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_p01.png'
+RTIME 111.7
+RSS rendered 15035 MB
 RENDERED p01 4.07
