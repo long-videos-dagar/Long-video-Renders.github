@@ -1,0 +1,23 @@
+00:00.764  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['wood', 'floor', 'parquet'] -> wood_floor
+[lib] ph_find textures ['plaster', 'painted'] -> painted_plaster_wall
+[lib] model SchoolDesk_01 1
+[lib] model SchoolChair_01 1
+[lib] model WoodenTable_02 1
+[lib] model wall_clock 4
+[lib] model potted_plant_02 3
+[lib] model wooden_bookshelf_worn 1
+[lib] model steel_frame_shelves_01 1
+[lib] model book_encyclopedia_set_01 21
+RSS built 547 MB
+RSS extras 547 MB
+CLEARCAM b01 0
+RSS lod 618 MB
+RSS posed 621 MB
+RSS depsgraph 621 MB
+OBJECTS 950 MESHES 571 IMAGES 53 80 Mpx
+01:32.606  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_b01.png'
+RTIME 84.1
+RSS rendered 1675 MB
+RENDERED b01 1.8
