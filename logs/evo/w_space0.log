@@ -2,12 +2,14 @@
 [lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg <urlopen error [Errno 101] Network is unreachable>
 [lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg <urlopen error [Errno 101] Network is unreachable>
 [lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg <urlopen error [Errno 101] Network is unreachable>
-[lib] nasa tex fail download failed https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg
+[lib] earth tex fail https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg download failed https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg
+[lib] earth tex https://upload.wikimedia.org/wikipedia/commons/c/cd/Land_ocean_ice_2048.jpg
 [lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg <urlopen error [Errno 101] Network is unreachable>
 [lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg <urlopen error [Errno 101] Network is unreachable>
 [lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg <urlopen error [Errno 101] Network is unreachable>
 [lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg <urlopen error [Errno 101] Network is unreachable>
-[lib] nasa tex fail download failed https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg
-BUILT 773.2
-13:39.332  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/w_space0.png'
-RENDERED space 0 45.3
+[lib] earth tex fail https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg download failed https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg
+[lib] earth tex https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/textures/planets/earth_clouds_1024.png
+BUILT 773.4
+13:25.013  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/w_space0.png'
+RENDERED space 0 30.8
