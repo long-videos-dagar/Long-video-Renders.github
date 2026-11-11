@@ -1,0 +1,53 @@
+00:00.666  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['rock', 'cave', 'limestone'] -> aerial_rocks_02
+[lib] ph_find textures ['rock', 'wet'] -> brown_mud_rocks_01
+[lib] ph_find textures ['dirt', 'ground'] -> forest_ground_04
+[lib] ph_find textures ['rock'] -> coast_sand_rocks_02
+[lib] ph_find textures ['bark'] -> bark_brown_02
+11:05:13 | INFO: Data are loaded, start creating Blender stuff
+11:05:13 | INFO: Blender create Mesh node Cerchio_Materiale_Tra_0
+11:05:13 | INFO: Blender create Mesh node Haircut_obj_default_Transparency_Tra_0
+11:05:13 | INFO: Blender create Mesh node Haircut_obj_default_Transparency_Tra_0
+11:05:13 | INFO: Blender create Mesh node Cilindro_001_Materiale_001_Tra_0
+11:05:13 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+11:05:13 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+11:05:14 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+11:05:14 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+11:05:14 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+11:05:14 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+11:05:14 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+11:05:15 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+11:05:15 | INFO: Blender create Mesh node 0
+11:05:15 | INFO: Blender create Mesh node 1
+11:05:15 | INFO: Blender create Mesh node 2
+11:05:15 | INFO: Blender create Mesh node 3
+11:05:15 | INFO: Blender create Mesh node 4
+11:05:15 | INFO: Blender create Mesh node 5
+11:05:15 | INFO: Blender create Mesh node 6
+11:05:15 | INFO: Blender create Mesh node 7
+11:05:15 | INFO: Blender create Mesh node 8
+11:05:15 | INFO: Blender create Mesh node 9
+11:05:15 | INFO: Blender create Mesh node 10
+11:05:15 | INFO: Blender create Mesh node 11
+11:05:15 | INFO: Blender create Mesh node 12
+11:05:15 | INFO: Blender create Mesh node 13
+11:05:15 | INFO: glTF import finished in 2.17s
+11:05:15 | INFO: Data are loaded, start creating Blender stuff
+11:05:15 | INFO: Blender create Mesh node default002_default002_default_0
+11:05:15 | INFO: Blender create Mesh node default002_default002_default_0
+11:05:16 | INFO: Blender create Mesh node default002_default002_default_0
+11:05:16 | INFO: Blender create Mesh node default002_default002_default_0
+11:05:16 | INFO: glTF import finished in 1.08s
+RSS built 783 MB
+RSS extras 783 MB
+CLEARCAM h07 0
+CLEARPROPS 0
+RSS lod 783 MB
+RSS posed 783 MB
+RSS depsgraph 783 MB
+OBJECTS 107 MESHES 56 IMAGES 54 100 Mpx
+01:55.053  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/v_h07.png'
+RTIME 95.3
+RSS rendered 3438 MB
+RENDERED h07 6.29
