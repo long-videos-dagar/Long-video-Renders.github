@@ -1,0 +1,26 @@
+[lib] ph_find textures ['ground'] -> forrest_ground_01
+08:42:53 | INFO: Data are loaded, start creating Blender stuff
+08:42:53 | INFO: Blender create Mesh node Argentinosaurus_tripo_mat_6c6436d2_0
+08:42:54 | INFO: glTF import finished in 0.48s
+BEAST argentino [5.96, 32.0, 16.73] stride 1.0
+08:42:54 | INFO: Data are loaded, start creating Blender stuff
+08:42:54 | INFO: Blender create Mesh node mesh_0
+08:42:54 | INFO: glTF import finished in 0.11s
+BEAST sauropod [4.61, 24.0, 19.5] stride 1.0
+08:42:54 | INFO: Data are loaded, start creating Blender stuff
+08:42:54 | INFO: Blender create Mesh node Plane_Material.002_0
+08:42:54 | INFO: Blender create Mesh node Plane_Material.001_0
+08:42:54 | INFO: Blender create Mesh node Sphere_Material_0
+08:42:55 | INFO: glTF import finished in 0.33s
+BEAST ptero [0.79, 6.5, 0.57] stride -
+08:42:55 | INFO: Data are loaded, start creating Blender stuff
+08:42:55 | INFO: Blender create Mesh node Object_0
+08:42:55 | INFO: glTF import finished in 0.52s
+BEAST ptero2 [4.73, 6.0, 4.23] stride 0.49
+08:42:55 | INFO: Data are loaded, start creating Blender stuff
+08:42:55 | INFO: Blender create Mesh node Object_0
+08:42:56 | INFO: Blender create Mesh node Object_1
+08:42:56 | INFO: glTF import finished in 0.30s
+BEAST dunkle [2.65, 6.0, 2.01] stride -
+00:32.208  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/z1_0.png'
+RENDERED
