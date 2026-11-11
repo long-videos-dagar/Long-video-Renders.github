@@ -1,0 +1,92 @@
+00:00.916  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['snow'] -> snow_02
+[lib] model fir_tree_01 48
+[lib] model pine_tree_01 62
+[lib] ph_find textures ['bark', 'palm'] -> palm_tree_bark
+[lib] ph_find textures ['grass'] -> aerial_grass_rock
+[lib] model fern_02 4
+[lib] model moss_01 73
+[lib] model rock_moss_set_02 7
+[lib] model root_cluster_01 1
+[lib] model namaqualand_boulder_02 4
+[lib] model namaqualand_boulder_05 3
+[lib] model rock_07 4
+[lib] model boulder_01 4
+09:45:42 | INFO: Data are loaded, start creating Blender stuff
+09:45:43 | INFO: Blender create Mesh node Argentinosaurus_tripo_mat_6c6436d2_0
+09:45:43 | INFO: glTF import finished in 1.68s
+09:45:44 | INFO: Data are loaded, start creating Blender stuff
+09:45:46 | INFO: Blender create Mesh node Body_M_Body_0
+09:45:46 | INFO: Blender create Mesh node Tongue_M_Body_0
+09:45:46 | INFO: Blender create Mesh node Teeth_M_Teeth_0
+09:45:46 | INFO: Blender create Mesh node Eye_M_Eye_0
+09:45:46 | INFO: Blender create Mesh node Cornea_M_Cornea_0
+09:45:46 | INFO: Blender create Mesh node Wing_Wing01_0
+09:45:46 | INFO: Blender create Mesh node Fur_Wing01_0
+09:45:47 | INFO: glTF import finished in 2.39s
+09:45:48 | INFO: Data are loaded, start creating Blender stuff
+09:45:49 | INFO: Blender create Mesh node Body_M_Body_0
+09:45:49 | INFO: Blender create Mesh node Tongue_M_Body_0
+09:45:49 | INFO: Blender create Mesh node Teeth_M_Teeth_0
+09:45:50 | INFO: Blender create Mesh node Eye_M_Eye_0
+09:45:50 | INFO: Blender create Mesh node Cornea_M_Cornea_0
+09:45:50 | INFO: Blender create Mesh node Wing_Wing01_0
+09:45:50 | INFO: Blender create Mesh node Fur_Wing01_0
+09:45:51 | INFO: glTF import finished in 2.35s
+09:45:52 | INFO: Data are loaded, start creating Blender stuff
+09:45:53 | INFO: Blender create Mesh node Body_M_Body_0
+09:45:53 | INFO: Blender create Mesh node Tongue_M_Body_0
+09:45:54 | INFO: Blender create Mesh node Teeth_M_Teeth_0
+09:45:54 | INFO: Blender create Mesh node Eye_M_Eye_0
+09:45:54 | INFO: Blender create Mesh node Cornea_M_Cornea_0
+09:45:54 | INFO: Blender create Mesh node Wing_Wing01_0
+09:45:54 | INFO: Blender create Mesh node Fur_Wing01_0
+09:45:55 | INFO: glTF import finished in 2.58s
+09:45:56 | INFO: Data are loaded, start creating Blender stuff
+09:45:57 | INFO: Blender create Mesh node Body_M_Body_0
+09:45:57 | INFO: Blender create Mesh node Tongue_M_Body_0
+09:45:57 | INFO: Blender create Mesh node Teeth_M_Teeth_0
+09:45:57 | INFO: Blender create Mesh node Eye_M_Eye_0
+09:45:57 | INFO: Blender create Mesh node Cornea_M_Cornea_0
+09:45:57 | INFO: Blender create Mesh node Wing_Wing01_0
+09:45:57 | INFO: Blender create Mesh node Fur_Wing01_0
+09:45:59 | INFO: glTF import finished in 2.38s
+09:46:00 | INFO: Data are loaded, start creating Blender stuff
+09:46:02 | INFO: Blender create Mesh node Body_M_Body_0
+09:46:02 | INFO: Blender create Mesh node Tongue_M_Body_0
+09:46:02 | INFO: Blender create Mesh node Teeth_M_Teeth_0
+09:46:02 | INFO: Blender create Mesh node Eye_M_Eye_0
+09:46:02 | INFO: Blender create Mesh node Cornea_M_Cornea_0
+09:46:02 | INFO: Blender create Mesh node Wing_Wing01_0
+09:46:02 | INFO: Blender create Mesh node Fur_Wing01_0
+09:46:03 | INFO: glTF import finished in 2.81s
+09:46:05 | INFO: Data are loaded, start creating Blender stuff
+09:46:06 | INFO: Blender create Mesh node Body_M_Body_0
+09:46:06 | INFO: Blender create Mesh node Tongue_M_Body_0
+09:46:06 | INFO: Blender create Mesh node Teeth_M_Teeth_0
+09:46:06 | INFO: Blender create Mesh node Eye_M_Eye_0
+09:46:06 | INFO: Blender create Mesh node Cornea_M_Cornea_0
+09:46:06 | INFO: Blender create Mesh node Wing_Wing01_0
+09:46:06 | INFO: Blender create Mesh node Fur_Wing01_0
+09:46:08 | INFO: glTF import finished in 2.94s
+09:46:09 | INFO: Data are loaded, start creating Blender stuff
+09:46:11 | INFO: Blender create Mesh node Body_M_Body_0
+09:46:11 | INFO: Blender create Mesh node Tongue_M_Body_0
+09:46:11 | INFO: Blender create Mesh node Teeth_M_Teeth_0
+09:46:11 | INFO: Blender create Mesh node Eye_M_Eye_0
+09:46:11 | INFO: Blender create Mesh node Cornea_M_Cornea_0
+09:46:11 | INFO: Blender create Mesh node Wing_Wing01_0
+09:46:11 | INFO: Blender create Mesh node Fur_Wing01_0
+09:46:12 | INFO: glTF import finished in 2.74s
+RSS built 4375 MB
+RSS extras 4375 MB
+CLEARCAM p07 0
+RSS lod 4399 MB
+RSS posed 4415 MB
+RSS depsgraph 4415 MB
+OBJECTS 5413 MESHES 479 IMAGES 153 219 Mpx
+04:16.580  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_p07.png'
+RTIME 160.0
+RSS rendered 15027 MB
+RENDERED p07 3.19
