@@ -1,0 +1,51 @@
+00:00.821  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['snow'] -> snow_02
+[lib] model quiver_tree_01 4
+[lib] model island_tree_02 17
+[lib] model tree_small_02 12
+[lib] model grass_medium_02 11
+[lib] model grass_medium_01 103
+[lib] model wild_rooibos_bush 20
+[lib] model searsia_burchellii 9
+[lib] model namaqualand_boulder_04 4
+[lib] model dry_branches_medium_01 3
+[lib] model namaqualand_boulder_02 4
+[lib] model namaqualand_boulder_05 3
+[lib] model rock_07 4
+[lib] model boulder_01 4
+09:51:19 | INFO: Data are loaded, start creating Blender stuff
+09:51:19 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:20 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:20 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:21 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:21 | INFO: glTF import finished in 2.01s
+09:51:22 | INFO: Data are loaded, start creating Blender stuff
+09:51:22 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:23 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:23 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:24 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:24 | INFO: glTF import finished in 2.13s
+09:51:25 | INFO: Data are loaded, start creating Blender stuff
+09:51:25 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:26 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:26 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:27 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:27 | INFO: glTF import finished in 2.21s
+09:51:28 | INFO: Data are loaded, start creating Blender stuff
+09:51:28 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:29 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:29 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:30 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:30 | INFO: glTF import finished in 2.24s
+RSS built 2022 MB
+RSS extras 2022 MB
+CLEARCAM h06 0
+RSS lod 2287 MB
+RSS posed 2287 MB
+RSS depsgraph 2287 MB
+OBJECTS 2962 MESHES 221 IMAGES 87 140 Mpx
+02:30.994  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_h06.png'
+RTIME 121.4
+RSS rendered 6468 MB
+RENDERED h06 3.92
