@@ -220,15 +220,18 @@ def fallback_rock(x, y, z, s, r):
 
 
 # ------------------------------------------------------------------ volcano, lava, smoke
-def volcano_h(x, y, cx, cy, r, h, crater=.18, seed=0):
-    """height contribution of a volcano cone with eroded gullies and a crater"""
-    d = math.hypot(x - cx, y - cy) / r
-    if d > 1.6: return 0.0
-    a = math.atan2(y - cy, x - cx)
-    cone = max(0.0, 1 - d) ** 1.4 * h + max(0.0, 1.6 - d) * .04 * h
-    gully = (ridged(math.cos(a) * 3 + seed, math.sin(a) * 3, 1.0, 3, seed) - .8) * .05 * h * (1 - min(1, d))
-    crat = -smooth01((crater - d) / crater) * h * .22 if d < crater else 0.0
-    return cone + gully + crat
+def volcano_h(x, y, cx, cy, r, h, crater=.16, seed=0):
+    """stratovolcano: concave flanks, radial erosion gullies and ridges, an asymmetric lumpy summit and a crater"""
+    wx = fbm(x, y, .01, 3, seed + 40) * r * .18; wy = fbm(x + 77, y, .01, 3, seed + 41) * r * .18      # domain warp: no perfect cone
+    dx, dy = x + wx - cx, y + wy - cy; d = math.hypot(dx, dy) / r
+    if d > 2.2: return 0.0
+    a = math.atan2(dy, dx)
+    prof = h * math.exp(-2.6 * d) * (1 - .12 * math.sin(a * 2 + seed)) - h * math.exp(-2.6 * 2.2)
+    rad = (ridged(math.cos(a) * 6 + seed, math.sin(a) * 6 + d * 2.0, 1.0, 4, seed) - .9)                  # radial gullies
+    prof += rad * .06 * h * min(1.0, d * 3) * max(0.0, 1.4 - d)
+    prof += fbm(x, y, .05, 4, seed + 9) * .015 * h
+    if d < crater: prof -= h * .25 * smooth01((crater - d) / crater) ** .7
+    return max(0.0, prof)
 
 
 def lava_mat(name='lava', glow=7.0):
@@ -418,10 +421,10 @@ def smoke_column(name, base, rate=6.0, life=14.0, rise=7.0, spread=.55, r0=3.0, 
     md = o.modifiers.new('vol', 'NODES'); md.node_group = _points_volume_group(name + '_gn', voxel)
     m = bpy.data.materials.new(name + '_smoke'); m.use_nodes = True; N, L = m.node_tree.nodes, m.node_tree.links; out = N['Material Output']; N.remove(N['Principled BSDF'])
     pv = N.new('ShaderNodeVolumePrincipled'); pv.inputs['Color'].default_value = (*col, 1); pv.inputs['Anisotropy'].default_value = .3
-    tc = N.new('ShaderNodeTexCoord'); nz = N.new('ShaderNodeTexNoise'); nz.inputs['Scale'].default_value = .08; nz.inputs['Detail'].default_value = 8; nz.inputs['Roughness'].default_value = .65
+    tc = N.new('ShaderNodeTexCoord'); nz = N.new('ShaderNodeTexNoise'); nz.inputs['Scale'].default_value = .045; nz.inputs['Detail'].default_value = 10; nz.inputs['Roughness'].default_value = .7; nz.inputs['Distortion'].default_value = .8
     L.new(tc.outputs['Object'], nz.inputs['Vector'])
     at = N.new('ShaderNodeAttribute'); at.attribute_name = 'density'; at.attribute_type = 'GEOMETRY'
-    nr = N.new('ShaderNodeMapRange'); L.new(nz.outputs['Fac'], nr.inputs[0]); nr.inputs[1].default_value = .35; nr.inputs[2].default_value = .7
+    nr = N.new('ShaderNodeMapRange'); L.new(nz.outputs['Fac'], nr.inputs[0]); nr.inputs[1].default_value = .42; nr.inputs[2].default_value = .78
     mu = N.new('ShaderNodeMath'); mu.operation = 'MULTIPLY'; L.new(at.outputs['Fac'], mu.inputs[0]); L.new(nr.outputs[0], mu.inputs[1])
     mu2 = N.new('ShaderNodeMath'); mu2.operation = 'MULTIPLY'; L.new(mu.outputs[0], mu2.inputs[0]); mu2.inputs[1].default_value = density
     L.new(mu2.outputs[0], pv.inputs['Density'])

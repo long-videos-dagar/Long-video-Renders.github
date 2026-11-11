@@ -1,141 +1,54 @@
 {
- "trex": {
+ "pigeon": {
   "q": [
-   "tyrannosaurus rex walk",
-   "t-rex roar",
-   "tyrannosaurus"
-  ]
- },
- "triceratops": {
-  "q": [
-   "triceratops",
-   "triceratops walk"
-  ]
- },
- "stegosaurus": {
-  "q": [
-   "stegosaurus",
-   "stegosaurus walk"
-  ]
- },
- "sauropod": {
-  "q": [
-   "brachiosaurus",
-   "diplodocus",
-   "apatosaurus",
-   "sauropod"
-  ]
- },
- "pterosaur": {
-  "q": [
-   "pteranodon",
-   "pterosaur flying",
-   "quetzalcoatlus"
-  ]
- },
- "raptor": {
-  "q": [
-   "feathered raptor",
-   "velociraptor",
-   "deinonychus",
-   "feathered dinosaur"
-  ]
- },
- "smalldino": {
-  "q": [
-   "compsognathus",
-   "coelophysis",
-   "small theropod"
-  ]
- },
- "anomalocaris": {
-  "q": [
-   "anomalocaris"
-  ],
-  "animated": false
- },
- "trilobite": {
-  "q": [
-   "trilobite"
-  ],
-  "animated": false
- },
- "cambrian": {
-  "q": [
-   "hallucigenia",
-   "opabinia",
-   "cambrian",
-   "marrella"
-  ],
-  "animated": false
- },
- "dunkleosteus": {
-  "q": [
-   "dunkleosteus",
-   "placoderm",
-   "prehistoric fish"
-  ],
-  "animated": false
- },
- "tiktaalik": {
-  "q": [
-   "tiktaalik",
-   "lobe-finned fish",
-   "coelacanth",
-   "ichthyostega"
-  ],
-  "animated": false
- },
- "bird": {
-  "q": [
-   "pigeon flying",
-   "bird flying",
-   "sparrow"
-  ]
- },
- "mammal": {
-  "q": [
-   "mouse",
-   "shrew",
-   "rat"
-  ]
- },
- "primate": {
-  "q": [
-   "monkey",
-   "lemur",
-   "chimpanzee"
-  ]
- },
- "bat": {
-  "q": [
-   "bat flying"
-  ]
- },
- "cat": {
-  "q": [
-   "cat",
-   "kitten"
+   "pigeon",
+   "dove bird",
+   "crow flying",
+   "seagull flying"
   ]
  },
  "dragonfly": {
   "q": [
-   "dragonfly",
-   "meganeura"
+   "dragonfly insect",
+   "damselfly"
   ]
  },
- "hominin": {
+ "lemur": {
   "q": [
-   "neanderthal",
-   "caveman",
+   "lemur",
+   "chimpanzee",
+   "primate walk",
+   "gibbon"
+  ]
+ },
+ "hominin2": {
+  "q": [
    "homo erectus",
-   "australopithecus"
+   "australopithecus",
+   "prehistoric man",
+   "caveman animated"
   ]
  },
- "mammoth": {
+ "feathered": {
   "q": [
-   "woolly mammoth",
-   "mammoth"
+   "feathered dinosaur",
+   "microraptor",
+   "archaeopteryx",
+   "yutyrannus"
+  ]
+ },
+ "fish": {
+  "q": [
+   "coelacanth",
+   "fish swimming realistic",
+   "sturgeon"
+  ]
+ },
+ "herd": {
+  "q": [
+   "deer walk",
+   "horse walk realistic",
+   "elephant walk"
   ]
  }
 }

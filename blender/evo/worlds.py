@@ -43,7 +43,7 @@ def world_sky(kind='day', strength=1.0, rot=0.0, tint=None):
 def young_earth(seed=1):
     """molten young Earth: black basalt plains cracked with glowing lava, a ring of erupting volcanoes, lava rivers, ash
     columns lit from below, a boiling sea on one side, an orange storm sky.  Camera space: x[-150, 150], y[-60, 400]"""
-    world_sky('sunset', strength=1.6, tint=(1.0, .7, .5)); bpy.context.scene.view_settings.exposure = 1.0
+    world_sky('sunset', strength=1.6, tint=(1.0, .7, .5)); bpy.context.scene.view_settings.exposure = .3
     V = [(0, 260, 70, 95), (-170, 330, 85, 120), (190, 300, 70, 100), (-90, 520, 120, 160), (120, 560, 140, 190)]
     def h(x, y):
         z = TR.fbm(x, y, .012, 6, seed) * 9 + TR.ridged(x, y, .02, 4, seed) * 2.5
@@ -67,8 +67,8 @@ def young_earth(seed=1):
         r_ = random.Random(seed * 10 + k); x = r_.uniform(-80, 80); y = r_.uniform(40, 180)
         p = T.lib.sphere(f'lavapool{k}', r_.uniform(4, 10), (x, y, ter.z(x, y) - .2), lm, seg=20, rings=6); p.scale = (1, r_.uniform(.5, 1.2), .03)
     # ash plumes, glowing from the craters
-    plumes = [TR.smoke_column(f'plume{k}', (cx, cy, ter.z(cx, cy) - 2), rate=3.0, life=16, rise=9.0 + k, r0=r * .1, r1=r * .45, wind=(3.0, 1.0),
-                              turb=r * .12, density=.03, glow=.6 if k < 3 else 0.0, voxel=max(1.2, r * .025), seed=k) for k, (cx, cy, r, hh) in enumerate(V)]
+    plumes = [TR.smoke_column(f'plume{k}', (cx, cy, ter.z(cx, cy) - 2), rate=7.0, life=18, rise=9.0 + k, r0=r * .06, r1=r * .32, wind=(3.0, 1.0),
+                              turb=r * .2, density=.05, glow=.6 if k < 3 else 0.0, voxel=max(1.2, r * .025), seed=k) for k, (cx, cy, r, hh) in enumerate(V)]
     # boiling sea + steam
     sea = TR.ocean('sea', 900, (-420, 300, -6.5), wave=1.4, choppy=1.6, col='#1a2a26', murk='#3a3020', foam=True)
     steam = [TR.smoke_column(f'steam{k}', (-150 - k * 60, 120 + k * 70, -7), rate=2.0, life=10, rise=4.0, r0=6, r1=22, wind=(2.0, .5), turb=6,
