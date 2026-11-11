@@ -1,0 +1,157 @@
+{
+ "fps": 24,
+ "voice": "voice.wav",
+ "total": 62.4,
+ "shots": [
+  {
+   "id": "tuesday",
+   "t0": 0.0,
+   "dur": 3.35
+  },
+  {
+   "id": "slowly",
+   "t0": 3.35,
+   "dur": 3.1
+  },
+  {
+   "id": "jogger",
+   "t0": 6.45,
+   "dur": 3.0
+  },
+  {
+   "id": "mile",
+   "t0": 9.45,
+   "dur": 2.4
+  },
+  {
+   "id": "alarm",
+   "t0": 11.85,
+   "dur": 2.1
+  },
+  {
+   "id": "boarded",
+   "t0": 13.95,
+   "dur": 2.3
+  },
+  {
+   "id": "shelf",
+   "t0": 16.25,
+   "dur": 1.3
+  },
+  {
+   "id": "waited",
+   "t0": 17.55,
+   "dur": 2.05
+  },
+  {
+   "id": "noon",
+   "t0": 19.6,
+   "dur": 2.85
+  },
+  {
+   "id": "bus",
+   "t0": 22.45,
+   "dur": 3.95
+  },
+  {
+   "id": "bored",
+   "t0": 26.4,
+   "dur": 2.25
+  },
+  {
+   "id": "news",
+   "t0": 28.65,
+   "dur": 2.6
+  },
+  {
+   "id": "cart",
+   "t0": 31.25,
+   "dur": 3.55
+  },
+  {
+   "id": "bought",
+   "t0": 34.8,
+   "dur": 3.1
+  },
+  {
+   "id": "cityhall",
+   "t0": 37.9,
+   "dur": 2.8
+  },
+  {
+   "id": "aim",
+   "t0": 40.7,
+   "dur": 2.15
+  },
+  {
+   "id": "bite",
+   "t0": 42.85,
+   "dur": 3.9
+  },
+  {
+   "id": "gently",
+   "t0": 46.75,
+   "dur": 3.35
+  },
+  {
+   "id": "doctor",
+   "t0": 50.1,
+   "dur": 3.25
+  },
+  {
+   "id": "notzombie",
+   "t0": 53.35,
+   "dur": 1.4
+  },
+  {
+   "id": "walt",
+   "t0": 54.75,
+   "dur": 1.95
+  },
+  {
+   "id": "home",
+   "t0": 56.7,
+   "dur": 2.75
+  },
+  {
+   "id": "wifi",
+   "t0": 59.45,
+   "dur": 2.95
+  }
+ ],
+ "trans": {
+  "jogger": [
+   "dissolve",
+   0.35
+  ],
+  "noon": [
+   "dissolve",
+   0.4
+  ],
+  "bus": [
+   "dissolve",
+   0.45
+  ],
+  "bored": [
+   "dissolve",
+   0.4
+  ],
+  "news": [
+   "dissolve",
+   0.3
+  ],
+  "cart": [
+   "dissolve",
+   0.3
+  ],
+  "cityhall": [
+   "dissolve",
+   0.4
+  ],
+  "home": [
+   "dissolve",
+   0.35
+  ]
+ },
+ "subs": []
+}

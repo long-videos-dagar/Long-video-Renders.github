@@ -1,0 +1,65 @@
+{
+ "_doc": "Voice casting. 'pick' is the voice used by scripts/tts.py; 'candidates' are auditioned by the TTS workflow (samples land in audio/voices/samples/). engine: kokoro (Kokoro-82M, Apache-2.0) or piper (rhasspy piper voices, MIT/CC licences per voice).",
+ "characters": {
+  "adrian-cross": {
+   "pick": "kokoro:am_puck",
+   "speed": 1.0,
+   "candidates": [
+    "kokoro:am_puck",
+    "kokoro:am_michael",
+    "piper:en_US-ryan-high"
+   ],
+   "line": "Relax, detective. If I wanted to kill someone, I'd have used a far more interesting method."
+  },
+  "maya-reed": {
+   "pick": "kokoro:bf_emma",
+   "speed": 1.0,
+   "candidates": [
+    "kokoro:af_nicole",
+    "kokoro:bf_emma",
+    "piper:en_US-hfc_female-medium"
+   ],
+   "line": "You were at the scene twelve minutes before the call came in. Explain that."
+  },
+  "thomas-hayes": {
+   "pick": "piper:en_US-norman-medium",
+   "speed": 0.92,
+   "candidates": [
+    "kokoro:bm_george",
+    "kokoro:am_onyx",
+    "piper:en_US-norman-medium"
+   ],
+   "line": "Thirty years on homicide, and I have never seen a crime scene this clean."
+  },
+  "elias-voss": {
+   "pick": "piper:en_GB-alan-medium",
+   "speed": 0.9,
+   "candidates": [
+    "kokoro:bm_fable",
+    "kokoro:bm_lewis",
+    "piper:en_GB-alan-medium"
+   ],
+   "line": "Every guest leaves something behind at my table. Usually it is the truth."
+  },
+  "nora-vale": {
+   "pick": "kokoro:af_heart",
+   "speed": 1.05,
+   "candidates": [
+    "kokoro:af_heart",
+    "kokoro:af_bella",
+    "piper:en_US-amy-medium"
+   ],
+   "line": "Three victims, one chess piece each. Tell me that's a coincidence and I'll print it."
+  },
+  "leo-park": {
+   "pick": "kokoro:am_adam",
+   "speed": 1.1,
+   "candidates": [
+    "kokoro:am_adam",
+    "kokoro:am_echo",
+    "piper:en_US-joe-medium"
+   ],
+   "line": "Okay, so, good news, I found prints! Bad news, they're, uh, mine."
+  }
+ }
+}

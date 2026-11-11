@@ -1,0 +1,196 @@
+{
+ "fps": 24,
+ "voice": "voice.wav",
+ "total": 78.6,
+ "shots": [
+  {
+   "id": "hook",
+   "t0": 0.0,
+   "dur": 3.05
+  },
+  {
+   "id": "climb",
+   "t0": 3.05,
+   "dur": 4.85
+  },
+  {
+   "id": "gulch",
+   "t0": 7.9,
+   "dur": 2.3
+  },
+  {
+   "id": "healthy",
+   "t0": 10.2,
+   "dur": 3.25
+  },
+  {
+   "id": "cough",
+   "t0": 13.45,
+   "dur": 0.75
+  },
+  {
+   "id": "fun1",
+   "t0": 14.2,
+   "dur": 0.6
+  },
+  {
+   "id": "splinter",
+   "t0": 14.8,
+   "dur": 0.85
+  },
+  {
+   "id": "fun2",
+   "t0": 15.65,
+   "dur": 2.0
+  },
+  {
+   "id": "small",
+   "t0": 17.65,
+   "dur": 3.0
+  },
+  {
+   "id": "kick",
+   "t0": 20.65,
+   "dur": 3.7
+  },
+  {
+   "id": "nocry",
+   "t0": 24.35,
+   "dur": 2.15
+  },
+  {
+   "id": "names",
+   "t0": 26.5,
+   "dur": 3.3
+  },
+  {
+   "id": "double",
+   "t0": 29.8,
+   "dur": 3.0
+  },
+  {
+   "id": "complaint",
+   "t0": 32.8,
+   "dur": 1.75
+  },
+  {
+   "id": "inside",
+   "t0": 34.55,
+   "dur": 2.8
+  },
+  {
+   "id": "empty",
+   "t0": 37.35,
+   "dur": 2.9
+  },
+  {
+   "id": "card",
+   "t0": 40.25,
+   "dur": 3.35
+  },
+  {
+   "id": "decision",
+   "t0": 43.6,
+   "dur": 2.15
+  },
+  {
+   "id": "perfect",
+   "t0": 45.75,
+   "dur": 1.7
+  },
+  {
+   "id": "velvet",
+   "t0": 47.45,
+   "dur": 1.25
+  },
+  {
+   "id": "band",
+   "t0": 48.7,
+   "dur": 1.1
+  },
+  {
+   "id": "tears",
+   "t0": 49.8,
+   "dur": 2.5
+  },
+  {
+   "id": "happy",
+   "t0": 52.3,
+   "dur": 5.6
+  },
+  {
+   "id": "stopped",
+   "t0": 57.9,
+   "dur": 3.65
+  },
+  {
+   "id": "played",
+   "t0": 61.55,
+   "dur": 1.2
+  },
+  {
+   "id": "wept",
+   "t0": 62.75,
+   "dur": 1.5
+  },
+  {
+   "id": "town",
+   "t0": 64.25,
+   "dur": 3.25
+  },
+  {
+   "id": "laugh",
+   "t0": 67.5,
+   "dur": 5.4
+  },
+  {
+   "id": "didnt",
+   "t0": 72.9,
+   "dur": 2.35
+  },
+  {
+   "id": "days",
+   "t0": 75.25,
+   "dur": 3.35
+  }
+ ],
+ "trans": {
+  "gulch": [
+   "dissolve",
+   0.4
+  ],
+  "small": [
+   "dissolve",
+   0.3
+  ],
+  "nocry": [
+   "dissolve",
+   0.3
+  ],
+  "double": [
+   "dissolve",
+   0.3
+  ],
+  "empty": [
+   "dissolve",
+   0.35
+  ],
+  "decision": [
+   "dissolve",
+   0.4
+  ],
+  "happy": [
+   "dissolve",
+   0.3
+  ],
+  "town": [
+   "dissolve",
+   0.3
+  ],
+  "days": [
+   "dissolve",
+   0.5
+  ]
+ },
+ "subs": []
+}

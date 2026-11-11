@@ -1,0 +1,108 @@
+# DAGAR CLIPS - The Slowest Zombie Apocalypse (parody short, same engine as the Wild West short). blender/zombie/job.json: mode "tasks" (ad-hoc test scripts), "stills" (check frames of every shot)
+# or "video" (every frame, chunked, then joined with subtitles + audio into previews/zombie/final). Same Blender as local dev (pip bpy 5.2.3).
+name: zombie
+on:
+  push:
+    branches: [claude/dagar-blender]
+    paths: ['blender/zombie/job.json']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs: { jobs: '${{ steps.p.outputs.jobs }}', mode: '${{ steps.p.outputs.mode }}', cast: '${{ steps.p.outputs.cast }}' }
+    steps:
+      - uses: actions/checkout@v5
+      - id: p
+        run: |
+          echo "jobs=$(python3 blender/zombie/plan.py)" >> $GITHUB_OUTPUT
+          echo "mode=$(jq -r .mode blender/zombie/job.json)" >> $GITHUB_OUTPUT
+          echo "cast=false" >> $GITHUB_OUTPUT
+  cast:
+    needs: plan
+    if: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ./.github/actions/west-setup
+      - name: Build cast + portraits
+        run: |
+          mkdir -p /tmp/castout; cd blender/west
+          python3 portraits.py -- /tmp/castout 2>&1 | grep -E "portrait|Error|Traceback"
+          ls -la /tmp/castout
+      - uses: actions/upload-artifact@v4
+        with: { name: cast, path: /tmp/castout, retention-days: 7 }
+  task:
+    needs: [plan, cast]
+    if: always() && needs.plan.result == 'success' && needs.plan.outputs.mode != 'compose' && (needs.cast.result == 'success' || needs.cast.result == 'skipped')
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix: { t: '${{ fromJson(needs.plan.outputs.jobs) }}' }
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ./.github/actions/west-setup
+      - name: Run
+        run: |
+          mkdir -p out; set -o pipefail; cd blender/zombie
+          export USE_PH=1 CAST=/tmp/cast/cast.blend FACES=/tmp/cast
+          export RW=$(jq -r '.w // 1440' job.json) RH=$(jq -r '.h // 2560' job.json) SAMPLES=$(jq -r '.samples // 64' job.json) VEG=$(jq -r '.veg // 1.0' job.json) HANDLE=$(jq -r '.handle // 0.25' job.json)
+          JENV=$(jq -r '.env // {} | to_entries|map("\(.key)=\(.value)")|join(" ")' job.json); [ -n "$JENV" ] && export $JENV
+          EXTRA=$(echo '${{ toJson(matrix.t.env) }}' | jq -r 'if . == null then "" else to_entries|map("\(.key)=\(.value)")|join(" ") end'); [ -n "$EXTRA" ] && export $EXTRA
+          free -g; ( while true; do sleep 20; echo "MEM $(free -m | awk '/Mem/{print $3}')MB"; done ) &
+          if [ "${{ needs.plan.outputs.mode }}" = "video" ]; then
+            python3 story.py -- frames ${{ matrix.t.shot }} ${{ matrix.t.a }} ${{ matrix.t.b }} $GITHUB_WORKSPACE/out/frames 2>&1 | grep -E "frame|Error|Traceback|line" | tee $GITHUB_WORKSPACE/out/log.txt | tail -60
+            S=$(ls $GITHUB_WORKSPACE/out/frames | head -1 | sed 's/f_0*//; s/.png//'); [ -z "$S" ] && S=0
+            ffmpeg -loglevel error -y -framerate 24 -start_number $S -i $GITHUB_WORKSPACE/out/frames/f_%05d.png -c:v libx264 -preset slow -crf 14 -pix_fmt yuv420p $GITHUB_WORKSPACE/out/chunk_${{ matrix.t.id }}.mp4
+            rm -rf $GITHUB_WORKSPACE/out/frames
+          else
+            python3 ${{ matrix.t.script }} -- ${{ join(matrix.t.args, ' ') }} $GITHUB_WORKSPACE/out/${{ matrix.t.id }}.png ${{ matrix.t.t }} 2>&1 | grep -v "^Fra:\|degenerated\|strokes\|Synchroniz\|Updating\|Loading render" | tee $GITHUB_WORKSPACE/out/log.txt | tail -120
+          fi
+      - name: Save still + log to the branch
+        if: always() && needs.plan.outputs.mode != 'video'
+        run: |
+          mkdir -p previews/zombie logs/zombie
+          cp out/*.json previews/zombie/ 2>/dev/null || true
+          [ -f out/${{ matrix.t.id }}.png ] && ffmpeg -loglevel error -y -i out/${{ matrix.t.id }}.png -q:v 2 previews/zombie/${{ matrix.t.id }}.jpg || true
+          tail -c 30000 out/log.txt > logs/zombie/${{ matrix.t.id }}.log 2>/dev/null || true
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add previews/zombie logs/zombie; git commit -qm "zombie ${{ matrix.t.id }} [skip ci]" || exit 0
+          for i in $(seq 1 30); do git pull --rebase --autostash -q && git push -q && break; sleep $((RANDOM % 15 + 3)); done
+      - uses: actions/upload-artifact@v4
+        if: needs.plan.outputs.mode == 'video'
+        with: { name: 'chunk-${{ matrix.t.id }}', path: 'out/chunk_*.mp4', retention-days: 5 }
+  join:
+    needs: [plan, task]
+    if: always() && (needs.plan.outputs.mode == 'video' || needs.plan.outputs.mode == 'compose')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: download chunks
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          SRC=$(jq -r '.src_run // empty' blender/zombie/job.json); [ -z "$SRC" ] && SRC=${{ github.run_id }}
+          RUNS="$(jq -r '(.also_runs // []) | map(tostring) | join(" ")' blender/zombie/job.json) $SRC"
+          mkdir -p dl art
+          for R in $RUNS; do
+            for n in $(gh api "repos/${{ github.repository }}/actions/runs/$R/artifacts?per_page=100" --paginate --jq '.artifacts[] | select(.name|startswith("chunk-")) | .name'); do
+              [ -d "dl/$n" ] && continue
+              for t in 1 2 3 4 5 6; do gh run download $R -n $n -D dl/$n 2>/dev/null && break; rm -rf "dl/$n"; sleep $((t * 20)); done
+            done
+          done
+          find dl -name '*.mp4' -exec mv -t art {} +; echo "chunks: $(ls art | wc -l)"
+      - run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null; pip install -q pillow numpy
+          JENV=$(jq -r '.env // {} | to_entries|map("\(.key)=\(.value)")|join(" ")' blender/zombie/job.json); [ -n "$JENV" ] && export $JENV
+          python3 blender/zombie/compose.py art final.mp4
+          mkdir -p previews/zombie
+          ffmpeg -loglevel error -y -i final.mp4 -c:v libx264 -preset slow -b:v 9000k -maxrate 11000k -bufsize 20000k -pix_fmt yuv420p -c:a copy -movflags +faststart previews/zombie/final_share.mp4
+          split -b 90m -d final.mp4 previews/zombie/final_full.mp4.part
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add previews/zombie/final_*; git commit -qm "zombie final video [skip ci]" || exit 0
+          for i in 1 2 3 4 5 6 7 8; do git pull --rebase --autostash -q && git push -q && break; sleep $((RANDOM % 9 + 3)); done
+      - uses: actions/upload-artifact@v4
+        with: { name: 'video', path: 'final.mp4', retention-days: 30 }
