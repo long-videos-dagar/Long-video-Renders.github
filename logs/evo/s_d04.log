@@ -1,0 +1,41 @@
+00:00.696  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['snow'] -> snow_02
+[lib] model island_tree_01 17
+[lib] model tree_small_02 12
+[lib] model fir_tree_01 48
+[lib] model pine_tree_01 62
+[lib] ph_find textures ['bark', 'palm'] -> palm_tree_bark
+[lib] model fern_02 4
+[lib] model shrub_01 36
+[lib] model shrub_02 12
+[lib] model shrub_03 12
+[lib] model grass_medium_01 103
+[lib] model periwinkle_plant 42
+[lib] model namaqualand_boulder_02 4
+[lib] model namaqualand_boulder_05 3
+[lib] model rock_07 4
+[lib] model boulder_01 4
+10:34:34 | INFO: Data are loaded, start creating Blender stuff
+10:34:35 | INFO: Blender create Mesh node Body_M_Body_0
+10:34:35 | INFO: Blender create Mesh node Tongue_M_Body_0
+10:34:35 | INFO: Blender create Mesh node Teeth_M_Teeth_0
+10:34:35 | INFO: Blender create Mesh node Eye_M_Eye_0
+10:34:35 | INFO: Blender create Mesh node Cornea_M_Cornea_0
+10:34:35 | INFO: Blender create Mesh node Wing_Wing01_0
+10:34:35 | INFO: Blender create Mesh node Fur_Wing01_0
+10:34:36 | INFO: glTF import finished in 1.62s
+/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_b.py:167: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  r = random.Random(seed); m = bpy.data.materials.new('drop'); m.use_nodes = True; b = m.node_tree.nodes['Principled BSDF']; b.inputs['Roughness'].default_value = 0
+RSS built 4439 MB
+RSS extras 4439 MB
+CLEARCAM d04 0
+CLEARPROPS 0
+RSS lod 4466 MB
+RSS posed 4496 MB
+RSS depsgraph 4496 MB
+OBJECTS 4234 MESHES 698 IMAGES 123 187 Mpx
+02:22.595  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_d04.png'
+RTIME 107.4
+RSS rendered 15200 MB
+RENDERED d04 6.32
