@@ -1,0 +1,35 @@
+00:00.766  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['sand', 'beach'] -> damp_beach_sand
+[lib] ph_find textures ['rock', 'cliff'] -> coast_sand_rocks_02
+[lib] ph_find textures ['moss', 'grass'] -> aerial_grass_rock
+[lib] model coast_rocks_01 4
+[lib] model coast_rocks_02 4
+[lib] model coast_rocks_03 4
+[lib] model coast_land_rocks_02 4
+[lib] model coast_land_rocks_03 4
+[lib] model namaqualand_boulder_02 4
+[lib] ph_find textures ['bark', 'palm'] -> palm_tree_bark
+[lib] ph_find textures ['grass'] -> aerial_grass_rock
+[lib] model moss_01 73
+[lib] model fern_02 4
+[lib] model rock_moss_set_01 6
+[lib] model coastal_cliff_01 4
+[lib] model coastal_cliff_02 4
+[lib] model coastal_cliff_04 4
+[lib] ph_find textures [''] -> plywood
+[lib] ph_find textures [''] -> plywood
+[lib] ph_find textures [''] -> plywood
+[lib] ph_find textures [''] -> plywood
+[lib] ph_find textures [''] -> plywood
+RSS built 1914 MB
+RSS extras 1914 MB
+CLEARCAM l02 0
+RSS lod 2249 MB
+RSS posed 2249 MB
+RSS depsgraph 2249 MB
+OBJECTS 1148 MESHES 237 IMAGES 55 119 Mpx
+03:34.946  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_l02.png'
+RTIME 201.7
+RSS rendered 7571 MB
+RENDERED l02 3.56
