@@ -1,10 +1,9 @@
-00:00.795  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.889  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['snow'] -> snow_02
-[lib] model island_tree_01 17
 [lib] model island_tree_02 17
-[lib] model island_tree_03 17
 [lib] model tree_small_02 12
+[lib] model fir_tree_01 48
 [lib] ph_find textures ['bark', 'palm'] -> palm_tree_bark
 [lib] model fern_02 4
 [lib] model shrub_01 36
@@ -17,45 +16,46 @@
 [lib] model namaqualand_boulder_05 3
 [lib] model rock_07 4
 [lib] model boulder_01 4
-09:50:28 | INFO: Data are loaded, start creating Blender stuff
-09:50:29 | INFO: Blender create Mesh node blackrat_fur_blackrat_fur_0
-09:50:29 | INFO: Blender create Mesh node blackrat_body_blackrat_eyes_0
-09:50:29 | INFO: Blender create Mesh node blackrat_body_blackrat_body_0
-09:50:30 | INFO: glTF import finished in 2.27s
-09:50:32 | INFO: Data are loaded, start creating Blender stuff
-09:50:32 | INFO: Blender create Mesh node blackrat_fur_blackrat_fur_0
-09:50:33 | INFO: Blender create Mesh node blackrat_body_blackrat_eyes_0
-09:50:33 | INFO: Blender create Mesh node blackrat_body_blackrat_body_0
-09:50:34 | INFO: glTF import finished in 2.39s
-09:50:35 | INFO: Data are loaded, start creating Blender stuff
-09:50:36 | INFO: Blender create Mesh node blackrat_fur_blackrat_fur_0
-09:50:36 | INFO: Blender create Mesh node blackrat_body_blackrat_eyes_0
-09:50:36 | INFO: Blender create Mesh node blackrat_body_blackrat_body_0
-09:50:38 | INFO: glTF import finished in 2.45s
-09:50:39 | INFO: Data are loaded, start creating Blender stuff
-09:50:40 | INFO: Blender create Mesh node blackrat_fur_blackrat_fur_0
-09:50:40 | INFO: Blender create Mesh node blackrat_body_blackrat_eyes_0
-09:50:40 | INFO: Blender create Mesh node blackrat_body_blackrat_body_0
-09:50:42 | INFO: glTF import finished in 2.58s
-09:50:44 | INFO: Data are loaded, start creating Blender stuff
-09:50:45 | INFO: Blender create Mesh node blackrat_fur_blackrat_fur_0
-09:50:45 | INFO: Blender create Mesh node blackrat_body_blackrat_eyes_0
-09:50:45 | INFO: Blender create Mesh node blackrat_body_blackrat_body_0
-09:50:46 | INFO: glTF import finished in 2.63s
-09:50:48 | INFO: Data are loaded, start creating Blender stuff
-09:50:49 | INFO: Blender create Mesh node blackrat_fur_blackrat_fur_0
-09:50:49 | INFO: Blender create Mesh node blackrat_body_blackrat_eyes_0
-09:50:49 | INFO: Blender create Mesh node blackrat_body_blackrat_body_0
-09:50:51 | INFO: glTF import finished in 2.76s
+10:18:46 | INFO: Data are loaded, start creating Blender stuff
+10:18:47 | INFO: Blender create Mesh node blackrat_fur_blackrat_fur_0
+10:18:47 | INFO: Blender create Mesh node blackrat_body_blackrat_eyes_0
+10:18:47 | INFO: Blender create Mesh node blackrat_body_blackrat_body_0
+10:18:49 | INFO: glTF import finished in 3.07s
+10:18:50 | INFO: Data are loaded, start creating Blender stuff
+10:18:51 | INFO: Blender create Mesh node blackrat_fur_blackrat_fur_0
+10:18:51 | INFO: Blender create Mesh node blackrat_body_blackrat_eyes_0
+10:18:52 | INFO: Blender create Mesh node blackrat_body_blackrat_body_0
+10:18:54 | INFO: glTF import finished in 3.20s
+10:18:55 | INFO: Data are loaded, start creating Blender stuff
+10:18:56 | INFO: Blender create Mesh node blackrat_fur_blackrat_fur_0
+10:18:57 | INFO: Blender create Mesh node blackrat_body_blackrat_eyes_0
+10:18:57 | INFO: Blender create Mesh node blackrat_body_blackrat_body_0
+10:18:59 | INFO: glTF import finished in 3.29s
+10:19:00 | INFO: Data are loaded, start creating Blender stuff
+10:19:01 | INFO: Blender create Mesh node blackrat_fur_blackrat_fur_0
+10:19:02 | INFO: Blender create Mesh node blackrat_body_blackrat_eyes_0
+10:19:02 | INFO: Blender create Mesh node blackrat_body_blackrat_body_0
+10:19:04 | INFO: glTF import finished in 3.37s
+10:19:06 | INFO: Data are loaded, start creating Blender stuff
+10:19:07 | INFO: Blender create Mesh node blackrat_fur_blackrat_fur_0
+10:19:07 | INFO: Blender create Mesh node blackrat_body_blackrat_eyes_0
+10:19:07 | INFO: Blender create Mesh node blackrat_body_blackrat_body_0
+10:19:09 | INFO: glTF import finished in 3.44s
+10:19:11 | INFO: Data are loaded, start creating Blender stuff
+10:19:12 | INFO: Blender create Mesh node blackrat_fur_blackrat_fur_0
+10:19:12 | INFO: Blender create Mesh node blackrat_body_blackrat_eyes_0
+10:19:12 | INFO: Blender create Mesh node blackrat_body_blackrat_body_0
+10:19:15 | INFO: glTF import finished in 3.54s
 [lib] ph_find textures ['leaves'] -> brown_mud_leaves_01
-RSS built 2177 MB
-RSS extras 2177 MB
+RSS built 2550 MB
+RSS extras 2550 MB
 CLEARCAM n01 0
-RSS lod 2202 MB
-RSS posed 2236 MB
-RSS depsgraph 2236 MB
-OBJECTS 3913 MESHES 537 IMAGES 148 226 Mpx
-02:14.498  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_n01.png'
-RTIME 86.6
-RSS rendered 7736 MB
+CLEARPROPS 0
+RSS lod 2588 MB
+RSS posed 2588 MB
+RSS depsgraph 2588 MB
+OBJECTS 3886 MESHES 550 IMAGES 146 224 Mpx
+02:50.207  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_n01.png'
+RTIME 117.6
+RSS rendered 9452 MB
 RENDERED n01 8.14
