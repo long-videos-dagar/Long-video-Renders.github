@@ -1,0 +1,21 @@
+00:00.723  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['rock', 'cave', 'limestone'] -> aerial_rocks_02
+[lib] ph_find textures ['rock', 'wet'] -> brown_mud_rocks_01
+[lib] ph_find textures ['dirt', 'ground'] -> forest_ground_04
+[lib] ph_find textures ['rock'] -> coast_sand_rocks_02
+[lib] ph_find textures ['bark'] -> bark_brown_02
+[lib] ph_find textures [''] -> plywood
+/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_c.py:143: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  sm = bpy.data.materials.new(name + '_screen'); sm.use_nodes = True; b = sm.node_tree.nodes['Principled BSDF']
+RSS built 532 MB
+RSS extras 532 MB
+CLEARCAM t02 0
+RSS lod 532 MB
+RSS posed 532 MB
+RSS depsgraph 532 MB
+OBJECTS 102 MESHES 70 IMAGES 21 81 Mpx
+00:54.135  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_t02.png'
+RTIME 48.6
+RSS rendered 1316 MB
+RENDERED t02 2.52
