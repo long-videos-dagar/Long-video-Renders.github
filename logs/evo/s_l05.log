@@ -1,4 +1,4 @@
-00:00.770  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.585  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['wood', 'floor', 'parquet'] -> wood_floor
 [lib] ph_find textures ['plaster', 'painted'] -> painted_plaster_wall
@@ -10,14 +10,15 @@
 [lib] model wooden_bookshelf_worn 1
 [lib] model steel_frame_shelves_01 1
 [lib] model book_encyclopedia_set_01 21
-RSS built 555 MB
-RSS extras 555 MB
+RSS built 556 MB
+RSS extras 556 MB
 CLEARCAM l05 0
-RSS lod 637 MB
-RSS posed 640 MB
-RSS depsgraph 640 MB
+CLEARPROPS 1
+RSS lod 638 MB
+RSS posed 641 MB
+RSS depsgraph 641 MB
 OBJECTS 1136 MESHES 690 IMAGES 53 80 Mpx
-00:49.982  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_l05.png'
-RTIME 41.3
-RSS rendered 1710 MB
+00:49.430  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_l05.png'
+RTIME 41.2
+RSS rendered 1711 MB
 RENDERED l05 4.33
