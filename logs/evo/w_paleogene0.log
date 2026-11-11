@@ -1,0 +1,21 @@
+[lib] ph_find textures ['snow'] -> snow_02
+[lib] model island_tree_01 17
+[lib] model island_tree_02 17
+[lib] model island_tree_03 17
+[lib] model tree_small_02 12
+[lib] ph_find textures ['bark', 'palm'] -> palm_tree_bark
+[lib] model fern_02 4
+[lib] model shrub_01 36
+[lib] model shrub_02 12
+[lib] model shrub_03 12
+[lib] model nettle_plant 24
+[lib] model periwinkle_plant 42
+[lib] model grass_medium_01 103
+[lib] model namaqualand_boulder_02 4
+[lib] model namaqualand_boulder_05 3
+[lib] model rock_07 4
+[lib] model boulder_01 4
+BUILT 14.5
+02:30.975  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/w_paleogene0.png'
+CAMZ ground 0.87 -> 4
+RENDERED paleogene 0 135.7
