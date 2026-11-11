@@ -1,15 +1,14 @@
-00:00.906  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.828  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
-[lib] ph_find textures [''] -> plywood
-[lib] ph_find textures [''] -> plywood
 RSS built 532 MB
 RSS extras 532 MB
 CLEARCAM m03 0
-RSS lod 590 MB
-RSS posed 595 MB
-RSS depsgraph 595 MB
-OBJECTS 1503 MESHES 1238 IMAGES 4 14 Mpx
-00:43.102  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_m03.png'
-RTIME 36.2
-RSS rendered 1214 MB
+CLEARPROPS 0
+RSS lod 586 MB
+RSS posed 591 MB
+RSS depsgraph 591 MB
+OBJECTS 1503 MESHES 1238 IMAGES 1 2 Mpx
+00:37.591  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_m03.png'
+RTIME 33.6
+RSS rendered 1186 MB
 RENDERED m03 8.17
