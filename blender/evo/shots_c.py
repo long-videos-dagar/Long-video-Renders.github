@@ -298,7 +298,7 @@ def s_m05(sh):
         d['handL'] = (x - .18, y - .12 - .1 * (1 - s), .78); d['handR'] = (x + .18, y - .12 - .1 * (1 - s), .78); return d
     override(a, mod); class_extras(sh, 9)
     def cam(t):
-        h = head_of(ch); return (h + Vector((-.9, -1.9, .2)), h, 42, 0, h, .003)
+        h = head_of(ch); return (h + Vector((-.7, 1.9, .2)), h, 42, 0, h, .003)
     sh.camera(cam, fstop=2.6); sh.keylight(10)
 
 
@@ -314,7 +314,7 @@ def s_l05(sh):
     def cam(t):
         h = head_of(ch)
         if 3.4 < t < 5.4:
-            th = head_of(sh.chars['TEACHER']); return (th + Vector((-.5, -2.3, -.1)), th, 46, 0, th, .003)
+            th = head_of(sh.chars['TEACHER']); return (th + Vector((-.5 * .6, -1.3, -.05)), th, 38, 0, th, .003)
         return (h + Vector((.7, 1.9, .15)), h, 44, 0, h, .003)
     sh.camera(cam, fstop=2.6); sh.keylight(10)
 
@@ -327,7 +327,7 @@ def s_p12(sh):
     teacher(sh, (0.6, 3.0), 190, [(0, 'deadpan'), (2.4, 'smirk')]); class_extras(sh, 11)
     def cam(t):
         if t > 2.4:
-            th = head_of(sh.chars['TEACHER']); return (th + Vector((.3, -2.0, -.1)), th, 46, 0, th, .003)
+            th = head_of(sh.chars['TEACHER']); return (th + Vector((.3 * .6, -1.3, -.05)), th, 38, 0, th, .003)
         h = head_of(ch); return (h + Vector((.6, 1.8, .2)), h, 42, 0, h, .003)
     sh.camera(cam, fstop=2.6); sh.keylight(10)
 
@@ -339,7 +339,7 @@ def s_d06(sh):
     teacher(sh, (-0.6, 3.0), 170, [(0, 'bored'), (4.2, 'deadpan')]); seated(sh, 'KEVIN', KEVIN, [(0, 'watch'), (5.6, 'laugh')]); class_extras(sh, 12)
     def cam(t):
         if 4.2 < t < 6.2:
-            th = head_of(sh.chars['TEACHER']); return (th + Vector((-.3, -2.1, -.1)), th, 46, 0, th, .003)
+            th = head_of(sh.chars['TEACHER']); return (th + Vector((-.3 * .6, -1.3, -.05)), th, 38, 0, th, .003)
         h = head_of(ch); return (h + Vector((-.6, 1.8, .15)), h, 42, 0, h, .003)
     sh.camera(cam, fstop=2.6); sh.keylight(10)
 
@@ -353,7 +353,7 @@ def s_n05(sh):
     def cam(t):
         who = [w_ for t_, w_ in T_ if t >= t_][-1]
         if who == 't':
-            th = head_of(sh.chars['TEACHER']); return (th + Vector((.4, -2.2, -.1)), th, 44, 0, th, .003)
+            th = head_of(sh.chars['TEACHER']); return (th + Vector((.4 * .6, -1.3, -.05)), th, 38, 0, th, .003)
         h = head_of(ch); return (h + Vector((.6, 1.9, .2)), h, 42, 0, h, .003)
     sh.camera(cam, fstop=2.6); sh.keylight(10)
 
@@ -383,7 +383,7 @@ def s_b03(sh):
     teacher(sh, (0.4, 3.0), 190, [(0, 'bored'), (5.8, 'smirk')]); class_extras(sh, 16)
     def cam(t):
         if 5.8 < t < 6.8:
-            th = head_of(sh.chars['TEACHER']); return (th + Vector((.3, -2.0, -.1)), th, 46, 0, th, .003)
+            th = head_of(sh.chars['TEACHER']); return (th + Vector((.3 * .6, -1.3, -.05)), th, 38, 0, th, .003)
         h = head_of(ch); return (h + Vector((.6, 1.9 - .4 * ease(t / 5.8), .2)), h, 40, 0, h, .003)
     sh.camera(cam, fstop=2.6); sh.keylight(10)
 

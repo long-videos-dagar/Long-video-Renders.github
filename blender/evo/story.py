@@ -271,6 +271,28 @@ def s_c12(sh):
 for _p in ('shots_a.py', 'shots_b.py', 'shots_c.py'):
     exec(compile(open(os.path.join(HERE, _p)).read(), os.path.join(HERE, _p), 'exec'))
 
+_CB = {}
+def _coll_radius(c):
+    if c.name in _CB: return _CB[c.name]
+    pts = [o.matrix_world @ Vector(v) for o in c.all_objects if o.type == 'MESH' for v in o.bound_box]
+    if not pts: _CB[c.name] = (Vector(), 0.0); return _CB[c.name]
+    lo = Vector([min(p[i] for p in pts) for i in range(3)]); hi = Vector([max(p[i] for p in pts) for i in range(3)])
+    cen = (lo + hi) / 2 - c.instance_offset; _CB[c.name] = (cen, (hi - lo).length / 2); return _CB[c.name]
+
+
+_clear0 = F.Shot.clear_camera
+def _clear_props(self, rad=1.7):
+    """also hide scattered props (rocks, trees, plants) the camera would pass through or sit inside"""
+    _clear0(self, rad)
+    if self.cam is None: return
+    cps = [Vector(self.cam[1](self.dur * k / 12)[0]) for k in range(13)]; n = 0
+    for e in bpy.data.objects:
+        if e.instance_type != 'COLLECTION' or e.instance_collection is None or e.hide_render: continue
+        cen, r = _coll_radius(e.instance_collection); r *= max(e.scale); c = e.matrix_world @ cen
+        if any((c - p).length < r * .9 + .4 for p in cps): e.hide_render = True; n += 1
+    print('CLEARPROPS', n, flush=True)
+F.Shot.clear_camera = _clear_props
+
 SHOTS = {k[2:]: v for k, v in list(globals().items()) if k.startswith('s_') and callable(v)}
 
 if __name__ == '__main__':

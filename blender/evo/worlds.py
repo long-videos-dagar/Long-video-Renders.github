@@ -67,8 +67,8 @@ def young_earth(seed=1):
         r_ = random.Random(seed * 10 + k); x = r_.uniform(-80, 80); y = r_.uniform(40, 180)
         p = T.lib.sphere(f'lavapool{k}', r_.uniform(4, 10), (x, y, ter.z(x, y) - .2), lm, seg=20, rings=6); p.scale = (1, r_.uniform(.5, 1.2), .03)
     # ash plumes, glowing from the craters
-    plumes = [TR.smoke_column(f'plume{k}', (cx, cy, ter.z(cx, cy) - 2), rate=16.0, life=20, rise=10.0 + k, r0=r * .05, r1=r * .2, wind=(3.0, 1.0),
-                              turb=r * .35, density=.06, glow=.6 if k < 3 else 0.0, voxel=max(1.2, r * .025), seed=k) for k, (cx, cy, r, hh) in enumerate(V)]
+    plumes = [TR.plume(f'plume{k}', (cx, cy, ter.z(cx, cy) - 4), height=hh * 4.0, r0=r * .07, r1=r * 1.3, drift=(r * 1.2, r * .4),
+                       density=.12, glow=1.0 if k < 3 else 0.0, speed=8.0 + k, seed=k) for k, (cx, cy, r, hh) in enumerate(V)]
     # boiling sea + steam
     sea = TR.ocean('sea', 900, (-420, 300, -6.5), wave=1.4, choppy=1.6, col='#1a2a26', murk='#3a3020', foam=True)
     steam = [TR.smoke_column(f'steam{k}', (-150 - k * 60, 120 + k * 70, -7), rate=2.0, life=10, rise=4.0, r0=6, r1=22, wind=(2.0, .5), turb=6,
@@ -189,7 +189,7 @@ def classroom(seed=3):
         for c_ in range(4):
             x = -3.3 + c_ * 2.2; y = -2.4 + r_ * 1.55
             if hput('SchoolDesk_01', (x, y, 0), 0, 1.0) is None: T.box(f'desk{r_}{c_}', (1.0, .55, .05), (x, y, .72), T.plain('deskw', '#b08050', .5))
-            if hput('SchoolChair_01', (x, y - .55, 0), 180 if False else 0, 1.0) is None: T.box(f'chair{r_}{c_}', (.42, .42, .04), (x, y - .55, .44), T.plain('chairw', '#3a5a8a', .5))
+            if hput('SchoolChair_01', (x, y - .55, 0), 180, 1.0) is None: T.box(f'chair{r_}{c_}', (.42, .42, .04), (x, y - .55, .44), T.plain('chairw', '#3a5a8a', .5))
             desks.append((x, y))
     hput('WoodenTable_02', (2.6, y1 - 1.6, 0), 90, 1.0); hput('wall_clock', (-2.9, y1 - .02, 2.85), 0, 1.0)
     hput('potted_plant_02', (x1 - .5, y1 - .5, 0), 30, 1.0); hput('potted_plant_02', (x0 + .5, y0 + .5, 0), 0, .9)
@@ -231,10 +231,10 @@ FOREST = {
                      trees=[(['fir_tree_01', 'pine_tree_01'], 520, (18, 34))], plants=[('treefern', 220), ('cycad', 160), ('horsetail', 200)],
                      under=['fern_02', 'moss_01', 'rock_moss_set_02', 'root_cluster_01'], river=True),
     'cretaceous': dict(sky='day', sun=(170, 35, 4.2, (1, .94, .84)), ground=('forest ground', 'grass', 'leaves'), gaid='leafy_grass', gcol='#4a5a2a', drygrass=False,
-                       trees=[(['island_tree_01', 'island_tree_02', 'island_tree_03', 'tree_small_02'], 460, (10, 24)), (['fir_tree_01', 'pine_tree_01'], 160, (18, 30))],
+                       trees=[(['island_tree_01', 'tree_small_02'], 380, (10, 24)), (['fir_tree_01', 'pine_tree_01'], 200, (18, 30))],
                        plants=[('cycad', 50), ('treefern', 50)], under=['fern_02', 'shrub_01', 'shrub_02', 'shrub_04', 'searsia_lucida', 'flower_heliophila'], river=True),
     'paleogene': dict(sky='day', sun=(180, 42, 4.0, (1, .95, .86)), ground=('forest ground', 'leaves', 'grass'), gaid='grass_ground', gcol='#4a5a2a', drygrass=False,
-                      trees=[(['island_tree_01', 'island_tree_02', 'island_tree_03', 'tree_small_02'], 600, (10, 26))],
+                      trees=[(['island_tree_02', 'tree_small_02'], 480, (10, 26)), (['fir_tree_01'], 80, (16, 26))],
                       plants=[('treefern', 20)], under=['fern_02', 'shrub_01', 'shrub_02', 'shrub_03', 'nettle_plant', 'periwinkle_plant', 'grass_medium_01'], river=True),
     'savanna': dict(sky='golden', sun=(200, 28, 4.5, (1, .86, .66)), ground=('dry grass', 'dry ground', 'savanna'), gaid='dry_ground_01', gcol='#a89058', drygrass=True,
                     trees=[(['quiver_tree_01', 'island_tree_02', 'tree_small_02'], 30, (6, 11))], plants=[],
@@ -326,12 +326,19 @@ def seafloor(kind='cambrian', seed=4):
     r = random.Random(seed)
     life = []
     if kind in ('cambrian', 'devonian_sea', 'ediacaran'):
-        sponge = TR.simple_mat('sponge', ('rock', 'coral'), '#c89a6a', .3, tint='#d8a070')
+        import creatures as CR
+        smats = [CR.pmat(f'sponge{c}', c, .85, sss=.3) for c in ('#d8903a', '#e0b84a', '#c86a4a', '#b8a070')]
+        for m_ in smats:                                   # porous surface: voronoi pits in the bump
+            N_, L_ = m_.node_tree.nodes, m_.node_tree.links; vo = N_.new('ShaderNodeTexVoronoi'); vo.inputs['Scale'].default_value = 40
+            bp = N_.new('ShaderNodeBump'); bp.inputs['Strength'].default_value = .6; L_.new(vo.outputs['Distance'], bp.inputs['Height'])
+            L_.new(bp.outputs['Normal'], N_['Principled BSDF'].inputs['Normal'])
         for k in range(160 if kind != 'ediacaran' else 40):
             x, y = r.uniform(-60, 60), r.uniform(0, 160); z = ter.z(x, y)
-            for j in range(r.randint(1, 4)):
-                hh = r.uniform(.4, 2.2); o = T.cyl(f'sponge{k}_{j}', r.uniform(.12, .3), hh, (x + r.uniform(-.4, .4), y + r.uniform(-.4, .4), z + hh / 2), sponge, v=10)
-                o.rotation_euler = (r.uniform(-.2, .2), r.uniform(-.2, .2), 0)
+            for j in range(r.randint(1, 4)):                # vase / tube sponges: open, flaring tops, slightly wobbly
+                hh = r.uniform(.3, 1.6); rr = r.uniform(.06, .22); fl = r.uniform(1.0, 1.8)
+                prof = [(rr * .6, 0), (rr, hh * .25), (rr * (1 + (fl - 1) * .5), hh * .6), (rr * fl, hh), (rr * fl * .82, hh * .98), (rr * .7, hh * .55), (rr * .5, hh * .2)]
+                o = lib.lathe(f'sponge{k}_{j}', prof, seg=14, m=r.choice(smats)); o.location = (x + r.uniform(-.4, .4), y + r.uniform(-.4, .4), z - .03)
+                o.rotation_euler = (r.uniform(-.25, .25), r.uniform(-.25, .25), r.uniform(0, 6.3))
         alg = TR.simple_mat('algae', ('leaves', 'grass'), '#3a6a3a', .2, tint='#4a8a4a')
         for k in range(220):
             x, y = r.uniform(-60, 60), r.uniform(-10, 170); z = ter.z(x, y); hh = r.uniform(.8, 3.5)

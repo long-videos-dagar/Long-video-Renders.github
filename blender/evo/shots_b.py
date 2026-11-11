@@ -19,8 +19,8 @@ def falling_tree(sh, ter, xy, t0, yaw=0.0, h=18.0, kind='pine_tree_01'):
 
 
 def eruption(sh, p, scale=1.0, seed=0):
-    col = TR.smoke_column(f'erupt{seed}', p, rate=18, life=16, rise=14 * scale, r0=6 * scale, r1=40 * scale, wind=(4, 1), turb=10 * scale, col=(.18, .15, .14),
-                          density=.05, glow=1.2, voxel=2.0 * scale, seed=seed)
+    col = TR.plume(f'erupt{seed}', p, height=260 * scale, r0=6 * scale, r1=90 * scale, drift=(80 * scale, 20 * scale),
+                   density=.12, glow=1.0, speed=7 * scale, seed=seed)
     sh.updates.append(col); embers(sh, (p[0], p[1], p[2] + 30 * scale), 60, (30 * scale, 30 * scale), 40 * scale, seed=seed + 50, size=.4 * scale)
     l = bpy.data.lights.new(f'eruptl{seed}', 'POINT'); l.energy = 3e6 * scale; l.color = (1, .4, .1); o = bpy.data.objects.new('eruptl', l); TR.coll().objects.link(o)
     o.location = (p[0], p[1], p[2] + 10)

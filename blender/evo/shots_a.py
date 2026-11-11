@@ -14,7 +14,9 @@ def cam_fn(keys, focus=None, roll=0.0, shake=.003, lens_fn=None, quake=None):
 
 
 def nat(sh, world, **kw):
-    w = stage(sh, world, **kw); return w, (w.get('ter') if isinstance(w, dict) else None)
+    """nature shots: no motion blur (python-driven motion isn't keyed anyway, and blur on wind-deformed forests triples memory)"""
+    w = stage(sh, world, **kw); sh.updates.append(lambda t: setattr(bpy.context.scene.render, 'use_motion_blur', False))
+    return w, (w.get('ter') if isinstance(w, dict) else None)
 
 
 def G(ter, x, y, dz=0.0):
@@ -295,7 +297,7 @@ def o2(name, m):
 
 def s_m03(sh):
     """the screen fills with oxygen molecules; oxygen-hating microbes shrivel"""
-    w, _ = nat(sh, 'microbes'); r = random.Random(3); om = TR.simple_mat('oxy', ('',), '#e0402a', .2, rough=.25)
+    w, _ = nat(sh, 'microbes'); r = random.Random(3); om = CR.pmat('oxy', '#e0402a', .25, coat=.5)
     mol = []
     for k in range(260):
         o = o2(f'O2_{k}', om); p = Vector((r.uniform(-5, 5), r.uniform(0, 12), r.uniform(-3, 3))); tin = r.uniform(0, sh.dur * .8)
@@ -420,6 +422,13 @@ def s_k06(sh):
 
 
 # ------------------------------------------------------------------ l: onto land
+def find_y(ter, x, y, ok, step=1.0, n=400):
+    """walk along +Y from y until ok(z) (e.g. dry land, shallow water)"""
+    for k in range(n):
+        if ok(ter.z(x, y + k * step)): return y + k * step
+    return y
+
+
 def millipede(name, n=14, size=.04):
     m = TR.simple_mat(name + '_m', ('',), '#4a2a1a', .2, rough=.4); root = bpy.data.objects.new(name, None); TR.coll().objects.link(root); segs = []
     for k in range(n):
@@ -435,38 +444,39 @@ def s_l01(sh):
 
 def s_l02(sh):
     """early land arthropods crawl across the rocks"""
-    w, ter = nat(sh, 'coast'); r = random.Random(2); crawlers = []
+    w, ter = nat(sh, 'coast'); r = random.Random(2); crawlers = []; Y = find_y(ter, 0, 20, lambda z: z > 1.2)
     for k in range(5):
-        root, segs = millipede(f'mill{k}', 14, .035); p0 = Vector((r.uniform(-1, 1), 30 + r.uniform(-1, 1))); a = r.uniform(0, 6.3); crawlers.append((segs, p0, a, r.uniform(.05, .1)))
+        root, segs = millipede(f'mill{k}', 14, .035); p0 = Vector((r.uniform(-1, 1), Y + 1 + r.uniform(-1, 1))); a = r.uniform(0, 6.3); crawlers.append((segs, p0, a, r.uniform(.05, .1)))
     def u(t):
         for segs, p0, a, v in crawlers:
             for k, s in enumerate(segs):
                 d = t * v - k * .05; q = p0 + Vector((math.cos(a + math.sin(d * 6) * .3), math.sin(a + math.sin(d * 6) * .3))) * d
                 s.location = (q.x, q.y, ter.z(q.x, q.y) + .03 + .006 * math.sin(t * 20 + k))
     sh.updates.append(u)
-    sh.camera(cam_fn([(0, G(ter, -.8, 29.2, .35), G(ter, 0, 30.3, .02), 50), (sh.dur, G(ter, -.6, 29.4, .3), G(ter, .2, 30.4, .02), 55)], shake=.001), fstop=2.8)
+    sh.camera(cam_fn([(0, G(ter, -.8, Y + .2, .35), G(ter, 0, Y + 1.3, .02), 50), (sh.dur, G(ter, -.6, Y + .4, .3), G(ter, .2, Y + 1.4, .02), 55)], shake=.001), fstop=2.8)
 
 
 def s_l03(sh):
     """a lobe-finned fish paddles in the shallows on thick fleshy fins"""
-    w, ter = nat(sh, 'coast')
-    swim(sh, 'coelacanth', line3((-6, -6, -.55), (5, -2, -.45), 0, sh.dur, .03, .5), 'lobe', clip='swim', scale=1.0)
-    sh.camera(cam_fn([(0, (-3, -10, .6), (-2, -5, -.4), 30), (sh.dur, (2, -8, .5), (3, -3, -.4), 30)], shake=.003), fstop=5)
+    w, ter = nat(sh, 'coast'); Y = find_y(ter, 0, -60, lambda z: z > -1.1)          # where the sea bed rises to ~1 m deep
+    swim(sh, 'coelacanth', line3((-6, Y + 1, -.6), (5, Y + 4, -.5), 0, sh.dur, .03, .5), 'lobe', clip='swim', scale=1.0)
+    sh.camera(cam_fn([(0, (-3, Y - 4, .7), (-2, Y + 1.5, -.5), 30), (sh.dur, (2, Y - 3, .6), (3, Y + 3.5, -.5), 30)], shake=.003), fstop=5)
 
 
 def s_l04(sh):
     """Tiktaalik hauls itself through the mud, gets stuck, stares at the camera"""
-    w, ter = nat(sh, 'coast')
+    w, ter = nat(sh, 'coast'); Y0 = find_y(ter, 0, -60, lambda z: z > .05) - 3.0
     b = CR.beast(sh, 'tiktaalik', 'tik', clip='walk_on_land', speed=1.0)
     v = stride_of(b, 'walk'); stop = 2.6
     def path(t):
-        k = min(t, stop); x, y = -1.2 + v * k * .9, 4.0 - v * k * .3
-        yaw = 70 if t < stop + .6 else 70 + (-90) * ease((t - stop - .6) / .8)
-        return (x, y, yaw, ter.z(x, y) - .05)
+        k = min(t, stop); x, y = -1.2 + v * k * .3, Y0 + 4.0 + v * k * .95
+        yaw = 162 + (12 * ease((t - stop - .6) / .8) if t > stop + .6 else 0)           # crawls inland toward the lens, stuck, looks up at it
+        return (x, y, yaw, max(ter.z(x, y), -.25) - .05)
     b.move(path)
     def freeze(t):                             # stuck: the clip stops
         if t > stop and b.arm and b.arm.animation_data:
             for tr in b.arm.animation_data.nla_tracks:
                 for st in tr.strips: pass
     b.set_clip('walk_on_land', .001, at=stop)
-    sh.camera(cam_fn([(0, G(ter, 1.0, 1.0, .5), G(ter, 0, 3.8, .3), 35), (sh.dur, G(ter, 1.2, 1.3, .45), G(ter, .8, 3.6, .3), 40)], shake=.002), fstop=3.5)
+    cz = lambda x, y, d: (x, y, max(ter.z(x, y), -.2) + d)
+    sh.camera(cam_fn([(0, cz(.6, Y0 + 10.5, .7), cz(-1.0, Y0 + 5.0, .25), 35), (sh.dur, cz(.3, Y0 + 9.2, .55), cz(-.5, Y0 + 6.2, .3), 45)], shake=.002), fstop=3.5)

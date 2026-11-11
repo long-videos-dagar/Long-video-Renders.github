@@ -31,6 +31,7 @@ def smooth01(u): u = max(0.0, min(1.0, u)); return u * u * (3 - 2 * u)
 # ------------------------------------------------------------------ PBR texture layers
 def _tex_paths(kws, aid=None, res='2k', avoid=()):
     if not PH: return None
+    if not aid and not any(k for k in kws): return None          # ('',) = plain colour, never a random texture
     if aid:
         try:
             p = lib.ph_texture(aid, os.environ.get('PH_RES', res))
@@ -324,7 +325,7 @@ def smoke_plume(name, base, height=120.0, radius=18.0, density=.35, col=(.08, .0
     if glow:
         gl = N.new('ShaderNodeMapRange'); L.new(sep.outputs['Z'], gl.inputs[0]); gl.inputs[1].default_value = .25; gl.inputs[2].default_value = 0.0
         gm = N.new('ShaderNodeMath'); gm.operation = 'MULTIPLY'; L.new(gl.outputs[0], gm.inputs[0]); gm.inputs[1].default_value = glow
-        L.new(gm.outputs[0], pv.inputs['Emission Strength']); pv.inputs['Emission Color'].default_value = (1, .35, .08, 1)
+        L.new(gm.outputs[0], pv.inputs['Emission Strength']); pv.inputs['Emission Color'].default_value = (1, .28, .04, 1)
     L.new(pv.outputs[0], out.inputs['Volume']); me.materials.append(m)
     return o
 
@@ -351,8 +352,9 @@ def ocean(name, size=600.0, loc=(0, 0, 0), wave=1.2, choppy=1.2, res=12, col='#0
         mx = N.new('ShaderNodeMix'); mx.data_type = 'RGBA'; L.new(fr.outputs[0], mx.inputs['Factor']); mx.inputs['A'].default_value = (*lib.lin(col), 1); mx.inputs['B'].default_value = (.85, .85, .82, 1)
         L.new(mx.outputs['Result'], b.inputs['Base Color'])
         tw = N.new('ShaderNodeMath'); tw.operation = 'SUBTRACT'; tw.inputs[0].default_value = .85; L.new(fr.outputs[0], tw.inputs[1]); L.new(tw.outputs[0], b.inputs['Transmission Weight'])
-    vol = N.new('ShaderNodeVolumeAbsorption'); vol.inputs['Color'].default_value = (*lib.lin(murk), 1); vol.inputs['Density'].default_value = .12
-    L.new(vol.outputs[0], N['Material Output'].inputs['Volume'])
+    # no volume on the open water sheet: Cycles can mistake the camera for being 'inside' an open mesh and the whole frame
+    # goes black; depth colour comes from the transmission tint instead
+    b.inputs['Base Color'].default_value = (*[c * .6 + d * .4 for c, d in zip(lib.lin(col), lib.lin(murk))], 1)
     me.materials.append(m)
     return o
 
@@ -593,3 +595,54 @@ def wind_tick(t, gust=1.0):
         if md is None: continue
         a = o.get('wind_amp', .05)
         md.angle = a * gust * (math.sin(t * 1.3 + hash(o.name) % 7) * .6 + math.sin(t * 3.1 + hash(o.name) % 5) * .4)
+
+
+def plume(name, base, height=300.0, r0=10.0, r1=90.0, drift=(60.0, 20.0), col=(.32, .29, .26), density=.08, glow=0.0, speed=6.0, seed=0):
+    """a volcanic ash column as one procedural volume: a widening, wind-bent cone whose density is carved by 4D noise that
+    rises with time (billows roll upward and grow with height) - no particle balls.  returns update(t)"""
+    bx, by, bz = base; w = 2 * (r1 + max(abs(drift[0]), abs(drift[1]))) + 20
+    o = T.box(name, (w, w, height), (bx + drift[0] / 2, by + drift[1] / 2, bz + height / 2), None); o.visible_shadow = True
+    m = bpy.data.materials.new(name + '_vol'); m.use_nodes = True; N, L = m.node_tree.nodes, m.node_tree.links; N.remove(N['Principled BSDF'])
+    def node(t, **kw):
+        n = N.new(t)
+        for k, v in kw.items(): setattr(n, k, v)
+        return n
+    def math_(op, a, b=None):
+        n = node('ShaderNodeMath', operation=op)
+        for i, v in enumerate((a, b)):
+            if v is None: continue
+            if isinstance(v, (int, float)): n.inputs[i].default_value = v
+            else: L.new(v, n.inputs[i])
+        return n.outputs[0]
+    def mrange(v, a, b, c, d, interp='SMOOTHSTEP'):
+        n = node('ShaderNodeMapRange', interpolation_type=interp); L.new(v, n.inputs[0])
+        n.inputs[1].default_value, n.inputs[2].default_value, n.inputs[3].default_value, n.inputs[4].default_value = a, b, c, d; return n.outputs[0]
+    geo = node('ShaderNodeNewGeometry'); sub = node('ShaderNodeVectorMath', operation='SUBTRACT'); L.new(geo.outputs['Position'], sub.inputs[0])
+    sub.inputs[1].default_value = (bx, by, bz); sp = node('ShaderNodeSeparateXYZ'); L.new(sub.outputs[0], sp.inputs[0])
+    X, Y, Z = sp.outputs['X'], sp.outputs['Y'], sp.outputs['Z']
+    u = math_('MINIMUM', math_('MAXIMUM', math_('DIVIDE', Z, height), 0.0), 1.0)
+    bend = math_('POWER', u, 1.6)
+    qx = math_('SUBTRACT', X, math_('MULTIPLY', bend, drift[0])); qy = math_('SUBTRACT', Y, math_('MULTIPLY', bend, drift[1]))
+    rad = math_('ADD', math_('ADD', r0, math_('MULTIPLY', math_('POWER', u, .55), r1 - r0)), math_('MULTIPLY', mrange(u, .55, .95, 0, 1), r1 * .6))   # widening + umbrella top
+    d = math_('DIVIDE', math_('SQRT', math_('ADD', math_('MULTIPLY', qx, qx), math_('MULTIPLY', qy, qy))), rad)
+    tv = node('ShaderNodeValue'); tv.name = 'plume_t'; tv.outputs[0].default_value = 0.0
+    zr = math_('SUBTRACT', Z, math_('MULTIPLY', tv.outputs[0], speed))
+    sc_ = 1.0 / (r1 * .55)                              # billow size ~ half the column width (constant: no streaks along cone rays)
+    cm = node('ShaderNodeCombineXYZ'); L.new(math_('MULTIPLY', qx, sc_), cm.inputs[0]); L.new(math_('MULTIPLY', qy, sc_), cm.inputs[1])
+    L.new(math_('MULTIPLY', zr, sc_), cm.inputs[2])
+    nz = node('ShaderNodeTexNoise', noise_dimensions='4D'); L.new(cm.outputs[0], nz.inputs['Vector']); nz.inputs['Scale'].default_value = 2.4
+    nz.inputs['Detail'].default_value = 14; nz.inputs['Roughness'].default_value = .6; nz.inputs['Distortion'].default_value = .9
+    L.new(math_('ADD', math_('MULTIPLY', tv.outputs[0], .03), seed * 7.3), nz.inputs['W'])
+    nz2 = node('ShaderNodeTexNoise', noise_dimensions='4D'); L.new(cm.outputs[0], nz2.inputs['Vector']); nz2.inputs['Scale'].default_value = 9.0
+    nz2.inputs['Detail'].default_value = 8; nz2.inputs['Roughness'].default_value = .65; L.new(math_('MULTIPLY', tv.outputs[0], .08), nz2.inputs['W'])
+    billow = math_('MULTIPLY', mrange(nz.outputs['Fac'], .3, .6, .05, 1), mrange(nz2.outputs['Fac'], .32, .62, .25, 1))
+    edge = mrange(math_('ADD', d, math_('MULTIPLY', math_('SUBTRACT', nz.outputs['Fac'], .5), 1.2)), .6, 1.05, 1, 0)
+    top = mrange(u, .7, 1.0, 1, 0); bot = mrange(Z, -2, height * .02, 0, 1)
+    dens = math_('MULTIPLY', math_('MULTIPLY', math_('MULTIPLY', billow, edge), math_('MULTIPLY', top, bot)), density)
+    pv = node('ShaderNodeVolumePrincipled'); pv.inputs['Color'].default_value = (*col, 1); pv.inputs['Anisotropy'].default_value = .25
+    L.new(dens, pv.inputs['Density'])
+    if glow:
+        L.new(math_('MULTIPLY', math_('MULTIPLY', mrange(Z, 0, height * .22, 1, 0, 'LINEAR'), glow), math_('DIVIDE', dens, density)), pv.inputs['Emission Strength']); pv.inputs['Emission Color'].default_value = (1, .28, .04, 1)
+    L.new(pv.outputs[0], N['Material Output'].inputs['Volume']); o.data.materials.clear(); o.data.materials.append(m)
+    def upd(t): tv.outputs[0].default_value = t
+    return upd
