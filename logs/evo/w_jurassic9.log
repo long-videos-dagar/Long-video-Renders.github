@@ -1,0 +1,18 @@
+[lib] ph_find textures ['snow'] -> snow_02
+[lib] model fir_tree_01 48
+[lib] model pine_tree_01 62
+[lib] ph_find textures ['bark', 'palm'] -> palm_tree_bark
+[lib] ph_find textures ['grass'] -> aerial_grass_rock
+[lib] model fern_02 4
+[lib] model moss_01 73
+[lib] model rock_moss_set_02 7
+[lib] model root_cluster_01 1
+[lib] model namaqualand_boulder_02 4
+[lib] model namaqualand_boulder_05 3
+[lib] model rock_07 4
+[lib] model boulder_01 4
+BUILT 22.8
+02:15.076  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/w_jurassic9.png'
+CAMZ ground 1.32 -> 3.02
+MAT ground ground_jurassic [('diff_2k.jpg', (2048, 2048), 'sRGB', '/tmp/ph/forest_leaves_02/diff_2k.jpg'), ('rough_2k.jpg', (2048, 2048), 'Non-Color', '/tmp/ph/forest_leaves_02/rough_2k.jpg'), ('disp_2k.jpg', (2048, 2048), 'Non-Color', '/tmp/ph/forest_leaves_02/disp_2k.jpg'), ('diff_2k.jpg.001', (2048, 2048), 'sRGB', '/tmp/ph/leafy_grass/diff_2k.jpg'), ('rough_2k.jpg.001', (2048, 2048), 'Non-Color', '/tmp/ph/leafy_grass/rough_2k.jpg'), ('disp_2k.jpg.001', (2048, 2048), 'Non-Color', '/tmp/ph/leafy_grass/disp_2k.jpg'), ('diff_2k.jpg.002', (2048, 2048), 'sRGB', '/tmp/ph/rock_pitted_mossy/diff_2k.jpg'), ('rough_2k.jpg.002', (2048, 2048), 'Non-Color', '/tmp/ph/rock_pitted_mossy/rough_2k.jpg'), ('disp_2k.jpg.002', (2048, 2048), 'Non-Color', '/tmp/ph/rock_pitted_mossy/disp_2k.jpg'), ('diff_2k.jpg.003', (2048, 2048), 'sRGB', '/tmp/ph/brown_mud_leaves_01/diff_2k.jpg'), ('rough_2k.jpg.003', (2048, 2048), 'Non-Color', '/tmp/ph/brown_mud_leaves_01/rough_2k.jpg'), ('disp_2k.jpg.003', (2048, 2048), 'Non-Color', '/tmp/ph/brown_mud_leaves_01/disp_2k.jpg'), ('diff_2k.jpg.004', (2048, 2048), 'sRGB', '/tmp/ph/snow_02/diff_2k.jpg'), ('rough_2k.jpg.004', (2048, 2048), 'Non-Color', '/tmp/ph/snow_02/rough_2k.jpg'), ('disp_2k.jpg.004', (2048, 2048), 'Non-Color', '/tmp/ph/snow_02/disp_2k.jpg')]
+RENDERED jurassic 9 111.2
