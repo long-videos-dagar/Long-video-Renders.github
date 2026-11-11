@@ -1,4 +1,4 @@
-00:00.989  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.911  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['snow'] -> snow_02
 [lib] model island_tree_01 17
@@ -16,24 +16,24 @@
 [lib] model namaqualand_boulder_05 3
 [lib] model rock_07 4
 [lib] model boulder_01 4
-10:31:33 | INFO: Data are loaded, start creating Blender stuff
-10:31:34 | INFO: Blender create Mesh node U3DMesh_CH_NPC_MOB_Tricera_A01_MI_BYN_0
-10:31:35 | INFO: glTF import finished in 1.59s
-10:31:36 | INFO: Data are loaded, start creating Blender stuff
-10:31:37 | INFO: Blender create Mesh node Object_0
-10:31:37 | INFO: Blender create Mesh node Object_1
-10:31:37 | INFO: Blender create Mesh node Object_2
-10:31:37 | INFO: Blender create Mesh node Object_3
-10:31:37 | INFO: glTF import finished in 1.72s
-RSS built 4422 MB
-RSS extras 4422 MB
+10:49:56 | INFO: Data are loaded, start creating Blender stuff
+10:49:57 | INFO: Blender create Mesh node U3DMesh_CH_NPC_MOB_Tricera_A01_MI_BYN_0
+10:49:58 | INFO: glTF import finished in 1.38s
+10:49:59 | INFO: Data are loaded, start creating Blender stuff
+10:50:00 | INFO: Blender create Mesh node Object_0
+10:50:00 | INFO: Blender create Mesh node Object_1
+10:50:00 | INFO: Blender create Mesh node Object_2
+10:50:00 | INFO: Blender create Mesh node Object_3
+10:50:00 | INFO: glTF import finished in 1.55s
+RSS built 4438 MB
+RSS extras 4438 MB
 CLEARCAM d05 0
 CLEARPROPS 0
-RSS lod 4433 MB
-RSS posed 4448 MB
-RSS depsgraph 4448 MB
-OBJECTS 3927 MESHES 537 IMAGES 119 186 Mpx
-02:57.219  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_d05.png'
-RTIME 145.3
-RSS rendered 15155 MB
+RSS lod 4475 MB
+RSS posed 4490 MB
+RSS depsgraph 4490 MB
+OBJECTS 3928 MESHES 537 IMAGES 119 186 Mpx
+03:23.107  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_d05.png'
+RTIME 157.7
+RSS rendered 15153 MB
 RENDERED d05 7.12
