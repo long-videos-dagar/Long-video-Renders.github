@@ -1,4 +1,4 @@
-00:00.915  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.853  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['snow'] -> snow_02
 [lib] model fir_tree_01 48
@@ -14,16 +14,17 @@
 [lib] model namaqualand_boulder_05 3
 [lib] model rock_07 4
 [lib] model boulder_01 4
-/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_a.py:71: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_a.py:73: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
   r = random.Random(seed); m = bpy.data.materials.new('ember'); m.use_nodes = True; b = m.node_tree.nodes['Principled BSDF']
-RSS built 3762 MB
-RSS extras 3762 MB
+RSS built 3763 MB
+RSS extras 3763 MB
 CLEARCAM p02 0
-RSS lod 3809 MB
-RSS posed 3837 MB
-RSS depsgraph 3837 MB
+CLEARPROPS 0
+RSS lod 3782 MB
+RSS posed 3807 MB
+RSS depsgraph 3807 MB
 OBJECTS 3974 MESHES 607 IMAGES 88 173 Mpx
-03:23.899  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_p02.png'
-RTIME 173.8
-RSS rendered 14905 MB
+05:39.523  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_p02.png'
+RTIME 310.1
+RSS rendered 15042 MB
 RENDERED p02 7.37
