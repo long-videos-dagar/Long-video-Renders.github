@@ -1,0 +1,102 @@
+00:01.014  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['asphalt', 'road'] -> asphalt_02
+[lib] ph_find textures ['concrete', 'pavement', 'floor'] -> concrete_pavement
+[lib] ph_find textures ['grass', 'lawn', 'meadow'] -> aerial_grass_rock
+[lib] ph_find textures ['plaster', 'concrete', 'wall'] -> painted_plaster_wall
+[lib] ph_find textures ['brick', 'wall'] -> brick_wall_001
+[lib] ph_find textures ['brick', 'wall'] -> brick_wall_001
+[lib] ph_find textures ['brick', 'wall'] -> brick_wall_001
+[lib] ph_find textures ['brick', 'wall'] -> brick_wall_001
+[lib] ph_find textures ['brick', 'wall'] -> brick_wall_001
+[lib] ph_find textures ['wood', 'plank'] -> wood_planks_dirt
+[lib] ph_find textures ['wood', 'plank'] -> wood_planks_dirt
+09:53:58 | INFO: Data are loaded, start creating Blender stuff
+09:53:58 | INFO: Blender create Mesh node Object_0
+09:53:58 | INFO: Blender create Mesh node Object_1
+09:53:58 | INFO: Blender create Mesh node Object_2
+09:53:58 | INFO: Blender create Mesh node Object_3
+09:53:58 | INFO: glTF import finished in 0.50s
+09:53:58 | INFO: Data are loaded, start creating Blender stuff
+09:53:59 | INFO: Blender create Mesh node Object_0
+09:53:59 | INFO: Blender create Mesh node Object_1
+09:53:59 | INFO: Blender create Mesh node Object_2
+09:53:59 | INFO: Blender create Mesh node Object_3
+09:53:59 | INFO: glTF import finished in 0.52s
+09:53:59 | INFO: Data are loaded, start creating Blender stuff
+09:53:59 | INFO: Blender create Mesh node Object_0
+09:53:59 | INFO: Blender create Mesh node Object_1
+09:53:59 | INFO: Blender create Mesh node Object_2
+09:53:59 | INFO: Blender create Mesh node Object_3
+09:54:00 | INFO: glTF import finished in 0.54s
+09:54:00 | INFO: Data are loaded, start creating Blender stuff
+09:54:00 | INFO: Blender create Mesh node Object_0
+09:54:00 | INFO: Blender create Mesh node Object_1
+09:54:00 | INFO: Blender create Mesh node Object_2
+09:54:00 | INFO: Blender create Mesh node Object_3
+09:54:00 | INFO: glTF import finished in 0.55s
+09:54:01 | INFO: Data are loaded, start creating Blender stuff
+09:54:01 | INFO: Blender create Mesh node Object_0
+09:54:01 | INFO: Blender create Mesh node Object_1
+09:54:01 | INFO: Blender create Mesh node Object_2
+09:54:01 | INFO: Blender create Mesh node Object_3
+09:54:01 | INFO: glTF import finished in 0.57s
+09:54:01 | INFO: Data are loaded, start creating Blender stuff
+09:54:02 | INFO: Blender create Mesh node Object_0
+09:54:02 | INFO: Blender create Mesh node Object_1
+09:54:02 | INFO: Blender create Mesh node Object_2
+09:54:02 | INFO: Blender create Mesh node Object_3
+09:54:02 | INFO: glTF import finished in 0.60s
+09:54:02 | INFO: Data are loaded, start creating Blender stuff
+09:54:03 | INFO: Blender create Mesh node Object_0
+09:54:03 | INFO: Blender create Mesh node Object_1
+09:54:03 | INFO: Blender create Mesh node Object_2
+09:54:03 | INFO: Blender create Mesh node Object_3
+09:54:03 | INFO: glTF import finished in 0.63s
+09:54:03 | INFO: Data are loaded, start creating Blender stuff
+09:54:04 | INFO: Blender create Mesh node Object_0
+09:54:04 | INFO: Blender create Mesh node Object_1
+09:54:04 | INFO: Blender create Mesh node Object_2
+09:54:04 | INFO: Blender create Mesh node Object_3
+09:54:04 | INFO: glTF import finished in 0.62s
+09:54:04 | INFO: Data are loaded, start creating Blender stuff
+09:54:04 | INFO: Blender create Mesh node Object_0
+09:54:04 | INFO: Blender create Mesh node Object_1
+09:54:05 | INFO: Blender create Mesh node Object_2
+09:54:05 | INFO: Blender create Mesh node Object_3
+09:54:05 | INFO: glTF import finished in 0.63s
+09:54:05 | INFO: Data are loaded, start creating Blender stuff
+09:54:05 | INFO: Blender create Mesh node Object_0
+09:54:05 | INFO: Blender create Mesh node Object_1
+09:54:06 | INFO: Blender create Mesh node Object_2
+09:54:06 | INFO: Blender create Mesh node Object_3
+09:54:06 | INFO: glTF import finished in 0.69s
+09:54:06 | INFO: Data are loaded, start creating Blender stuff
+09:54:06 | INFO: Blender create Mesh node Object_0
+09:54:06 | INFO: Blender create Mesh node Object_1
+09:54:07 | INFO: Blender create Mesh node Object_2
+09:54:07 | INFO: Blender create Mesh node Object_3
+09:54:07 | INFO: glTF import finished in 0.67s
+09:54:07 | INFO: Data are loaded, start creating Blender stuff
+09:54:07 | INFO: Blender create Mesh node Object_0
+09:54:08 | INFO: Blender create Mesh node Object_1
+09:54:08 | INFO: Blender create Mesh node Object_2
+09:54:08 | INFO: Blender create Mesh node Object_3
+09:54:08 | INFO: glTF import finished in 0.69s
+09:54:08 | INFO: Data are loaded, start creating Blender stuff
+09:54:09 | INFO: Blender create Mesh node Object_0
+09:54:09 | INFO: Blender create Mesh node Object_1
+09:54:09 | INFO: Blender create Mesh node Object_2
+09:54:09 | INFO: Blender create Mesh node Object_3
+09:54:09 | INFO: glTF import finished in 0.72s
+RSS built 940 MB
+RSS extras 940 MB
+CLEARCAM t07 0
+RSS lod 942 MB
+RSS posed 942 MB
+RSS depsgraph 942 MB
+OBJECTS 1254 MESHES 1142 IMAGES 88 80 Mpx
+00:47.910  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_t07.png'
+RTIME 27.7
+RSS rendered 2298 MB
+RENDERED t07 5.0
