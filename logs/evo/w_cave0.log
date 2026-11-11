@@ -1,0 +1,16 @@
+[lib] ph_find textures ['rock', 'cave', 'limestone'] -> aerial_rocks_02
+[lib] ph_find textures ['rock', 'wet'] -> brown_mud_rocks_01
+[lib] ph_find textures ['dirt', 'ground'] -> forest_ground_04
+Traceback (most recent call last):
+  File "/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/worldtest.py", line 13, in <module>
+    t0 = time.time(); w = getattr(W, wname)(); print('BUILT', round(time.time() - t0, 1), flush=True)
+                          ~~~~~~~~~~~~~~~~~^^
+  File "/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/worlds.py", line 514, in cave
+    _cave_painting('/tmp/evotex/cavepaint.png')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/worlds.py", line 493, in _cave_painting
+    im = im.filter(ImageFilter.GaussianBlur(1.6)); im.save(path)
+                                                   ~~~~~~~^^^^^^
+  File "/opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages/PIL/Image.py", line 2707, in save
+    fp = builtins.open(filename, "w+b")
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/evotex/cavepaint.png'
