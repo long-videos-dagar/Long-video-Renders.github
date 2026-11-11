@@ -140,6 +140,7 @@ def chalkboard_png(path, eye_closed=False, W=2400, H=1200, title='EVOLUTION OF L
             d.ellipse([ex - 24, ey - 20, ex + 24, ey + 20], outline=(240, 240, 232), width=8); d.ellipse([ex - 8, ey - 8, ex + 10, ey + 10], fill=(240, 240, 232))
         for k in range(26):                                  # scale texture strokes
             x, y = rr.uniform(35, 62), rr.uniform(22, 31); chalk_line(P([(x, y), (x + 1.2, y + .6)]), 4, (200, 204, 196))
+    if not dino: im.save(path); return
     d.text((W * .70, H * .32), '4.54 bn yrs', font=typo.font('patrickhand', 80), fill=(236, 230, 160))
     d.text((W * .70, H * .45), '-> life?', font=typo.font('patrickhand', 80), fill=(236, 236, 228))
     im.save(path)
@@ -164,10 +165,21 @@ def classroom(seed=3):
     # board
     import os
     os.makedirs('/tmp/evotex', exist_ok=True)
+    chalkboard_png('/tmp/evotex/board_blank.png', False, title='', dino=False)
+    chalkboard_png('/tmp/evotex/board_title.png', False, dino=False)
     chalkboard_png('/tmp/evotex/board_open.png', False); chalkboard_png('/tmp/evotex/board_closed.png', True)
     bm = bpy.data.materials.new('board'); bm.use_nodes = True; N, L = bm.node_tree.nodes, bm.node_tree.links; b = N['Principled BSDF']
-    tx = N.new('ShaderNodeTexImage'); tx.name = 'boardtex'; tx.image = bpy.data.images.load('/tmp/evotex/board_open.png'); L.new(tx.outputs[0], b.inputs['Base Color'])
-    b.inputs['Roughness'].default_value = .9
+    uvn = N.new('ShaderNodeTexCoord'); sx = N.new('ShaderNodeSeparateXYZ'); L.new(uvn.outputs['UV'], sx.inputs[0])
+    def img(p_, nm):
+        t_ = N.new('ShaderNodeTexImage'); t_.name = nm; t_.image = bpy.data.images.load(p_); L.new(uvn.outputs['UV'], t_.inputs['Vector']); return t_
+    blank = img('/tmp/evotex/board_blank.png', 'blank'); title = img('/tmp/evotex/board_title.png', 'title'); full = img('/tmp/evotex/board_open.png', 'boardtex')
+    def wipe(name, src_axis):                          # 0..1 value node -> chalk appears left to right
+        v = N.new('ShaderNodeValue'); v.name = name; v.outputs[0].default_value = 1.0
+        cmp = N.new('ShaderNodeMath'); cmp.operation = 'LESS_THAN'; L.new(src_axis, cmp.inputs[0]); L.new(v.outputs[0], cmp.inputs[1]); return cmp.outputs[0]
+    m1 = N.new('ShaderNodeMix'); m1.data_type = 'RGBA'; L.new(wipe('reveal_title', sx.outputs['X']), m1.inputs['Factor']); L.new(blank.outputs[0], m1.inputs['A']); L.new(title.outputs[0], m1.inputs['B'])
+    m2 = N.new('ShaderNodeMix'); m2.data_type = 'RGBA'; L.new(wipe('reveal_dino', sx.outputs['X']), m2.inputs['Factor']); L.new(m1.outputs['Result'], m2.inputs['A']); L.new(full.outputs[0], m2.inputs['B'])
+    L.new(m2.outputs['Result'], b.inputs['Base Color']); b.inputs['Roughness'].default_value = .9
+    tx = full
     board = uv_plane('board', 5.2, 2.2, (0, y1 - .09, 1.75), bm)
     T.box('board_frame', (5.4, .06, 2.4), (0, y1 - .05, 1.75), T.plain('boardframe', '#6a4a2a', .5))
     T.box('chalk_tray', (5.2, .14, .04), (0, y1 - .14, .64), T.plain('boardframe', '#6a4a2a', .5))
@@ -199,3 +211,8 @@ def classroom(seed=3):
 
 def board_blink(w, closed):
     w['boardtex'].image = bpy.data.images.load('/tmp/evotex/board_closed.png' if closed else '/tmp/evotex/board_open.png', check_existing=True)
+
+
+def board_reveal(w, title=1.0, dino=1.0):
+    N = w['board'].data.materials[0].node_tree.nodes
+    N['reveal_title'].outputs[0].default_value = title; N['reveal_dino'].outputs[0].default_value = dino
