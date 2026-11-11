@@ -1,0 +1,11 @@
+[lib] ph_find textures ['rock', 'mossy'] -> mossy_rock
+[lib] ph_find textures ['rock', 'coral'] -> coral_fort_wall_01
+[lib] ph_find textures ['leaves', 'grass'] -> brown_mud_leaves_01
+[lib] model coast_rocks_01 4
+[lib] model coast_rocks_02 4
+[lib] model rock_07 4
+[lib] model rock_09 4
+[lib] model namaqualand_boulder_04 4
+BUILT 20.5
+06:50.472  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/w_devonian_sea0.png'
+RENDERED devonian_sea 0 389.3
