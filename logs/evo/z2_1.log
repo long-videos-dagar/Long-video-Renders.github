@@ -1,0 +1,113 @@
+[lib] ph_find textures ['ground'] -> forrest_ground_01
+08:41:00 | INFO: Data are loaded, start creating Blender stuff
+08:41:00 | INFO: Blender create Mesh node 0
+08:41:00 | INFO: Blender create Mesh node 1
+08:41:00 | INFO: glTF import finished in 0.86s
+BEAST raptor [0.8, 2.0, 1.09] stride 1.49
+08:41:00 | INFO: Data are loaded, start creating Blender stuff
+08:41:00 | INFO: Blender create Mesh node Compy_mesh_Compsognathus_D_0
+08:41:01 | INFO: glTF import finished in 0.22s
+BEAST compy [0.1, 1.0, 0.39] stride -
+08:41:01 | INFO: Data are loaded, start creating Blender stuff
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:polySurface17_Tyriese_Miller_C_Deer_Idle:eyewai_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:polySurface19_Tyriese_Miller_C_Deer_Idle:yandi_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:polySurface18_Tyriese_Miller_C_Deer_Idle:eye_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:polySurface17_Tyriese_Miller_C_Deer_Idle:eyewai_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:polySurface19_Tyriese_Miller_C_Deer_Idle:yandi_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:polySurface18_Tyriese_Miller_C_Deer_Idle:eye_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube17_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube16_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube15_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube14_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube20_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube19_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube18_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube37_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube36_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube35_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube34_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube33_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube21_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube22_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube38_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube13_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube39_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube40_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube41_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube42_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:polySurface20_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube2_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube3_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube4_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube5_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube6_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube7_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube8_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube9_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube10_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube11_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube12_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube23_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube24_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube25_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube26_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube27_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube28_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube29_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube30_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube31_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube32_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:polySurface21_Tyriese_Miller_C_Deer_Idle:kouqiang_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:body_Tyriese_Miller_C_Deer_Idle:body_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:body_Tyriese_Miller_C_Deer_Idle:jiao_tex_0
+08:41:01 | INFO: Blender create Mesh node Tyriese_Miller_C_Deer_Idle:pCube43_Tyriese_Miller_C_Deer_Idle:initialShadingGroup1_0
+08:41:01 | INFO: glTF import finished in 0.22s
+BEAST deer [1.33, 1.8, 1.11] stride 0.6
+08:41:01 | INFO: Data are loaded, start creating Blender stuff
+08:41:01 | INFO: Blender create Mesh node Object_0
+08:41:01 | INFO: Blender create Mesh node Object_1
+08:41:01 | INFO: Blender create Mesh node Object_2
+08:41:01 | INFO: glTF import finished in 0.07s
+BEAST tiktaalik [0.96, 2.6, 0.3] stride 0.19
+08:41:01 | INFO: Data are loaded, start creating Blender stuff
+08:41:01 | INFO: Blender create Mesh node Fish_low_standardSurface2_0
+08:41:01 | INFO: glTF import finished in 0.28s
+BEAST coelacanth [0.9, 1.8, 0.77] stride -
+08:41:01 | INFO: Data are loaded, start creating Blender stuff
+08:41:02 | INFO: Blender create Mesh node Cerchio_Materiale_Tra_0
+08:41:02 | INFO: Blender create Mesh node Haircut_obj_default_Transparency_Tra_0
+08:41:02 | INFO: Blender create Mesh node Haircut_obj_default_Transparency_Tra_0
+08:41:02 | INFO: Blender create Mesh node Cilindro_001_Materiale_001_Tra_0
+08:41:02 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+08:41:02 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+08:41:02 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+08:41:02 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+08:41:03 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+08:41:03 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+08:41:03 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+08:41:03 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+08:41:03 | INFO: Blender create Mesh node 0
+08:41:03 | INFO: Blender create Mesh node 1
+08:41:03 | INFO: Blender create Mesh node 2
+08:41:03 | INFO: Blender create Mesh node 3
+08:41:03 | INFO: Blender create Mesh node 4
+08:41:03 | INFO: Blender create Mesh node 5
+08:41:03 | INFO: Blender create Mesh node 6
+08:41:03 | INFO: Blender create Mesh node 7
+08:41:03 | INFO: Blender create Mesh node 8
+08:41:03 | INFO: Blender create Mesh node 9
+08:41:03 | INFO: Blender create Mesh node 10
+08:41:03 | INFO: Blender create Mesh node 11
+08:41:03 | INFO: Blender create Mesh node 12
+08:41:03 | INFO: Blender create Mesh node 13
+08:41:03 | INFO: glTF import finished in 1.99s
+BEAST neander [1.8, 1.89, 1.66] stride -
+08:41:04 | INFO: Data are loaded, start creating Blender stuff
+08:41:04 | INFO: Blender create Mesh node default002_default002_default_0
+08:41:04 | INFO: Blender create Mesh node default002_default002_default_0
+08:41:04 | INFO: Blender create Mesh node default002_default002_default_0
+08:41:04 | INFO: Blender create Mesh node default002_default002_default_0
+08:41:04 | INFO: glTF import finished in 0.89s
+BEAST neander2 [0.55, 0.7, 1.35] stride -
+00:23.391  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/z2_1.png'
+RENDERED
