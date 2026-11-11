@@ -106,10 +106,11 @@ def lava_fade(sh, fn):
 
 def splash(sh, p, t0, size=30.0, seed=0):
     """a meteor hitting the sea: white spray column + expanding foam ring + steam"""
-    spray = TR.smoke_column(f'spray{seed}', p, rate=40, life=3.0, rise=size * 1.2, r0=size * .2, r1=size * .8, wind=(0, 0), turb=size * .3,
-                            col=(.9, .92, .95), density=.08, voxel=max(.4, size * .03), seed=seed)
-    steam = TR.smoke_column(f'isteam{seed}', p, rate=10, life=8, rise=size * .5, r0=size * .5, r1=size * 2.0, wind=(2, 0), turb=size * .4,
-                            col=(.8, .8, .8), density=.02, voxel=max(.6, size * .05), seed=seed + 1)
+    spray_u = TR.plume(f'spray{seed}', p, height=size * 3.0, r0=size * .35, r1=size * 1.1, drift=(size * .3, 0), col=(.92, .93, .95), density=.25, speed=size * .6, seed=seed)
+    spo = bpy.data.objects[f'spray{seed}']
+    def spray(k):                                   # the column grows out of the sea after the hit
+        spray_u(k); spo.scale = (1, 1, max(.02, min(1.0, k / 1.2))); spo.location.z = p[2] + size * 1.5 * spo.scale.z
+    steam = lambda k: None
     fm = TR.simple_mat('foam', ('',), '#f0f4f4', .5)
     ring = bpy.data.objects.new('foamring', bpy.data.meshes.new('foamring')); TR.coll().objects.link(ring)
     import bmesh
@@ -119,8 +120,8 @@ def splash(sh, p, t0, size=30.0, seed=0):
     tor = T.lib.sphere('splashdome', 1, (p[0], p[1], p[2]), fm, seg=32, rings=12)
     def u(t):
         k = t - t0
-        if k < 0: spray_off(); return
-        spray(k); steam(k)
+        if k < 0: spray_off(); spo.hide_render = True; return
+        spo.hide_render = False; spray(k); steam(k)
         tor.scale = (.001, .001, .001)
     def spray_off():
         tor.scale = (.001, .001, .001)
@@ -188,7 +189,7 @@ def beach_chair(name, loc, yaw=0):
 
 def s_e04(sh):
     """a cartoon guy relaxes in a tiny beach chair with sunglasses and a drink while lava rains; the drink catches fire; he keeps sipping"""
-    w, ter = nat(sh, 'young_earth'); x, y = 22.0, 168.0; z = ter.z(x, y)
+    w, ter = nat(sh, 'young_earth'); x, y = 18.0, 95.0; z = ter.z(x, y)
     chair = beach_chair('chair', (x, y, z), 0)
     GUY = P('Guy', '#f2c84a', '#2a6ab0', hat=None, haircol='#3a2414', height=.95, boots='#e8e0d0', belt='#2a6ab0', collar=False)
     ch = toon(sh, 'GUY', GUY)
@@ -225,7 +226,7 @@ def s_e04(sh):
     sh.updates.append(cu)
     embers(sh, (x + 10, y + 30, z + 40), 70, (40, 40), 30, seed=6, size=.12)
     h0 = Vector((x, y, z + .9))
-    sh.camera(cam_fn([(0, tuple(h0 + fw * 4.2 + sd * 1.2 + Vector((0, 0, .1))), tuple(h0), 40), (sh.dur, tuple(h0 + fw * 3.4 + sd * .9 + Vector((0, 0, .15))), tuple(h0), 42)],
+    sh.camera(cam_fn([(0, tuple(h0 + fw * 4.2 + sd * 1.2 + Vector((0, 0, .6))), tuple(h0 + Vector((0, 0, .5))), 34), (sh.dur, tuple(h0 + fw * 3.4 + sd * .9 + Vector((0, 0, .6))), tuple(h0 + Vector((0, 0, .5))), 36)],
                      shake=.004), fstop=4)
     sh.keylight(30, (1, .75, .55))
 
@@ -449,7 +450,7 @@ def s_l01(sh):
 
 def s_l02(sh):
     """early land arthropods crawl across the rocks"""
-    w, ter = nat(sh, 'coast'); r = random.Random(2); crawlers = []; Y = find_y(ter, 0, -20, lambda z: z > .35)
+    w, ter = nat(sh, 'coast'); r = random.Random(2); crawlers = []; Y = find_y(ter, 0, -60, lambda z: z > .05) + 7.0
     for k in range(5):
         root, segs = millipede(f'mill{k}', 14, .035); p0 = Vector((r.uniform(-1, 1), Y + 1 + r.uniform(-1, 1))); a = r.uniform(0, 6.3); crawlers.append((segs, p0, a, r.uniform(.05, .1)))
     def u(t):
@@ -458,7 +459,7 @@ def s_l02(sh):
                 d = t * v - k * .05; q = p0 + Vector((math.cos(a + math.sin(d * 6) * .3), math.sin(a + math.sin(d * 6) * .3))) * d
                 s.location = (q.x, q.y, ter.z(q.x, q.y) + .03 + .006 * math.sin(t * 20 + k))
     sh.updates.append(u)
-    sh.camera(cam_fn([(0, G(ter, -1.4, Y - .4, .8), G(ter, 0, Y + 1.3, .02), 45), (sh.dur, G(ter, -1.1, Y - .1, .7), G(ter, .2, Y + 1.4, .02), 50)], shake=.001), fstop=3.5)
+    sh.camera(cam_fn([(0, G(ter, -1.2, Y + 3.6, 1.1), G(ter, 0, Y + 1.2, .05), 40), (sh.dur, G(ter, -.9, Y + 3.3, 1.0), G(ter, .2, Y + 1.4, .05), 45)], shake=.001), fstop=4)
 
 
 def s_l03(sh):

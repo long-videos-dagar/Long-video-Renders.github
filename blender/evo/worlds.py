@@ -347,8 +347,8 @@ def seafloor(kind='cambrian', seed=4):
             wv = o.modifiers.new('sway', 'WAVE') if o.type == 'MESH' else None
         if kind == 'ediacaran':
             import creatures as CR
-            for k, (hx, hy, hs) in enumerate([(0, 15, 1.1), (1.1, 16.2, .8), (-1.3, 14.4, .6)]):     # hero Dickinsonia for the close-up
-                d = CR.dickinsonia(f'dickhero{k}', hs); d.location = (hx, hy, ter.z(hx, hy) + .03); d.rotation_euler = (0, 0, k * 1.7)
+            for k, (hx, hy, hs) in enumerate([(0, 15, 1.6), (1.6, 16.6, 1.1), (-1.7, 14.2, .8)]):     # hero Dickinsonia for the close-up
+                d = CR.dickinsonia(f'dickhero{k}', hs); d.location = (hx, hy, ter.z(hx, hy) + .08); d.rotation_euler = (0, 0, k * 1.7)
             for k in range(40):
                 x, y = r.uniform(-25, 25), r.uniform(10, 80); z = ter.z(x, y)
                 if abs(x) < 7 and y < 24: x += 14 if x >= 0 else -14            # keep the camera's glide path open

@@ -288,7 +288,7 @@ def s_a07(sh):
     sh.updates.append(sm)
     still(sh, 'rat', (fx, fy + .05), 200, ter, clip='look', name='survivor_mammal', scale=1.0)
     hz = ter.z(fx, fy)
-    sh.camera(cam_fn([(0, (fx + .4, fy - 1.0, hz + 6), (fx, fy + 4, hz + 6), 30), (sh.dur * .7, (fx + .45, fy - 1.0, hz + .45), (fx, fy, hz + .1), 45), (sh.dur, (fx + .4, fy - .85, hz + .25), (fx, fy, hz + .1), 55)],
+    sh.camera(cam_fn([(0, (fx + .4, fy - 1.0, hz + 6), (fx, fy + 4, hz + 6), 30), (sh.dur * .7, (fx + .45, fy - 1.0, hz + .35), (fx, fy + .05, hz + .02), 45), (sh.dur, (fx + .4, fy - .85, hz + .2), (fx, fy + .05, hz + .02), 55)],
                      shake=.002), fstop=2.8)
 
 
