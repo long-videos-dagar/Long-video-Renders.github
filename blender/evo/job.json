@@ -1,5 +1,7 @@
 {
+ "rev": 40,
  "mode": "video",
+ "only": "m06,k03,l03,n01,d01,l01,d04,a05,p01,h03,c12,h06,p07,b07,b03,p09a,n03,p11,m05,c11,e06",
  "chunk": 24,
  "handle": 0.25,
  "env": {
@@ -11,6 +13,5 @@
  "w": 1920,
  "h": 1080,
  "samples": 32,
- "rev": 21,
- "only": "m06,e02,k01,n04,e04,a04,h01,k06,e01,p08,d05,n02,h02,a06,h03,a02,h04,h06,e05,l04,p07,t06,k04,d03,p09a,n03,e06"
+ "skip_file": "done_chunks.json"
 }

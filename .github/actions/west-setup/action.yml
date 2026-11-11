@@ -7,11 +7,21 @@ runs:
       with: { python-version: '3.13', cache: 'pip', cache-dependency-path: 'blender/west/requirements.txt' }
     - shell: bash
       run: |
-        for t in 1 2 3 4 5; do                       # runner DNS/mirror hiccups: retry instead of failing the chunk
-          sudo apt-get update -qq -o Acquire::Retries=5 && sudo apt-get install -y -qq -o Acquire::Retries=5 libxi6 libxxf86vm1 libxfixes3 libxrender1 libgl1 libxkbcommon0 libsm6 libegl1 ffmpeg fonts-dejavu-core >/dev/null && break
-          echo "apt attempt $t failed"; sleep $((t * 20))
-        done
         pip install -q -r blender/west/requirements.txt
+        # system libs: the runner image usually has them already; only touch apt if bpy cannot load, with a hard time limit
+        # and the plain Ubuntu mirrors (the azure mirror's DNS has been failing and apt then hangs for over an hour)
+        if ! timeout 120 python -c "import bpy" 2>/dev/null; then
+          printf "http://archive.ubuntu.com/ubuntu/\thttp://mirrors.edge.kernel.org/ubuntu/\n" | tr "\t" "\n" | sudo tee /etc/apt/apt-mirrors.txt >/dev/null || true
+          for t in 1 2 3; do
+            timeout 300 sudo apt-get install -y -qq --no-install-recommends -o Acquire::Retries=3 libxi6 libxxf86vm1 libxfixes3 libxrender1 libgl1 libxkbcommon0 libsm6 libegl1 >/dev/null && break
+            timeout 240 sudo apt-get update -qq -o Acquire::Retries=3 || true
+          done
+          timeout 120 python -c "import bpy" || { echo "bpy cannot load"; exit 1; }
+        fi
+        if ! command -v ffmpeg >/dev/null; then                    # static ffmpeg from PyPI instead of apt
+          pip install -q imageio-ffmpeg && sudo ln -sf "$(python -c 'import imageio_ffmpeg as f; print(f.get_ffmpeg_exe())')" /usr/local/bin/ffmpeg
+        fi
+        ffmpeg -version | head -1
         git clone -q --depth 1 https://github.com/makehumancommunity/mpfb2.git /tmp/mpfb2
         D=$HOME/.config/blender/5.2/extensions/user_default; mkdir -p $D; cp -r /tmp/mpfb2/src/mpfb $D/mpfb
         mkdir -p /tmp/mocap && cd /tmp/mocap && git clone -q --depth 1 --filter=blob:none --no-checkout https://github.com/una-dinosauria/cmu-mocap.git && cd cmu-mocap
