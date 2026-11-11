@@ -1,4 +1,4 @@
-00:00.906  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.668  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['snow'] -> snow_02
 [lib] model island_tree_01 17
@@ -18,20 +18,22 @@
 [lib] model boulder_01 4
 [lib] ph_find textures ['rock'] -> coast_sand_rocks_02
 [lib] ph_find textures ['leaves'] -> brown_mud_leaves_01
-10:50:36 | INFO: Data are loaded, start creating Blender stuff
-10:50:37 | INFO: Blender create Mesh node blackrat_fur_blackrat_fur_0
-10:50:37 | INFO: Blender create Mesh node blackrat_body_blackrat_eyes_0
-10:50:37 | INFO: Blender create Mesh node blackrat_body_blackrat_body_0
-10:50:39 | INFO: glTF import finished in 3.37s
-RSS built 4483 MB
-RSS extras 4483 MB
+11:05:19 | INFO: Data are loaded, start creating Blender stuff
+11:05:20 | INFO: Blender create Mesh node blackrat_fur_blackrat_fur_0
+11:05:20 | INFO: Blender create Mesh node blackrat_body_blackrat_eyes_0
+11:05:20 | INFO: Blender create Mesh node blackrat_body_blackrat_body_0
+11:05:21 | INFO: glTF import finished in 2.13s
+RSS built 4479 MB
+RSS extras 4479 MB
 CLEARCAM a07 0
 CLEARPROPS 0
-RSS lod 4507 MB
-RSS posed 4527 MB
-RSS depsgraph 4527 MB
+BEASTS [('PLANT_cycad_180_root', (0.0, 0.0, 0.0), (1.0, 1.0, 1.0)), ('PLANT_cycad_181_root', (0.0, 0.0, 0.0), (1.0, 1.0, 1.0)), ('PLANT_cycad_182_root', (0.0, 0.0, 0.0), (1.0, 1.0, 1.0)), ('PLANT_treefern_180_root', (0.0, 0.0, 0.0), (1.0, 1.0, 1.0)), ('PLANT_treefern_181_root', (0.0, 0.0, 0.0), (1.0, 1.0, 1.0)), ('PLANT_treefern_182_root', (0.0, 0.0, 0.0), (1.0, 1.0, 1.0)), ('survivor_mammal_root', (0.0, 60.0, -0.8), (1.0, 1.0, 1.0))]
+CAMDBG (0.45, 59.0, -0.08) ground -0.77 ['ground', 'ground_fine', 'haze']
+RSS lod 4540 MB
+RSS posed 4540 MB
+RSS depsgraph 4540 MB
 OBJECTS 4020 MESHES 633 IMAGES 124 201 Mpx
-03:13.564  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_a07.png'
-RTIME 160.3
-RSS rendered 15238 MB
+02:29.698  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_a07.png'
+RTIME 108.2
+RSS rendered 15281 MB
 RENDERED a07 4.15
