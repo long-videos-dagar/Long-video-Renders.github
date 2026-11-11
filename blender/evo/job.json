@@ -1,253 +1,90 @@
 {
- "rev": 17,
+ "rev": 18,
  "mode": "tasks",
  "tasks": [
   {
-   "id": "s_e03",
-   "script": "story.py",
+   "id": "m_base",
+   "script": "worldtest.py",
    "args": [
-    "still",
-    "e03"
+    "cretaceous",
+    "0"
    ],
-   "t": 1.32,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24",
-    "CAMDBG": "1"
-   }
-  },
-  {
-   "id": "s_e04",
-   "script": "story.py",
-   "args": [
-    "still",
-    "e04"
-   ],
-   "t": 5.33,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24",
-    "CAMDBG": "1"
-   }
-  },
-  {
-   "id": "s_l02",
-   "script": "story.py",
-   "args": [
-    "still",
-    "l02"
-   ],
-   "t": 3.56,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24",
-    "CAMDBG": "1"
-   }
-  },
-  {
-   "id": "s_m06",
-   "script": "story.py",
-   "args": [
-    "still",
-    "m06"
-   ],
-   "t": 9.17,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24",
-    "CAMDBG": "1"
-   }
-  },
-  {
-   "id": "s_d03",
-   "script": "story.py",
-   "args": [
-    "still",
-    "d03"
-   ],
-   "t": 2.07,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24",
-    "CAMDBG": "1"
-   }
-  },
-  {
-   "id": "s_a04",
-   "script": "story.py",
-   "args": [
-    "still",
-    "a04"
-   ],
-   "t": 8.13,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24",
-    "CAMDBG": "1"
-   }
-  },
-  {
-   "id": "s_a06",
-   "script": "story.py",
-   "args": [
-    "still",
-    "a06"
-   ],
-   "t": 6.19,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24",
-    "CAMDBG": "1"
-   }
-  },
-  {
-   "id": "s_a07",
-   "script": "story.py",
-   "args": [
-    "still",
-    "a07"
-   ],
-   "t": 4.15,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24",
-    "CAMDBG": "1"
-   }
-  },
-  {
-   "id": "v_e01",
-   "script": "story.py",
-   "args": [
-    "still",
-    "e01"
-   ],
-   "t": 3.77,
    "env": {
     "USE_PH": "1",
     "RW": "1920",
     "RH": "1080",
-    "SAMPLES": "12",
-    "FAST": "1",
-    "ADAPT": ".05",
-    "VOLSTEP": "4",
-    "VOLMAX": "128",
+    "SAMPLES": "8",
+    "T": "3",
     "NOFOG": "1"
    }
   },
   {
-   "id": "v_p08",
-   "script": "story.py",
+   "id": "m_nowind",
+   "script": "worldtest.py",
    "args": [
-    "still",
-    "p08"
+    "cretaceous",
+    "0"
    ],
-   "t": 6.1,
    "env": {
     "USE_PH": "1",
     "RW": "1920",
     "RH": "1080",
-    "SAMPLES": "12",
-    "FAST": "1",
-    "ADAPT": ".05",
-    "VOLSTEP": "4",
-    "VOLMAX": "128",
-    "NOFOG": "1"
+    "SAMPLES": "8",
+    "T": "3",
+    "NOFOG": "1",
+    "NOWIND": "1"
    }
   },
   {
-   "id": "v_k01",
-   "script": "story.py",
+   "id": "m_nounder",
+   "script": "worldtest.py",
    "args": [
-    "still",
-    "k01"
+    "cretaceous",
+    "0"
    ],
-   "t": 6.21,
    "env": {
     "USE_PH": "1",
     "RW": "1920",
     "RH": "1080",
-    "SAMPLES": "12",
-    "FAST": "1",
-    "ADAPT": ".05",
-    "VOLSTEP": "4",
-    "VOLMAX": "128",
-    "NOFOG": "1"
+    "SAMPLES": "8",
+    "T": "3",
+    "NOFOG": "1",
+    "NOUNDER": "1"
    }
   },
   {
-   "id": "v_c07",
-   "script": "story.py",
+   "id": "m_notrees",
+   "script": "worldtest.py",
    "args": [
-    "still",
-    "c07"
+    "cretaceous",
+    "0"
    ],
-   "t": 1.1,
    "env": {
     "USE_PH": "1",
     "RW": "1920",
     "RH": "1080",
-    "SAMPLES": "12",
-    "FAST": "1",
-    "ADAPT": ".05",
-    "VOLSTEP": "4",
-    "VOLMAX": "128",
-    "NOFOG": "1"
+    "SAMPLES": "8",
+    "T": "3",
+    "NOFOG": "1",
+    "NOTREES": "1"
    }
   },
   {
-   "id": "v_h07",
-   "script": "story.py",
+   "id": "m_ph512",
+   "script": "worldtest.py",
    "args": [
-    "still",
-    "h07"
+    "cretaceous",
+    "0"
    ],
-   "t": 6.29,
    "env": {
     "USE_PH": "1",
     "RW": "1920",
     "RH": "1080",
-    "SAMPLES": "12",
-    "FAST": "1",
-    "ADAPT": ".05",
-    "VOLSTEP": "4",
-    "VOLMAX": "128",
-    "NOFOG": "1"
-   }
-  },
-  {
-   "id": "v_m01",
-   "script": "story.py",
-   "args": [
-    "still",
-    "m01"
-   ],
-   "t": 6.63,
-   "env": {
-    "USE_PH": "1",
-    "RW": "1920",
-    "RH": "1080",
-    "SAMPLES": "12",
-    "FAST": "1",
-    "ADAPT": ".05",
-    "VOLSTEP": "4",
-    "VOLMAX": "128",
-    "NOFOG": "1"
+    "SAMPLES": "8",
+    "T": "3",
+    "NOFOG": "1",
+    "PH_RES": "1k",
+    "PH_MODEL_RES": "1k"
    }
   }
  ]
