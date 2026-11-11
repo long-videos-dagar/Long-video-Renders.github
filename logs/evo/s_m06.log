@@ -1,4 +1,4 @@
-00:01.109  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.892  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['rock', 'mossy'] -> mossy_rock
 [lib] ph_find textures ['leaves', 'grass'] -> brown_mud_leaves_01
@@ -7,17 +7,17 @@
 [lib] model rock_07 4
 [lib] model rock_09 4
 [lib] model namaqualand_boulder_04 4
-RSS built 906 MB
-RSS extras 906 MB
+RSS built 907 MB
+RSS extras 907 MB
 CLEARCAM m06 0
 CLEARPROPS 0
 BEASTS []
-CAMDBG (-1.0, 10.0, -16.7) ground -17.9 ['seabed', 'seabed_fine', 'water']
-RSS lod 906 MB
-RSS posed 906 MB
-RSS depsgraph 906 MB
+CAMDBG (-1.5, 11.0, -15.23) ground -17.83 ['seabed', 'seabed_fine', 'water']
+RSS lod 907 MB
+RSS posed 907 MB
+RSS depsgraph 907 MB
 OBJECTS 547 MESHES 200 IMAGES 26 57 Mpx
-04:54.621  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_m06.png'
-RTIME 288.2
-RSS rendered 3216 MB
+04:42.378  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_m06.png'
+RTIME 271.0
+RSS rendered 3207 MB
 RENDERED m06 9.17
