@@ -1,52 +1,53 @@
-00:00.896  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.914  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['rock', 'cave', 'limestone'] -> aerial_rocks_02
 [lib] ph_find textures ['rock', 'wet'] -> brown_mud_rocks_01
 [lib] ph_find textures ['dirt', 'ground'] -> forest_ground_04
 [lib] ph_find textures ['rock'] -> coast_sand_rocks_02
 [lib] ph_find textures ['bark'] -> bark_brown_02
-09:51:24 | INFO: Data are loaded, start creating Blender stuff
-09:51:24 | INFO: Blender create Mesh node Cerchio_Materiale_Tra_0
-09:51:24 | INFO: Blender create Mesh node Haircut_obj_default_Transparency_Tra_0
-09:51:25 | INFO: Blender create Mesh node Haircut_obj_default_Transparency_Tra_0
-09:51:25 | INFO: Blender create Mesh node Cilindro_001_Materiale_001_Tra_0
-09:51:25 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
-09:51:25 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
-09:51:26 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
-09:51:26 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
-09:51:26 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
-09:51:26 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
-09:51:27 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
-09:51:27 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
-09:51:27 | INFO: Blender create Mesh node 0
-09:51:28 | INFO: Blender create Mesh node 1
-09:51:28 | INFO: Blender create Mesh node 2
-09:51:28 | INFO: Blender create Mesh node 3
-09:51:28 | INFO: Blender create Mesh node 4
-09:51:28 | INFO: Blender create Mesh node 5
-09:51:28 | INFO: Blender create Mesh node 6
-09:51:28 | INFO: Blender create Mesh node 7
-09:51:28 | INFO: Blender create Mesh node 8
-09:51:28 | INFO: Blender create Mesh node 9
-09:51:28 | INFO: Blender create Mesh node 10
-09:51:28 | INFO: Blender create Mesh node 11
-09:51:28 | INFO: Blender create Mesh node 12
-09:51:28 | INFO: Blender create Mesh node 13
-09:51:28 | INFO: glTF import finished in 3.78s
-09:51:28 | INFO: Data are loaded, start creating Blender stuff
-09:51:28 | INFO: Blender create Mesh node default002_default002_default_0
-09:51:29 | INFO: Blender create Mesh node default002_default002_default_0
-09:51:29 | INFO: Blender create Mesh node default002_default002_default_0
-09:51:29 | INFO: Blender create Mesh node default002_default002_default_0
-09:51:30 | INFO: glTF import finished in 1.61s
-RSS built 782 MB
-RSS extras 782 MB
+10:22:08 | INFO: Data are loaded, start creating Blender stuff
+10:22:08 | INFO: Blender create Mesh node Cerchio_Materiale_Tra_0
+10:22:08 | INFO: Blender create Mesh node Haircut_obj_default_Transparency_Tra_0
+10:22:09 | INFO: Blender create Mesh node Haircut_obj_default_Transparency_Tra_0
+10:22:09 | INFO: Blender create Mesh node Cilindro_001_Materiale_001_Tra_0
+10:22:09 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+10:22:09 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+10:22:09 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+10:22:10 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+10:22:10 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+10:22:10 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+10:22:11 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+10:22:11 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+10:22:11 | INFO: Blender create Mesh node 0
+10:22:11 | INFO: Blender create Mesh node 1
+10:22:11 | INFO: Blender create Mesh node 2
+10:22:11 | INFO: Blender create Mesh node 3
+10:22:11 | INFO: Blender create Mesh node 4
+10:22:11 | INFO: Blender create Mesh node 5
+10:22:11 | INFO: Blender create Mesh node 6
+10:22:11 | INFO: Blender create Mesh node 7
+10:22:11 | INFO: Blender create Mesh node 8
+10:22:11 | INFO: Blender create Mesh node 9
+10:22:12 | INFO: Blender create Mesh node 10
+10:22:12 | INFO: Blender create Mesh node 11
+10:22:12 | INFO: Blender create Mesh node 12
+10:22:12 | INFO: Blender create Mesh node 13
+10:22:12 | INFO: glTF import finished in 3.86s
+10:22:12 | INFO: Data are loaded, start creating Blender stuff
+10:22:12 | INFO: Blender create Mesh node default002_default002_default_0
+10:22:12 | INFO: Blender create Mesh node default002_default002_default_0
+10:22:13 | INFO: Blender create Mesh node default002_default002_default_0
+10:22:13 | INFO: Blender create Mesh node default002_default002_default_0
+10:22:14 | INFO: glTF import finished in 1.64s
+RSS built 784 MB
+RSS extras 784 MB
 CLEARCAM h07 0
-RSS lod 782 MB
-RSS posed 782 MB
-RSS depsgraph 782 MB
-OBJECTS 106 MESHES 56 IMAGES 54 100 Mpx
-01:05.872  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_h07.png'
-RTIME 54.7
-RSS rendered 2118 MB
+CLEARPROPS 0
+RSS lod 784 MB
+RSS posed 784 MB
+RSS depsgraph 784 MB
+OBJECTS 107 MESHES 56 IMAGES 54 100 Mpx
+01:04.905  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_h07.png'
+RTIME 53.3
+RSS rendered 1991 MB
 RENDERED h07 7.54
