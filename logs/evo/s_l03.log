@@ -1,4 +1,4 @@
-00:00.940  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.676  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['sand', 'beach'] -> damp_beach_sand
 [lib] ph_find textures ['rock', 'cliff'] -> coast_sand_rocks_02
@@ -17,18 +17,18 @@
 [lib] model coastal_cliff_01 4
 [lib] model coastal_cliff_02 4
 [lib] model coastal_cliff_04 4
-10:34:02 | INFO: Data are loaded, start creating Blender stuff
-10:34:02 | INFO: Blender create Mesh node Fish_low_standardSurface2_0
-10:34:03 | INFO: glTF import finished in 0.59s
-RSS built 2262 MB
-RSS extras 2262 MB
+10:49:34 | INFO: Data are loaded, start creating Blender stuff
+10:49:34 | INFO: Blender create Mesh node Fish_low_standardSurface2_0
+10:49:34 | INFO: glTF import finished in 0.36s
+RSS built 2264 MB
+RSS extras 2264 MB
 CLEARCAM l03 0
 CLEARPROPS 5
-RSS lod 2262 MB
-RSS posed 2262 MB
-RSS depsgraph 2262 MB
+RSS lod 2264 MB
+RSS posed 2264 MB
+RSS depsgraph 2264 MB
 OBJECTS 1086 MESHES 169 IMAGES 55 110 Mpx
-01:57.684  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_l03.png'
-RTIME 103.9
-RSS rendered 7601 MB
+01:05.988  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_l03.png'
+RTIME 52.1
+RSS rendered 7643 MB
 RENDERED l03 7.97
