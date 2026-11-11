@@ -1,0 +1,57 @@
+00:00.946  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['snow'] -> snow_02
+[lib] model quiver_tree_01 4
+[lib] model island_tree_02 17
+[lib] model tree_small_02 12
+[lib] model grass_medium_02 11
+[lib] model grass_medium_01 103
+[lib] model wild_rooibos_bush 20
+[lib] model searsia_burchellii 9
+[lib] model namaqualand_boulder_04 4
+[lib] model dry_branches_medium_01 3
+[lib] model namaqualand_boulder_02 4
+[lib] model namaqualand_boulder_05 3
+[lib] model rock_07 4
+[lib] model boulder_01 4
+09:51:05 | INFO: Data are loaded, start creating Blender stuff
+09:51:05 | INFO: Blender create Mesh node Cerchio_Materiale_Tra_0
+09:51:05 | INFO: Blender create Mesh node Haircut_obj_default_Transparency_Tra_0
+09:51:06 | INFO: Blender create Mesh node Haircut_obj_default_Transparency_Tra_0
+09:51:06 | INFO: Blender create Mesh node Cilindro_001_Materiale_001_Tra_0
+09:51:06 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+09:51:06 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+09:51:07 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+09:51:07 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+09:51:07 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+09:51:08 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+09:51:08 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+09:51:08 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+09:51:09 | INFO: Blender create Mesh node 0
+09:51:09 | INFO: Blender create Mesh node 1
+09:51:09 | INFO: Blender create Mesh node 2
+09:51:09 | INFO: Blender create Mesh node 3
+09:51:09 | INFO: Blender create Mesh node 4
+09:51:09 | INFO: Blender create Mesh node 5
+09:51:09 | INFO: Blender create Mesh node 6
+09:51:09 | INFO: Blender create Mesh node 7
+09:51:09 | INFO: Blender create Mesh node 8
+09:51:09 | INFO: Blender create Mesh node 9
+09:51:09 | INFO: Blender create Mesh node 10
+09:51:09 | INFO: Blender create Mesh node 11
+09:51:09 | INFO: Blender create Mesh node 12
+09:51:09 | INFO: Blender create Mesh node 13
+09:51:09 | INFO: glTF import finished in 4.79s
+[lib] ph_find textures ['rock'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock'] -> coast_sand_rocks_02
+RSS built 1796 MB
+RSS extras 1796 MB
+CLEARCAM h04 0
+RSS lod 1958 MB
+RSS posed 2012 MB
+RSS depsgraph 2012 MB
+OBJECTS 3014 MESHES 269 IMAGES 116 173 Mpx
+02:14.623  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_h04.png'
+RTIME 110.2
+RSS rendered 6065 MB
+RENDERED h04 4.14
