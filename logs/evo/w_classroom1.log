@@ -1,0 +1,13 @@
+[lib] ph_find textures ['wood', 'floor', 'parquet'] -> wood_floor
+[lib] ph_find textures ['plaster', 'painted'] -> painted_plaster_wall
+[lib] model SchoolDesk_01 1
+[lib] model SchoolChair_01 1
+[lib] model WoodenTable_02 1
+[lib] model wall_clock 4
+[lib] model potted_plant_02 3
+[lib] model wooden_bookshelf_worn 1
+[lib] model steel_frame_shelves_01 1
+[lib] model book_encyclopedia_set_01 21
+BUILT 5.4
+01:17.090  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/w_classroom1.png'
+RENDERED classroom 1 71.0
