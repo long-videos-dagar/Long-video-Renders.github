@@ -1,4 +1,4 @@
-00:00.736  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.598  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['snow'] -> snow_02
 [lib] model island_tree_01 17
@@ -21,11 +21,11 @@ RSS built 4223 MB
 RSS extras 4223 MB
 CLEARCAM a03 0
 CLEARPROPS 0
-RSS lod 4342 MB
-RSS posed 4385 MB
-RSS depsgraph 4385 MB
+RSS lod 4346 MB
+RSS posed 4377 MB
+RSS depsgraph 4377 MB
 OBJECTS 3913 MESHES 538 IMAGES 117 193 Mpx
-01:57.108  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_a03.png'
-RTIME 85.0
-RSS rendered 15133 MB
+02:39.191  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_a03.png'
+RTIME 85.9
+RSS rendered 15224 MB
 RENDERED a03 1.68
