@@ -1,0 +1,102 @@
+[lib] ph_find textures ['ground'] -> forrest_ground_01
+08:43:13 | INFO: Data are loaded, start creating Blender stuff
+08:43:13 | INFO: Blender create Mesh node Object_0
+08:43:13 | INFO: Blender create Mesh node Object_1
+08:43:14 | INFO: glTF import finished in 0.24s
+BEAST dragonfly [0.08, 0.12, 0.06] stride -
+08:43:14 | INFO: Data are loaded, start creating Blender stuff
+08:43:14 | INFO: Blender create Mesh node back_biru_0
+08:43:14 | INFO: Blender create Mesh node back_putih_0
+08:43:14 | INFO: Blender create Mesh node TAIL.005_biru_0
+08:43:14 | INFO: Blender create Mesh node TAIL.005_putih_0
+08:43:14 | INFO: Blender create Mesh node TAIL.004_biru_0
+08:43:14 | INFO: Blender create Mesh node TAIL.004_putih_0
+08:43:14 | INFO: Blender create Mesh node TAIL.003_biru_0
+08:43:14 | INFO: Blender create Mesh node TAIL.003_putih_0
+08:43:14 | INFO: Blender create Mesh node TAIL.002_biru_0
+08:43:14 | INFO: Blender create Mesh node TAIL.002_putih_0
+08:43:14 | INFO: Blender create Mesh node TAIL.001_biru_0
+08:43:14 | INFO: Blender create Mesh node TAIL.001_putih_0
+08:43:14 | INFO: Blender create Mesh node TAIL_biru_0
+08:43:14 | INFO: Blender create Mesh node TAIL_putih_0
+08:43:14 | INFO: Blender create Mesh node FrontWing_putih_0
+08:43:14 | INFO: Blender create Mesh node FrontWing_biru_0
+08:43:14 | INFO: Blender create Mesh node BackWing_putih_0
+08:43:14 | INFO: Blender create Mesh node BackWing_biru_0
+08:43:14 | INFO: Blender create Mesh node FrontWing.001_putih_0
+08:43:14 | INFO: Blender create Mesh node FrontWing.001_biru_0
+08:43:14 | INFO: Blender create Mesh node BackWing.001_putih_0
+08:43:14 | INFO: Blender create Mesh node BackWing.001_biru_0
+08:43:14 | INFO: Blender create Mesh node Sphere.009_biru_0
+08:43:14 | INFO: Blender create Mesh node Sphere.005_biru_0
+08:43:14 | INFO: Blender create Mesh node Sphere.005_putih_0
+08:43:14 | INFO: Blender create Mesh node Sphere.003_biru_0
+08:43:14 | INFO: Blender create Mesh node Cylinder.001__0
+08:43:14 | INFO: Blender create Mesh node Sphere.008_biru_0
+08:43:14 | INFO: Blender create Mesh node Sphere.006__0
+08:43:14 | INFO: Blender create Mesh node Sphere.002_biru_0
+08:43:14 | INFO: Blender create Mesh node Cylinder__0
+08:43:14 | INFO: Blender create Mesh node Sphere.007__0
+08:43:14 | INFO: Blender create Mesh node Sphere.004_biru_0
+08:43:14 | INFO: Blender create Mesh node Sphere.004_putih_0
+08:43:14 | INFO: Blender create Mesh node Sphere.001_biru_0
+08:43:14 | INFO: Blender create Mesh node Cylinder.002__0
+08:43:14 | INFO: Blender create Mesh node HEAD_biru_0
+08:43:14 | INFO: Blender create Mesh node HEAD_putih_0
+08:43:14 | INFO: Blender create Mesh node Sphere.018_biru_0
+08:43:14 | INFO: Blender create Mesh node Sphere.014_biru_0
+08:43:14 | INFO: Blender create Mesh node Sphere.014_putih_0
+08:43:14 | INFO: Blender create Mesh node Sphere.012_biru_0
+08:43:14 | INFO: Blender create Mesh node Cylinder.004__0
+08:43:14 | INFO: Blender create Mesh node Sphere.017_biru_0
+08:43:14 | INFO: Blender create Mesh node Sphere.015__0
+08:43:14 | INFO: Blender create Mesh node Sphere.011_biru_0
+08:43:14 | INFO: Blender create Mesh node Cylinder.003__0
+08:43:14 | INFO: Blender create Mesh node Sphere.016__0
+08:43:14 | INFO: Blender create Mesh node Sphere.013_biru_0
+08:43:14 | INFO: Blender create Mesh node Sphere.013_putih_0
+08:43:14 | INFO: Blender create Mesh node Sphere.010_biru_0
+08:43:14 | INFO: Blender create Mesh node Cylinder.005__0
+08:43:14 | INFO: Blender create Mesh node basebody_biru_0
+08:43:14 | INFO: Blender create Mesh node basebody_putih_0
+08:43:14 | INFO: Blender create Mesh node basebody.001_biru_0
+08:43:14 | INFO: Blender create Mesh node basebody.001_putih_0
+08:43:14 | INFO: Blender create Mesh node Sphere_biru_0
+08:43:14 | INFO: Blender create Mesh node Cube.001_putih_0
+08:43:14 | INFO: Blender create Mesh node Cube.001_biru_0
+08:43:14 | INFO: glTF import finished in 0.21s
+BEAST dragonfly2 [0.09, 0.12, 0.05] stride -
+08:43:14 | INFO: Data are loaded, start creating Blender stuff
+08:43:14 | INFO: Blender create Mesh node Hallucigenia_Hallucigenia _0
+08:43:14 | INFO: glTF import finished in 0.39s
+BEAST hallu [0.11, 0.25, 0.1] stride 1.0
+08:43:14 | INFO: Data are loaded, start creating Blender stuff
+08:43:14 | INFO: Blender create Mesh node Object_0
+08:43:15 | INFO: Blender create Mesh node Object_1
+08:43:15 | INFO: Blender create Mesh node Object_2
+08:43:15 | INFO: glTF import finished in 0.56s
+BEAST trilobite [0.3, 0.3, 0.3] stride -
+08:43:15 | INFO: Data are loaded, start creating Blender stuff
+08:43:15 | INFO: Blender create Mesh node Cube.001_Material_0
+08:43:15 | INFO: Blender create Mesh node Cube.002_Material_0
+08:43:15 | INFO: Blender create Mesh node Cube.003_Material_0
+08:43:15 | INFO: Blender create Mesh node Cube.004_Material.002_0
+08:43:15 | INFO: Blender create Mesh node Cube.005_Material.002_0
+08:43:15 | INFO: Blender create Mesh node Cube.006_Material.002_0
+08:43:15 | INFO: Blender create Mesh node Cube.007_Material.002_0
+08:43:15 | INFO: Blender create Mesh node Cube.008_Material.002_0
+08:43:15 | INFO: Blender create Mesh node Cube.009_Material.002_0
+08:43:15 | INFO: Blender create Mesh node Cube.010_Material.002_0
+08:43:15 | INFO: Blender create Mesh node Cube.011_Material.003_0
+08:43:15 | INFO: Blender create Mesh node Cube.012_Material.002_0
+08:43:15 | INFO: Blender create Mesh node Cube.014_Material_0
+08:43:15 | INFO: Blender create Mesh node Cylinder_Material.001_0
+08:43:15 | INFO: glTF import finished in 0.09s
+BEAST anomalo [0.63, 1.0, 0.47] stride -
+08:43:15 | INFO: Data are loaded, start creating Blender stuff
+08:43:15 | INFO: Blender create Mesh node Object_0
+08:43:15 | INFO: Blender create Mesh node Object_1
+08:43:15 | INFO: glTF import finished in 0.12s
+BEAST anomalo2 [0.73, 0.9, 0.47] stride -
+00:34.969  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/z4_0.png'
+RENDERED
