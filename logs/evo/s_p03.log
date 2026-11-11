@@ -1,13 +1,14 @@
-00:00.839  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.870  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 RSS built 532 MB
 RSS extras 532 MB
 CLEARCAM p03 0
+CLEARPROPS 0
 RSS lod 532 MB
 RSS posed 532 MB
 RSS depsgraph 532 MB
 OBJECTS 2 MESHES 0 IMAGES 1 2 Mpx
-00:08.190  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_p03.png'
+00:08.216  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_p03.png'
 RTIME 6.9
-RSS rendered 977 MB
+RSS rendered 978 MB
 RENDERED p03 1.32
