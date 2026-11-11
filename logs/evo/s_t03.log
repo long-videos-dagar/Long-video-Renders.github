@@ -1,4 +1,4 @@
-00:00.740  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:01.022  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg <urlopen error [Errno 101] Network is unreachable>
 [lib] retry https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg <urlopen error [Errno 101] Network is unreachable>
@@ -14,16 +14,17 @@
 [lib] earth tex https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/textures/planets/earth_clouds_1024.png
 [lib] ph_find textures ['metal'] -> metal_plate
 [lib] ph_find textures ['metal'] -> metal_plate
-/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_c.py:190: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_c.py:196: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
   fm = bpy.data.materials.new(name + '_flame'); fm.use_nodes = True; b = fm.node_tree.nodes['Principled BSDF']
 RSS built 534 MB
 RSS extras 534 MB
 CLEARCAM t03 0
+CLEARPROPS 0
 RSS lod 534 MB
 RSS posed 534 MB
 RSS depsgraph 534 MB
 OBJECTS 16 MESHES 14 IMAGES 6 17 Mpx
-13:18.540  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_t03.png'
-RTIME 23.7
+13:21.882  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_t03.png'
+RTIME 25.9
 RSS rendered 1060 MB
 RENDERED t03 4.46
