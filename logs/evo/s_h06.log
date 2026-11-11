@@ -1,4 +1,4 @@
-00:00.843  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.756  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['snow'] -> snow_02
 [lib] model quiver_tree_01 4
@@ -14,39 +14,39 @@
 [lib] model namaqualand_boulder_05 3
 [lib] model rock_07 4
 [lib] model boulder_01 4
-10:20:50 | INFO: Data are loaded, start creating Blender stuff
-10:20:50 | INFO: Blender create Mesh node default002_default002_default_0
-10:20:51 | INFO: Blender create Mesh node default002_default002_default_0
-10:20:51 | INFO: Blender create Mesh node default002_default002_default_0
-10:20:52 | INFO: Blender create Mesh node default002_default002_default_0
-10:20:52 | INFO: glTF import finished in 2.43s
-10:20:53 | INFO: Data are loaded, start creating Blender stuff
-10:20:54 | INFO: Blender create Mesh node default002_default002_default_0
-10:20:54 | INFO: Blender create Mesh node default002_default002_default_0
-10:20:55 | INFO: Blender create Mesh node default002_default002_default_0
-10:20:55 | INFO: Blender create Mesh node default002_default002_default_0
-10:20:56 | INFO: glTF import finished in 2.57s
-10:20:57 | INFO: Data are loaded, start creating Blender stuff
-10:20:58 | INFO: Blender create Mesh node default002_default002_default_0
-10:20:58 | INFO: Blender create Mesh node default002_default002_default_0
-10:20:59 | INFO: Blender create Mesh node default002_default002_default_0
-10:20:59 | INFO: Blender create Mesh node default002_default002_default_0
-10:20:59 | INFO: glTF import finished in 2.64s
-10:21:01 | INFO: Data are loaded, start creating Blender stuff
-10:21:01 | INFO: Blender create Mesh node default002_default002_default_0
-10:21:02 | INFO: Blender create Mesh node default002_default002_default_0
-10:21:02 | INFO: Blender create Mesh node default002_default002_default_0
-10:21:03 | INFO: Blender create Mesh node default002_default002_default_0
-10:21:03 | INFO: glTF import finished in 2.73s
-RSS built 1939 MB
-RSS extras 1939 MB
+10:38:10 | INFO: Data are loaded, start creating Blender stuff
+10:38:11 | INFO: Blender create Mesh node default002_default002_default_0
+10:38:11 | INFO: Blender create Mesh node default002_default002_default_0
+10:38:12 | INFO: Blender create Mesh node default002_default002_default_0
+10:38:12 | INFO: Blender create Mesh node default002_default002_default_0
+10:38:13 | INFO: glTF import finished in 2.29s
+10:38:14 | INFO: Data are loaded, start creating Blender stuff
+10:38:14 | INFO: Blender create Mesh node default002_default002_default_0
+10:38:15 | INFO: Blender create Mesh node default002_default002_default_0
+10:38:15 | INFO: Blender create Mesh node default002_default002_default_0
+10:38:15 | INFO: Blender create Mesh node default002_default002_default_0
+10:38:16 | INFO: glTF import finished in 2.39s
+10:38:17 | INFO: Data are loaded, start creating Blender stuff
+10:38:17 | INFO: Blender create Mesh node default002_default002_default_0
+10:38:18 | INFO: Blender create Mesh node default002_default002_default_0
+10:38:18 | INFO: Blender create Mesh node default002_default002_default_0
+10:38:19 | INFO: Blender create Mesh node default002_default002_default_0
+10:38:19 | INFO: glTF import finished in 2.45s
+10:38:20 | INFO: Data are loaded, start creating Blender stuff
+10:38:21 | INFO: Blender create Mesh node default002_default002_default_0
+10:38:21 | INFO: Blender create Mesh node default002_default002_default_0
+10:38:22 | INFO: Blender create Mesh node default002_default002_default_0
+10:38:22 | INFO: Blender create Mesh node default002_default002_default_0
+10:38:23 | INFO: glTF import finished in 2.49s
+RSS built 1985 MB
+RSS extras 1985 MB
 CLEARCAM h06 0
 CLEARPROPS 0
-RSS lod 2208 MB
-RSS posed 2208 MB
-RSS depsgraph 2208 MB
+RSS lod 2178 MB
+RSS posed 2223 MB
+RSS depsgraph 2223 MB
 OBJECTS 2962 MESHES 221 IMAGES 87 140 Mpx
-02:23.171  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_h06.png'
-RTIME 112.8
-RSS rendered 6334 MB
+02:30.776  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_h06.png'
+RTIME 108.3
+RSS rendered 6279 MB
 RENDERED h06 3.92
