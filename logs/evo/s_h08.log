@@ -1,0 +1,24 @@
+00:00.872  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['asphalt', 'road'] -> asphalt_02
+[lib] ph_find textures ['concrete', 'pavement', 'floor'] -> concrete_pavement
+[lib] ph_find textures ['grass', 'lawn', 'meadow'] -> aerial_grass_rock
+[lib] ph_find textures ['plaster', 'concrete', 'wall'] -> painted_plaster_wall
+[lib] ph_find textures ['brick', 'wall'] -> brick_wall_001
+[lib] ph_find textures ['brick', 'wall'] -> brick_wall_001
+[lib] ph_find textures ['brick', 'wall'] -> brick_wall_001
+[lib] ph_find textures ['brick', 'wall'] -> brick_wall_001
+[lib] ph_find textures ['brick', 'wall'] -> brick_wall_001
+[lib] ph_find textures ['wood', 'plank'] -> wood_planks_dirt
+[lib] ph_find textures ['wood', 'plank'] -> wood_planks_dirt
+RSS built 534 MB
+RSS extras 534 MB
+CLEARCAM h08 0
+RSS lod 581 MB
+RSS posed 581 MB
+RSS depsgraph 581 MB
+OBJECTS 1085 MESHES 1077 IMAGES 49 40 Mpx
+00:42.835  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_h08.png'
+RTIME 34.9
+RSS rendered 1407 MB
+RENDERED h08 2.86
