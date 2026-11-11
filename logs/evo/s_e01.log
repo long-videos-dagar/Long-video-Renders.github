@@ -1,4 +1,4 @@
-00:00.776  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.895  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['rock', 'cliff', 'lava'] -> coast_sand_rocks_02
 [lib] model namaqualand_boulder_02 4
@@ -11,17 +11,17 @@
 [lib] model moon_rock_06 4
 [lib] model coast_rocks_02 4
 [lib] model coast_land_rocks_03 4
-/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_a.py:73: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_a.py:74: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
   r = random.Random(seed); m = bpy.data.materials.new('ember'); m.use_nodes = True; b = m.node_tree.nodes['Principled BSDF']
-RSS built 999 MB
-RSS extras 999 MB
+RSS built 1000 MB
+RSS extras 1000 MB
 CLEARCAM e01 0
 CLEARPROPS 0
-RSS lod 1001 MB
-RSS posed 1001 MB
-RSS depsgraph 1001 MB
-OBJECTS 648 MESHES 154 IMAGES 43 75 Mpx
-12:24.016  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_e01.png'
-RTIME 711.5
-RSS rendered 3825 MB
+RSS lod 1000 MB
+RSS posed 1000 MB
+RSS depsgraph 1000 MB
+OBJECTS 647 MESHES 153 IMAGES 43 75 Mpx
+14:22.539  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_e01.png'
+RTIME 850.4
+RSS rendered 3665 MB
 RENDERED e01 4.52
