@@ -1,7 +1,6 @@
-00:00.927  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.772  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['rock', 'mossy'] -> mossy_rock
-[lib] ph_find textures ['rock', 'coral'] -> coral_fort_wall_01
 [lib] ph_find textures ['leaves', 'grass'] -> brown_mud_leaves_01
 [lib] model coast_rocks_01 4
 [lib] model coast_rocks_02 4
@@ -9,17 +8,106 @@
 [lib] model rock_09 4
 [lib] model namaqualand_boulder_04 4
 [lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
-Traceback (most recent call last):
-  File "/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/story.py", line 277, in <module>
-    F.main(SHOTS)
-    ~~~~~~^^^^^^^
-  File "/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/west/film.py", line 753, in main
-    sh = Shot(sid); (shots or SHOTS)[sid](sh); rss('built'); sh.populate(); rss('extras'); sh.clear_camera(); sh.lod(); rss('lod')
-                    ~~~~~~~~~~~~~~~~~~~~~^^^^
-  File "/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_a.py", line 347, in s_k01
-    w, ter = nat(sh, 'cambrian'); cambrian_life(sh, ter, 70, 8, 2, 1, (-16, 16, 0, 90))
-                                  ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_a.py", line 326, in cambrian_life
-    o = CR.trilobite(f'tri{seed}_{k}', r.uniform(.12, .35)); x, y = r.uniform(area[0], area[1]), r.uniform(area[2], area[3]); o.location = (x, y, ter.z(x, y) + .02)
-                                                                                                                              ^^^^^^^^^^
-AttributeError: 'tuple' object has no attribute 'location' and no __dict__ for setting new attributes
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+[lib] ph_find textures ['rock', 'shell'] -> coast_sand_rocks_02
+10:04:48 | INFO: Data are loaded, start creating Blender stuff
+10:04:50 | INFO: Blender create Mesh node Hallucigenia_Hallucigenia _0
+10:04:50 | INFO: glTF import finished in 1.76s
+10:04:51 | INFO: Data are loaded, start creating Blender stuff
+10:04:52 | INFO: Blender create Mesh node Hallucigenia_Hallucigenia _0
+10:04:53 | INFO: glTF import finished in 1.75s
+10:04:54 | INFO: Data are loaded, start creating Blender stuff
+10:04:54 | INFO: Blender create Mesh node Cube.001_Material_0
+10:04:54 | INFO: Blender create Mesh node Cube.002_Material_0
+10:04:54 | INFO: Blender create Mesh node Cube.003_Material_0
+10:04:54 | INFO: Blender create Mesh node Cube.004_Material.002_0
+10:04:54 | INFO: Blender create Mesh node Cube.005_Material.002_0
+10:04:54 | INFO: Blender create Mesh node Cube.006_Material.002_0
+10:04:54 | INFO: Blender create Mesh node Cube.007_Material.002_0
+10:04:54 | INFO: Blender create Mesh node Cube.008_Material.002_0
+10:04:54 | INFO: Blender create Mesh node Cube.009_Material.002_0
+10:04:54 | INFO: Blender create Mesh node Cube.010_Material.002_0
+10:04:54 | INFO: Blender create Mesh node Cube.011_Material.003_0
+10:04:54 | INFO: Blender create Mesh node Cube.012_Material.002_0
+10:04:54 | INFO: Blender create Mesh node Cube.014_Material_0
+10:04:54 | INFO: Blender create Mesh node Cylinder_Material.001_0
+10:04:54 | INFO: glTF import finished in 0.50s
+RSS built 1154 MB
+RSS extras 1154 MB
+CLEARCAM k01 0
+CLEARPROPS 17
+RSS lod 1154 MB
+RSS posed 1154 MB
+RSS depsgraph 1154 MB
+OBJECTS 3369 MESHES 2747 IMAGES 35 76 Mpx
+08:31.549  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_k01.png'
+RTIME 489.4
+RSS rendered 3977 MB
+RENDERED k01 7.46
