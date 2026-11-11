@@ -1,0 +1,20 @@
+[lib] ph_find textures ['dry grass', 'dry ground', 'savanna'] -> dry_ground_rocks
+[lib] ph_find textures ['rock', 'cliff'] -> coast_sand_rocks_02
+[lib] ph_find textures ['mud', 'wet ground', 'dirt'] -> red_dirt_mud_01
+[lib] ph_find textures ['snow'] -> snow_02
+[lib] model quiver_tree_01 4
+[lib] model island_tree_02 17
+[lib] model tree_small_02 12
+[lib] model grass_medium_02 11
+[lib] model grass_medium_01 103
+[lib] model wild_rooibos_bush 20
+[lib] model searsia_burchellii 9
+[lib] model namaqualand_boulder_04 4
+[lib] model dry_branches_medium_01 3
+[lib] model namaqualand_boulder_02 4
+[lib] model namaqualand_boulder_05 3
+[lib] model rock_07 4
+[lib] model boulder_01 4
+BUILT 15.0
+01:26.683  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/w_savanna0.png'
+RENDERED savanna 0 71.1
