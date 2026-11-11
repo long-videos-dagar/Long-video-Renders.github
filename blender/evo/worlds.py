@@ -348,8 +348,11 @@ def seafloor(kind='cambrian', seed=4):
             wv = o.modifiers.new('sway', 'WAVE') if o.type == 'MESH' else None
         if kind == 'ediacaran':
             import creatures as CR
+            for k, (hx, hy, hs) in enumerate([(0, 15, 1.1), (1.1, 16.2, .8), (-1.3, 14.4, .6)]):     # hero Dickinsonia for the close-up
+                d = CR.dickinsonia(f'dickhero{k}', hs); d.location = (hx, hy, ter.z(hx, hy) + .03); d.rotation_euler = (0, 0, k * 1.7)
             for k in range(40):
                 x, y = r.uniform(-25, 25), r.uniform(10, 80); z = ter.z(x, y)
+                if abs(x) < 7 and y < 24: x += 14 if x >= 0 else -14            # keep the camera's glide path open
                 d = CR.dickinsonia(f'dick{k}', r.uniform(.3, 1.2)); d.location = (x, y, z + .03); d.rotation_euler = (0, 0, r.uniform(0, 6.3))
                 f = CR.charnia(f'charnia{k}', r.uniform(.6, 1.6)); f.location = (x + 2, y + 1, z); life.append(f)
     if kind == 'shallows':
@@ -424,7 +427,7 @@ def coast(seed=11):
                      [(TR.layer(('rock', 'cliff'), '#5a5650', 4.0), dict(slope=(.9, .75), noise=.08)),
                       (TR.layer(('moss', 'grass'), '#4a6a2a', 2.0), dict(height=(1.5, 3.0), noise=.12))], bump=.5)
     ter = TR.Terrain('coast', h, 2400.0, 300, m, center=(0, 60), inner=(240, 240))
-    sea = TR.ocean('sea', 2400, (0, -200, -.2), wave=.9, choppy=1.0, res=11, col='#2a5a6a', murk='#2a4a50', foam=True)
+    sea = TR.ocean('sea', 2400, (0, -200, -.2), wave=.9, choppy=1.0, res=11, col='#4a8a90', murk='#3a7a78', foam=True)
     TR.scatter(ter, ['coast_rocks_01', 'coast_rocks_02', 'coast_rocks_03', 'coast_land_rocks_02', 'coast_land_rocks_03', 'namaqualand_boulder_02'], 220,
                (-120, 120, -30, 120), seed=seed, scale=(.6, 2.8), slope_min=.4, fallback=TR.fallback_rock)
     TR.scatter_plants(ter, 'horsetail', 260, (-100, 100, 15, 160), seed=seed, zrange=(1.2, 80))
@@ -450,12 +453,13 @@ def impact(seed=13):
     dust, fires, darkness.  Shots drive it with impact_tick(w, t) + w['phase'] (0 = peaceful, 1 = entry, 2 = impact, 3 = aftermath)"""
     w = forest('cretaceous', seed)
     fx, fy = w['focus'].x, w['focus'].y
-    ast_m = TR.simple_mat('asteroid', ('rock',), '#3a3632', 2.0)
+    ast_m = TR.simple_mat('asteroid', ('rock',), '#3a3632', 2.0).copy(); ast_m.name = 'asteroid_hot'
+    ab = ast_m.node_tree.nodes['Principled BSDF']; ab.inputs['Emission Color'].default_value = (1, .5, .15, 1); ab.inputs['Emission Strength'].default_value = 25
     ast = T.lib.sphere('asteroid', 60, (0, 0, -9000), ast_m, seg=32, rings=16)
     d = ast.modifiers.new('d', 'DISPLACE'); tx = bpy.data.textures.new('asttx', 'CLOUDS'); tx.noise_scale = .4; d.texture = tx; d.strength = 25
     trail = TR.smoke_column('ast_trail', (0, 0, -9000), rate=12, life=4, rise=0, r0=40, r1=160, wind=(0, 0), turb=30, col=(.4, .3, .25), density=.02, glow=8, voxel=12, seed=3)
     fire_m = bpy.data.materials.new('fireball'); fire_m.use_nodes = True; N = fire_m.node_tree.nodes; N.remove(N['Principled BSDF'])
-    pv = N.new('ShaderNodeVolumePrincipled'); pv.inputs['Density'].default_value = .02; pv.inputs['Emission Strength'].default_value = 40; pv.inputs['Emission Color'].default_value = (1, .45, .12, 1)
+    pv = N.new('ShaderNodeVolumePrincipled'); pv.inputs['Density'].default_value = .01; pv.inputs['Emission Strength'].default_value = 5; pv.inputs['Emission Color'].default_value = (1, .45, .12, 1)
     fire_m.node_tree.links.new(pv.outputs[0], N['Material Output'].inputs['Volume'])
     fb = T.lib.sphere('fireball', 1, (fx + 200, fy + 3200, 0), fire_m, seg=24, rings=12)
     dust = TR.smoke_column('dustwall', (fx + 200, fy + 2600, 0), rate=10, life=20, rise=30, r0=200, r1=900, wind=(0, -60), turb=200, col=(.25, .2, .17), density=.004, voxel=40, seed=5)
@@ -476,7 +480,7 @@ def impact_tick(w, t, phase=None):
     w['ast'].location = s.lerp(g, min(1, e)) if 0 < e < 1 else (0, 0, -9000)
     w['trail'](t) if 0 < e < 1 else None
     b = ph.get('boom', 0)
-    w['fireball'].scale = (1 + 1600 * b,) * 2 + (1 + 900 * b,) if b > 0 else (.001,) * 3
+    w['fireball'].scale = (1 + 900 * b,) * 2 + (1 + 600 * b,) if b > 0 else (.001,) * 3
     w['flash'].data.energy = 60 * max(0.0, 1 - b * 6) if b > 0 else 0
     if b > 0: w['dust'](t)
     for f in w['fires']: f(t) if ph.get('burn', 0) > 0 else None

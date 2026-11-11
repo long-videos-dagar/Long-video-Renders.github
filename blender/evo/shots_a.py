@@ -117,7 +117,7 @@ def splash(sh, p, t0, size=30.0, seed=0):
         k = t - t0
         if k < 0: spray_off(); return
         spray(k); steam(k)
-        tor.location = p; s = size * (.3 + 1.2 * k); tor.scale = (s, s, max(.01, size * 1.5 * math.exp(-k * 1.5) * min(1, k * 4)))
+        tor.scale = (.001, .001, .001)
     def spray_off():
         tor.scale = (.001, .001, .001)
     sh.updates.append(u)
@@ -184,8 +184,8 @@ def beach_chair(name, loc, yaw=0):
 
 def s_e04(sh):
     """a cartoon guy relaxes in a tiny beach chair with sunglasses and a drink while lava rains; the drink catches fire; he keeps sipping"""
-    w, ter = nat(sh, 'young_earth'); x, y = 12.0, 120.0; z = ter.z(x, y)
-    chair = beach_chair('chair', (x, y, z), 200)
+    w, ter = nat(sh, 'young_earth'); x, y = 22.0, 168.0; z = ter.z(x, y)
+    chair = beach_chair('chair', (x, y, z), 0)
     GUY = P('Guy', '#f2c84a', '#2a6ab0', hat=None, haircol='#3a2414', height=.95, boots='#e8e0d0', belt='#2a6ab0', collar=False)
     ch = toon(sh, 'GUY', GUY)
     g = Z.glasses_prop('GUY_shades'); [setattr(m, 'diffuse_color', (0, 0, 0, 1)) for m in []]
@@ -201,12 +201,12 @@ def s_e04(sh):
     cup_m = TR.simple_mat('cupm', ('plastic',), '#3ab0d0', .3, rough=.2); cup = T.cyl('cup', .045, .14, (0, 0, -99), cup_m, v=16)
     straw = T.cyl('straw', .006, .2, (0, 0, -99), TR.simple_mat('strawm', ('',), '#f04a8a', .2), v=8)
     fire = TR.smoke_column('cupfire', (0, 0, -99), rate=18, life=.6, rise=.5, r0=.03, r1=.07, wind=(0, 0), turb=.04, col=(.05, .03, .02), density=.6, glow=40, voxel=.012, seed=4)
-    a = stand(sh, ch, (x, y), 200, '77_02', 1.0, face=[(0, 'smug'), (4.5, 'idle'), (5.6, 'smug')], z=z)
-    yaw = math.radians(200); fw = Vector((math.sin(yaw), -math.cos(yaw), 0)); sd = Vector((math.cos(yaw), math.sin(yaw), 0))
+    a = stand(sh, ch, (x, y), 0, '77_02', 1.0, face=[(0, 'smug'), (4.5, 'idle'), (5.6, 'smug')], z=z)
+    yaw = math.radians(0); fw = Vector((math.sin(yaw), -math.cos(yaw), 0)); sd = Vector((math.cos(yaw), math.sin(yaw), 0))
     def sip(t):                       # sip at 1.5 s and 6.5 s
         return max(0.0, 1 - abs(t - 2.0) / .8) + max(0.0, 1 - abs(t - 7.0) / .9)
     def mod(t, d):
-        d['crouch'] = max(0.0, ch.L * ch.s - .36 - .08 * ch.s); d['loc'] = (x, y, z); d['yaw'] = 200
+        d['crouch'] = max(0.0, ch.L * ch.s - .36 - .08 * ch.s); d['loc'] = (x, y, z); d['yaw'] = 0
         for s_, sx in (('L', -1), ('R', 1)): d['foot' + s_] = (sx * .2, -.55, 0)
         d['lean'] = (-.25, 0)
         hp = head_of(ch, -.1); u = sip(t)
@@ -454,14 +454,14 @@ def s_l02(sh):
                 d = t * v - k * .05; q = p0 + Vector((math.cos(a + math.sin(d * 6) * .3), math.sin(a + math.sin(d * 6) * .3))) * d
                 s.location = (q.x, q.y, ter.z(q.x, q.y) + .03 + .006 * math.sin(t * 20 + k))
     sh.updates.append(u)
-    sh.camera(cam_fn([(0, G(ter, -.8, Y + .2, .35), G(ter, 0, Y + 1.3, .02), 50), (sh.dur, G(ter, -.6, Y + .4, .3), G(ter, .2, Y + 1.4, .02), 55)], shake=.001), fstop=2.8)
+    sh.camera(cam_fn([(0, G(ter, -1.4, Y - .4, .8), G(ter, 0, Y + 1.3, .02), 45), (sh.dur, G(ter, -1.1, Y - .1, .7), G(ter, .2, Y + 1.4, .02), 50)], shake=.001), fstop=3.5)
 
 
 def s_l03(sh):
     """a lobe-finned fish paddles in the shallows on thick fleshy fins"""
     w, ter = nat(sh, 'coast'); Y = find_y(ter, 0, -80, lambda z: z > -1.6)          # where the sea bed rises to ~1.5 m deep
-    swim(sh, 'coelacanth', line3((-6, Y - 1, -.85), (5, Y + 1, -.75), 0, sh.dur, .03, .5), 'lobe', clip='swim', scale=1.0)
-    sh.camera(cam_fn([(0, (-3, Y - 4, .7), (-2, Y + 1.5, -.5), 30), (sh.dur, (2, Y - 3, .6), (3, Y + 3.5, -.5), 30)], shake=.003), fstop=5)
+    swim(sh, 'coelacanth', line3((-6, Y - 1, -.5), (5, Y + 1, -.45), 0, sh.dur, .03, .5), 'lobe', clip='swim', scale=1.0)
+    sh.camera(cam_fn([(0, (-4, Y - 3.5, 1.8), (-2.5, Y - .6, -.5), 32), (sh.dur, (3, Y - 2.5, 1.7), (3.5, Y + .6, -.45), 32)], shake=.003), fstop=5)
 
 
 def s_l04(sh):

@@ -68,7 +68,7 @@ def s_p05(sh):
     """small early dinosaurs dart through the forest like nervous chickens"""
     w, ter = nat(sh, 'triassic'); fx, fy = fz(w)
     for k in range(4):
-        x0 = fx - 14 + k * 1.6; go(sh, 'compy', [(x0, fy + 6 + k * 1.5), (x0 + 9, fy + 2 + k), (x0 + 14, fy + 8 + k), (x0 + 30, fy + 4)], ter, clip='run', name=f'compy{k}',
+        x0 = fx - 7 + k * 1.6; go(sh, 'compy', [(x0, fy + 6 + k * 1.5), (x0 + 9, fy + 2 + k), (x0 + 14, fy + 8 + k), (x0 + 30, fy + 4)], ter, clip='run', name=f'compy{k}',
                                    scale=1.3, phase=k * .23, t0=k * .4)
     go(sh, 'raptor', [(fx - 10, fy + 12), (fx + 2, fy + 7), (fx + 20, fy + 10)], ter, clip='run', name='earlyraptor', scale=.8, t0=4.5)
     sh.camera(cam_fn([(0, G(ter, fx - 6, fy - 6, 1.0), G(ter, fx - 4, fy + 6, .5), 30), (sh.dur, G(ter, fx + 4, fy - 5, 1.1), G(ter, fx + 10, fy + 7, .5), 30)], shake=.006), fstop=5)
@@ -190,7 +190,7 @@ def s_d05(sh):
     """a small bird lands on a giant dinosaur's head; the dinosaur does not react"""
     w, ter = nat(sh, 'cretaceous'); fx, fy = fz(w); hz = ter.z(fx, fy + 6)
     big = still(sh, 'tricera', (fx, fy + 6), 25, ter, clip='idle', name='calmtri')
-    bpy.context.view_layer.update(); top = big.head() + Vector((0, 0, .35))
+    yw = math.radians(25); top = Vector((fx, fy + 6, hz)) + Vector((math.sin(yw), -math.cos(yw), 0)) * 3.0 + Vector((0, 0, 2.3))
     land = 5.0
     def fly(t):
         u = ease(min(1, t / land)); p = (top + Vector((-14, 10, 9))).lerp(top, u) + Vector((0, 0, 3 * math.sin(u * math.pi) * (1 - u)))
@@ -207,7 +207,7 @@ def s_a01(sh):
     tri = still(sh, 'tricera', (fx, fy + 6), -20, ter, clip='graze', name='grazer')
     still(sh, 'tricera', (fx - 9, fy + 16), 40, ter, clip='graze', name='grazer2', phase=1.3)
     go(sh, 'sauropod', [(fx + 40, fy + 60), (fx - 20, fy + 70)], ter, name='bgsaur')
-    bpy.context.view_layer.update(); hd = tri.head() + Vector((0, 0, .5))
+    yw = math.radians(-20); hd = Vector((fx, fy + 6, ter.z(fx, fy + 6))) + Vector((math.sin(yw), -math.cos(yw), 0)) * 3.4 + Vector((0, 0, 1.9))
     df = swim(sh, 'dragonfly', lambda t: (*(lambda p: (p.x, p.y))((hd + Vector((3, -2, 1.5))).lerp(hd, ease(min(1, t / 3.5)))), 200,
                                           ((hd + Vector((3, -2, 1.5))).lerp(hd, ease(min(1, t / 3.5)))).z + .05 * math.sin(t * 9)), 'dfly', clip='fly', scale=1.5)
     sh.camera(cam_fn([(0, G(ter, fx + 3, fy - 2, 2.0), tuple(hd), 30), (sh.dur, G(ter, fx + 2.4, fy - 1, 2.0), tuple(hd), 36)], shake=.003), fstop=5)
@@ -263,8 +263,8 @@ def s_a05(sh):
 def s_a06(sh):
     """a bird flies calmly out of the smoke"""
     w, ter = nat(sh, 'impact'); fx, fy = fz(w); impact_phase(sh, w, lambda t: dict(burn=1))
-    bpy.context.scene.view_settings.exposure = -1.0
-    sm = TR.smoke_column('wall', G(ter, fx, fy + 14), rate=20, life=12, rise=1.5, r0=6, r1=14, wind=(0, -1.0), turb=4, col=(.25, .23, .22), density=.12, voxel=.4, seed=9)
+    bpy.context.scene.view_settings.exposure = -.6
+    sm = TR.smoke_column('wall', G(ter, fx, fy + 14), rate=20, life=12, rise=1.5, r0=6, r1=14, wind=(0, -1.0), turb=4, col=(.35, .33, .31), density=.04, voxel=.4, seed=9)
     sh.updates.append(sm)
     hz = ter.z(fx, fy)
     swim(sh, 'pigeon', line3((fx, fy + 22, hz + 4), (fx + .4, fy - 1, hz + 3.2), 0, sh.dur * 1.05, .15, .9), 'survivor', clip='fly', scale=1.0)
@@ -287,7 +287,7 @@ def s_a07(sh):
     sh.updates.append(sm)
     still(sh, 'rat', (fx, fy + .05), 200, ter, clip='look', name='survivor_mammal', scale=1.0)
     hz = ter.z(fx, fy)
-    sh.camera(cam_fn([(0, (fx + .4, fy - 1.0, hz + 6), (fx, fy + 4, hz + 6), 30), (sh.dur * .7, (fx + .3, fy - .7, hz + .4), (fx, fy, hz + .08), 45), (sh.dur, (fx + .25, fy - .55, hz + .2), (fx, fy, hz + .08), 60)],
+    sh.camera(cam_fn([(0, (fx + .4, fy - 1.0, hz + 6), (fx, fy + 4, hz + 6), 30), (sh.dur * .7, (fx + .45, fy - 1.0, hz + .45), (fx, fy, hz + .1), 45), (sh.dur, (fx + .4, fy - .85, hz + .25), (fx, fy, hz + .1), 55)],
                      shake=.002), fstop=2.8)
 
 
@@ -351,5 +351,7 @@ def s_n04(sh):
         z = hz + .4 + hops * .55
         return (fx, fy + 3 - .42, 180, z)
     b.move(climb)
-    sh.camera(cam_fn([(0, (fx + .9, fy + .6, hz + 1.2), (fx, fy + 3, hz + 1.2), 32), (sh.dur, (fx + 1.2, fy + .4, hz + 9.5), (fx, fy + 3, hz + 9.8), 32)], shake=.002,
-                     focus=lambda t: Vector(b.root.location)), fstop=4)
+    def cam(t):                                    # rides up with the climber, slightly below and to the side
+        z = climb(t)[3]; m = Vector((fx, fy + 2.5, z + .35))
+        return (m + Vector((1.3, -2.0, -.25)), m, 35, 0, m, .002)
+    sh.camera(cam, fstop=4)

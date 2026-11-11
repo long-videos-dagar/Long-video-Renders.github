@@ -272,6 +272,7 @@ class Beast:
         self.m = load_glb(glb, name)
         for o in self.m['objs']:
             if any(o.name.startswith(h) for h in hide): o.hide_render = True
+            if o.type == 'MESH' and o.name.startswith(('Cube', 'Plane')) and len(o.data.polygons) <= 12: o.hide_render = True     # export helpers
         self.root = self.m['root']; self.arm = self.m['arm']; self.root.scale = (1, 1, 1)
         bpy.context.view_layer.update(); lo, hi = _bounds(self.m['objs']); sz = hi - lo
         long_axis = 'y' if sz.y >= sz.x else 'x'
