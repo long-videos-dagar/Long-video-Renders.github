@@ -1,0 +1,62 @@
+{
+ "rev": 1,
+ "mode": "tasks",
+ "tasks": [
+  {
+   "id": "ye0",
+   "script": "worldtest.py",
+   "args": [
+    "young_earth",
+    "0"
+   ],
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "32"
+   }
+  },
+  {
+   "id": "ye1",
+   "script": "worldtest.py",
+   "args": [
+    "young_earth",
+    "1"
+   ],
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "32"
+   }
+  },
+  {
+   "id": "ye2",
+   "script": "worldtest.py",
+   "args": [
+    "young_earth",
+    "2"
+   ],
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "32"
+   }
+  },
+  {
+   "id": "ye3",
+   "script": "worldtest.py",
+   "args": [
+    "young_earth",
+    "3"
+   ],
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "32"
+   }
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+{"fps": 30, "w": 1080, "h": 1920, "samples": 48,
+ "shots": [
+  {"id": "wide",  "t0": 0.0,  "dur": 3.0},
+  {"id": "face",  "t0": 3.0,  "dur": 2.5},
+  {"id": "water", "t0": 5.5,  "dur": 3.0, "sim": true},
+  {"id": "drop",  "t0": 8.5,  "dur": 3.0, "sim": true},
+  {"id": "react", "t0": 11.5, "dur": 2.2}
+ ],
+ "subs": [["I JUST", 0.4, 0.9], ["WANTED", 0.9, 1.4], ["A QUIET", 1.45, 2.0], ["MORNING", 2.0, 2.9],
+          ["BUT THEN", 3.2, 3.9], ["THE KITCHEN", 3.9, 4.7], ["HAD OTHER", 4.7, 5.3],
+          ["PLANS", 5.5, 6.4], ["EVERYTHING", 6.6, 7.4], ["WAS FINE", 7.4, 8.4],
+          ["UNTIL", 8.6, 9.2], ["MY HAND", 9.2, 9.8], ["HAPPENED", 9.8, 10.7],
+          ["NOOOO", 11.6, 13.0]]}

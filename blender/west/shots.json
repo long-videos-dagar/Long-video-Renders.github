@@ -1,0 +1,649 @@
+{
+"fps": 24,
+"total": 72.72,
+"voice": "voice.mp3",
+"shots": [
+{
+"id": "hook",
+"t0": 0.0,
+"dur": 4.3
+},
+{
+"id": "funniest",
+"t0": 4.3,
+"dur": 1.4
+},
+{
+"id": "nobody",
+"t0": 5.7,
+"dur": 1.85
+},
+{
+"id": "ride",
+"t0": 7.55,
+"dur": 2.45
+},
+{
+"id": "walkin",
+"t0": 10.0,
+"dur": 2.45
+},
+{
+"id": "robbed",
+"t0": 12.45,
+"dur": 2.5
+},
+{
+"id": "knew",
+"t0": 14.95,
+"dur": 3.9
+},
+{
+"id": "suspicious",
+"t0": 18.85,
+"dur": 2.0
+},
+{
+"id": "nights",
+"t0": 20.85,
+"dur": 3.4
+},
+{
+"id": "fourth",
+"t0": 24.25,
+"dur": 1.3
+},
+{
+"id": "unbelievable",
+"t0": 25.55,
+"dur": 2.5
+},
+{
+"id": "sneak",
+"t0": 28.05,
+"dur": 2.5
+},
+{
+"id": "vault",
+"t0": 30.55,
+"dur": 1.0
+},
+{
+"id": "gold",
+"t0": 31.55,
+"dur": 2.6
+},
+{
+"id": "draw",
+"t0": 34.15,
+"dur": 2.5
+},
+{
+"id": "handsup",
+"t0": 36.65,
+"dur": 1.45
+},
+{
+"id": "froze",
+"t0": 38.1,
+"dur": 1.55
+},
+{
+"id": "turn",
+"t0": 39.65,
+"dur": 2.9
+},
+{
+"id": "arrest",
+"t0": 42.55,
+"dur": 2.3
+},
+{
+"id": "poster_jack",
+"t0": 44.85,
+"dur": 2.45
+},
+{
+"id": "reading",
+"t0": 47.3,
+"dur": 2.45
+},
+{
+"id": "neverseen",
+"t0": 49.75,
+"dur": 4.1
+},
+{
+"id": "believed",
+"t0": 53.85,
+"dur": 3.0
+},
+{
+"id": "trick",
+"t0": 56.85,
+"dur": 2.6
+},
+{
+"id": "pullposter",
+"t0": 59.45,
+"dur": 2.75
+},
+{
+"id": "face",
+"t0": 62.2,
+"dur": 2.0
+},
+{
+"id": "realised",
+"t0": 64.2,
+"dur": 2.85
+},
+{
+"id": "allalong",
+"t0": 67.05,
+"dur": 2.67
+}
+],
+"subs": [
+[
+"IN THE",
+0.0,
+0.4
+],
+[
+"WILD WEST,",
+0.4,
+1.0
+],
+[
+"THERE WAS",
+1.0,
+1.55
+],
+[
+"A COWBOY",
+1.55,
+2.05
+],
+[
+"WHO ONCE",
+2.05,
+2.55
+],
+[
+"ARRESTED THE",
+2.55,
+3.25
+],
+[
+"TOWN SHERIFF.",
+3.25,
+4.0
+],
+[
+"AND THE",
+4.55,
+4.87
+],
+[
+"FUNNIEST PART?",
+4.87,
+5.43
+],
+[
+"NOBODY BELIEVED",
+5.95,
+6.79
+],
+[
+"HIM.",
+6.79,
+7.08
+],
+[
+"ONE MORNING,",
+7.79,
+8.49
+],
+[
+"JACK RODE",
+8.49,
+9.04
+],
+[
+"INTO A",
+9.04,
+9.44
+],
+[
+"DUSTY LITTLE",
+9.44,
+10.14
+],
+[
+"TOWN AND",
+10.14,
+10.64
+],
+[
+"NOTICED SOMETHING",
+10.64,
+11.59
+],
+[
+"STRANGE.",
+11.59,
+12.09
+],
+[
+"EVERY BANK",
+12.83,
+13.41
+],
+[
+"IN TOWN",
+13.41,
+13.85
+],
+[
+"HAD BEEN ROBBED,",
+13.85,
+14.72
+],
+[
+"BUT THE",
+15.15,
+15.55
+],
+[
+"SHERIFF SOMEHOW",
+15.55,
+16.3
+],
+[
+"KNEW EXACTLY",
+16.3,
+16.92
+],
+[
+"WHEN EACH",
+16.92,
+17.4
+],
+[
+"ROBBERY WOULD",
+17.4,
+18.06
+],
+[
+"HAPPEN.",
+18.06,
+18.46
+],
+[
+"JACK BECAME",
+19.21,
+19.86
+],
+[
+"SUSPICIOUS.",
+19.86,
+20.5
+],
+[
+"SO HE",
+21.1,
+21.42
+],
+[
+"SPENT THREE",
+21.42,
+22.02
+],
+[
+"NIGHTS WATCHING",
+22.02,
+22.8
+],
+[
+"THE SHERIFF'S",
+22.8,
+23.49
+],
+[
+"OFFICE.",
+23.49,
+23.9
+],
+[
+"AND ON",
+24.48,
+24.72
+],
+[
+"THE FOURTH",
+24.72,
+25.08
+],
+[
+"NIGHT,",
+25.08,
+25.32
+],
+[
+"HE SAW",
+25.73,
+26.18
+],
+[
+"SOMETHING UNBELIEVABLE.",
+26.18,
+27.58
+],
+[
+"THE SHERIFF",
+28.34,
+28.9
+],
+[
+"QUIETLY WALKED",
+28.9,
+29.59
+],
+[
+"INTO THE BANK,",
+29.59,
+30.28
+],
+[
+"OPENED THE",
+30.73,
+31.13
+],
+[
+"VAULT,",
+31.13,
+31.4
+],
+[
+"AND STARTED",
+31.69,
+32.29
+],
+[
+"FILLING HIS",
+32.29,
+32.9
+],
+[
+"BAGS WITH GOLD.",
+32.9,
+33.69
+],
+[
+"JACK IMMEDIATELY",
+34.43,
+35.21
+],
+[
+"PULLED OUT",
+35.21,
+35.72
+],
+[
+"HIS REVOLVER.",
+35.72,
+36.37
+],
+[
+"HANDS UP,",
+36.84,
+37.29
+],
+[
+"SHERIFF!",
+37.29,
+37.7
+],
+[
+"THE SHERIFF",
+38.35,
+38.94
+],
+[
+"FROZE.",
+38.94,
+39.3
+],
+[
+"THEN HE",
+39.9,
+40.36
+],
+[
+"SLOWLY TURNED",
+40.36,
+41.12
+],
+[
+"AROUND AND",
+41.12,
+41.72
+],
+[
+"SAID...",
+41.72,
+42.18
+],
+[
+"YOU'RE UNDER",
+42.75,
+43.52
+],
+[
+"ARREST, COWBOY.",
+43.52,
+44.45
+],
+[
+"TURNS OUT,",
+45.15,
+45.7
+],
+[
+"THE SHERIFF",
+45.7,
+46.3
+],
+[
+"HAD ALREADY",
+46.3,
+46.9
+],
+[
+"REPORTED JACK",
+46.9,
+47.59
+],
+[
+"AS THE",
+47.59,
+47.96
+],
+[
+"TOWN'S MOST",
+47.96,
+48.56
+],
+[
+"WANTED CRIMINAL.",
+48.56,
+49.39
+],
+[
+"AND SINCE",
+49.98,
+50.49
+],
+[
+"NOBODY HAD",
+50.49,
+51.04
+],
+[
+"EVER SEEN",
+51.04,
+51.54
+],
+[
+"THE REAL",
+51.54,
+52.0
+],
+[
+"SHERIFF OUTSIDE",
+52.0,
+52.78
+],
+[
+"HIS OFFICE...",
+52.78,
+53.47
+],
+[
+"THE ENTIRE",
+54.04,
+54.61
+],
+[
+"TOWN BELIEVED",
+54.61,
+55.32
+],
+[
+"JACK WAS",
+55.32,
+55.79
+],
+[
+"THE ROBBER.",
+55.79,
+56.41
+],
+[
+"BUT JACK",
+57.15,
+57.7
+],
+[
+"HAD ONE",
+57.7,
+58.19
+],
+[
+"FINAL TRICK.",
+58.19,
+58.96
+],
+[
+"HE PULLED",
+59.64,
+60.12
+],
+[
+"OUT THE",
+60.12,
+60.5
+],
+[
+"SHERIFF'S OWN",
+60.5,
+61.15
+],
+[
+"WANTED POSTER...",
+61.15,
+61.93
+],
+[
+"WHICH SHOWED",
+62.36,
+62.92
+],
+[
+"THE SHERIFF'S",
+62.92,
+63.51
+],
+[
+"FACE.",
+63.51,
+63.79
+],
+[
+"AND SUDDENLY,",
+64.41,
+65.21
+],
+[
+"THE WHOLE",
+65.21,
+65.79
+],
+[
+"TOWN REALISED...",
+65.79,
+66.75
+],
+[
+"THEIR SHERIFF",
+67.24,
+68.05
+],
+[
+"WAS THE",
+68.05,
+68.53
+],
+[
+"CRIMINAL ALL",
+68.53,
+69.29
+],
+[
+"ALONG.",
+69.29,
+69.72
+]
+],
+"trans": {
+"ride": [
+"dissolve",
+0.5
+],
+"nights": [
+"dissolve",
+0.4
+],
+"fourth": [
+"dissolve",
+0.35
+],
+"poster_jack": [
+"dissolve",
+0.4
+],
+"neverseen": [
+"dissolve",
+0.4
+],
+"believed": [
+"dissolve",
+0.3
+],
+"vault": [
+"dissolve",
+0.2
+]
+}
+}
