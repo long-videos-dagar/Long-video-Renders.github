@@ -291,7 +291,36 @@ def _clear_props(self, rad=1.7):
         cen, r = _coll_radius(e.instance_collection); r *= max(e.scale); c = e.matrix_world @ cen
         if any((c - p).length < r * .9 + .4 for p in cps): e.hide_render = True; n += 1
     print('CLEARPROPS', n, flush=True)
+    if os.environ.get('CAMDBG'):                      # what is the lens inside of?
+        p = Vector(self.cam[1](self.dur * .6)[0]); bpy.context.view_layer.update(); hits = []
+        for o in bpy.data.objects:
+            if o.hide_render: continue
+            if o.type == 'MESH':
+                bb = [o.matrix_world @ Vector(v) for v in o.bound_box]
+            elif o.instance_type == 'COLLECTION' and o.instance_collection:
+                cen, r = _coll_radius(o.instance_collection); c = o.matrix_world @ cen; r *= max(o.scale)
+                bb = [c - Vector((r, r, r)), c + Vector((r, r, r))]
+            else: continue
+            lo = Vector([min(v[i] for v in bb) for i in range(3)]); hi = Vector([max(v[i] for v in bb) for i in range(3)])
+            if all(lo[i] <= p[i] <= hi[i] for i in range(3)): hits.append(o.name)
+        ter = getattr(self, 'ter', None)
+        self.at(self.dur * .6)
+        print('BEASTS', [(o.name, tuple(round(v, 1) for v in o.location), tuple(round(v, 2) for v in o.scale)) for o in bpy.data.objects if o.name.endswith('_root')][:12], flush=True)
+        print('CAMDBG', tuple(round(v, 2) for v in p), 'ground', round(ter.z(p.x, p.y), 2) if ter else None, hits[:40], flush=True)
 F.Shot.clear_camera = _clear_props
+
+_cam0 = F.Shot.camera
+def _camera_safe(self, fn, *a, **k):
+    """never let the lens sink under the terrain (rough ground between keyed positions)"""
+    ter = getattr(self, 'ter', None)
+    if ter is not None:
+        f0 = fn
+        def fn(t):
+            r = list(f0(t)); p = Vector(r[0]); g = ter.z(p.x, p.y) + .3
+            if p.z < g: r[0] = Vector((p.x, p.y, g))
+            return tuple(r)
+    return _cam0(self, fn, *a, **k)
+F.Shot.camera = _camera_safe
 
 SHOTS = {k[2:]: v for k, v in list(globals().items()) if k.startswith('s_') and callable(v)}
 

@@ -68,11 +68,11 @@ def young_earth(seed=1):
         p = T.lib.sphere(f'lavapool{k}', r_.uniform(4, 10), (x, y, ter.z(x, y) - .2), lm, seg=20, rings=6); p.scale = (1, r_.uniform(.5, 1.2), .03)
     # ash plumes, glowing from the craters
     plumes = [TR.plume(f'plume{k}', (cx, cy, ter.z(cx, cy) - 4), height=hh * 4.0, r0=r * .07, r1=r * 1.3, drift=(r * 1.2, r * .4),
-                       density=.12, glow=1.0 if k < 3 else 0.0, speed=8.0 + k, seed=k) for k, (cx, cy, r, hh) in enumerate(V)]
+                       density=.12, glow=.35 if k < 3 else 0.0, speed=8.0 + k, seed=k) for k, (cx, cy, r, hh) in enumerate(V)]
     # boiling sea + steam
     sea = TR.ocean('sea', 900, (-420, 300, -6.5), wave=1.4, choppy=1.6, col='#1a2a26', murk='#3a3020', foam=True)
-    steam = [TR.smoke_column(f'steam{k}', (-150 - k * 60, 120 + k * 70, -7), rate=2.0, life=10, rise=4.0, r0=6, r1=22, wind=(2.0, .5), turb=6,
-                             col=(.75, .72, .7), density=.01, voxel=1.5, seed=k + 9) for k in range(4)]
+    steam = [TR.plume(f'steam{k}', (-200 - k * 70, 160 + k * 80, -7), height=60, r0=8, r1=30, drift=(25, 8), col=(.8, .78, .76), density=.025, speed=3, seed=k + 9)
+             for k in range(3)]
     # rubble + boulders everywhere
     TR.scatter(ter, ['namaqualand_boulder_02', 'namaqualand_boulder_04', 'namaqualand_boulder_05', 'rock_07', 'rock_09', 'boulder_01', 'moon_rock_03', 'moon_rock_06'],
                420, (-140, 140, 10, 260), seed=seed, scale=(.6, 2.6), slope_min=.6, zrange=(-2, 400), fallback=TR.fallback_rock)
@@ -232,7 +232,7 @@ FOREST = {
                      under=['fern_02', 'moss_01', 'rock_moss_set_02', 'root_cluster_01'], river=True),
     'cretaceous': dict(sky='day', sun=(170, 35, 4.2, (1, .94, .84)), ground=('forest ground', 'grass', 'leaves'), gaid='leafy_grass', gcol='#4a5a2a', drygrass=False,
                        trees=[(['island_tree_01', 'tree_small_02'], 380, (10, 24)), (['fir_tree_01', 'pine_tree_01'], 200, (18, 30))],
-                       plants=[('cycad', 50), ('treefern', 50)], under=['fern_02', 'shrub_01', 'shrub_02', 'shrub_04', 'searsia_lucida', 'flower_heliophila'], river=True),
+                       plants=[('cycad', 50), ('treefern', 50)], under=['fern_02', 'shrub_01', 'shrub_02', 'shrub_03', 'grass_medium_01', 'periwinkle_plant'], river=True),
     'paleogene': dict(sky='day', sun=(180, 42, 4.0, (1, .95, .86)), ground=('forest ground', 'leaves', 'grass'), gaid='grass_ground', gcol='#4a5a2a', drygrass=False,
                       trees=[(['island_tree_02', 'tree_small_02'], 480, (10, 26)), (['fir_tree_01'], 80, (16, 26))],
                       plants=[('treefern', 20)], under=['fern_02', 'shrub_01', 'shrub_02', 'shrub_03', 'nettle_plant', 'periwinkle_plant', 'grass_medium_01'], river=True),
@@ -277,7 +277,7 @@ def forest(kind='jurassic', seed=2, focus=(0, 60), clear=()):
                scale=(.6, 2.2), slope_min=.6, fallback=TR.fallback_rock, avoid=[(fx, fy, 14)] + list(clear))
     az, el, en, sc_ = K['sun']; sun = TR.sun_light(az, el, en * .5, sc_)        # the sky HDRI already carries a sun: keep the key from blowing out
     bpy.context.scene.view_settings.exposure = -.45
-    TR.fog(.00012 if kind != 'savanna' else .0001, (.85, .9, 1.0) if kind != 'savanna' else (1, .9, .75), .4, size=(8000, 8000, 900), center=(fx, fy, -50))
+    TR.fog(.00006 if kind != 'savanna' else .00005, (.85, .9, 1.0) if kind != 'savanna' else (1, .9, .75), .4, size=(8000, 8000, 900), center=(fx, fy, -50))
     TR.wind_setup(.05)
     return dict(ter=ter, focus=Vector((fx, fy, h(fx, fy))), kind=kind, sea=[river] if K['river'] else [])
 
@@ -529,8 +529,8 @@ def cave(seed=14):
         a = k * math.tau / 10; T.lib.sphere(f'firestone{k}', .22, (fire_root.x + math.cos(a) * .6, fire_root.y + math.sin(a) * .6, .1), TR.simple_mat('stones', ('rock',), '#5a5650', .5), seg=10, rings=6)
     for k in range(6):
         T.cyl(f'firelog{k}', .07, 1.1, (fire_root.x, fire_root.y, .15), TR.simple_mat('charwood', ('bark',), '#2a1a10', .5), rot=(math.pi / 2, 0, k * .52), v=8)
-    flame = TR.smoke_column('flame', tuple(fire_root + Vector((0, 0, .1))), rate=14, life=1.4, rise=1.2, r0=.25, r1=.45, wind=(0, 0), turb=.25, col=(.05, .03, .02),
-                            density=.4, glow=60, voxel=.06, seed=3)
+    flame = TR.plume('flame', tuple(fire_root + Vector((0, 0, .05))), height=1.3, r0=.28, r1=.12, drift=(.05, 0), col=(.05, .03, .02), density=6.0, glow=18.0,
+                     speed=1.8, seed=3, glow_h=1.0)
     smoke = TR.smoke_column('firesmoke', tuple(fire_root + Vector((0, 0, 1.2))), rate=3, life=8, rise=.8, r0=.3, r1=2.0, wind=(0, -.6), turb=.6, col=(.2, .19, .18),
                             density=.015, voxel=.2, seed=4)
     fl = bpy.data.lights.new('firelight', 'POINT'); fl.energy = 2600; fl.color = (1, .55, .2); fl.shadow_soft_size = .4

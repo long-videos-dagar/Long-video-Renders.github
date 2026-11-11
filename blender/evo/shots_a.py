@@ -16,7 +16,8 @@ def cam_fn(keys, focus=None, roll=0.0, shake=.003, lens_fn=None, quake=None):
 def nat(sh, world, **kw):
     """nature shots: no motion blur (python-driven motion isn't keyed anyway, and blur on wind-deformed forests triples memory)"""
     w = stage(sh, world, **kw); sh.updates.append(lambda t: setattr(bpy.context.scene.render, 'use_motion_blur', False))
-    return w, (w.get('ter') if isinstance(w, dict) else None)
+    sh.ter = w.get('ter') if isinstance(w, dict) else None
+    return w, sh.ter
 
 
 def G(ter, x, y, dz=0.0):
@@ -458,8 +459,8 @@ def s_l02(sh):
 
 def s_l03(sh):
     """a lobe-finned fish paddles in the shallows on thick fleshy fins"""
-    w, ter = nat(sh, 'coast'); Y = find_y(ter, 0, -60, lambda z: z > -1.1)          # where the sea bed rises to ~1 m deep
-    swim(sh, 'coelacanth', line3((-6, Y + 1, -.6), (5, Y + 4, -.5), 0, sh.dur, .03, .5), 'lobe', clip='swim', scale=1.0)
+    w, ter = nat(sh, 'coast'); Y = find_y(ter, 0, -80, lambda z: z > -1.6)          # where the sea bed rises to ~1.5 m deep
+    swim(sh, 'coelacanth', line3((-6, Y - 1, -.85), (5, Y + 1, -.75), 0, sh.dur, .03, .5), 'lobe', clip='swim', scale=1.0)
     sh.camera(cam_fn([(0, (-3, Y - 4, .7), (-2, Y + 1.5, -.5), 30), (sh.dur, (2, Y - 3, .6), (3, Y + 3.5, -.5), 30)], shake=.003), fstop=5)
 
 

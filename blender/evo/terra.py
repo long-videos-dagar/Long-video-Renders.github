@@ -597,10 +597,10 @@ def wind_tick(t, gust=1.0):
         md.angle = a * gust * (math.sin(t * 1.3 + hash(o.name) % 7) * .6 + math.sin(t * 3.1 + hash(o.name) % 5) * .4)
 
 
-def plume(name, base, height=300.0, r0=10.0, r1=90.0, drift=(60.0, 20.0), col=(.32, .29, .26), density=.08, glow=0.0, speed=6.0, seed=0):
+def plume(name, base, height=300.0, r0=10.0, r1=90.0, drift=(60.0, 20.0), col=(.32, .29, .26), density=.08, glow=0.0, speed=6.0, seed=0, glow_h=.08):
     """a volcanic ash column as one procedural volume: a widening, wind-bent cone whose density is carved by 4D noise that
     rises with time (billows roll upward and grow with height) - no particle balls.  returns update(t)"""
-    bx, by, bz = base; w = 2 * (r1 + max(abs(drift[0]), abs(drift[1]))) + 20
+    bx, by, bz = base; R_ = max(r0, r1) * 1.7; w = 2 * (R_ + max(abs(drift[0]), abs(drift[1]))) + R_ * .3
     o = T.box(name, (w, w, height), (bx + drift[0] / 2, by + drift[1] / 2, bz + height / 2), None); o.visible_shadow = True
     m = bpy.data.materials.new(name + '_vol'); m.use_nodes = True; N, L = m.node_tree.nodes, m.node_tree.links; N.remove(N['Principled BSDF'])
     def node(t, **kw):
@@ -642,7 +642,7 @@ def plume(name, base, height=300.0, r0=10.0, r1=90.0, drift=(60.0, 20.0), col=(.
     pv = node('ShaderNodeVolumePrincipled'); pv.inputs['Color'].default_value = (*col, 1); pv.inputs['Anisotropy'].default_value = .25
     L.new(dens, pv.inputs['Density'])
     if glow:
-        L.new(math_('MULTIPLY', math_('MULTIPLY', mrange(Z, 0, height * .22, 1, 0, 'LINEAR'), glow), math_('DIVIDE', dens, density)), pv.inputs['Emission Strength']); pv.inputs['Emission Color'].default_value = (1, .28, .04, 1)
+        L.new(math_('MULTIPLY', math_('MULTIPLY', mrange(Z, 0, height * glow_h, 1, 0, 'LINEAR'), glow), math_('DIVIDE', dens, density)), pv.inputs['Emission Strength']); pv.inputs['Emission Color'].default_value = (1, .28, .04, 1)
     L.new(pv.outputs[0], N['Material Output'].inputs['Volume']); o.data.materials.clear(); o.data.materials.append(m)
     def upd(t): tv.outputs[0].default_value = t
     return upd

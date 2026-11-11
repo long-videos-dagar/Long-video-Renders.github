@@ -64,18 +64,18 @@ def knap_action(b, at=0.0, rate=.5):
     """hammerstone strikes: the right forearm swings down every `rate` seconds (keyed NLA layer)"""
     if b.arm is None: return
     from mathutils import Euler
-    fa = next((p for p in b.arm.pose.bones if 'forearm' in p.name.lower() and ('r_' in p.name.lower() or 'right' in p.name.lower())), None)
-    up = next((p for p in b.arm.pose.bones if 'upperarm' in p.name.lower() and ('r_' in p.name.lower() or 'right' in p.name.lower())), None)
+    fa = next((p for p in b.arm.pose.bones if p.name.lower().startswith('lowerarm_r') and 'scalecomp' not in p.name.lower()), None)
+    up = next((p for p in b.arm.pose.bones if p.name.lower().startswith('upperarm_r') and 'scalecomp' not in p.name.lower()), None)
     if fa is None: return
     act = bpy.data.actions.new('knap'); ad = b.arm.animation_data or b.arm.animation_data_create(); keep = ad.action; ad.action = act
     n = int(30 / rate)
     for k in range(n):
         f0 = 1 + (at + k * rate) * 24
-        for pb, a, c in ((fa, -70, -20), (up, -40, -20)):
+        for pb, a, c in ((fa, (0, -95, 0), (0, -40, 0)), (up, (0, 0, -35), (0, 0, -25))):      # raise the hammerstone, strike down
             if pb is None: continue
             pb.rotation_mode = 'QUATERNION'
-            pb.rotation_quaternion = Euler((math.radians(a), 0, 0)).to_quaternion(); pb.keyframe_insert('rotation_quaternion', frame=f0)
-            pb.rotation_quaternion = Euler((math.radians(c), 0, 0)).to_quaternion(); pb.keyframe_insert('rotation_quaternion', frame=f0 + rate * 24 * .25)
+            pb.rotation_quaternion = Euler([math.radians(v) for v in a]).to_quaternion(); pb.keyframe_insert('rotation_quaternion', frame=f0)
+            pb.rotation_quaternion = Euler([math.radians(v) for v in c]).to_quaternion(); pb.keyframe_insert('rotation_quaternion', frame=f0 + rate * 24 * .25)
     ad.action = keep; tr = ad.nla_tracks.new(); st = tr.strips.new('knap', 1, act); st.blend_type = 'REPLACE'
 
 
@@ -95,8 +95,9 @@ def s_h04(sh):
 
 
 def thumbs_up(b, at=1.0):
-    CR.addpose(b, {'R_Upperarm': (0, -20, -70), 'R_Forearm': (0, 0, -80), 'R_Index': (0, 0, -90), 'R_Mid': (0, 0, -90), 'R_Ring': (0, 0, -90), 'R_Pinky': (0, 0, -90),
-                   'R_Thumb1': (0, 30, 0)}, at=at, ramp=.4)
+    # bone axes measured on this rig (UE-style names): upperarm z- lifts the arm out, lowerarm y- folds the forearm up, finger y- curls
+    CR.addpose(b, {'upperarm_r': (0, 0, -60), 'lowerarm_r': (0, -80, 0), 'index_0': (0, -80, 0), 'middle_0': (0, -80, 0), 'ring_0': (0, -80, 0),
+                   'pinky_0': (0, -80, 0)}, at=at, ramp=.4)
 
 
 def s_h05(sh):
@@ -110,7 +111,7 @@ def s_h05(sh):
 def s_h06(sh):
     """early Homo sapiens appear: a small band walking at golden hour"""
     w, ter = nat(sh, 'savanna'); fx, fy = fz(w)
-    for k in range(4): hominin_walk(sh, ter, (fx - 10 + k * 1.2, fy + 10 + (k % 2) * 1.2), 95, name=f'sapiens{k}', scale=1.25 + .05 * (k % 2))
+    for k in range(4): hominin_walk(sh, ter, (fx - 6 + k * 1.2, fy + 5 + (k % 2) * 1.2), 95, name=f'sapiens{k}', scale=1.25 + .05 * (k % 2))
     sh.camera(cam_fn([(0, G(ter, fx - 2, fy - 6, .6), G(ter, fx - 6, fy + 11, 1.4), 30), (sh.dur, G(ter, fx + 2, fy - 6, .7), G(ter, fx - 1, fy + 11, 1.4), 30)], shake=.003), fstop=4)
 
 
@@ -118,7 +119,7 @@ def s_h07(sh):
     """tools, hunting, talking, and painting animals on the cave wall by firelight"""
     w, _ = nat(sh, 'cave')
     p = still(sh, 'neander', (-1.0, 18.6), 180, None, clip='idle', name='painter', z=0.0)
-    CR.addpose(p, {'R_Upperarm': (0, -10, -100), 'R_Forearm': (0, 0, -20)}, at=0.0, ramp=.01)
+    CR.addpose(p, {'upperarm_r': (0, 0, -80), 'lowerarm_r': (0, -25, 0)}, at=0.0, ramp=.01)
     still(sh, 'neander2', (2.6, 10.5), 220, None, clip='idle', name='watcher', z=0.0, scale=1.25)
     tl = bpy.data.lights.new('torch', 'POINT'); tl.energy = 900; tl.color = (1, .55, .22); tl.shadow_soft_size = .15
     to = bpy.data.objects.new('torch', tl); TR.coll().objects.link(to); to.location = (-1.6, 18.2, 1.9)
@@ -271,7 +272,7 @@ def s_t05(sh):
 def s_t06(sh):
     """evolution did not stop: animals on the savanna today"""
     w, ter = nat(sh, 'savanna'); fx, fy = fz(w)
-    for k in range(5): go(sh, 'deer', [(fx - 20 + k * 2, fy + 10 + k * 2.5), (fx + 25, fy + 12 + k * 2)], ter, name=f'herdn{k}', phase=k * .3)
+    for k in range(5): go(sh, 'deer', [(fx - 9 + k * 2, fy + 10 + k * 2.5), (fx + 25, fy + 12 + k * 2)], ter, name=f'herdn{k}', phase=k * .3)
     sh.camera(cam_fn([(0, G(ter, fx - 4, fy - 8, 1.5), G(ter, fx, fy + 14, 2), 30), (sh.dur, G(ter, fx + 2, fy - 7, 1.6), G(ter, fx + 6, fy + 14, 2), 30)], shake=.003), fstop=6)
 
 
@@ -315,7 +316,7 @@ def s_l05(sh):
     """Priya: so my legs are ancient fish technology? teacher: one way of putting it. Priya: I want a refund."""
     stage(sh, 'classroom'); board(sh, 1.0, 1.0)
     ch, a = seated(sh, 'PRIYA', PRIYA, [(0, 'confused'), (3.4, 'deadpan'), (5.4, 'angry')], talk_who='priya')
-    teacher(sh, (1.0, 3.0), 200, [(0, 'bored'), (3.6, 'smirk')]); seated(sh, 'KEVIN', KEVIN, [(0, 'watch')]); class_extras(sh, 10)
+    teacher(sh, (1.0, 3.0), 20, [(0, 'bored'), (3.6, 'smirk')]); seated(sh, 'KEVIN', KEVIN, [(0, 'watch')]); class_extras(sh, 10)
     def cam(t):
         h = head_of(ch)
         if 3.4 < t < 5.4:
@@ -329,7 +330,7 @@ def s_p12(sh):
     stage(sh, 'classroom'); board(sh, 1.0, 1.0)
     ch, a = seated(sh, 'KEVIN', KEVIN, [(0, 'grin'), (2.6, 'shock'), (4.6, 'sad')], talk_who='kevin',
                    hands=lambda t, d: dict(handR=(SEATS['KEVIN'][0] + .22, SEATS['KEVIN'][1] - .45, 1.8)) if t < 2.3 else {})
-    teacher(sh, (0.6, 3.0), 190, [(0, 'deadpan'), (2.4, 'smirk')]); class_extras(sh, 11)
+    teacher(sh, (0.6, 3.0), 10, [(0, 'deadpan'), (2.4, 'smirk')]); class_extras(sh, 11)
     def cam(t):
         if t > 2.4:
             th = head_of(sh.chars['TEACHER']); return (th + Vector((.3 * .6, -1.3, -.05)), th, 38, 0, th, .003)
@@ -341,7 +342,7 @@ def s_d06(sh):
     """Sam: so a pigeon attack is technically a dinosaur attack? teacher: yes. and the pigeon usually wins."""
     stage(sh, 'classroom'); board(sh, 1.0, 1.0)
     ch, a = seated(sh, 'SAM', SAM, [(0, 'wow'), (4.4, 'shock'), (6.4, 'worry')], talk_who='sam')
-    teacher(sh, (-0.6, 3.0), 170, [(0, 'bored'), (4.2, 'deadpan')]); seated(sh, 'KEVIN', KEVIN, [(0, 'watch'), (5.6, 'laugh')]); class_extras(sh, 12)
+    teacher(sh, (-0.6, 3.0), -10, [(0, 'bored'), (4.2, 'deadpan')]); seated(sh, 'KEVIN', KEVIN, [(0, 'watch'), (5.6, 'laugh')]); class_extras(sh, 12)
     def cam(t):
         if 4.2 < t < 6.2:
             th = head_of(sh.chars['TEACHER']); return (th + Vector((-.3 * .6, -1.3, -.05)), th, 38, 0, th, .003)
@@ -353,7 +354,7 @@ def s_n05(sh):
     """Kevin: so we evolved from monkeys? teacher: common ancestors... Kevin: cousins? teacher: very distant. stop asking about the T-rex"""
     stage(sh, 'classroom'); board(sh, 1.0, 1.0)
     ch, a = seated(sh, 'KEVIN', KEVIN, [(0, 'confused'), (8.1, 'wow'), (12.4, 'sad')], talk_who='kevin')
-    teacher(sh, (0.4, 3.0), 190, [(0, 'bored'), (9.4, 'deadpan'), (12.0, 'angry')]); seated(sh, 'PRIYA', PRIYA, [(0, 'bored')]); class_extras(sh, 13)
+    teacher(sh, (0.4, 3.0), 10, [(0, 'bored'), (9.4, 'deadpan'), (12.0, 'angry')]); seated(sh, 'PRIYA', PRIYA, [(0, 'bored')]); class_extras(sh, 13)
     T_ = [(0, 'k'), (2.1, 't'), (8.2, 'k'), (9.4, 't')]
     def cam(t):
         who = [w_ for t_, w_ in T_ if t >= t_][-1]
@@ -386,7 +387,7 @@ def s_b03(sh):
     """Kevin: after billions of years... we still have to do homework?"""
     stage(sh, 'classroom'); board(sh, 1.0, 1.0)
     ch, a = seated(sh, 'KEVIN', KEVIN, [(0, 'determined'), (6.6, 'worry')], talk_who='kevin')
-    teacher(sh, (0.4, 3.0), 190, [(0, 'bored'), (5.8, 'smirk')]); class_extras(sh, 16)
+    teacher(sh, (0.4, 3.0), 10, [(0, 'bored'), (5.8, 'smirk')]); class_extras(sh, 16)
     def cam(t):
         if 5.8 < t < 6.8:
             th = head_of(sh.chars['TEACHER']); return (th + Vector((.3 * .6, -1.3, -.05)), th, 38, 0, th, .003)

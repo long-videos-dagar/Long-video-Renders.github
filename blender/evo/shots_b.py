@@ -20,7 +20,7 @@ def falling_tree(sh, ter, xy, t0, yaw=0.0, h=18.0, kind='pine_tree_01'):
 
 def eruption(sh, p, scale=1.0, seed=0):
     col = TR.plume(f'erupt{seed}', p, height=260 * scale, r0=6 * scale, r1=90 * scale, drift=(80 * scale, 20 * scale),
-                   density=.12, glow=1.0, speed=7 * scale, seed=seed)
+                   density=.12, glow=.35, speed=7 * scale, seed=seed)
     sh.updates.append(col); embers(sh, (p[0], p[1], p[2] + 30 * scale), 60, (30 * scale, 30 * scale), 40 * scale, seed=seed + 50, size=.4 * scale)
     l = bpy.data.lights.new(f'eruptl{seed}', 'POINT'); l.energy = 3e6 * scale; l.color = (1, .4, .1); o = bpy.data.objects.new('eruptl', l); TR.coll().objects.link(o)
     o.location = (p[0], p[1], p[2] + 10)
@@ -150,7 +150,7 @@ def s_d01(sh):
 def s_d02(sh):
     """pterosaurs glide over the coastline (HUD: NOT A DINOSAUR)"""
     w, ter = nat(sh, 'coast_cretaceous')
-    flock(sh, 'ptero', 5, (-45, -40, 16), (45, -26, 22), 0, sh.dur * 1.05, seed=4, spread=6)
+    flock(sh, 'ptero', 5, (-45, -40, 16), (45, -26, 22), 0, sh.dur * 1.05, seed=4, spread=6, scale=1.5)
     sh.camera(cam_fn([(0, (-14, -64, 10), (-14, -38, 17), 28), (sh.dur, (8, -62, 11), (14, -30, 20), 28)], shake=.005), fstop=11)
 
 
@@ -306,7 +306,7 @@ def s_n01(sh):
 def s_n02(sh):
     """mammals spread: grasslands, forests and the sky (bats)"""
     w, ter = nat(sh, 'paleogene'); fx, fy = fz(w)
-    for k in range(5): go(sh, 'deer', [(fx - 30 + k * 2, fy + 20 + k * 3), (fx + 30, fy + 18 + k * 3)], ter, name=f'mam{k}', phase=k * .3, scale=.8)
+    for k in range(5): go(sh, 'deer', [(fx - 10 + k * 2, fy + 14 + k * 3), (fx + 30, fy + 12 + k * 3)], ter, name=f'mam{k}', phase=k * .3, scale=.8)
     flock(sh, 'bat', 9, (fx + 30, fy + 30, ter.z(fx, fy) + 12), (fx - 30, fy - 5, ter.z(fx, fy) + 8), 0, sh.dur, seed=5, spread=4, scale=1.2)
     sh.camera(cam_fn([(0, G(ter, fx, fy - 12, 2.5), G(ter, fx, fy + 20, 4), 24), (sh.dur, G(ter, fx + 4, fy - 10, 3), G(ter, fx + 4, fy + 20, 5), 24)], shake=.003), fstop=8)
 

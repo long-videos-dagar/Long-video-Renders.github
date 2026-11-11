@@ -267,7 +267,7 @@ def _bounds(objs):
 class Beast:
     """an imported animated creature.  clip: substring of an action name.  The model is normalised so that its root sits
     on the ground at the origin, facing -Y (like everything else here), and scaled to a real-world length/height."""
-    def __init__(self, sh, glb, name, length=None, height=None, clip='walk', speed=1.0, phase=0.0, face_axis='auto', hide=('Icosphere', 'Sphere', 'sphere', 'Cube', 'Plane')):
+    def __init__(self, sh, glb, name, length=None, height=None, clip='walk', speed=1.0, phase=0.0, face_axis='auto', hide=('Icosphere', 'Sphere')):
         self.sh = sh; self.name = name
         self.m = load_glb(glb, name)
         for o in self.m['objs']:
@@ -484,9 +484,11 @@ def addpose(b, bones, at=0.0, ramp=.3, until=None):
     if b.arm is None: return
     act = bpy.data.actions.new(b.name + '_pose'); fr = 1
     sel = {}
-    for pb in b.arm.pose.bones:
+    for pb in b.arm.pose.bones:                          # key = bone-name prefix (scale-compensation helpers skipped)
+        n_ = pb.name.lower()
+        if 'scalecomp' in n_: continue
         for k, rot in bones.items():
-            if k.lower() in pb.name.lower() and pb.name not in sel: sel[pb.name] = rot
+            if n_.startswith(k.lower()) and pb.name not in sel: sel[pb.name] = rot
     ad = b.arm.animation_data or b.arm.animation_data_create(); keep = ad.action; ad.action = act
     from mathutils import Euler
     for nm, rot in sel.items():
