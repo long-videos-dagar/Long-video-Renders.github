@@ -1,0 +1,68 @@
+[
+ {
+  "who": "x",
+  "voice": "kokoro:am_onyx",
+  "text": "Alright, class. Today we're going to learn how life evolved on Earth.",
+  "out": "audio/voiceover/evolution/t1.wav"
+ },
+ {
+  "who": "x",
+  "voice": "kokoro:am_puck",
+  "text": "Sir, does that mean humans came from dinosaurs?",
+  "out": "audio/voiceover/evolution/k1.wav"
+ },
+ {
+  "who": "x",
+  "voice": "kokoro:am_onyx",
+  "text": "No, Kevin. And that is exactly why you need to pay attention.",
+  "out": "audio/voiceover/evolution/t2.wav"
+ },
+ {
+  "who": "x",
+  "voice": "kokoro:am_onyx",
+  "text": "Millions of years ago, this planet belonged to creatures that would make your school principal look terrifyingly friendly.",
+  "out": "audio/voiceover/evolution/t3.wav"
+ },
+ {
+  "who": "x",
+  "voice": "kokoro:am_michael",
+  "text": "But the story of life didn't begin with dinosaurs. Not even close. To understand how we got here, we need to go back billions of years, to a time when Earth was barely recognizable. And also very rude.",
+  "out": "audio/voiceover/evolution/n1.wav"
+ },
+ {
+  "who": "x",
+  "voice": "kokoro:am_michael",
+  "text": "Earth formed about 4.54 billion years ago. And trust me, it was not a five-star holiday destination.",
+  "out": "audio/voiceover/evolution/n2.wav"
+ },
+ {
+  "who": "x",
+  "voice": "kokoro:am_michael",
+  "text": "Imagine a planet covered in volcanoes, constantly bombarded by space rocks, with an atmosphere you could not breathe for even one second. The reviews would just say: Would not visit. Too many meteors.",
+  "out": "audio/voiceover/evolution/n3.wav"
+ },
+ {
+  "who": "x",
+  "voice": "kokoro:am_michael",
+  "text": "No beaches. No trees. No Wi-Fi. Just extreme heat and a very serious lack of oxygen.",
+  "out": "audio/voiceover/evolution/n4.wav"
+ },
+ {
+  "who": "x",
+  "voice": "kokoro:am_michael",
+  "text": "But eventually, something extraordinary happened.",
+  "out": "audio/voiceover/evolution/n5.wav"
+ },
+ {
+  "who": "x",
+  "voice": "kokoro:am_michael",
+  "text": "By around 3.5 billion years ago, there is solid evidence that simple life existed on Earth. Not lions. Not sharks. Not even a particularly ambitious goldfish.",
+  "out": "audio/voiceover/evolution/n6.wav"
+ },
+ {
+  "who": "x",
+  "voice": "kokoro:am_michael",
+  "text": "Just tiny organisms, invisible to the naked eye. And these tiny life forms were about to change the entire planet.",
+  "out": "audio/voiceover/evolution/n7.wav"
+ }
+]
