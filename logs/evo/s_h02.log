@@ -1,0 +1,80 @@
+00:00.677  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['snow'] -> snow_02
+[lib] model quiver_tree_01 4
+[lib] model island_tree_02 17
+[lib] model tree_small_02 12
+[lib] model grass_medium_02 11
+[lib] model grass_medium_01 103
+[lib] model wild_rooibos_bush 20
+[lib] model searsia_burchellii 9
+[lib] model namaqualand_boulder_04 4
+[lib] model dry_branches_medium_01 3
+[lib] model namaqualand_boulder_02 4
+[lib] model namaqualand_boulder_05 3
+[lib] model rock_07 4
+[lib] model boulder_01 4
+/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_c.py:42: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  gm = bpy.data.materials.new('treeglow'); gm.use_nodes = True; bs = gm.node_tree.nodes['Principled BSDF']
+09:50:59 | INFO: Data are loaded, start creating Blender stuff
+09:50:59 | INFO: Blender create Mesh node Object_0
+09:50:59 | INFO: glTF import finished in 0.21s
+/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/blender/evo/shots_c.py:22: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(b.name + '_skin'); m.use_nodes = True; N = m.node_tree.nodes; bs = N['Principled BSDF']
+09:51:00 | INFO: Data are loaded, start creating Blender stuff
+09:51:00 | INFO: Blender create Mesh node Object_0
+09:51:00 | INFO: Blender create Mesh node Object_1
+09:51:00 | INFO: Blender create Mesh node Object_2
+09:51:00 | INFO: Blender create Mesh node Object_3
+09:51:01 | INFO: glTF import finished in 0.73s
+09:51:01 | INFO: Data are loaded, start creating Blender stuff
+09:51:02 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:02 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:02 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:03 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:03 | INFO: glTF import finished in 1.80s
+09:51:04 | INFO: Data are loaded, start creating Blender stuff
+09:51:04 | INFO: Blender create Mesh node Cerchio_Materiale_Tra_0
+09:51:04 | INFO: Blender create Mesh node Haircut_obj_default_Transparency_Tra_0
+09:51:05 | INFO: Blender create Mesh node Haircut_obj_default_Transparency_Tra_0
+09:51:05 | INFO: Blender create Mesh node Cilindro_001_Materiale_001_Tra_0
+09:51:05 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+09:51:05 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+09:51:05 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+09:51:05 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+09:51:06 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+09:51:06 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+09:51:06 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+09:51:06 | INFO: Blender create Mesh node Cilindro_001_Materiale_004_Tra_0
+09:51:07 | INFO: Blender create Mesh node 0
+09:51:07 | INFO: Blender create Mesh node 1
+09:51:07 | INFO: Blender create Mesh node 2
+09:51:07 | INFO: Blender create Mesh node 3
+09:51:07 | INFO: Blender create Mesh node 4
+09:51:07 | INFO: Blender create Mesh node 5
+09:51:07 | INFO: Blender create Mesh node 6
+09:51:07 | INFO: Blender create Mesh node 7
+09:51:07 | INFO: Blender create Mesh node 8
+09:51:07 | INFO: Blender create Mesh node 9
+09:51:07 | INFO: Blender create Mesh node 10
+09:51:07 | INFO: Blender create Mesh node 11
+09:51:07 | INFO: Blender create Mesh node 12
+09:51:07 | INFO: Blender create Mesh node 13
+09:51:07 | INFO: glTF import finished in 3.37s
+09:51:08 | INFO: Data are loaded, start creating Blender stuff
+09:51:09 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:09 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:09 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:10 | INFO: Blender create Mesh node default002_default002_default_0
+09:51:10 | INFO: glTF import finished in 2.08s
+RSS built 1953 MB
+RSS extras 1953 MB
+CLEARCAM h02 0
+RSS lod 2206 MB
+RSS posed 2266 MB
+RSS depsgraph 2266 MB
+OBJECTS 4643 MESHES 243 IMAGES 117 165 Mpx
+02:15.051  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_h02.png'
+RTIME 94.5
+RSS rendered 6279 MB
+RENDERED h02 6.5
