@@ -71,7 +71,7 @@ def stage(sh, world, mood='day', elev=35, az=200):
     for o in [o for o in bpy.data.objects if o.name.startswith('sun')]: bpy.data.objects.remove(o)
     w = getattr(W, world)()
     tick = getattr(W, world + '_tick', None)
-    if tick: sh.updates.append(lambda t, w=w: tick(w, sh.t0 + t))
+    if tick: sh.updates.append(lambda t, w=w: tick(w, t + 5.0))      # shot time (+5 s so smoke and waves are already going)
     sh.w = w
     return w
 

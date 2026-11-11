@@ -458,7 +458,7 @@ def impact(seed=13):
     d = ast.modifiers.new('d', 'DISPLACE'); tx = bpy.data.textures.new('asttx', 'CLOUDS'); tx.noise_scale = .4; d.texture = tx; d.strength = 25
     trail = TR.smoke_column('ast_trail', (0, 0, -9000), rate=12, life=4, rise=0, r0=40, r1=160, wind=(0, 0), turb=30, col=(.4, .3, .25), density=.02, glow=8, voxel=12, seed=3)
     fire_m = bpy.data.materials.new('fireball'); fire_m.use_nodes = True; N = fire_m.node_tree.nodes; N.remove(N['Principled BSDF'])
-    pv = N.new('ShaderNodeVolumePrincipled'); pv.inputs['Density'].default_value = .01; pv.inputs['Emission Strength'].default_value = 5; pv.inputs['Emission Color'].default_value = (1, .45, .12, 1)
+    pv = N.new('ShaderNodeVolumePrincipled'); pv.inputs['Density'].default_value = .006; pv.inputs['Emission Strength'].default_value = 1.2; pv.inputs['Emission Color'].default_value = (1, .38, .08, 1)
     fire_m.node_tree.links.new(pv.outputs[0], N['Material Output'].inputs['Volume'])
     fb = T.lib.sphere('fireball', 1, (fx + 200, fy + 3200, 0), fire_m, seg=24, rings=12)
     dust = TR.smoke_column('dustwall', (fx + 200, fy + 2600, 0), rate=10, life=20, rise=30, r0=200, r1=900, wind=(0, -60), turb=200, col=(.25, .2, .17), density=.0015, voxel=40, seed=5)
@@ -466,7 +466,8 @@ def impact(seed=13):
     fo.rotation_euler = (math.radians(80), 0, math.radians(180))
     fires = [TR.smoke_column(f'fire{k}', (fx + x, fy + y, w['ter'].z(fx + x, fy + y)), rate=4, life=6, rise=6, r0=3, r1=14, wind=(4, -2), turb=4, col=(.06, .05, .05),
                              density=.06, glow=12, voxel=1.2, seed=20 + k) for k, (x, y) in enumerate([(-60, 140), (40, 200), (90, 120), (-120, 260)])]
-    w.update(dict(ast=ast, trail=trail, fireball=fb, dust=dust, flash=fo, fires=fires, ifocus=(fx, fy)))
+    r0 = max(v.co.length for v in fb.data.vertices)
+    w.update(dict(ast=ast, trail=trail, fireball=fb, fb_r0=r0, dust=dust, flash=fo, fires=fires, ifocus=(fx, fy)))
     return w
 
 
@@ -479,7 +480,7 @@ def impact_tick(w, t, phase=None):
     w['ast'].location = s.lerp(g, min(1, e)) if 0 < e < 1 else (0, 0, -9000)
     w['trail'](t) if 0 < e < 1 else None
     b = ph.get('boom', 0)
-    w['fireball'].scale = (1 + 900 * b,) * 2 + (1 + 600 * b,) if b > 0 else (.001,) * 3
+    k_ = 1.0 / w.get('fb_r0', 1.0); w['fireball'].scale = ((1 + 900 * b) * k_,) * 2 + ((1 + 600 * b) * k_,) if b > 0 else (.0001,) * 3   # metres
     w['flash'].data.energy = 60 * max(0.0, 1 - b * 6) if b > 0 else 0
     if b > 0: w['dust'](t)
     for f in w['fires']: f(t) if ph.get('burn', 0) > 0 else None
