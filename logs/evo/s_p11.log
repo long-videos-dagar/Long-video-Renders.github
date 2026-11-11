@@ -1,0 +1,33 @@
+00:00.568  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['snow'] -> snow_02
+[lib] model island_tree_01 17
+[lib] model tree_small_02 12
+[lib] model fir_tree_01 48
+[lib] model pine_tree_01 62
+[lib] ph_find textures ['bark', 'palm'] -> palm_tree_bark
+[lib] model fern_02 4
+[lib] model shrub_01 36
+[lib] model shrub_02 12
+[lib] model shrub_03 12
+[lib] model grass_medium_01 103
+[lib] model periwinkle_plant 42
+[lib] model namaqualand_boulder_02 4
+[lib] model namaqualand_boulder_05 3
+[lib] model rock_07 4
+[lib] model boulder_01 4
+10:34:40 | INFO: Data are loaded, start creating Blender stuff
+10:34:41 | INFO: Blender create Mesh node 0
+10:34:41 | INFO: glTF import finished in 1.65s
+RSS built 4515 MB
+RSS extras 4515 MB
+CLEARCAM p11 0
+CLEARPROPS 0
+RSS lod 4563 MB
+RSS posed 4577 MB
+RSS depsgraph 4577 MB
+OBJECTS 3911 MESHES 532 IMAGES 119 196 Mpx
+02:23.715  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_p11.png'
+RTIME 106.8
+RSS rendered 15269 MB
+RENDERED p11 1.56
