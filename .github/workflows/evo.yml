@@ -3,7 +3,7 @@
 name: evo
 on:
   push:
-    branches: [claude/dagar-blender]
+    branches: [claude/long-video]
     paths: ['blender/evo/job.json']
   workflow_dispatch:
 permissions:
