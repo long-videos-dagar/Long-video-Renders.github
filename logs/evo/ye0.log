@@ -1,0 +1,17 @@
+[lib] ph_find textures ['volcanic', 'rock'] -> volcanic_rock_tiles
+[lib] ph_find textures ['rock', 'cliff', 'lava'] -> coast_sand_rocks_02
+[lib] ph_find textures ['ash', 'dirt', 'ground'] -> burned_ground_01
+[lib] model namaqualand_boulder_02 4
+[lib] model namaqualand_boulder_04 4
+[lib] model namaqualand_boulder_05 3
+[lib] model rock_07 4
+[lib] model rock_09 4
+[lib] model boulder_01 4
+[lib] model moon_rock_03 4
+[lib] model moon_rock_06 4
+[lib] model coast_rocks_02 4
+[lib] model rock_face_01 1
+[lib] model namaqualand_cliff_02 4
+BUILT 29.3
+02:11.650  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/ye0.png'
+RENDERED young_earth 0 101.7
