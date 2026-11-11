@@ -1,3 +1,26 @@
 3D model credits (Creative Commons Attribution 4.0 - http://creativecommons.org/licenses/by/4.0/)
 - trex.glb: "Animated Tyrannosaurus Rex Dinosaur Running Loop" (https://skfb.ly/o9nF6) by LasquetiSpice, CC BY 4.0
 Environment models/textures/HDRIs: Poly Haven (CC0). Fonts: Google Fonts (SIL OFL 1.1).
+- trex2: "Tyrannosaurus rex – Animated, Science-Based" (https://sketchfab.com/3d-models/tyrannosaurus-rex-animated-science-based-3f39bdd3b5ee4e9494700c6addf51c23) by Animal Animator, CC Attribution
+- triceratops: "Amazing Dinoworld 2 Triceratops" (https://sketchfab.com/3d-models/amazing-dinoworld-2-triceratops-ccfc8246b1494ec6add31c015bcd92bb) by Jurassic Radassic, CC Attribution
+- triceratops2: "TRICERA" (https://sketchfab.com/3d-models/tricera-6b0695ecb40a40dabd4f118ee4b729cd) by seth the yutyrannus, CC Attribution
+- stegosaurus: "PBR Stegasaurus (Animated)" (https://sketchfab.com/3d-models/pbr-stegasaurus-animated-ec254ea1554941fe8a131f62db0faf3d) by Ferocious Industries, CC Attribution
+- sauropod: "Animated Argentinosaurus (Free)" (https://sketchfab.com/3d-models/animated-argentinosaurus-free-e5f130a58bb04eb18520bc25f9f01576) by Anees Animates, CC Attribution
+- sauropod2: "Branchiosaurus" (https://sketchfab.com/3d-models/branchiosaurus-cf45b96559a4468b9487a657acc3d7a3) by kenchoo, CC Attribution
+- pteranodon: "pteranodon dinosaur" (https://sketchfab.com/3d-models/pteranodon-dinosaur-4784638c08f045e3b92de2819e823984) by Paleo Modelist, CC Attribution
+- pteranodon2: "Pteranodon (Animated)" (https://sketchfab.com/3d-models/pteranodon-animated-7d7683df41d1405283f160e81a5dff1b) by Chistodrako._., CC Attribution
+- raptor: "PBR Velociraptor (Animated)" (https://sketchfab.com/3d-models/pbr-velociraptor-animated-8f1744af7b0847a2aabe3df90be802f0) by Ferocious Industries, CC Attribution
+- compy: "Compsognathus" (https://sketchfab.com/3d-models/compsognathus-5be349174ed14285a18d3517e6eded5e) by Dodogamer, CC Attribution
+- anomalocaris: "Anomalocaris" (https://sketchfab.com/3d-models/anomalocaris-2c0629932cbb4ca2b2a8ef3fcd7c2a3f) by armageddom, CC Attribution
+- anomalocaris2: "Purple Anomalocaris" (https://sketchfab.com/3d-models/purple-anomalocaris-67afe6fbd8d34d78af7c8778082fa8d7) by krolololyk, CC Attribution
+- trilobite: "Trilobite: E. crassituberculata (PRI 49811)" (https://sketchfab.com/3d-models/trilobite-e-crassituberculata-pri-49811-03f611a973144635b4a9019afe7393f0) by Digital Atlas of Ancient Life, CC0 Public Domain
+- hallucigenia: "Hallucigenia Cambrian Animal" (https://sketchfab.com/3d-models/hallucigenia-cambrian-animal-fad8306e863a4960b48e49c16c3806cf) by huykhoi2407, CC Attribution
+- dunkleosteus: "Dunkleosteus" (https://sketchfab.com/3d-models/dunkleosteus-67481ecabaec4575a640404f993d4f1c) by Urbilateria, CC Attribution
+- tiktaalik2: "Tiktaalik Roseae" (https://sketchfab.com/3d-models/tiktaalik-roseae-e75aeb2880544a5b9114b7f6fee24715) by Nobilis the Palaeovespa, CC Attribution
+- rat: "Black Rat ( Free download )" (https://sketchfab.com/3d-models/black-rat-free-download-3db3acb4140d4de8bd62a171212bad9c) by Nestaeric, CC Attribution
+- mouse: "mouse" (https://sketchfab.com/3d-models/mouse-aeb21d38f2274b04a940e0446431e502) by zandos, CC Attribution
+- monkey: "Simio Monkey dancing" (https://sketchfab.com/3d-models/simio-monkey-dancing-3ba199e0a78546598f868e86d78495a0) by pepetrincado, CC Attribution
+- bat: "Bat" (https://sketchfab.com/3d-models/bat-8719886cf8f645ca9d53d766976baf9c) by ice9, CC Attribution
+- cat: "An Animated Cat" (https://sketchfab.com/3d-models/an-animated-cat-aec25699660043a29595f9572149d1e8) by Evil_Katz, CC Attribution
+- neanderthal: "Neanderthal" (https://sketchfab.com/3d-models/neanderthal-f7a0890f15654e02b4ec34f5db48f52e) by gb.prof.69, CC Attribution
+- neanderthal2: "Animated 3d scan of a neanderthal boy ТashikТash" (https://sketchfab.com/3d-models/animated-3d-scan-of-a-neanderthal-boy-ashikash-b7f5751159da4245896c30fd0d142a59) by darwinmuseum.ru, CC Attribution
