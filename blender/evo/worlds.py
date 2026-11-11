@@ -253,14 +253,14 @@ def forest(kind='jurassic', seed=2, focus=(0, 60), clear=()):
         rv = abs((x - fx) - 40 * math.sin((y - fy) * .012)) if K['river'] else 1e9           # a river meandering through the valley
         z -= 4.5 * math.exp(-(rv / 14) ** 2)
         d = math.hypot(x - fx, y - fy); z = z * min(1.0, .35 + d / 260)                     # flatter near the action
-        far = max(0.0, math.hypot(x - fx, y - fy) - 700); z += (TR.ridged(x, y, .0025, 5, seed + 3) * 300 + 80) * TR.smooth01(far / 900)   # mountains far away
+        far = max(0.0, math.hypot(x - fx, y - fy) - 700); z += (TR.ridged(x, y, .0025, 5, seed + 3) * 240 + 60) * TR.smooth01(far / 900)   # mountains far away
         return z
     gk = K['ground']
     ground = TR.blend_mat('ground_' + kind, TR.layer(gk, K['gcol'], 3.0, tint=None, aid=K.get('gaid')),
                           [(TR.layer(('grass',), '#4a6a2a', 3.0, aid='sparse_grass' if kind == 'savanna' else 'leafy_grass'), dict(noise=.02)),
                            (TR.layer(('rock', 'cliff'), '#6a6458', 8.0, aid='rock_pitted_mossy' if kind not in ('savanna', 'triassic') else 'dry_riverbed_rock'), dict(slope=(.85, .7), noise=.03)),
                            (TR.layer(('mud', 'wet ground', 'dirt'), '#4a3a2a', 3.0, aid='brown_mud_leaves_01'), dict(height=(-1.5, -3.0), noise=.1)),
-                           (TR.layer(('snow',), '#e8ecf0', 6.0), dict(height=(260, 330)))], bump=.4)
+                           (TR.layer(('snow',), '#e8ecf0', 6.0), dict(height=(250, 300), noise=.004))], bump=.4)
     ter = TR.Terrain('ground', h, 5200.0, 360, ground, center=(fx, fy), inner=(420, 300))
     if K['river']:
         river = TR.ocean('river', 1600, (fx, fy, -2.6), wave=.08, choppy=.2, res=10, col='#2a3a30', murk='#2a3020', foam=False)
@@ -270,12 +270,13 @@ def forest(kind='jurassic', seed=2, focus=(0, 60), clear=()):
         TR.scatter_h(ter, ids, n, (fx - 420, fx + 420, fy - 160, fy + 620), hh, seed=seed, avoid=avoid, slope_min=.78, zrange=(-1.0, 250),
                      density_fn=lambda x, y: .25 + .75 * edge(x, y), fallback=TR.fallback_tree)
     for pk, n in K['plants']:
-        TR.scatter_plants(ter, pk, n, (fx - 160, fx + 160, fy - 60, fy + 260), seed=seed + 5, avoid=[(fx, fy, 14)] + list(clear), zrange=(-1.0, 200))
-    TR.scatter(ter, K['under'], 2600, (fx - 160, fx + 160, fy - 70, fy + 260), seed=seed + 7, scale=(.8, 1.8), avoid=[(fx, fy, 6)] + list(clear),
+        TR.scatter_plants(ter, pk, n, (fx - 160, fx + 160, fy - 60, fy + 260), seed=seed + 5, avoid=[(fx, fy, 16)] + list(clear), zrange=(-1.0, 200))
+    TR.scatter(ter, K['under'], 2600, (fx - 160, fx + 160, fy - 70, fy + 260), seed=seed + 7, scale=(.8, 1.8), avoid=[(fx, fy, 16)] + list(clear),
                slope_min=.75, zrange=(-1.2, 200), fallback=TR.fallback_fern)
     TR.scatter(ter, ['namaqualand_boulder_02', 'namaqualand_boulder_05', 'rock_07', 'boulder_01'], 60, (fx - 200, fx + 200, fy - 80, fy + 300), seed=seed + 9,
-               scale=(.6, 2.2), slope_min=.6, fallback=TR.fallback_rock)
-    sun = TR.sun_light(*K['sun'])
+               scale=(.6, 2.2), slope_min=.6, fallback=TR.fallback_rock, avoid=[(fx, fy, 14)] + list(clear))
+    az, el, en, sc_ = K['sun']; sun = TR.sun_light(az, el, en * .5, sc_)        # the sky HDRI already carries a sun: keep the key from blowing out
+    bpy.context.scene.view_settings.exposure = -.45
     TR.fog(.00012 if kind != 'savanna' else .0001, (.85, .9, 1.0) if kind != 'savanna' else (1, .9, .75), .4, size=(8000, 8000, 900), center=(fx, fy, -50))
     TR.wind_setup(.05)
     return dict(ter=ter, focus=Vector((fx, fy, h(fx, fy))), kind=kind, sea=[river] if K['river'] else [])

@@ -49,7 +49,7 @@ def s_p02(sh):
     w, ter = nat(sh, 'permian'); fx, fy = fz(w)
     for k, (x, y) in enumerate([(-260, 900), (320, 1100), (40, 1400)]): eruption(sh, (fx + x, fy + y, 0), 3.0, seed=k)
     for k, (x, y, t0, yw) in enumerate([(-6, 22, 2.0, 70), (9, 30, 5.5, -60), (-14, 40, 8.0, 100)]): falling_tree(sh, ter, (fx + x, fy + y), t0, yw, 20)
-    sh.updates.append(lambda t: setattr(bpy.context.scene.view_settings, 'exposure', -.6 * ease(t / sh.dur)))
+    sh.updates.append(lambda t: setattr(bpy.context.scene.view_settings, 'exposure', -.45 - .6 * ease(t / sh.dur)))
     sh.camera(cam_fn([(0, G(ter, fx, fy - 12, 2.5), G(ter, fx, fy + 60, 14), 22), (sh.dur, G(ter, fx + 3, fy - 6, 3), G(ter, fx, fy + 60, 18), 24)], shake=.006,
                      quake=lambda t: .02 + .03 * max(0, math.sin(t * 1.3))), fstop=11)
 
@@ -150,8 +150,8 @@ def s_d01(sh):
 def s_d02(sh):
     """pterosaurs glide over the coastline (HUD: NOT A DINOSAUR)"""
     w, ter = nat(sh, 'coast_cretaceous')
-    flock(sh, 'ptero', 5, (-60, -30, 22), (60, 10, 26), 0, sh.dur * 1.1, seed=4, spread=8)
-    sh.camera(cam_fn([(0, (-20, -60, 14), (-10, -20, 22), 26), (sh.dur, (10, -56, 16), (20, -10, 24), 26)], shake=.005), fstop=11)
+    flock(sh, 'ptero', 5, (-45, -40, 16), (45, -26, 22), 0, sh.dur * 1.05, seed=4, spread=6)
+    sh.camera(cam_fn([(0, (-14, -64, 10), (-14, -38, 17), 28), (sh.dur, (8, -62, 11), (14, -30, 20), 28)], shake=.005), fstop=11)
 
 
 def s_d03(sh):
@@ -229,7 +229,7 @@ def s_a03(sh):
     """the asteroid enters the atmosphere; the sky glows orange; white flash"""
     w, ter = nat(sh, 'impact'); fx, fy = fz(w); impact_phase(sh, w, lambda t: dict(entry=.2 + .8 * t / sh.dur))
     flash_light(sh, lambda t: max(0.0, (t - sh.dur + .5) / .5), 80, (1, .9, .8))
-    sh.updates.append(lambda t: setattr(bpy.context.scene.view_settings, 'exposure', 3.0 * max(0.0, (t - sh.dur + .4) / .4)))
+    sh.updates.append(lambda t: setattr(bpy.context.scene.view_settings, 'exposure', -.45 + 3.5 * max(0.0, (t - sh.dur + .4) / .4)))
     sh.camera(cam_fn([(0, G(ter, fx, fy - 10, 3), (fx - 600, fy + 3000, 2000), 22), (sh.dur, G(ter, fx, fy - 10, 3), (fx, fy + 3200, 200), 22)], shake=.006), fstop=16)
 
 
@@ -254,7 +254,7 @@ def ash_fall(sh, center, n=400, seed=0, area=20):
 def s_a05(sh):
     """forests burn, the sky goes dark, dinosaurs struggle in the cold"""
     w, ter = nat(sh, 'impact'); fx, fy = fz(w); impact_phase(sh, w, lambda t: dict(burn=1))
-    bpy.context.scene.view_settings.exposure = -1.2; ash_fall(sh, G(ter, fx, fy + 8), 500, 1)
+    bpy.context.scene.view_settings.exposure = -1.6; ash_fall(sh, G(ter, fx, fy + 8), 500, 1)
     b = go(sh, 'tricera', [(fx - 10, fy + 12), (fx + 4, fy + 8)], ter, name='cold', anim=.6)
     b.set_clip(CR.clip_of(b, 'Fall'), .8, at=5.5); f = b.path; b.move(lambda t: f(min(t, 5.5)))
     sh.camera(cam_fn([(0, G(ter, fx + 2, fy - 4, 1.8), G(ter, fx - 4, fy + 10, 1.8), 28), (sh.dur, G(ter, fx + 3, fy - 3, 1.7), G(ter, fx + 2, fy + 8, 1.6), 30)], shake=.004), fstop=6)
@@ -263,7 +263,7 @@ def s_a05(sh):
 def s_a06(sh):
     """a bird flies calmly out of the smoke"""
     w, ter = nat(sh, 'impact'); fx, fy = fz(w); impact_phase(sh, w, lambda t: dict(burn=1))
-    bpy.context.scene.view_settings.exposure = -.6
+    bpy.context.scene.view_settings.exposure = -1.0
     sm = TR.smoke_column('wall', G(ter, fx, fy + 14), rate=20, life=12, rise=1.5, r0=6, r1=14, wind=(0, -1.0), turb=4, col=(.25, .23, .22), density=.12, voxel=.4, seed=9)
     sh.updates.append(sm)
     hz = ter.z(fx, fy)
@@ -282,7 +282,7 @@ def leaf_pile(ter, x, y, n=60, seed=0):
 def s_a07(sh):
     """the camera pans down through the smoke to a tiny mammal under fallen leaves, blinking"""
     w, ter = nat(sh, 'impact'); fx, fy = fz(w); impact_phase(sh, w, lambda t: dict(burn=1))
-    bpy.context.scene.view_settings.exposure = -.4; leaf_pile(ter, fx, fy, 90, 1)
+    bpy.context.scene.view_settings.exposure = -.8; leaf_pile(ter, fx, fy, 90, 1)
     sm = TR.smoke_column('lowsmoke', G(ter, fx + 1, fy + 3, 2), rate=8, life=10, rise=.8, r0=1.5, r1=5, wind=(.3, -.2), turb=1.5, col=(.3, .28, .26), density=.08, voxel=.15, seed=2)
     sh.updates.append(sm)
     still(sh, 'rat', (fx, fy + .05), 200, ter, clip='look', name='survivor_mammal', scale=1.0)

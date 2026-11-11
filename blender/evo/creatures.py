@@ -267,7 +267,7 @@ def _bounds(objs):
 class Beast:
     """an imported animated creature.  clip: substring of an action name.  The model is normalised so that its root sits
     on the ground at the origin, facing -Y (like everything else here), and scaled to a real-world length/height."""
-    def __init__(self, sh, glb, name, length=None, height=None, clip='walk', speed=1.0, phase=0.0, face_axis='auto', hide=('Icosphere',)):
+    def __init__(self, sh, glb, name, length=None, height=None, clip='walk', speed=1.0, phase=0.0, face_axis='auto', hide=('Icosphere', 'Sphere', 'sphere', 'Cube', 'Plane')):
         self.sh = sh; self.name = name
         self.m = load_glb(glb, name)
         for o in self.m['objs']:

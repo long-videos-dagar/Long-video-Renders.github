@@ -1,7 +1,67 @@
 {
- "rev": 13,
+ "rev": 14,
  "mode": "tasks",
  "tasks": [
+  {
+   "id": "w_classroom0",
+   "script": "worldtest.py",
+   "args": [
+    "classroom",
+    "0"
+   ],
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "24",
+    "T": "1"
+   }
+  },
+  {
+   "id": "w_classroom1",
+   "script": "worldtest.py",
+   "args": [
+    "classroom",
+    "1"
+   ],
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "24",
+    "T": "1"
+   }
+  },
+  {
+   "id": "s_c01",
+   "script": "story.py",
+   "args": [
+    "still",
+    "c01"
+   ],
+   "t": 2.0,
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "24"
+   }
+  },
+  {
+   "id": "s_c07",
+   "script": "story.py",
+   "args": [
+    "still",
+    "c07"
+   ],
+   "t": 1.0,
+   "env": {
+    "USE_PH": "1",
+    "RW": "960",
+    "RH": "540",
+    "SAMPLES": "24"
+   }
+  },
   {
    "id": "s_c13",
    "script": "story.py",
@@ -108,36 +168,6 @@
    }
   },
   {
-   "id": "s_e07",
-   "script": "story.py",
-   "args": [
-    "still",
-    "e07"
-   ],
-   "t": 6.95,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
-   "id": "s_e08",
-   "script": "story.py",
-   "args": [
-    "still",
-    "e08"
-   ],
-   "t": 4.83,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
    "id": "s_m01",
    "script": "story.py",
    "args": [
@@ -175,21 +205,6 @@
     "m03"
    ],
    "t": 8.17,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
-   "id": "s_m04",
-   "script": "story.py",
-   "args": [
-    "still",
-    "m04"
-   ],
-   "t": 2.91,
    "env": {
     "USE_PH": "1",
     "RW": "960",
@@ -483,51 +498,6 @@
    }
   },
   {
-   "id": "s_p07",
-   "script": "story.py",
-   "args": [
-    "still",
-    "p07"
-   ],
-   "t": 3.19,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
-   "id": "s_p08",
-   "script": "story.py",
-   "args": [
-    "still",
-    "p08"
-   ],
-   "t": 7.32,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
-   "id": "s_p09a",
-   "script": "story.py",
-   "args": [
-    "still",
-    "p09a"
-   ],
-   "t": 1.8,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
    "id": "s_p09b",
    "script": "story.py",
    "args": [
@@ -580,21 +550,6 @@
     "p12"
    ],
    "t": 3.72,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
-   "id": "s_d01",
-   "script": "story.py",
-   "args": [
-    "still",
-    "d01"
-   ],
-   "t": 7.12,
    "env": {
     "USE_PH": "1",
     "RW": "960",
@@ -978,21 +933,6 @@
    }
   },
   {
-   "id": "s_t01",
-   "script": "story.py",
-   "args": [
-    "still",
-    "t01"
-   ],
-   "t": 4.83,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
    "id": "s_t02",
    "script": "story.py",
    "args": [
@@ -1015,21 +955,6 @@
     "t03"
    ],
    "t": 4.46,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
-   "id": "s_t04",
-   "script": "story.py",
-   "args": [
-    "still",
-    "t04"
-   ],
-   "t": 3.71,
    "env": {
     "USE_PH": "1",
     "RW": "960",
@@ -1068,21 +993,6 @@
    }
   },
   {
-   "id": "s_t07",
-   "script": "story.py",
-   "args": [
-    "still",
-    "t07"
-   ],
-   "t": 5.0,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
    "id": "s_b01",
    "script": "story.py",
    "args": [
@@ -1098,36 +1008,6 @@
    }
   },
   {
-   "id": "s_b02",
-   "script": "story.py",
-   "args": [
-    "still",
-    "b02"
-   ],
-   "t": 2.43,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
-   "id": "s_b03",
-   "script": "story.py",
-   "args": [
-    "still",
-    "b03"
-   ],
-   "t": 5.2,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
    "id": "s_b04",
    "script": "story.py",
    "args": [
@@ -1135,51 +1015,6 @@
     "b04"
    ],
    "t": 1.8,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
-   "id": "s_b05",
-   "script": "story.py",
-   "args": [
-    "still",
-    "b05"
-   ],
-   "t": 2.68,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
-   "id": "s_b06",
-   "script": "story.py",
-   "args": [
-    "still",
-    "b06"
-   ],
-   "t": 1.8,
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24"
-   }
-  },
-  {
-   "id": "s_b07",
-   "script": "story.py",
-   "args": [
-    "still",
-    "b07"
-   ],
-   "t": 6.17,
    "env": {
     "USE_PH": "1",
     "RW": "960",
@@ -1215,52 +1050,6 @@
     "RW": "960",
     "RH": "540",
     "SAMPLES": "24"
-   }
-  },
-  {
-   "id": "w_jurassic9",
-   "script": "worldtest.py",
-   "args": [
-    "jurassic",
-    "9"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24",
-    "MATDBG": "1",
-    "T": "5"
-   }
-  },
-  {
-   "id": "w_cave0",
-   "script": "worldtest.py",
-   "args": [
-    "cave",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24",
-    "T": "5"
-   }
-  },
-  {
-   "id": "w_space0",
-   "script": "worldtest.py",
-   "args": [
-    "space",
-    "0"
-   ],
-   "env": {
-    "USE_PH": "1",
-    "RW": "960",
-    "RH": "540",
-    "SAMPLES": "24",
-    "T": "5"
    }
   }
  ]

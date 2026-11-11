@@ -103,7 +103,7 @@ def class_extras(sh, seed=0, faces=('bored', 'idle', 'watch')):
     for k, (x, y) in enumerate([(-3.3, -2.4), (3.3, -2.4), (-3.3, -0.85), (3.3, -0.85), (-3.3, 0.7), (3.3, 0.7), (-1.1, 0.7), (-1.1, 2.25), (1.1, 2.25), (1.1, -2.4)]):
         if (x, y) in SEATS.values(): continue
         pr = Z.CIV(500 + seed * 20 + k); pr['height'] = r.uniform(.82, .9)
-        ch = toon(sh, f'ST{k}', pr, protect=True)
+        ch = toon(sh, f'ST{k}', pr)
         a = stand(sh, ch, (x, y - .55), 180, '77_02', r.uniform(.5, 3), face=[(0, r.choice(faces))], z=0)
         def mod(t, d, x=x, y=y, ch=ch):
             d['crouch'] = max(0.0, ch.L * ch.s - .54); d['loc'] = (x, y - .5, 0); d['yaw'] = 180
