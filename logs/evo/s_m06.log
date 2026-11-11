@@ -1,7 +1,6 @@
-00:00.883  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:00.921  cycles           | WARNING CUEW initialization failed: Error opening the library
 [lib] hdri sun 146 elev 48.5 -> az 200
 [lib] ph_find textures ['rock', 'mossy'] -> mossy_rock
-[lib] ph_find textures ['rock', 'coral'] -> coral_fort_wall_01
 [lib] ph_find textures ['leaves', 'grass'] -> brown_mud_leaves_01
 [lib] model coast_rocks_01 4
 [lib] model coast_rocks_02 4
@@ -11,11 +10,12 @@
 RSS built 903 MB
 RSS extras 903 MB
 CLEARCAM m06 0
+CLEARPROPS 0
 RSS lod 903 MB
 RSS posed 903 MB
 RSS depsgraph 903 MB
-OBJECTS 552 MESHES 206 IMAGES 29 70 Mpx
-06:00.301  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_m06.png'
-RTIME 350.8
-RSS rendered 3207 MB
+OBJECTS 544 MESHES 197 IMAGES 26 57 Mpx
+06:04.654  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_m06.png'
+RTIME 359.2
+RSS rendered 3203 MB
 RENDERED m06 9.17
