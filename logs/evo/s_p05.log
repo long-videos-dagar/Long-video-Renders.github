@@ -1,0 +1,40 @@
+00:00.699  cycles           | WARNING CUEW initialization failed: Error opening the library
+[lib] hdri sun 146 elev 48.5 -> az 200
+[lib] ph_find textures ['snow'] -> snow_02
+[lib] model pine_tree_01 62
+[lib] model fir_tree_01 48
+[lib] ph_find textures ['bark', 'palm'] -> palm_tree_bark
+[lib] ph_find textures ['grass'] -> aerial_grass_rock
+[lib] model fern_02 4
+[lib] model shrub_03 12
+[lib] model namaqualand_boulder_02 4
+[lib] model rock_07 4
+[lib] model namaqualand_boulder_05 3
+[lib] model boulder_01 4
+09:45:07 | INFO: Data are loaded, start creating Blender stuff
+09:45:07 | INFO: Blender create Mesh node Compy_mesh_Compsognathus_D_0
+09:45:08 | INFO: glTF import finished in 1.11s
+09:45:09 | INFO: Data are loaded, start creating Blender stuff
+09:45:10 | INFO: Blender create Mesh node Compy_mesh_Compsognathus_D_0
+09:45:10 | INFO: glTF import finished in 1.14s
+09:45:11 | INFO: Data are loaded, start creating Blender stuff
+09:45:12 | INFO: Blender create Mesh node Compy_mesh_Compsognathus_D_0
+09:45:12 | INFO: glTF import finished in 1.15s
+09:45:14 | INFO: Data are loaded, start creating Blender stuff
+09:45:14 | INFO: Blender create Mesh node Compy_mesh_Compsognathus_D_0
+09:45:15 | INFO: glTF import finished in 1.16s
+09:45:17 | INFO: Data are loaded, start creating Blender stuff
+09:45:17 | INFO: Blender create Mesh node 0
+09:45:18 | INFO: Blender create Mesh node 1
+09:45:19 | INFO: glTF import finished in 2.25s
+RSS built 3947 MB
+RSS extras 3947 MB
+CLEARCAM p05 0
+RSS lod 3954 MB
+RSS posed 3970 MB
+RSS depsgraph 3970 MB
+OBJECTS 3781 MESHES 363 IMAGES 93 178 Mpx
+02:55.477  render           | Saved: '/home/runner/work/Long-video-Renders.github/Long-video-Renders.github/out/s_p05.png'
+RTIME 105.9
+RSS rendered 14970 MB
+RENDERED p05 6.67
