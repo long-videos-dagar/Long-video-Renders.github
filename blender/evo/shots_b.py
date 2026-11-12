@@ -4,10 +4,11 @@ def fz(w):
     return w['focus'].x, w['focus'].y
 
 
-def falling_tree(sh, ter, xy, t0, yaw=0.0, h=18.0, kind='pine_tree_01'):
-    """a tree toppling: pivots on its base, accelerating like a falling rod, bounces once on landing"""
+def falling_tree(sh, ter, xy, t0, yaw=0.0, h=18.0, kind='fir_tree_01'):
+    """a tree toppling: pivots on its base, accelerating like a falling rod, bounces once on landing.
+    fir, the same model the forests use (the pine model alone pushed a 16 GB runner out of memory)"""
     c = TR.phc(kind)
-    if c: o = bpy.data.objects.new('ftree', None); o.instance_type = 'COLLECTION'; o.instance_collection = c; TR.coll().objects.link(o); o.scale = (h / 18,) * 3
+    if c: o = bpy.data.objects.new('ftree', None); o.instance_type = 'COLLECTION'; o.instance_collection = c; TR.coll().objects.link(o); o.scale = (h / TR.phc_height(c),) * 3
     else: o = T.cyl('ftree', .4, h, (0, 0, h / 2), TR.simple_mat('ftrunk', ('bark',), '#5a4a3a', 1.0))
     x, y = xy; o.location = (x, y, ter.z(x, y) - .2); o.rotation_mode = 'ZXY'
     def u(t):

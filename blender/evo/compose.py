@@ -3,7 +3,7 @@ Each shot becomes an exact-length segment (its transition built in: dissolve fro
 black, white flash, iris through the chalk eye, split screen), captions only where the script asks for them, then all
 segments are joined and upscaled to 2560x1440.  Sound = the voices (placed from voice.json) + synthesised sound effects at
 20-30 % of the narrator level.  No music, no subtitles, no logo."""
-import json, os, sys, glob, subprocess, tempfile, math, wave
+import json, os, re, sys, glob, subprocess, tempfile, math, wave
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 H = os.path.dirname(os.path.abspath(__file__)); art, outp = sys.argv[1], sys.argv[2]
@@ -28,8 +28,23 @@ CAP = {'p01': [('252 MILLION YEARS AGO', 'PERMIAN MASS EXTINCTION', .8, None, 'e
 
 
 def shotfile(sid):
-    ps = sorted(glob.glob(f"{art}/chunk_{sid}_[0-9]*.mp4"))
+    ps = sorted(glob.glob(f"{art}/chunk_{sid}_[0-9]*.mp4"), key=lambda p: int(re.search(r'_(\d+)\.mp4$', p).group(1)))
     if not ps: return None
+    # chunks of one shot may come in different sizes (a slow shot re-split into shorter chunks, or the same range rendered
+    # twice by different machines): keep a gap-free, overlap-free run of frames, trimming a chunk that starts inside one already used
+    keep, end = [], 0
+    for p in ps:
+        a = int(re.search(r'_(\d+)\.mp4$', p).group(1))
+        n = int(subprocess.run(['ffprobe', '-v', 'error', '-count_packets', '-select_streams', 'v:0', '-show_entries', 'stream=nb_read_packets',
+                                '-of', 'csv=p=0', p], capture_output=True, text=True).stdout.strip() or 0)
+        if n <= 0 or a + n - 1 <= end: continue
+        if a > end + 1: print('GAP', sid, end + 1, a - 1)
+        if a <= end:
+            q = os.path.join(tmp, f'{sid}_trim_{a:04d}.mp4'); cut = end - a + 1
+            sh('ffmpeg', '-loglevel', 'error', '-y', '-i', p, '-vf', f'trim=start_frame={cut},setpts=PTS-STARTPTS', '-c:v', 'libx264', '-preset', 'slow',
+               '-crf', '14', '-pix_fmt', 'yuv420p', q); p = q
+        keep.append(p); end = a + n - 1
+    ps = keep
     lst = os.path.join(tmp, sid + '.txt'); open(lst, 'w').write(''.join(f"file '{os.path.abspath(p)}'\n" for p in ps))
     o = os.path.join(tmp, sid + '_src.mp4'); sh('ffmpeg', '-loglevel', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', lst, '-c', 'copy', o); return o
 
