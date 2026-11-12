@@ -36,7 +36,7 @@ jobs:
         with: { name: cast, path: /tmp/castout, retention-days: 7 }
   task:
     needs: [plan, cast]
-    if: always() && needs.plan.result == 'success' && needs.plan.outputs.mode != 'compose' && (needs.cast.result == 'success' || needs.cast.result == 'skipped')
+    if: always() && needs.plan.result == 'success' && needs.plan.outputs.mode != 'compose' && needs.plan.outputs.mode != 'idle' && (needs.cast.result == 'success' || needs.cast.result == 'skipped')
     runs-on: ubuntu-latest
     timeout-minutes: 340
     strategy:

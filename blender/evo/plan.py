@@ -3,7 +3,9 @@ import json, os
 H = os.path.dirname(os.path.abspath(__file__))
 job = json.load(open(os.path.join(H, 'job.json'))); film = json.load(open(os.path.join(H, 'shots.json'))); fps = film['fps']
 mode = job.get('mode', 'tasks'); only = [s for s in job.get('only', '').split(',') if s]; out = []
-if mode == 'tasks':
+if mode == 'idle':
+    out = []                       # nothing to render
+elif mode == 'tasks':
     out = job['tasks']
 elif mode == 'compose':
     out = []
