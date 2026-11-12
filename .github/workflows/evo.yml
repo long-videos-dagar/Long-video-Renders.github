@@ -112,17 +112,24 @@ jobs:
           KREPO=$(jq -r '.kaggle_repo // "chintudagar541-stack/wanderly"' blender/evo/job.json)
           gh release download evo-kaggle -R $KREPO -p 'chunk_*.mp4' -D dl/kaggle 2>/dev/null || echo "no kaggle chunks"     # GPU-rendered shots
           find dl -name '*.mp4' -exec mv -t art {} +; echo "chunks: $(ls art | wc -l)"
-      - run: |
+      - env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
           pip install -q pillow numpy
           if ! command -v ffmpeg >/dev/null; then pip install -q imageio-ffmpeg && sudo ln -sf "$(python3 -c 'import imageio_ffmpeg as f; print(f.get_ffmpeg_exe())')" /usr/local/bin/ffmpeg; fi
           ffmpeg -version | head -1
           JENV=$(jq -r '.env // {} | to_entries|map("\(.key)=\(.value)")|join(" ")' blender/evo/job.json); [ -n "$JENV" ] && export $JENV
           python3 blender/evo/compose.py art final.mp4
-          mkdir -p previews/evo
-          ffmpeg -loglevel error -y -i final.mp4 -c:v libx264 -preset slow -b:v 9000k -maxrate 11000k -bufsize 20000k -pix_fmt yuv420p -c:a copy -movflags +faststart previews/evo/final_share.mp4
-          split -b 90m -d final.mp4 previews/evo/final_full.mp4.part
-          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
-          git add previews/evo/final_*; git commit -qm "evo final video [skip ci]" || exit 0
-          for i in 1 2 3 4 5 6 7 8; do git pull --rebase --autostash -q && git push -q && break; sleep $((RANDOM % 9 + 3)); done
+          ls -la final.mp4
+          if [ "${{ needs.plan.outputs.mode }}" = "compose" ]; then
+            # the finished film is far over git's 100 MB file limit: publish it as release assets instead
+            #  - final_youtube.mp4: 2560x1440, ~16 Mbit/s (YouTube's recommended rate for 1440p), ready to upload
+            #  - final_master.mp4.partNN: the full-quality master (CRF 16), split under the 2 GB asset limit, join with cat
+            ffmpeg -loglevel error -y -i final.mp4 -c:v libx264 -preset slow -b:v 16000k -maxrate 20000k -bufsize 32000k -pix_fmt yuv420p -c:a copy -movflags +faststart final_youtube.mp4
+            split -b 1900m -d final.mp4 final_master.mp4.part
+            gh release view evo-final >/dev/null 2>&1 || gh release create evo-final --title "From Dinosaurs to Humans - final video" --notes "DAGAR CLIPS evolution video, 2560x1440. final_youtube.mp4 is ready to upload; final_master.mp4.part* joined with cat is the full-quality master." --target claude/long-video
+            gh release upload evo-final final_youtube.mp4 final_master.mp4.part* --clobber
+            ls -la final_youtube.mp4 final_master.mp4.part*
+          fi
       - uses: actions/upload-artifact@v4
+        if: needs.plan.outputs.mode != 'compose'
         with: { name: 'video', path: 'final.mp4', retention-days: 30 }
