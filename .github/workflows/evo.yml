@@ -54,7 +54,10 @@ jobs:
           JENV=$(jq -r '.env // {} | to_entries|map("\(.key)=\(.value)")|join(" ")' job.json); [ -n "$JENV" ] && export $JENV
           EXTRA=$(echo '${{ toJson(matrix.t.env) }}' | jq -r 'if . == null then "" else to_entries|map("\(.key)=\(.value)")|join(" ") end'); [ -n "$EXTRA" ] && export $EXTRA
           free -g; ( while true; do sleep 20; echo "MEM $(free -m | awk '/Mem/{print $3}')MB"; done ) &
-          if [ "${{ needs.plan.outputs.mode }}" = "video" ]; then
+          KREPO=$(jq -r '.kaggle_repo // "chintudagar541-stack/wanderly"' job.json)
+          if [ "${{ needs.plan.outputs.mode }}" = "video" ] && GH_TOKEN=${{ github.token }} gh api "repos/$KREPO/releases/tags/evo-kaggle" --jq '.assets[].name' 2>/dev/null | grep -qx "chunk_${{ matrix.t.id }}.mp4"; then
+            echo "chunk_${{ matrix.t.id }} already rendered on the Kaggle GPU - skipping"
+          elif [ "${{ needs.plan.outputs.mode }}" = "video" ]; then
             python3 story.py -- frames ${{ matrix.t.shot }} ${{ matrix.t.a }} ${{ matrix.t.b }} $GITHUB_WORKSPACE/out/frames 2>&1 | grep -E "frame|Error|Traceback|line" | tee $GITHUB_WORKSPACE/out/log.txt | tail -60
             S=$(ls $GITHUB_WORKSPACE/out/frames | head -1 | sed 's/f_0*//; s/.png//'); [ -z "$S" ] && S=0
             ffmpeg -loglevel error -y -framerate 24 -start_number $S -i $GITHUB_WORKSPACE/out/frames/f_%05d.png -c:v libx264 -preset slow -crf 14 -pix_fmt yuv420p $GITHUB_WORKSPACE/out/chunk_${{ matrix.t.id }}.mp4
@@ -74,7 +77,7 @@ jobs:
           for i in $(seq 1 30); do git pull --rebase --autostash -q && git push -q && break; sleep $((RANDOM % 15 + 3)); done
       - uses: actions/upload-artifact@v4
         if: needs.plan.outputs.mode == 'video'
-        with: { name: 'chunk-${{ matrix.t.id }}', path: 'out/chunk_*.mp4', retention-days: 5 }
+        with: { name: 'chunk-${{ matrix.t.id }}', path: 'out/chunk_*.mp4', retention-days: 30, if-no-files-found: ignore }
   join:
     needs: [plan, task]
     if: always() && (needs.plan.outputs.mode == 'video' || needs.plan.outputs.mode == 'compose')
@@ -100,7 +103,8 @@ jobs:
               for t in 1 2 3 4 5 6; do gh run download $R -R $REPO -n $n -D dl/$n 2>/dev/null && break; rm -rf "dl/$n"; sleep $((t * 20)); done
             done
           done
-          gh release download evo-kaggle -R ${{ github.repository }} -p 'chunk_*.mp4' -D dl/kaggle 2>/dev/null || echo "no kaggle chunks"     # GPU-rendered shots
+          KREPO=$(jq -r '.kaggle_repo // "chintudagar541-stack/wanderly"' blender/evo/job.json)
+          gh release download evo-kaggle -R $KREPO -p 'chunk_*.mp4' -D dl/kaggle 2>/dev/null || echo "no kaggle chunks"     # GPU-rendered shots
           find dl -name '*.mp4' -exec mv -t art {} +; echo "chunks: $(ls art | wc -l)"
       - run: |
           pip install -q pillow numpy

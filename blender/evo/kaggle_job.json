@@ -5,7 +5,6 @@
   "e02",
   "e03",
   "e05",
-  "e06",
   "m01",
   "m02",
   "m06",
@@ -14,7 +13,12 @@
   "k03",
   "k04",
   "k05",
-  "k06"
+  "k06",
+  "l01",
+  "l02",
+  "l03",
+  "l04",
+  "d02"
  ],
  "chunk": 24,
  "handle": 0.25,
@@ -23,5 +27,21 @@
   "RH": "1080",
   "SAMPLES": "32",
   "ADAPT": ".02"
+ },
+ "chunk_by_world": {
+  "young_earth": 8,
+  "cambrian": 8,
+  "shallows": 8,
+  "ediacaran": 8,
+  "devonian_sea": 8,
+  "permian": 12,
+  "triassic": 12,
+  "jurassic": 12,
+  "cretaceous": 12,
+  "paleogene": 12,
+  "savanna": 12,
+  "impact": 12,
+  "coast": 12,
+  "coast_cretaceous": 12
  }
 }

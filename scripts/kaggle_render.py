@@ -8,7 +8,7 @@ GitHub release 'evo-kaggle' so the join job picks it up.  Chunks already uploade
 re-run after a session ends and it simply continues.  Needs env GH_TOKEN (fine-grained, Contents: read & write)."""
 import json, os, sys, subprocess, time, urllib.request, urllib.error, glob, shutil
 
-REPO = 'long-videos-dagar/Long-video-Renders.github'; TAG = 'evo-kaggle'
+REPO = os.environ.get('KAGGLE_REPO', 'chintudagar541-stack/wanderly'); TAG = 'evo-kaggle'
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); EVO = os.path.join(ROOT, 'blender', 'evo')
 TOKEN = os.environ['GH_TOKEN']; GPU, NG = int(sys.argv[1]), int(sys.argv[2])
 PY = os.environ.get('BPY_PYTHON', sys.executable)
@@ -55,10 +55,13 @@ def upload(rel, path):
 job = json.load(open(os.path.join(EVO, 'kaggle_job.json'))); film = json.load(open(os.path.join(EVO, 'shots.json')))
 fps = film['fps']; S = {s['id']: s for s in film['shots']}; step = job.get('chunk', 24); handle = job.get('handle', .25)
 env = dict(os.environ, **{k: str(v) for k, v in job['env'].items()}, GPU='1', CUDA_VISIBLE_DEVICES=str(GPU), USE_PH='1')
+done_gh = set(json.load(open(os.path.join(EVO, 'done_chunks.json')))) if os.path.exists(os.path.join(EVO, 'done_chunks.json')) else set()
 chunks = []
-for sid in job['shots']:
-    n = round((S[sid]['dur'] + handle) * fps)
-    chunks += [(sid, a, min(n, a + step - 1)) for a in range(1, n + 1, step)]
+for sid in job['shots']:                         # same chunking as the GitHub plan, so names (and frames) match exactly
+    n = round((S[sid]['dur'] + handle) * fps); st = step
+    if not any(k.startswith(sid + '_') for k in done_gh): st = job.get('chunk_by_world', {}).get(S[sid]['world'], step)
+    chunks += [(sid, a, min(n, a + st - 1)) for a in range(1, n + 1, st) if f'{sid}_{a:04d}' not in done_gh]
+chunks.reverse()                                 # GitHub renders from the start of the list, the GPU from the end
 mine = [c for k, c in enumerate(chunks) if k % NG == GPU]
 rel = release(); done = uploaded(rel)
 print(f'GPU {GPU}: {len(mine)} chunks, {sum(1 for c in mine if f"chunk_{c[0]}_{c[1]:04d}.mp4" in done)} already uploaded', flush=True)
