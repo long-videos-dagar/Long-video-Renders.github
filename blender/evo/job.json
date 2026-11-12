@@ -1,8 +1,24 @@
 {
- "rev": 41,
+ "rev": 70,
  "mode": "video",
- "only": "m01,k01,e04,h01,d05,p05,a06,t01,p04,h04,l02,t04,a01,p10,b09,d06,a03,m04,b02,b01,c08",
+ "only": "m06,a04,p08,h02,t07,t01,p04,l02,b03,t02,p12,b01,b04",
  "chunk": 24,
+ "chunk_by_world": {
+  "young_earth": 8,
+  "cambrian": 8,
+  "shallows": 8,
+  "ediacaran": 8,
+  "devonian_sea": 8,
+  "permian": 12,
+  "triassic": 12,
+  "jurassic": 12,
+  "cretaceous": 12,
+  "paleogene": 12,
+  "savanna": 12,
+  "impact": 12,
+  "coast": 12,
+  "coast_cretaceous": 12
+ },
  "handle": 0.25,
  "env": {
   "RW": "1920",

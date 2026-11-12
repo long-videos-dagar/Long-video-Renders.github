@@ -16,8 +16,12 @@ else:
             for k, f in enumerate(job.get('at', [.5])):
                 out.append(dict(id=f"{s['id']}_{k}", script='story.py', args=['still', s['id']], t=round(s['dur'] * f, 2), env={}))
         else:
-            n = round((s['dur'] + handle) * fps); step = job.get('chunk', 12)
+            n = round((s['dur'] + handle) * fps)
             skip = set(json.load(open(os.path.join(H, job['skip_file'])))) if job.get('skip_file') else set()
+            # heavy worlds (volumes) get short chunks so a job never hits the 6 h limit; a shot that already has finished
+            # 24-frame chunks keeps that size so the pieces still tile exactly
+            step = job.get('chunk', 12)
+            if not any(k.startswith(s['id'] + '_') for k in skip): step = job.get('chunk_by_world', {}).get(s['world'], step)
             for a in range(1, n + 1, step):
                 if f"{s['id']}_{a:04d}" in skip: continue
                 out.append(dict(id=f"{s['id']}_{a:04d}", shot=s['id'], a=a, b=min(n, a + step - 1)))
