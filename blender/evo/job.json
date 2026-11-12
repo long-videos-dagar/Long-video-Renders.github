@@ -1,7 +1,7 @@
 {
- "rev": 71,
+ "rev": 72,
  "mode": "video",
- "only": "m01,k02,l03,p05,h07,m03,p01,t04,p07,e03,n03,p11,b06",
+ "only": "e02,e01,n01,d05,a06,t03,b08,p06,d06,h08,m04,t05",
  "chunk": 24,
  "chunk_by_world": {
   "young_earth": 8,
