@@ -20,11 +20,13 @@ else:
         else:
             n = round((s['dur'] + handle) * fps)
             skip = set(json.load(open(os.path.join(H, job['skip_file'])))) if job.get('skip_file') else set()
+            size_ref = set(json.load(open(os.path.join(H, job['size_file'])))) if job.get('size_file') else skip   # chunk sizes stay as first planned
             # heavy worlds (volumes) get short chunks so a job never hits the 6 h limit; a shot that already has finished
             # 24-frame chunks keeps that size so the pieces still tile exactly
             step = job.get('chunk', 12)
-            if not any(k.startswith(s['id'] + '_') for k in skip): step = job.get('chunk_by_world', {}).get(s['world'], step)
+            if not any(k.startswith(s['id'] + '_') for k in size_ref): step = job.get('chunk_by_world', {}).get(s['world'], step)
             for a in range(1, n + 1, step):
                 if f"{s['id']}_{a:04d}" in skip: continue
                 out.append(dict(id=f"{s['id']}_{a:04d}", shot=s['id'], a=a, b=min(n, a + step - 1)))
+if job.get('reverse'): out.reverse()            # a twin repo eats the same list from the other end
 print(json.dumps(out))
