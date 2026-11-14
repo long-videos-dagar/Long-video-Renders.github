@@ -116,7 +116,9 @@ jobs:
           done
           KREPO=$(jq -r '.kaggle_repo // "chintudagar541-stack/wanderly"' blender/evo/job.json)
           gh release download evo-kaggle -R $KREPO -p 'chunk_*.mp4' -D dl/kaggle 2>/dev/null || echo "no kaggle chunks"     # GPU-rendered shots
-          find dl -name '*.mp4' -exec mv -t art {} +; echo "chunks: $(ls art | wc -l)"
+          # the same chunk can exist in several runs / the Kaggle release: keep the largest copy of each name
+          find dl -name '*.mp4' -print0 | while IFS= read -r -d '' f; do b=art/$(basename "$f"); if [ ! -e "$b" ] || [ $(stat -c%s "$f") -gt $(stat -c%s "$b") ]; then mv -f "$f" "$b"; fi; done
+          echo "chunks: $(ls art | wc -l)"
       - env: { GH_TOKEN: '${{ github.token }}' }
         run: |
           pip install -q pillow numpy
