@@ -1,0 +1,45 @@
+name: voice
+on:
+  push:
+    branches: [claude/long-video]
+    paths: [voice/job.json]
+  workflow_dispatch:
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: tools
+        run: |
+          pip install -q imageio-ffmpeg
+          sudo ln -sf "$(python3 -c 'import imageio_ffmpeg as f; print(f.get_ffmpeg_exe())')" /usr/local/bin/ffmpeg
+          ffmpeg -version | head -1; which rsync
+      - name: fake drive with a test recording (m4a, ~3 min, has silences)
+        run: |
+          mkdir -p /tmp/drive
+          ls promo/audio/bm_george_*.wav blender/evo/voice/L0[0-6]*.wav > /tmp/l.txt
+          python3 - <<'PY'
+          import wave, numpy as np
+          fs = open('/tmp/l.txt').read().split()
+          out = []
+          for f in fs:
+              w = wave.open(f); a = np.frombuffer(w.readframes(w.getnframes()), np.int16); out += [a, np.zeros(int(.8 * w.getframerate()), np.int16)]
+          a = np.concatenate(out); w2 = wave.open('/tmp/rec.wav', 'wb'); w2.setnchannels(1); w2.setsampwidth(2); w2.setframerate(24000); w2.writeframes(a.tobytes())
+          print('test rec sec', len(a) / 24000)
+          PY
+          ffmpeg -loglevel error -y -i /tmp/rec.wav -c:a aac -b:a 128k "/tmp/drive/my voice test.m4a"
+      - name: run 1 (2 epochs, CPU)
+        run: python3 voice/colab_train.py --drive /tmp/drive --root $RUNNER_TEMP/root --gpu - --epochs 2 --save-every 1 --batch 4 --sync-every 30
+      - name: run 2 = new session, resume from Drive backup to 3 epochs
+        run: |
+          rm -rf $RUNNER_TEMP/root/Applio/logs/TaleVoice
+          python3 voice/colab_train.py --drive /tmp/drive --root $RUNNER_TEMP/root --gpu - --epochs 3 --save-every 1 --batch 4 --sync-every 30 2>&1 | tee /tmp/run2.log
+          grep -iE "backup mila|epoch" /tmp/run2.log | head -20
+          ls -la /tmp/drive/final /tmp/drive/backup/TaleVoice | head -40
+      - name: inference test
+        run: |
+          cd $RUNNER_TEMP/root/Applio
+          .venv/bin/python core.py infer --pitch 0 --index-rate 0.7 --protect 0.5 --f0-method rmvpe --input-path $GITHUB_WORKSPACE/promo/audio/bm_george_n9.wav \
+            --output-path /tmp/out.wav --pth-path /tmp/drive/final/TaleVoice.pth --index-path /tmp/drive/final/TaleVoice.index --export-format WAV --embedder-model contentvec
+          ls -la /tmp/out.wav
