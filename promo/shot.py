@@ -1,12 +1,13 @@
 """python3 promo/shot.py <shot> <chunk_dir> <out.mp4>: join one evo shot's chunks (mixed sizes / overlaps) into one clip."""
 import glob, os, re, subprocess, sys, tempfile
+import cv2
 sid, d, out = sys.argv[1:4]; tmp = tempfile.mkdtemp()
 ps = sorted(glob.glob(f'{d}/chunk_{sid}_[0-9]*.mp4'), key=lambda p: int(re.search(r'_(\d+)\.mp4$', p).group(1)))
 keep, end = [], 0
 for p in ps:
     a = int(re.search(r'_(\d+)\.mp4$', p).group(1))
-    n = int(subprocess.run(['ffprobe', '-v', 'error', '-count_packets', '-select_streams', 'v:0', '-show_entries', 'stream=nb_read_packets', '-of', 'csv=p=0', p],
-                           capture_output=True, text=True).stdout.strip() or 0)
+    c = cv2.VideoCapture(p); n = 0
+    while c.grab(): n += 1
     if n <= 0 or a + n - 1 <= end: continue
     if a > end + 1: print('GAP', sid, end + 1, a - 1)
     if a <= end:

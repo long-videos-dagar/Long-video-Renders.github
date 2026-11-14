@@ -32,6 +32,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
+          pip install -q imageio-ffmpeg opencv-python-headless
+          sudo ln -sf "$(python3 -c 'import imageio_ffmpeg as f; print(f.get_ffmpeg_exe())')" /usr/local/bin/ffmpeg
           mkdir -p ch && cd ch
           jq -c '.[] | select(.shot == "${{ matrix.s }}")' ../promo/src.json | while read -r L; do
             K=$(echo "$L" | jq -r .kind); R=$(echo "$L" | jq -r .repo); I=$(echo "$L" | jq -r .id); A=$(printf %04d $(echo "$L" | jq -r .a))
@@ -65,7 +67,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          pip install -q numpy pillow opencv-python-headless
+          pip install -q numpy pillow opencv-python-headless imageio-ffmpeg
+          sudo ln -sf "$(python3 -c 'import imageio_ffmpeg as f; print(f.get_ffmpeg_exe())')" /usr/local/bin/ffmpeg
           python3 promo/render.py frames ${{ matrix.c.a }} ${{ matrix.c.b }} out
           ffmpeg -loglevel error -y -framerate 60 -start_number ${{ matrix.c.a }} -i out/f_%05d.png -c:v libx264 -preset slow -crf 14 -pix_fmt yuv420p part_$(printf %05d ${{ matrix.c.a }}).mp4
       - uses: actions/upload-artifact@v4
