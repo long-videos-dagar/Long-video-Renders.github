@@ -1,0 +1,12 @@
+{"voice": "af_heart", "speed": 1.0,
+ "lines": [
+  {"id": "l1", "t": 0.50, "text": "Every story starts with a question."},
+  {"id": "l2", "t": 2.67, "text": "We chase the answer."},
+  {"id": "l3", "t": 5.40, "text": "One click..."},
+  {"id": "l4", "t": 6.60, "text": "and a whole world starts rendering."},
+  {"id": "l5", "t": 11.20, "text": "Straight to your screen."},
+  {"id": "l6", "t": 13.50, "text": "Stories you've never seen..."},
+  {"id": "l7", "t": 15.10, "text": "from idea to screen."},
+  {"id": "l8", "t": 17.50, "text": "[Dagar](/dˈʌɡəɹ/) Clips."}
+ ],
+ "alt_voices": ["af_bella", "af_nicole"]}

@@ -1,0 +1,65 @@
+name: promo
+on:
+  push:
+    branches: [claude/long-video]
+    paths: ['promo/job.json']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: { group: promo, cancel-in-progress: false }
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      mode: ${{ steps.p.outputs.mode }}
+      chunks: ${{ steps.p.outputs.chunks }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: p
+        run: |
+          echo "mode=$(jq -r .mode promo/job.json)" >> $GITHUB_OUTPUT
+          echo "chunks=$(jq -c '[range(0; .frames; .chunk) as $a | {a: $a, b: ([$a + .chunk, .frames] | min)}]' promo/job.json)" >> $GITHUB_OUTPUT
+  tts:
+    needs: plan
+    if: needs.plan.outputs.mode == 'tts'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          sudo apt-get install -y -qq espeak-ng > /dev/null
+          pip install -q kokoro soundfile 'misaki[en]'
+          python3 promo/tts.py
+          git config user.name "github-actions"; git config user.email "github-actions@users.noreply.github.com"
+          git add promo/audio; git commit -qm "promo: voice [skip ci]" || exit 0
+          for i in $(seq 1 10); do git pull --rebase -q && git push -q && break; sleep 5; done
+  render:
+    needs: plan
+    if: needs.plan.outputs.mode == 'render'
+    runs-on: ubuntu-latest
+    strategy: { fail-fast: false, matrix: { c: '${{ fromJson(needs.plan.outputs.chunks) }}' } }
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          pip install -q numpy pillow opencv-python-headless
+          python3 promo/render.py frames ${{ matrix.c.a }} ${{ matrix.c.b }} out
+          ffmpeg -loglevel error -y -framerate 60 -start_number ${{ matrix.c.a }} -i out/f_%05d.png -c:v libx264 -preset slow -crf 14 -pix_fmt yuv420p part_$(printf %05d ${{ matrix.c.a }}).mp4
+      - uses: actions/upload-artifact@v4
+        with: { name: 'part-${{ matrix.c.a }}', path: 'part_*.mp4', retention-days: 7 }
+  join:
+    needs: [plan, render]
+    if: needs.plan.outputs.mode == 'render'
+    runs-on: ubuntu-latest
+    env: { GH_TOKEN: '${{ github.token }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'part-*', path: parts, merge-multiple: true }
+      - run: |
+          pip install -q numpy soundfile
+          ls parts/*.mp4 | sort | sed "s/^/file '$(pwd | sed 's/\//\\\//g')\//; s/$/'/" > list.txt
+          ffmpeg -loglevel error -y -f concat -safe 0 -i list.txt -c copy video.mp4
+          python3 promo/audio.py promo/mix.wav
+          ffmpeg -loglevel error -y -i video.mp4 -i promo/mix.wav -map 0:v -map 1:a -c:v libx264 -preset slow -crf 16 -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 256k -shortest dagar_promo_9x16.mp4
+          ffprobe -v error -show_entries format=duration:stream=width,height,r_frame_rate -of compact dagar_promo_9x16.mp4
+          gh release view promo >/dev/null 2>&1 || gh release create promo --title "DAGAR CLIPS promo" --notes "9:16 promo" --target claude/long-video
+          gh release upload promo dagar_promo_9x16.mp4 --clobber
