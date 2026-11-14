@@ -1,12 +1,14 @@
-{"voice": "af_heart", "speed": 1.0,
+{"voice": "bm_george", "speed": 0.95,
  "lines": [
-  {"id": "l1", "t": 0.50, "text": "Every story starts with a question."},
-  {"id": "l2", "t": 2.67, "text": "We chase the answer."},
-  {"id": "l3", "t": 5.40, "text": "One click..."},
-  {"id": "l4", "t": 6.60, "text": "and a whole world starts rendering."},
-  {"id": "l5", "t": 11.20, "text": "Straight to your screen."},
-  {"id": "l6", "t": 13.50, "text": "Stories you've never seen..."},
-  {"id": "l7", "t": 15.10, "text": "from idea to screen."},
-  {"id": "l8", "t": 17.50, "text": "Tale Venture."}
+  {"id": "n1", "text": "Four and a half billion years ago..."},
+  {"id": "n2", "text": "Earth was on fire."},
+  {"id": "n3", "text": "Then, something extraordinary happened."},
+  {"id": "n4", "text": "Life."},
+  {"id": "n5", "text": "It crawled out of the sea..."},
+  {"id": "n6", "text": "grew into giants..."},
+  {"id": "n7", "text": "survived the end of the world..."},
+  {"id": "n8", "text": "and somehow... became us."},
+  {"id": "n9", "text": "From Dinosaurs to Humans."},
+  {"id": "n10", "text": "Now on Tale Venture."}
  ],
- "alt_voices": ["af_bella", "af_nicole"]}
+ "alt_voices": ["bm_fable"]}

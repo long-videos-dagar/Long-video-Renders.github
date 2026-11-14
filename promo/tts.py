@@ -1,11 +1,12 @@
-"""Kokoro TTS for the DAGAR CLIPS promo: one wav per line and voice (24 kHz), plus timing.json with each clip's speech length."""
+"""Kokoro TTS for the TALEVENTURE trailer: one wav per line and voice (24 kHz), plus timing.json with each clip's speech length."""
 import json, os, sys, numpy as np, soundfile as sf
 from kokoro import KPipeline
 cfg = json.load(open(os.path.join(os.path.dirname(__file__), 'lines.json')))
 out = os.path.join(os.path.dirname(__file__), 'audio'); os.makedirs(out, exist_ok=True)
-pipe = KPipeline(lang_code='a')
+PIPES = {}
 info = {}
 for v in [cfg['voice']] + cfg.get('alt_voices', []):
+    pipe = PIPES.setdefault(v[0], KPipeline(lang_code=v[0]))
     for ln in cfg['lines']:
         wav = np.concatenate([np.asarray(a, dtype=np.float32) for _, _, a in pipe(ln['text'], voice=v, speed=cfg['speed'])])
         nz = np.where(np.abs(wav) > 0.01)[0]

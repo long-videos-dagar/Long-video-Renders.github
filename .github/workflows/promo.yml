@@ -13,15 +13,40 @@ jobs:
     outputs:
       mode: ${{ steps.p.outputs.mode }}
       chunks: ${{ steps.p.outputs.chunks }}
+      shots: ${{ steps.p.outputs.shots }}
+    env: { GH_TOKEN: '${{ github.token }}' }
     steps:
       - uses: actions/checkout@v4
       - id: p
         run: |
+          echo "shots=$(jq -c '[.[].shot] | unique' promo/src.json)" >> $GITHUB_OUTPUT
+          gh release view promo -R ${{ github.repository }} >/dev/null 2>&1 || gh release create promo -R ${{ github.repository }} --title "TALEVENTURE trailer" --notes "9:16 trailer + source clips" --target claude/long-video || true
           echo "mode=$(jq -r .mode promo/job.json)" >> $GITHUB_OUTPUT
           echo "chunks=$(jq -c '[range(0; .frames; .chunk) as $a | {a: $a, b: ([$a + .chunk, .frames] | min)}]' promo/job.json)" >> $GITHUB_OUTPUT
+  clips:
+    needs: plan
+    if: contains(needs.plan.outputs.mode, 'clips')
+    runs-on: ubuntu-latest
+    env: { GH_TOKEN: '${{ github.token }}' }
+    strategy: { fail-fast: false, max-parallel: 14, matrix: { s: '${{ fromJson(needs.plan.outputs.shots) }}' } }
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p ch && cd ch
+          jq -c '.[] | select(.shot == "${{ matrix.s }}")' ../promo/src.json | while read -r L; do
+            K=$(echo "$L" | jq -r .kind); R=$(echo "$L" | jq -r .repo); I=$(echo "$L" | jq -r .id); A=$(printf %04d $(echo "$L" | jq -r .a))
+            for t in 1 2 3; do
+              if [ "$K" = rel ]; then gh api -H "Accept: application/octet-stream" repos/$R/releases/assets/$I > chunk_${{ matrix.s }}_$A.mp4 && break
+              else gh api repos/$R/actions/artifacts/$I/zip > z.zip && unzip -o -q z.zip && rm z.zip && break; fi
+              sleep 5
+            done
+          done
+          ls | head -50; cd ..
+          python3 promo/shot.py ${{ matrix.s }} ch shot_${{ matrix.s }}.mp4
+          gh release upload promo shot_${{ matrix.s }}.mp4 --clobber -R ${{ github.repository }}
   tts:
     needs: plan
-    if: needs.plan.outputs.mode == 'tts'
+    if: contains(needs.plan.outputs.mode, 'tts')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
