@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: tools
         run: |
-          pip install -q imageio-ffmpeg
+          pip install -q imageio-ffmpeg numpy
           sudo ln -sf "$(python3 -c 'import imageio_ffmpeg as f; print(f.get_ffmpeg_exe())')" /usr/local/bin/ffmpeg
           ffmpeg -version | head -1; which rsync
       - name: fake drive with a test recording (m4a, ~3 min, has silences)
